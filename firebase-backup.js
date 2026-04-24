@@ -277,7 +277,7 @@ export async function uploadFullMemoryBackup(buildPayloadFn) {
       updatedBy: user.email || "",
       updatedUid: user.uid,
       answeredCount,
-    }, { merge: true });
+    }, { merge: false });
 
     writeLocalUploadMeta({ checksum, answeredCount, uploadedAt: nowIso() });
 
@@ -305,6 +305,9 @@ export async function downloadFullMemoryBackup() {
     const meta = metaSnap.data() || {};
     const chunkCount = Number(meta.chunkCount || 0);
     if (!Number.isFinite(chunkCount) || chunkCount <= 0) throw new Error("雲端備份資訊無效：chunkCount 異常。");
+    if (chunkCount > MAX_CHUNKS) throw new Error("雲端備份資訊無效：chunkCount 超過安全上限（" + MAX_CHUNKS + "）。");
+    const metaPayloadBytes = Number(meta.payloadBytes || 0);
+    if (Number.isFinite(metaPayloadBytes) && metaPayloadBytes > MAX_TOTAL_BYTES) throw new Error("雲端備份資訊無效：payloadBytes 超過安全上限。");
 
     const pieces = [];
     for (let i = 0; i < chunkCount; i += 1) {

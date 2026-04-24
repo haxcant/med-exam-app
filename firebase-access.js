@@ -89,8 +89,8 @@ export async function getSyncAccessStatus() {
     const requestData = requestSnap.exists() ? (requestSnap.data() || {}) : null;
     return {
       uid: user.uid,
-      email: user.email || "",
-      displayName: user.displayName || "",
+      email: String(user.email || "").slice(0, 254),
+      displayName: String(user.displayName || "").slice(0, 120),
       syncEnabled: !!config.syncEnabled,
       configExists: !!config.exists,
       configAppId: config.appId || "",
@@ -121,15 +121,15 @@ export async function requestSyncAccess(message = "") {
 
     await setDoc(getAccessRequestRef(user.uid), {
       uid: user.uid,
-      email: user.email || "",
-      displayName: user.displayName || "",
-      photoURL: user.photoURL || "",
+      email: String(user.email || "").slice(0, 254),
+      displayName: String(user.displayName || "").slice(0, 120),
+      photoURL: String(user.photoURL || "").slice(0, 1000),
       appId: APP_NAMESPACE,
       status: "pending",
       message: cleanMessage,
       requestedAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
-    }, { merge: true });
+    }, { merge: false });
     return await getSyncAccessStatus();
   } catch (error) {
     throw new Error(explainPermissionError(error));

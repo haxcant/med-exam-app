@@ -19,20 +19,31 @@ service cloud.firestore {
       return get(/databases/$(database)/documents/app_config/global).data;
     }
 
-    // Admins are configured in Firestore:
-    // app_config/global.adminUids = ["YOUR_UID", "OTHER_ADMIN_UID"]
-    // This avoids editing rules every time an admin changes.
-    function isAdmin() {
+    // Recommended admin model: create admins/{uid} with { enabled: true }.
+    // Backward-compatible fallback: app_config/global.adminUids may still contain UID strings.
+    // After admins/{uid} is ready, you may remove adminUids from app_config/global to avoid exposing admin UID list to signed-in users.
+    function isAdminByDoc() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.enabled == true;
+    }
+
+    function isAdminByLegacyConfig() {
       return isSignedIn()
         && hasGlobalConfig()
         && ('adminUids' in globalConfig())
         && (request.auth.uid in globalConfig().adminUids);
     }
 
+    function isAdmin() {
+      return isAdminByDoc() || isAdminByLegacyConfig();
+    }
+
     function syncEnabled() {
       return hasGlobalConfig()
         && ('syncEnabled' in globalConfig())
-        && globalConfig().syncEnabled == true;
+        && globalConfig().syncEnabled == true
+        && (!('appId' in globalConfig()) || globalConfig().appId == 'med-exam-app');
     }
 
     function isAllowlisted(userId) {
@@ -40,40 +51,164 @@ service cloud.firestore {
         && get(/databases/$(database)/documents/allowlist/$(userId)).data.enabled == true;
     }
 
-    // Global app config.
-    // You create/update this once from Firebase Console:
-    // appId: "med-exam-app"
-    // syncEnabled: true
-    // adminUids: ["your Firebase Auth UID"]
+    function shortString(value, maxLen) {
+      return value is string && value.size() <= maxLen;
+    }
+
+    function validGlobalConfig() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['appId', 'syncEnabled', 'note', 'adminUids'])
+        && d.appId == 'med-exam-app'
+        && d.syncEnabled is bool
+        && (!('note' in d) || shortString(d.note, 500))
+        && (!('adminUids' in d) || d.adminUids is list);
+    }
+
+    function validAdminDoc(userId) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['enabled', 'email', 'role', 'note', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy'])
+        && d.enabled is bool
+        && (!('email' in d) || shortString(d.email, 254))
+        && (!('role' in d) || (d.role in ['owner', 'admin']))
+        && (!('note' in d) || shortString(d.note, 500))
+        && (!('createdBy' in d) || shortString(d.createdBy, 128))
+        && (!('updatedBy' in d) || shortString(d.updatedBy, 128));
+    }
+
+    function validAccessRequest(userId) {
+      let d = request.resource.data;
+      return d.keys().hasOnly([
+          'uid', 'email', 'displayName', 'photoURL', 'appId', 'status', 'message',
+          'requestedAt', 'updatedAt', 'reviewedAt', 'reviewedBy'
+        ])
+        && d.uid == userId
+        && d.appId == 'med-exam-app'
+        && (d.status in ['pending', 'approved', 'rejected'])
+        && (!('email' in d) || shortString(d.email, 254))
+        && (!('displayName' in d) || shortString(d.displayName, 120))
+        && (!('photoURL' in d) || shortString(d.photoURL, 1000))
+        && (!('message' in d) || shortString(d.message, 500))
+        && (!('reviewedBy' in d) || shortString(d.reviewedBy, 128));
+    }
+
+    function validOwnerAccessRequestCreateOrUpdate(userId) {
+      let d = request.resource.data;
+      return validAccessRequest(userId)
+        && d.status == 'pending'
+        && (!('reviewedAt' in d))
+        && (!('reviewedBy' in d));
+    }
+
+    function validAllowlist(userId) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['enabled', 'email', 'role', 'approvedAt', 'approvedBy', 'updatedAt', 'updatedBy'])
+        && d.enabled is bool
+        && (!('email' in d) || shortString(d.email, 254))
+        && (!('role' in d) || (d.role in ['user', 'owner', 'admin']))
+        && (!('approvedBy' in d) || shortString(d.approvedBy, 128))
+        && (!('updatedBy' in d) || shortString(d.updatedBy, 128));
+    }
+
+    function validMetaWrite(userId) {
+      let d = request.resource.data;
+      return d.keys().hasOnly([
+          'app', 'type', 'version', 'schemaVersion', 'checksum', 'chunkCount',
+          'payloadBytes', 'updatedAt', 'updatedBy', 'updatedUid', 'answeredCount'
+        ])
+        && d.app == 'med-exam-pwa'
+        && d.type == 'full-memory-export'
+        && d.version is int
+        && d.schemaVersion == 1
+        && shortString(d.checksum, 128)
+        && d.chunkCount is int
+        && d.chunkCount >= 1
+        && d.chunkCount <= 10
+        && d.payloadBytes is int
+        && d.payloadBytes >= 0
+        && d.payloadBytes <= 2516582
+        && (!('updatedBy' in d) || shortString(d.updatedBy, 254))
+        && d.updatedUid == userId
+        && d.updatedUid == request.auth.uid
+        && d.answeredCount is int
+        && d.answeredCount >= 0;
+    }
+
+    function validChunkId(chunkId) {
+      return chunkId in [
+        'chunk_0000', 'chunk_0001', 'chunk_0002', 'chunk_0003', 'chunk_0004',
+        'chunk_0005', 'chunk_0006', 'chunk_0007', 'chunk_0008', 'chunk_0009'
+      ];
+    }
+
+    function validChunkIndex(chunkId, idx) {
+      return (chunkId == 'chunk_0000' && idx == 0)
+        || (chunkId == 'chunk_0001' && idx == 1)
+        || (chunkId == 'chunk_0002' && idx == 2)
+        || (chunkId == 'chunk_0003' && idx == 3)
+        || (chunkId == 'chunk_0004' && idx == 4)
+        || (chunkId == 'chunk_0005' && idx == 5)
+        || (chunkId == 'chunk_0006' && idx == 6)
+        || (chunkId == 'chunk_0007' && idx == 7)
+        || (chunkId == 'chunk_0008' && idx == 8)
+        || (chunkId == 'chunk_0009' && idx == 9);
+    }
+
+    function validChunkWrite(chunkId) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['index', 'checksum', 'data'])
+        && d.index is int
+        && validChunkIndex(chunkId, d.index)
+        && shortString(d.checksum, 128)
+        && d.data is string
+        && d.data.size() <= 120000;
+    }
+
+    function validSmokeWrite(userId) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['app', 'type', 'updatedAt', 'updatedBy', 'updatedUid', 'testValue'])
+        && d.app == 'med-exam-pwa'
+        && d.type == 'diagnostic-smoke-test'
+        && (!('updatedBy' in d) || shortString(d.updatedBy, 254))
+        && d.updatedUid == userId
+        && d.updatedUid == request.auth.uid
+        && (!('testValue' in d) || shortString(d.testValue, 200));
+    }
+
+    // Global app config. Signed-in users may read syncEnabled/appId. If you keep legacy adminUids here,
+    // signed-in users can also read that UID list. For better privacy, create admins/{uid} and remove adminUids.
     match /app_config/global {
       allow get: if isSignedIn();
       allow list: if false;
       allow create: if false;
-      allow update: if isAdmin();
+      allow update: if isAdmin() && validGlobalConfig();
       allow delete: if false;
     }
 
-    // Users can create/read their own access request.
-    // Admin can list/update/delete all requests through admin.html.
+    // Optional private admin collection. Create admins/{yourUid} from Firebase Console once:
+    // { enabled: true, email: "...", role: "owner" }
+    match /admins/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create, update, delete: if isAdmin() && validAdminDoc(userId);
+    }
+
+    // Users can create/read their own access request. Admin can list/update/delete all requests.
     match /access_requests/{userId} {
       allow get: if isOwner(userId) || isAdmin();
       allow list: if isAdmin();
 
       allow create: if isOwner(userId)
         && syncEnabled()
-        && request.resource.data.uid == userId
-        && request.resource.data.status == "pending"
-        && request.resource.data.appId == "med-exam-app";
+        && validOwnerAccessRequestCreateOrUpdate(userId);
 
-      allow update: if isAdmin()
-        || (
+      allow update: if (
+          isAdmin() && validAccessRequest(userId)
+        ) || (
           isOwner(userId)
           && syncEnabled()
           && resource.data.uid == userId
-          && resource.data.status in ["pending", "rejected"]
-          && request.resource.data.uid == userId
-          && request.resource.data.status == "pending"
-          && request.resource.data.appId == "med-exam-app"
+          && (resource.data.status in ['pending', 'rejected'])
+          && validOwnerAccessRequestCreateOrUpdate(userId)
         );
 
       allow delete: if isAdmin();
@@ -83,17 +218,29 @@ service cloud.firestore {
     match /allowlist/{userId} {
       allow get: if isOwner(userId) || isAdmin();
       allow list: if isAdmin();
-      allow create, update, delete: if isAdmin();
+      allow create, update: if isAdmin() && validAllowlist(userId);
+      allow delete: if isAdmin();
     }
 
     // Med exam app: backup metadata.
     match /apps/med-exam-app/users/{userId}/sync/meta {
-      allow read, write: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
+      allow get, list: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
+      allow create, update: if syncEnabled() && isOwner(userId) && isAllowlisted(userId) && validMetaWrite(userId);
+      allow delete: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
     }
 
-    // Med exam app: chunked backup payload.
+    // Med exam app: chunked backup payload. Hard-limited to chunk_0000 ... chunk_0009.
     match /apps/med-exam-app/users/{userId}/sync_chunks/{chunkId} {
-      allow read, write: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
+      allow get, list: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
+      allow create, update: if syncEnabled() && isOwner(userId) && isAllowlisted(userId) && validChunkWrite(chunkId);
+      allow delete: if syncEnabled() && isOwner(userId) && isAllowlisted(userId) && validChunkId(chunkId);
+    }
+
+    // Diagnostic smoke test path. It no longer pollutes sync/meta.
+    match /apps/med-exam-app/users/{userId}/diagnostics/smoke {
+      allow get: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
+      allow create, update: if syncEnabled() && isOwner(userId) && isAllowlisted(userId) && validSmokeWrite(userId);
+      allow delete: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
     }
   }
 }

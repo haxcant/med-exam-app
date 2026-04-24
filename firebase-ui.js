@@ -362,10 +362,10 @@ if (btnLogin) {
   if (btnLogin) btnLogin.textContent = "載入登入模組...";
   try {
     modules = {
-      auth: await import("./firebase-auth.js?v=20260424med013"),
-      smoke: await import("./firebase-sync-smoke.js?v=20260424med013"),
-      backup: await import("./firebase-backup.js?v=20260424med013"),
-      access: await import("./firebase-access.js?v=20260424med013"),
+      auth: await import("./firebase-auth.js?v=20260424med018"),
+      smoke: await import("./firebase-sync-smoke.js?v=20260424med018"),
+      backup: await import("./firebase-backup.js?v=20260424med018"),
+      access: await import("./firebase-access.js?v=20260424med018"),
     };
   } catch (err) {
     console.error("firebase modules import failed", err);
