@@ -1,4 +1,4 @@
-const CACHE_NAME = 'med-exam-app-v0.1.5';
+const CACHE_NAME = 'med-exam-app-v0.1.7';
 const CORE_ASSETS = [
   "./",
   "./index.html",

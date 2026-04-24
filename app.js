@@ -1128,7 +1128,11 @@ function goToNextFlashcardWithoutGrading() {
 
     qp.totalSeen += 1;
     qp.score += isCorrect ? 1 : -1;
-    qp.lastSeenAt = new Date().toISOString();
+    const nowIso = new Date().toISOString();
+    qp.lastSeenAt = nowIso;
+    qp.lastResult = isCorrect ? "correct" : "wrong";
+    qp.lastSelectedValue = typeof selectedValue === "string" ? selectedValue : String(selectedValue ?? "");
+    qp.lastSelectedLabel = typeof selectedLabel === "string" ? selectedLabel : String(selectedLabel ?? "");
     if (isCorrect) {
       qp.totalCorrect += 1;
       if (qp.inWrongBook) {
@@ -1142,7 +1146,9 @@ function goToNextFlashcardWithoutGrading() {
       qp.totalWrong += 1;
       qp.inWrongBook = true;
       qp.masteryStreak = 0;
-      qp.lastWrongAt = new Date().toISOString();
+      qp.lastWrongAt = nowIso;
+      qp.lastWrongSelectedValue = qp.lastSelectedValue;
+      qp.lastWrongSelectedLabel = qp.lastSelectedLabel;
     }
 
     progress.meta.totalAnswered += 1;
@@ -1305,6 +1311,7 @@ function renderWrongBook() {
             ・答錯 ${qp.totalWrong} 次
             ・錯題移除進度 ${qp.masteryStreak || 0}/${Number(els.masterySelect?.value || "2")}
           </div>
+          ${qp.lastWrongSelectedLabel ? `<div class="wrong-item-note">最近錯答：${escapeHtml(qp.lastWrongSelectedLabel)}</div>` : ""}
           <div class="wrong-item-note">正確答案：${escapeHtml(q.answer)}</div>
           ${buildOptionPreview(q) ? `<div class="wrong-item-note">選項：${escapeHtml(buildOptionPreview(q))}</div>` : ""}
           <div class="wrong-item-note">本題積分 <span class="wrong-item-score ${qp.score > 0 ? "score-badge-positive" : qp.score < 0 ? "score-badge-negative" : ""}">${formatSignedNumber(qp.score)}</span></div>
@@ -1478,7 +1485,7 @@ function renderWrongBook() {
         return {
           id: question.id,
           prompt: buildQuestionPreview(question),
-          myChoice: qp.lastSelectedLabel || qp.lastChoice || "",
+          myChoice: qp.lastWrongSelectedLabel || "",
           correctAnswer: question.answer,
           origin: buildQuestionOriginLabel(question),
           image: question.image || "",
@@ -1530,7 +1537,7 @@ function renderWrongBook() {
       <article class="wrong-card">
         <h2>${idx + 1}. ${escapeHtml(item.prompt)}</h2>
         ${item.image ? `<div class="wrong-print-image"><img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.correctAnswer || "題圖")}"></div>` : ""}
-        <div><strong>我的選擇：</strong>${escapeHtml(item.myChoice || "未作答")}</div>
+        ${item.myChoice ? `<div><strong>最近錯答：</strong>${escapeHtml(item.myChoice)}</div>` : ""}
         <div><strong>正確答案：</strong>${escapeHtml(item.correctAnswer || "")}</div>
         <div><strong>題目出處：</strong>${escapeHtml(item.origin || "")}</div>
       </article>
@@ -1538,9 +1545,9 @@ function renderWrongBook() {
     return `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>錯題列印版</title><style>
       body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px;color:#111827;line-height:1.7;background:#fff}
       h1{margin:0 0 8px} .meta{color:#475569;margin-bottom:24px} .wrong-card{border:1px solid #cbd5e1;border-radius:14px;padding:16px;margin:0 0 14px;break-inside:avoid}
-      h2{margin:0 0 10px;font-size:1.05rem} .wrong-print-image{margin:0 0 12px} .wrong-print-image img{max-width:100%;max-height:240px;border:1px solid #cbd5e1;border-radius:10px;display:block;background:#fff}
+      h2{margin:0 0 10px;font-size:1.05rem} .choice-not-saved{color:#64748b} .wrong-print-image{margin:0 0 12px} .wrong-print-image img{max-width:100%;max-height:240px;border:1px solid #cbd5e1;border-radius:10px;display:block;background:#fff}
       @media print{body{padding:0.8cm} .wrong-card{page-break-inside:avoid}}
-    </style></head><body><h1>錯題列印版</h1><p class="meta">匯出日期：${escapeHtml(new Date().toLocaleString())}｜共 ${payload.length} 題</p>${rows}<script id="wrongExportData" type="application/json">${dataJson.replace(/</g, "\u003c")}</script></body></html>`;
+    </style></head><body><h1>錯題列印版</h1><p class="meta">匯出日期：${escapeHtml(new Date().toLocaleString())}｜共 ${payload.length} 題<br>說明：若為舊版錯題或匯入檔未包含最近錯答選項，列印版會省略「最近錯答」欄位，只保留正確答案與錯題統計。</p>${rows}<script id="wrongExportData" type="application/json">${dataJson.replace(/</g, "\u003c")}</script></body></html>`;
   }
 
   async function exportWrongBookPrintable() {
@@ -1717,6 +1724,7 @@ function renderWrongBook() {
     const score = Number.isFinite(rawScore) ? Math.max(-999, Math.min(999, Math.round(rawScore))) : computedScore;
     const hasExplicitWrongBook = Object.prototype.hasOwnProperty.call(safeRaw, "inWrongBook");
     const inferredWrongBook = score < 0 || totalWrong > totalCorrect;
+    const lastResult = ["correct", "wrong", "known", "unknown", ""].includes(String(item.lastResult || "")) ? String(item.lastResult || "") : "";
     return {
       totalSeen,
       totalCorrect,
@@ -1726,6 +1734,11 @@ function renderWrongBook() {
       masteryStreak: Math.max(0, Math.round(Number(item.masteryStreak || 0))),
       lastWrongAt: typeof item.lastWrongAt === "string" ? item.lastWrongAt : "",
       lastSeenAt: typeof item.lastSeenAt === "string" ? item.lastSeenAt : "",
+      lastResult,
+      lastSelectedValue: typeof item.lastSelectedValue === "string" ? item.lastSelectedValue : "",
+      lastSelectedLabel: typeof item.lastSelectedLabel === "string" ? item.lastSelectedLabel : "",
+      lastWrongSelectedValue: typeof item.lastWrongSelectedValue === "string" ? item.lastWrongSelectedValue : "",
+      lastWrongSelectedLabel: typeof item.lastWrongSelectedLabel === "string" ? item.lastWrongSelectedLabel : "",
     };
   }
 
@@ -1962,11 +1975,16 @@ function renderWrongBook() {
       masteryStreak: Number(stats.masteryStreak || 0),
       lastWrongAt: typeof stats.lastWrongAt === "string" ? stats.lastWrongAt : "",
       lastSeenAt: typeof stats.lastSeenAt === "string" ? stats.lastSeenAt : "",
+      lastResult: typeof stats.lastResult === "string" ? stats.lastResult : "",
+      lastSelectedValue: typeof stats.lastSelectedValue === "string" ? stats.lastSelectedValue : "",
+      lastSelectedLabel: typeof stats.lastSelectedLabel === "string" ? stats.lastSelectedLabel : "",
+      lastWrongSelectedValue: typeof stats.lastWrongSelectedValue === "string" ? stats.lastWrongSelectedValue : "",
+      lastWrongSelectedLabel: typeof stats.lastWrongSelectedLabel === "string" ? stats.lastWrongSelectedLabel : "",
     } : null;
     return {
       id: String(q?.id || item?.id || item?.questionId || "").trim(),
       prompt: String(item?.prompt || buildQuestionPreview(q) || "").trim(),
-      myChoice: String(item?.myChoice || item?.selectedLabel || "").trim(),
+      myChoice: String(item?.myChoice || item?.lastWrongSelectedLabel || item?.selectedLabel || "").trim(),
       correctAnswer: String(item?.correctAnswer || item?.answer || (q?.answer || "")).trim(),
       origin: String(item?.origin || buildQuestionOriginLabel(q) || "").trim(),
       image: String(q?.image || (typeof item?.image === "string" && /^data:/i.test(item.image) ? "" : (item?.image || ""))).trim(),
@@ -1992,6 +2010,11 @@ function renderWrongBook() {
         masteryStreak: 0,
         lastWrongAt: item.stats.lastWrongAt || nowIso,
         lastSeenAt: item.stats.lastSeenAt || nowIso,
+        lastResult: item.stats.lastResult || "wrong",
+        lastSelectedValue: item.stats.lastSelectedValue || item.stats.lastWrongSelectedValue || "",
+        lastSelectedLabel: item.stats.lastSelectedLabel || item.stats.lastWrongSelectedLabel || "",
+        lastWrongSelectedValue: item.stats.lastWrongSelectedValue || item.stats.lastSelectedValue || "",
+        lastWrongSelectedLabel: item.stats.lastWrongSelectedLabel || item.stats.lastSelectedLabel || item.myChoice || "",
       };
     }
     return {
@@ -2003,6 +2026,11 @@ function renderWrongBook() {
       masteryStreak: 0,
       lastWrongAt: nowIso,
       lastSeenAt: nowIso,
+      lastResult: "wrong",
+      lastSelectedValue: "",
+      lastSelectedLabel: item.myChoice || "",
+      lastWrongSelectedValue: "",
+      lastWrongSelectedLabel: item.myChoice || "",
     };
   }
 
@@ -2041,6 +2069,11 @@ function renderWrongBook() {
           masteryStreak: 0,
           lastWrongAt: maxIsoString(cur.lastWrongAt, incoming.lastWrongAt) || new Date().toISOString(),
           lastSeenAt: maxIsoString(cur.lastSeenAt, incoming.lastSeenAt),
+          lastResult: incoming.lastResult || cur.lastResult || "wrong",
+          lastSelectedValue: incoming.lastSelectedValue || cur.lastSelectedValue || "",
+          lastSelectedLabel: incoming.lastSelectedLabel || cur.lastSelectedLabel || "",
+          lastWrongSelectedValue: incoming.lastWrongSelectedValue || cur.lastWrongSelectedValue || "",
+          lastWrongSelectedLabel: incoming.lastWrongSelectedLabel || cur.lastWrongSelectedLabel || "",
         };
       }
     }
@@ -2194,7 +2227,7 @@ function renderWrongBook() {
               ${item.image ? `<img class="wrong-thumb" src="${escapeAttr(item.image)}" alt="${escapeAttr(item.correctAnswer || "題圖")}">` : `<div class="wrong-thumb wrong-thumb-text">匯入</div>`}
               <div class="wrong-item-main">
                 <div class="wrong-item-title">${escapeHtml(item.prompt)}</div>
-                <div class="wrong-item-note">我的選擇：${escapeHtml(item.myChoice || "未作答")}</div>
+                ${item.myChoice ? `<div class="wrong-item-note">最近錯答：${escapeHtml(item.myChoice)}</div>` : ""}
                 <div class="wrong-item-note">正確答案：${escapeHtml(item.correctAnswer || "")}</div>
                 <div class="wrong-item-meta">${escapeHtml(item.origin || "")}</div>
               </div>
@@ -2407,6 +2440,11 @@ function renderWrongBook() {
     if (typeof item.masteryStreak !== "number") item.masteryStreak = 0;
     if (typeof item.lastWrongAt !== "string") item.lastWrongAt = "";
     if (typeof item.lastSeenAt !== "string") item.lastSeenAt = "";
+    if (typeof item.lastResult !== "string") item.lastResult = "";
+    if (typeof item.lastSelectedValue !== "string") item.lastSelectedValue = "";
+    if (typeof item.lastSelectedLabel !== "string") item.lastSelectedLabel = "";
+    if (typeof item.lastWrongSelectedValue !== "string") item.lastWrongSelectedValue = "";
+    if (typeof item.lastWrongSelectedLabel !== "string") item.lastWrongSelectedLabel = "";
     return item;
   }
 
@@ -2459,6 +2497,13 @@ function renderWrongBook() {
       masteryStreak: 0,
       lastWrongAt: "",
       lastSeenAt: "",
+      // v0.1.6: only keep aggregated per-question state plus the latest answer summary.
+      // Do not keep full answer history to avoid localStorage / cloud backup growth.
+      lastResult: "",
+      lastSelectedValue: "",
+      lastSelectedLabel: "",
+      lastWrongSelectedValue: "",
+      lastWrongSelectedLabel: "",
     };
   }
 
