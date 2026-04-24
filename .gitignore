@@ -1,0 +1,20 @@
+﻿# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Local corpus / downloaded reference data
+sources/yizong_jingui/
+yizong_jingui_text_corpus.zip
+
+# Temporary tools output
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
