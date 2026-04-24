@@ -110,7 +110,7 @@ async function loadRequests() {
     setOutput(`讀取完成：待審核 ${pending.length} 筆，白名單 ${allowed.length} 筆。`);
   } catch (err) {
     console.error(err);
-    setOutput("讀取失敗：\n" + (err?.message || String(err)) + "\n\n請確認 app_config/global.adminUids 陣列已包含目前登入帳號的 UID，且已發布新版 firestore.rules。");
+    setOutput("讀取失敗：\n" + (err?.message || String(err)) + "\n\n請確認 Firestore 已建立 admins/{目前登入帳號UID}，且 enabled 為 Boolean true；同時 app_config/global.syncEnabled 為 Boolean true，並已發布新版 firestore.rules。");
   }
 }
 
