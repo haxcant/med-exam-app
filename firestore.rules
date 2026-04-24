@@ -1,0 +1,69 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // IMPORTANT: replace YOUR_ADMIN_UID with your Firebase Authentication UID.
+    function isAdmin() {
+      return isSignedIn() && request.auth.uid == "YOUR_ADMIN_UID";
+    }
+
+    function isMedExamApp() {
+      return request.resource.data.appId == "med-exam-app";
+    }
+
+    function isAllowlisted(userId) {
+      return exists(/databases/$(database)/documents/allowlist/$(userId))
+        && get(/databases/$(database)/documents/allowlist/$(userId)).data.enabled == true;
+    }
+
+    // Users can create and read their own access request.
+    // Admin can list/update/delete all requests through admin.html.
+    match /access_requests/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+
+      allow create: if isOwner(userId)
+        && request.resource.data.uid == userId
+        && request.resource.data.status == "pending"
+        && request.resource.data.appId == "med-exam-app";
+
+      allow update: if isAdmin()
+        || (
+          isOwner(userId)
+          && resource.data.uid == userId
+          && resource.data.status in ["pending", "rejected"]
+          && request.resource.data.uid == userId
+          && request.resource.data.status == "pending"
+          && request.resource.data.appId == "med-exam-app"
+        );
+
+      allow delete: if isAdmin();
+    }
+
+    // Allowlist is readable by the owner, but writable only by the admin.
+    match /allowlist/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Med exam app: backup metadata.
+    match /apps/med-exam-app/users/{userId}/sync/meta {
+      allow read, write: if isOwner(userId) && isAllowlisted(userId);
+    }
+
+    // Med exam app: chunked backup payload.
+    match /apps/med-exam-app/users/{userId}/sync_chunks/{chunkId} {
+      allow read, write: if isOwner(userId) && isAllowlisted(userId);
+    }
+  }
+}

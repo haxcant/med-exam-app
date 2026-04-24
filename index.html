@@ -168,7 +168,11 @@
             <button id="btn-firebase-toggle-private" type="button" class="ghost-btn" style="display:none; padding:6px 10px;">👁</button>
           </div>
           <div id="firebase-private-info" class="scope-summary subtle" style="display:none; margin-bottom:10px;"></div>
-          <div id="firebase-owner-note" class="scope-summary subtle" style="margin-bottom:10px; display:none;">第三方託管資源額度有限。若要啟用雲端同步，請先登入 Google，並將名稱 / 信箱 / UID 提供給擁有者加入白名單。未開通者仍可使用本機功能與 JSON 匯入匯出。</div>
+          <div id="firebase-owner-note" class="scope-summary subtle" style="margin-bottom:10px; display:none;">第三方託管資源額度有限。若要啟用雲端同步，請先登入 Google 後送出同步權限申請。未開通者仍可使用本機功能與 JSON 匯入匯出。</div>
+          <div id="firebase-access-status" class="scope-summary subtle" style="margin-bottom:8px;"></div>
+          <div class="actions compact" style="margin-bottom:10px;">
+            <button id="btn-request-sync-access" type="button" class="ghost-btn" style="display:none;">申請同步權限</button>
+          </div>
           <div id="firebase-cloud-meta" class="scope-summary subtle" style="margin-bottom:10px;"></div>
           <div id="firebase-sync-reminder" class="scope-summary subtle" style="margin-bottom:6px;"></div>
           <div class="scope-summary subtle" id="firebase-manual-upload-note" style="margin-bottom:8px;">提醒：請定期手動上傳雲端備份。</div>
@@ -391,6 +395,6 @@
   <script src="med_questions.js?v=20260424jingui1"></script>
   <script src="memory-bridge.js?v=20260424med011"></script>
   <script src="app.js?v=20260424med011"></script>
-  <script type="module" src="firebase-ui.js?v=20260424med011"></script>
+  <script type="module" src="firebase-ui.js?v=20260424med012"></script>
 </body>
 </html>

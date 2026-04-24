@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>醫學題庫同步權限審核</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background:#f8fafc; }
+    .admin-wrap { max-width: 1040px; margin: 0 auto; padding: 20px; }
+    .admin-title { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap; }
+    .admin-card { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:14px; margin:10px 0; box-shadow:0 6px 18px rgba(15,23,42,.04); }
+    .admin-card-main { min-width:0; overflow-wrap:anywhere; }
+    .admin-card-actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .muted { color:#64748b; font-size:.92rem; margin-top:4px; }
+    .empty { color:#64748b; padding:10px 0; }
+    pre.admin-output { white-space:pre-wrap; background:#0f172a; color:#e2e8f0; border-radius:12px; padding:12px; min-height:56px; }
+    code { background:#f1f5f9; padding:1px 4px; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <header class="admin-title">
+      <div>
+        <h1>醫學題庫同步權限審核</h1>
+        <p class="scope-summary subtle">用途：查看使用者送出的同步申請，核准後自動建立 allowlist 文件。此頁面權限由 Firestore Rules 的管理者 UID 控制。</p>
+      </div>
+      <div class="actions compact">
+        <a class="ghost-btn" href="./index.html">回主程式</a>
+        <button id="btnAdminLogin" type="button" class="primary-btn">Google 登入</button>
+        <button id="btnAdminLogout" type="button" class="ghost-btn" style="display:none;">登出</button>
+        <button id="btnRefreshRequests" type="button" class="ghost-btn" disabled>重新整理</button>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2>目前登入帳號</h2>
+      <pre id="adminUser" class="admin-output">尚未登入。</pre>
+      <p class="scope-summary subtle">請確認這裡顯示的 UID 已被寫進 Firestore Rules 的 <code>isAdmin()</code>。</p>
+    </section>
+
+    <section class="panel">
+      <h2>待審核申請</h2>
+      <div id="pendingList"><div class="empty">登入管理者帳號後顯示。</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>白名單 / 已審核紀錄</h2>
+      <div id="approvedList"><div class="empty">登入管理者帳號後顯示。</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>操作訊息</h2>
+      <pre id="adminOutput" class="admin-output">請使用管理者 Google 帳號登入。</pre>
+    </section>
+  </div>
+  <script type="module" src="admin.js?v=20260424med012"></script>
+</body>
+</html>

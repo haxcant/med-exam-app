@@ -16,6 +16,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   const btnCloudUpload = el("btn-cloud-upload");
   const btnCloudDownload = el("btn-cloud-download");
   const btnLocalRestore = el("btn-local-restore");
+  const btnRequestAccess = el("btn-request-sync-access");
+  const accessStatusEl = el("firebase-access-status");
   const output = el("sync-test-output");
   const autoCloudUploadToggle = el("autoCloudUploadToggle");
   const autoCloudUploadStatus = el("autoCloudUploadStatus");
@@ -28,6 +30,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   let modules = null;
   let currentUser = null;
   let cloudMeta = null;
+  let accessState = { allowlisted: false, requestStatus: "none" };
   let privateVisible = false;
   let modulesReady = false;
   let loginInFlight = false;
@@ -56,6 +59,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       if (btn) btn.disabled = !enabled;
     });
   };
+  const hasCloudAccess = () => !!(currentUser && accessState && accessState.allowlisted);
   const getMemoryApi = () => {
     try {
       if (window.DriverQuizMemory?.buildPayload) return window.DriverQuizMemory;
@@ -94,6 +98,10 @@ window.addEventListener("DOMContentLoaded", async () => {
       autoCloudUploadStatus.textContent = "登入後可啟用自動上傳。";
       return;
     }
+    if (!hasCloudAccess()) {
+      autoCloudUploadStatus.textContent = "雲端同步尚未核准，暫不啟用自動上傳。";
+      return;
+    }
     const enabled = readAutoUploadEnabled();
     const delta = unansweredDeltaFromCloud();
     const localMeta = modules?.backup?.readLocalUploadMeta?.() || {};
@@ -119,6 +127,61 @@ if (btnLogin) {
     setOutput("同步模組仍在載入中，請稍候 1～2 秒後再試。若長時間沒有變化，代表網頁腳本可能尚未成功載入。");
   });
 }
+
+
+  function renderAccessStatus() {
+    if (!accessStatusEl) return;
+    if (!currentUser) {
+      accessStatusEl.textContent = "";
+      if (btnRequestAccess) btnRequestAccess.style.display = "none";
+      return;
+    }
+    if (accessState?.allowlisted) {
+      accessStatusEl.textContent = "雲端同步權限：已核准。";
+      if (btnRequestAccess) btnRequestAccess.style.display = "none";
+      return;
+    }
+    const status = accessState?.requestStatus || "none";
+    if (status === "pending") {
+      accessStatusEl.textContent = "雲端同步權限：已送出申請，等待管理者核准。核准後請重新整理或重新登入。";
+      if (btnRequestAccess) {
+        btnRequestAccess.style.display = "";
+        btnRequestAccess.disabled = true;
+        btnRequestAccess.textContent = "已送出申請";
+      }
+    } else if (status === "rejected") {
+      accessStatusEl.textContent = "雲端同步權限：申請曾被拒絕；可重新送出申請。";
+      if (btnRequestAccess) {
+        btnRequestAccess.style.display = "";
+        btnRequestAccess.disabled = false;
+        btnRequestAccess.textContent = "重新申請同步權限";
+      }
+    } else {
+      accessStatusEl.textContent = "雲端同步權限：尚未開通。可送出申請，待管理者核准後即可上傳／下載備份。";
+      if (btnRequestAccess) {
+        btnRequestAccess.style.display = "";
+        btnRequestAccess.disabled = false;
+        btnRequestAccess.textContent = "申請同步權限";
+      }
+    }
+  }
+
+  async function refreshAccessStatus() {
+    if (!currentUser || !modules?.access?.getSyncAccessStatus) {
+      accessState = { allowlisted: false, requestStatus: "none" };
+      renderAccessStatus();
+      return accessState;
+    }
+    try {
+      accessState = await modules.access.getSyncAccessStatus();
+    } catch (err) {
+      console.error("refreshAccessStatus failed", err);
+      accessState = { allowlisted: false, requestStatus: "unknown", error: err?.message || String(err) };
+      if (accessStatusEl) accessStatusEl.textContent = "雲端同步權限狀態讀取失敗：" + accessState.error;
+    }
+    renderAccessStatus();
+    return accessState;
+  }
 
   function updateCloudMetaView() {
     if (!cloudMetaEl) return;
@@ -154,7 +217,7 @@ if (btnLogin) {
   }
 
   async function refreshCloudMeta() {
-    if (!currentUser || !modules?.backup?.getCloudBackupMetaSummary) {
+    if (!currentUser || !modules?.backup?.getCloudBackupMetaSummary || !hasCloudAccess()) {
       cloudMeta = null;
       updateCloudMetaView();
       return;
@@ -169,7 +232,7 @@ if (btnLogin) {
   }
 
   async function maybeAutoUpload(reason = "") {
-    if (!currentUser || !modules?.backup?.uploadFullMemoryBackup) return;
+    if (!currentUser || !hasCloudAccess() || !modules?.backup?.uploadFullMemoryBackup) return;
     if (!readAutoUploadEnabled()) return;
     if (autoUploadInFlight) return;
     if (!getMemoryApi()?.buildPayload) return;
@@ -236,14 +299,22 @@ if (btnLogin) {
       }
       if (btnLogin) btnLogin.style.display = "none";
       if (btnLogout) btnLogout.style.display = "";
-      setSyncButtonsEnabled(true);
+      setSyncButtonsEnabled(hasCloudAccess());
       setRestoreEnabled();
-      if (ownerNoteEl) ownerNoteEl.style.display = "";
-      if (helpText) helpText.textContent = "最簡說明：登入後只會顯示雲端備份摘要；只有當你按『下載雲端備份』時，才會詢問是否載入本機。";
+      if (ownerNoteEl) {
+        ownerNoteEl.style.display = "";
+        ownerNoteEl.textContent = hasCloudAccess()
+          ? "你已獲准使用雲端同步。仍建議定期匯出 JSON 作為離線備份。"
+          : "你已登入，但尚未開通雲端同步。可按『申請同步權限』，待管理者核准後即可使用上傳／下載雲端備份。未開通者仍可使用本機功能與 JSON 匯入匯出。";
+      }
+      if (helpText) helpText.textContent = "最簡說明：登入後會先檢查同步權限；核准後才可上傳或下載雲端備份。雲端不會自動覆蓋本機，下載前會先確認。";
+      renderAccessStatus();
       updateCloudMetaView();
       updateReminder();
       if (!output?.textContent) {
-        setOutput("已登入。雲端不會自動載入；若需要再手動下載。\n載入前會先保存同步前本機備份，可隨時還原。");
+        setOutput(hasCloudAccess()
+          ? "已登入且同步權限已核准。雲端不會自動載入；若需要再手動下載。\n載入前會先保存同步前本機備份，可隨時還原。"
+          : "已登入，但尚未開通雲端同步。請按『申請同步權限』，等待管理者核准。\n未核准前仍可正常練題與使用 JSON 匯入匯出。");
       }
       return;
     }
@@ -262,9 +333,11 @@ if (btnLogin) {
     if (ownerNoteEl) ownerNoteEl.style.display = "none";
     if (cloudMetaEl) cloudMetaEl.textContent = "";
     if (helpText) helpText.textContent = "最簡說明：未登入時仍可正常練題與使用 JSON 匯入匯出；登入只影響雲端同步。";
+    accessState = { allowlisted: false, requestStatus: "none" };
+    renderAccessStatus();
     updateReminder();
     if (!output?.textContent) {
-      setOutput("請先登入 Google。登入後若要開通雲端同步，請將名稱 / 信箱 / UID 提供給擁有者加入白名單。\n若手機無法彈出登入視窗，請允許彈出視窗或改用桌面瀏覽器。");
+      setOutput("請先登入 Google。登入後可直接按『申請同步權限』，不需要手動傳 UID 給管理者。\n若手機無法彈出登入視窗，請允許彈出視窗或改用桌面瀏覽器。");
     }
   }
 
@@ -277,9 +350,10 @@ if (btnLogin) {
   if (btnLogin) btnLogin.textContent = "載入登入模組...";
   try {
     modules = {
-      auth: await import("./firebase-auth.js?v=20260401v214"),
-      smoke: await import("./firebase-sync-smoke.js?v=20260401v214"),
-      backup: await import("./firebase-backup.js?v=20260401v214"),
+      auth: await import("./firebase-auth.js?v=20260424med012"),
+      smoke: await import("./firebase-sync-smoke.js?v=20260424med012"),
+      backup: await import("./firebase-backup.js?v=20260424med012"),
+      access: await import("./firebase-access.js?v=20260424med012"),
     };
   } catch (err) {
     console.error("firebase modules import failed", err);
@@ -348,6 +422,27 @@ ${err?.message || String(err)}`);
     });
   }
 
+
+  if (btnRequestAccess) {
+    btnRequestAccess.addEventListener("click", async () => {
+      try {
+        setButtonBusy(btnRequestAccess, "送出中...", true);
+        setOutput("正在送出同步權限申請...");
+        accessState = await modules.access.requestSyncAccess("申請醫學題庫雲端同步權限");
+        renderAccessStatus();
+        setSyncButtonsEnabled(hasCloudAccess());
+        setOutput("已送出同步權限申請。請等待管理者在 admin.html 核准；核准後重新整理頁面即可使用同步。");
+      } catch (err) {
+        console.error(err);
+        setOutput("申請同步權限失敗：\n" + (err?.message || String(err)));
+      } finally {
+        if (accessState?.requestStatus !== "pending") {
+          setButtonBusy(btnRequestAccess, "送出中...", false);
+        }
+      }
+    });
+  }
+
   if (btnLogout) {
     btnLogout.addEventListener("click", async () => {
       try {
@@ -364,6 +459,7 @@ ${err?.message || String(err)}`);
   if (btnSmokeWrite) {
     btnSmokeWrite.addEventListener("click", async () => {
       try {
+        if (!hasCloudAccess()) throw new Error("雲端同步權限尚未核准，請先送出申請並等待管理者核准。");
         setOutput("寫入中...");
         await smokeWrite();
         await refreshCloudMeta();
@@ -378,6 +474,7 @@ ${err?.message || String(err)}`);
   if (btnSmokeRead) {
     btnSmokeRead.addEventListener("click", async () => {
       try {
+        if (!hasCloudAccess()) throw new Error("雲端同步權限尚未核准，請先送出申請並等待管理者核准。");
         setOutput("讀取中...");
         const data = await smokeRead();
         setOutput(JSON.stringify(data, null, 2));
@@ -391,6 +488,7 @@ ${err?.message || String(err)}`);
   if (btnCloudUpload) {
     btnCloudUpload.addEventListener("click", async () => {
       try {
+        if (!hasCloudAccess()) throw new Error("雲端同步權限尚未核准，請先送出申請並等待管理者核准。");
         const memoryApi = getMemoryApi();
         if (!memoryApi?.buildPayload) throw new Error("找不到完整資料匯出函式（DriverQuizMemory.buildPayload）。");
         setOutput("上傳完整資料中...");
@@ -411,6 +509,7 @@ ${err?.message || String(err)}`);
   if (btnCloudDownload) {
     btnCloudDownload.addEventListener("click", async () => {
       try {
+        if (!hasCloudAccess()) throw new Error("雲端同步權限尚未核准，請先送出申請並等待管理者核准。");
         const memoryApi = getMemoryApi();
         if (!memoryApi?.applyPayload || !memoryApi?.buildPayload) {
           throw new Error("找不到完整資料匯入／匯出函式。");
@@ -478,7 +577,7 @@ ${err?.message || String(err)}`);
   });
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") {
-      refreshCloudMeta().then(() => {
+      refreshAccessStatus().then(() => refreshCloudMeta()).then(() => {
         updateReminder();
         if (!getMemoryApi()?.isSessionInProgress?.()) {
           scheduleAutoUploadCheck("頁面恢復可見");
@@ -490,7 +589,14 @@ ${err?.message || String(err)}`);
   watchAuthState(async (user) => {
     currentUser = user || null;
     privateVisible = false;
-    await refreshCloudMeta();
+    if (currentUser) {
+      await refreshAccessStatus();
+      await refreshCloudMeta();
+    } else {
+      accessState = { allowlisted: false, requestStatus: "none" };
+      cloudMeta = null;
+      updateCloudMetaView();
+    }
     renderUser();
     setRestoreEnabled();
     updateReminder();
