@@ -319,7 +319,7 @@ if (btnLogin) {
           ? "你已獲准使用雲端同步。仍建議定期匯出 JSON 作為離線備份。"
           : "你已登入，但尚未開通雲端同步。可按『申請同步權限』，待管理者核准後即可使用上傳／下載雲端備份。未開通者仍可使用本機功能與 JSON 匯入匯出。";
       }
-      if (helpText) helpText.textContent = "最簡說明：登入後會先檢查同步權限；核准後才可上傳或下載雲端備份。雲端不會自動覆蓋本機，下載前會先確認。";
+      if (helpText) helpText.textContent = "最簡說明：建議使用 Chrome。登入後會先檢查同步權限；核准後才可上傳或下載雲端備份。下載套用成功後系統會自動刷新一次；若數據仍未更新，請再手動刷新。";
       renderAccessStatus();
       updateCloudMetaView();
       updateReminder();
@@ -549,8 +549,13 @@ ${err?.message || String(err)}`);
         const applyResult = getMemoryApi().applyPayload(result.payload, replaceAll);
         setOutput(`${result.message || "下載完成"}
 
-${applyResult?.message || "已套用到本機。"}`);
+${applyResult?.message || "已套用到本機。"}
+
+系統將自動刷新一次，以確保畫面統計與錯題本同步更新。若刷新後仍未更新，請再手動重新整理頁面。`);
         updateReminder();
+        window.setTimeout(() => {
+          try { window.location.reload(); } catch (reloadErr) { console.warn("auto reload after cloud download failed", reloadErr); }
+        }, 1200);
     } catch (err) {
       console.error(err);
       setOutput(`雲端下載失敗：

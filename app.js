@@ -1470,20 +1470,22 @@ function renderWrongBook() {
   }
 
   function buildPrintableWrongPayload() {
-    if (!session || !session.queue?.length) return [];
-    return session.queue
-      .map((id) => ({ question: getQuestion(id), record: session.answeredMap?.[id] }))
-      .filter((x) => x.question && x.record && !x.record.isCorrect)
-      .map(({ question, record }) => ({
-        id: question.id,
-        prompt: buildQuestionPreview(question),
-        myChoice: record.selectedLabel || "",
-        correctAnswer: question.answer,
-        origin: buildQuestionOriginLabel(question),
-        image: question.image || "",
-        stats: { ...questionProgress(question.id) },
-        source: question.source || "",
-      }));
+    // v0.1.4: this export is now the whole wrong book, not only the current session.
+    return ALL_QUESTIONS
+      .filter((question) => question && questionProgress(question.id).inWrongBook)
+      .map((question) => {
+        const qp = questionProgress(question.id);
+        return {
+          id: question.id,
+          prompt: buildQuestionPreview(question),
+          myChoice: qp.lastSelectedLabel || qp.lastChoice || "",
+          correctAnswer: question.answer,
+          origin: buildQuestionOriginLabel(question),
+          image: question.image || "",
+          stats: { ...qp },
+          source: question.source || "",
+        };
+      });
   }
 
   function blobToDataUrl(blob) {
@@ -1544,7 +1546,7 @@ function renderWrongBook() {
   async function exportWrongBookPrintable() {
     const payload = buildPrintableWrongPayload();
     if (!payload.length) {
-      alert("目前沒有可匯出的本輪錯題。請先完成一輪作答，且至少有 1 題答錯。");
+      alert("目前錯題本是空的，沒有可下載的錯題。請先作答並累積錯題後再下載。");
       return;
     }
     const enrichedPayload = await enrichPrintableWrongPayloadWithImages(payload);
@@ -1553,7 +1555,7 @@ function renderWrongBook() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `wrong-review-${new Date().toISOString().slice(0,10)}.html`;
+    a.download = `wrong-book-print-${new Date().toISOString().slice(0,10)}.html`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -1921,8 +1923,35 @@ function renderWrongBook() {
     };
   }
 
+  function normalizeTextForMatching(value) {
+    return String(value || "")
+      .replace(/\s+/g, "")
+      .replace(/[＿_]+/g, "＿＿＿＿")
+      .trim();
+  }
+
+  function findQuestionForImportedWrongItem(item) {
+    const rawId = String(item?.id || item?.questionId || "").trim();
+    if (rawId && getQuestion(rawId)) return getQuestion(rawId);
+
+    const rawPrompt = normalizeTextForMatching(item?.prompt || item?.question || item?.stem || "");
+    const rawAnswer = String(item?.correctAnswer || item?.answer || "").trim();
+    if (!rawPrompt && !rawAnswer) return null;
+
+    let promptOnlyCandidate = null;
+    for (const q of ALL_QUESTIONS) {
+      const promptA = normalizeTextForMatching(buildQuestionPreview(q));
+      const promptB = normalizeTextForMatching(q?.prompt || "");
+      const promptMatches = rawPrompt && (rawPrompt === promptA || rawPrompt === promptB || promptA.includes(rawPrompt) || rawPrompt.includes(promptA));
+      const answerMatches = !rawAnswer || String(q?.answer || "").trim() === rawAnswer;
+      if (promptMatches && answerMatches) return q;
+      if (promptMatches && !promptOnlyCandidate) promptOnlyCandidate = q;
+    }
+    return promptOnlyCandidate;
+  }
+
   function normalizeImportedWrongItem(item) {
-    const q = getQuestion(item?.id) || null;
+    const q = findQuestionForImportedWrongItem(item) || null;
     const stats = item?.stats && typeof item.stats === "object" ? item.stats : (item?.progress && typeof item.progress === "object" ? item.progress : null);
     const normalizedStats = stats ? {
       totalSeen: Number(stats.totalSeen || stats.seen || 0),
@@ -1935,7 +1964,7 @@ function renderWrongBook() {
       lastSeenAt: typeof stats.lastSeenAt === "string" ? stats.lastSeenAt : "",
     } : null;
     return {
-      id: String(item?.id || "").trim(),
+      id: String(q?.id || item?.id || item?.questionId || "").trim(),
       prompt: String(item?.prompt || buildQuestionPreview(q) || "").trim(),
       myChoice: String(item?.myChoice || item?.selectedLabel || "").trim(),
       correctAnswer: String(item?.correctAnswer || item?.answer || (q?.answer || "")).trim(),
@@ -2045,6 +2074,8 @@ function renderWrongBook() {
         if (parsed && (parsed.app === APP_ID || parsed.app === "driver-quiz-pwa") && parsed.type === "full-memory-export") kind = "full-memory";
         else if (parsed && (parsed.app === APP_ID || parsed.app === "driver-quiz-pwa") && parsed.type === "wrong-book-export") kind = "wrong-book";
         else if (parsed && (parsed.app === APP_ID || parsed.app === "driver-quiz-pwa") && parsed.type === "wrong-print-export") kind = "wrong-print";
+        else if (parsed && Array.isArray(parsed.items) && String(parsed.type || "").toLowerCase().includes("wrong")) kind = "wrong-book";
+        else if (parsed && Array.isArray(parsed.items) && parsed.items.some((item) => item && (item.id || item.prompt || item.correctAnswer || item.answer))) kind = "wrong-book";
         else if (parsed && (parsed.progress || parsed.settings || parsed.session || parsed.imageIssues || parsed.memory || parsed.data || parsed.byQuestion || parsed.meta)) kind = "full-memory";
         else if (Array.isArray(parsed)) kind = "wrong-array";
       }
@@ -2063,7 +2094,7 @@ function renderWrongBook() {
         const normalizedItems = items
           .map((item) => normalizeImportedWrongItem(item))
           .filter((item) => item.prompt && item.id && getQuestion(item.id));
-        if (!normalizedItems.length) throw new Error("empty wrongs");
+        if (!normalizedItems.length) throw new Error("empty wrongs: 匯入檔中沒有能對應到目前題庫的錯題。請確認這份 JSON 是由本系統目前題庫匯出的錯題 JSON / 錯題列印 HTML，或先更新到同一版題庫後再匯入。");
 
         const previewText = `檔案預覽
 
@@ -2105,10 +2136,10 @@ function renderWrongBook() {
       const msg = String(error?.message || error || "");
       if (msg === "dangerous-json-keys") {
         alert("匯入失敗：檔案包含危險欄位（例如 __proto__ / prototype / constructor），系統已拒絕套用。\n\n請確認這是由本系統匯出的正常 JSON。");
-      } else if (msg.includes("檔案過大") || msg.includes("HTML 過大") || msg.includes("JSON 檔案過大")) {
+      } else if (msg.includes("檔案過大") || msg.includes("HTML 過大") || msg.includes("JSON 檔案過大") || msg.includes("empty wrongs")) {
         alert(`匯入失敗：${msg}`);
       } else {
-        alert("匯入失敗：請選擇本系統匯出的完整記憶 JSON、錯題 JSON，或錯題列印版 HTML。\n\n系統目前已啟用白名單欄位過濾、舊檔修整與總統計重算；若這個檔案就是本系統剛匯出的資料仍失敗，請保留該檔並回報。");
+        alert("匯入失敗：請選擇本系統匯出的完整記憶 JSON、錯題 JSON，或錯題列印版 HTML。\n\n建議：若是錯題 JSON，請使用本頁『匯出錯題JSON』或『下載全部錯題本（列印版）』產生的檔案。若仍失敗，請保留該檔並回報。");
       }
     } finally {
       if (els.importMemoryInput) els.importMemoryInput.value = "";

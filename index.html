@@ -30,7 +30,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.3：修正 Firebase modular 載入、同步申請白名單審核流程與 app_config/global 設定。</p>
+            <p id="versionSummary">v0.1.4：下載列印版改為整個錯題本，強化錯題 JSON 匯入相容性，補充 Chrome、雲端下載刷新與 AI 筆記整理提醒。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -39,7 +39,7 @@
         </div>
         <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
           <strong>第一次使用</strong>
-          <p style="margin:6px 0 0;">第一次使用者只須點擊 <strong>開始練習</strong> 即可。建議先提升覆蓋率，再練錯題，最後用模擬考驗證。匯入完整記憶時可自行選擇覆蓋、覆蓋率優先合併或保守合併；也請定期下載 JSON 備份，以免雲端託管額度或服務狀況影響資料存取。</p>
+          <p style="margin:6px 0 0;">第一次使用者只須點擊 <strong>開始練習</strong> 即可。建議使用 <strong>Chrome 瀏覽器</strong> 開啟，整體相容性較佳。登入後若下載雲端記憶但畫面數據未立即更新，請手動刷新；本系統也會在下載套用成功後自動刷新一次。錯題 JSON 或列印版可丟入 GPT、NotebookLM 等 AI 工具，請它協助整理筆記、方證對照與易錯重點。</p>
         </div>
       </details>
     </section>
@@ -148,7 +148,7 @@
       </div>
       <div class="actions compact">
         <button id="exportBtn" class="ghost-btn">匯出錯題JSON</button>
-        <button id="exportWrongPrintBtn" class="ghost-btn">下載本輪錯題（列印版）</button>
+        <button id="exportWrongPrintBtn" class="ghost-btn">下載全部錯題本（列印版）</button>
         <button id="exportMemoryBtn" class="ghost-btn">匯出完整記憶</button>
         <button id="importMemoryBtn" class="ghost-btn">匯入學習檔案</button>
         <button id="flattenScoresBtn" class="ghost-btn">平坦化積分（±1）</button>
@@ -175,7 +175,7 @@
           </div>
           <div id="firebase-cloud-meta" class="scope-summary subtle" style="margin-bottom:10px;"></div>
           <div id="firebase-sync-reminder" class="scope-summary subtle" style="margin-bottom:6px;"></div>
-          <div class="scope-summary subtle" id="firebase-manual-upload-note" style="margin-bottom:8px;">提醒：請定期手動上傳雲端備份。</div>
+          <div class="scope-summary subtle" id="firebase-manual-upload-note" style="margin-bottom:8px;">提醒：建議使用 Chrome。登入後下載雲端記憶若畫面數據未立即更新，請刷新；系統也會自動刷新一次。錯題檔可丟入 GPT / NotebookLM 等 AI 協助整理筆記。</div>
           <label class="scope-summary subtle" for="autoCloudUploadToggle" style="display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; cursor:pointer;">
             <input id="autoCloudUploadToggle" type="checkbox" style="margin-top:3px;">
             <span>本地比雲端多 150 題時自動上傳備份（保守模式）</span>
@@ -193,7 +193,7 @@
           <pre id="sync-test-output" style="white-space:pre-wrap; margin-top:8px;"></pre>
         <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
           <strong>第一次使用</strong>
-          <p style="margin:6px 0 0;">第一次使用者只須點擊 <strong>開始練習</strong> 即可。建議先提升覆蓋率，再練錯題，最後用模擬考驗證。匯入完整記憶時可自行選擇覆蓋、覆蓋率優先合併或保守合併；也請定期下載 JSON 備份，以免雲端託管額度或服務狀況影響資料存取。</p>
+          <p style="margin:6px 0 0;">第一次使用者只須點擊 <strong>開始練習</strong> 即可。建議使用 <strong>Chrome 瀏覽器</strong> 開啟，整體相容性較佳。登入後若下載雲端記憶但畫面數據未立即更新，請手動刷新；本系統也會在下載套用成功後自動刷新一次。錯題 JSON 或列印版可丟入 GPT、NotebookLM 等 AI 工具，請它協助整理筆記、方證對照與易錯重點。</p>
         </div>
       </details>
     </section>
