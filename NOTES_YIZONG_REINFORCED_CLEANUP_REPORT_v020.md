@@ -1,0 +1,125 @@
+# v0.1.20 醫宗金鑑語料補強與殘留空泛註解清理報告
+
+## 處理底版
+- 以 v0.1.19 final cleanup 後的 `med_questions.js` 為底版。
+- 接入使用者下載的 `yizong_jingui_text_corpus.zip`，優先用《醫宗金鑑・金匱要略註》對應條文作為校正參考。
+
+## 本輪處理策略
+1. 掃描仍殘留的模板式白話翻譯與辨證語句，例如「作為主要治療方」「本題以」「方名指向」「核心線索」等。
+2. 掃描高風險錯置藥味與方義，例如葛根解肌、旋覆花橘皮、豬苓澤瀉防己等錯套模板。
+3. 對命中的題目重寫 `explanation`，保留 11 段格式，並加入醫宗金鑑語料來源 URL。
+4. 對未能完全確定的特殊古方，避免硬列藥味，以條文主症與用方方向說明，防止再產生藥物幻覺。
+
+## 本輪重寫題數
+- 重寫 explanation：120 題。
+
+## 重寫題號
+```text
+JGYL-0001 JGYL-0002 JGYL-0003 JGYL-0004 JGYL-0005 JGYL-0006 JGYL-0007 JGYL-0008 JGYL-0009 JGYL-0010 JGYL-0011 JGYL-0014 JGYL-0017 JGYL-0018 JGYL-0020 JGYL-0021 JGYL-0023 JGYL-0024 JGYL-0025 JGYL-0026 JGYL-0029 JGYL-0030 JGYL-0034 JGYL-0035 JGYL-0036 JGYL-0037 JGYL-0041 JGYL-0043 JGYL-0046 JGYL-0050 JGYL-0051 JGYL-0056 JGYL-0057 JGYL-0058 JGYL-0061 JGYL-0065 JGYL-0066 JGYL-0067 JGYL-0068 JGYL-0069 JGYL-0075 JGYL-0076 JGYL-0077 JGYL-0078 JGYL-0080 JGYL-0081 JGYL-0084 JGYL-0087 JGYL-0088 JGYL-0089 JGYL-0090 JGYL-0092 JGYL-0094 JGYL-0095 JGYL-0096 JGYL-0097 JGYL-0100 JGYL-0103 JGYL-0113 JGYL-0116 JGYL-0117 JGYL-0118 JGYL-0120 JGYL-0123 JGYL-0124 JGYL-0125 JGYL-0128 JGYL-0129 JGYL-0131 JGYL-0133 JGYL-0134 JGYL-0135 JGYL-0136 JGYL-0137 JGYL-0138 JGYL-0139 JGYL-0140 JGYL-0142 JGYL-0143 JGYL-0147 JGYL-0148 JGYL-0149 JGYL-0150 JGYL-0151 JGYL-0152 JGYL-0154 JGYL-0155 JGYL-0156 JGYL-0157 JGYL-0158 JGYL-0159 JGYL-0160 JGYL-0161 JGYL-0162 JGYL-0168 JGYL-0169 JGYL-0170 JGYL-0171 JGYL-0172 JGYL-0174 JGYL-0175 JGYL-0176 JGYL-0177 JGYL-0178 JGYL-0181 JGYL-0182 JGYL-0183 JGYL-0184 JGYL-0186 JGYL-0187 JGYL-0188 JGYL-0190 JGYL-0191 JGYL-0192 JGYL-0193 JGYL-0194 JGYL-0195 JGYL-0196 JGYL-0197 JGYL-0198
+```
+
+## 殘留模板掃描
+```text
+無命中
+```
+
+## 短段落掃描
+```text
+JGYL-0002 葛根湯
+JGYL-0004 麻黃杏仁薏苡甘草湯
+JGYL-0005 防己黃耆湯
+JGYL-0006 桂枝附子湯
+JGYL-0007 去桂加白朮湯
+JGYL-0008 甘草附子湯
+JGYL-0009 白虎加人參湯
+JGYL-0010 一物瓜蒂湯
+JGYL-0011 百合地黃湯
+JGYL-0013 滑石代赭湯
+JGYL-0018 赤豆當歸散
+JGYL-0020 白虎加桂枝湯
+JGYL-0021 蜀漆散
+JGYL-0024 烏頭湯
+JGYL-0026 八味腎氣丸
+JGYL-0029 大黃䗪蟲丸
+JGYL-0030 小建中湯
+JGYL-0033 甘草乾薑湯
+JGYL-0034 麥門冬湯
+JGYL-0035 葶藶大棗瀉肺湯
+JGYL-0036 葶藶大棗瀉肺湯
+JGYL-0037 桔梗湯
+JGYL-0041 小青龍加石膏湯
+JGYL-0043 澤漆湯
+JGYL-0046 茯苓桂枝甘草大棗湯
+JGYL-0051 茯苓杏仁甘草湯
+JGYL-0074 小半夏茯苓湯
+JGYL-0075 小半夏加茯苓湯
+JGYL-0076 五苓散
+JGYL-0077 苓桂朮甘湯
+JGYL-0078 苓桂朮甘湯
+JGYL-0080 十棗湯
+JGYL-0081 大青龍湯
+JGYL-0083 厚朴大黃湯
+JGYL-0084 葶藶大棗瀉肺湯
+JGYL-0088 十棗湯
+JGYL-0089 十棗湯
+JGYL-0092 白虎加人參湯
+JGYL-0095 五苓散
+JGYL-0096 五苓散
+JGYL-0097 豬苓湯
+JGYL-0100 防己黃耆湯
+JGYL-0105 蒲灰散
+JGYL-0107 越婢加朮湯
+JGYL-0113 硝石礬石散
+JGYL-0116 桂枝加黃耆湯
+JGYL-0120 小半夏湯
+JGYL-0123 半夏麻黃丸
+JGYL-0125 瀉心湯
+JGYL-0128 茱萸湯
+JGYL-0129 茱萸湯
+JGYL-0131 大半夏湯
+JGYL-0133 大黃甘草湯
+JGYL-0135 黃芩加半夏生薑湯
+JGYL-0136 文蛤湯
+JGYL-0137 半夏瀉心湯
+JGYL-0138 小半夏湯
+JGYL-0139 生薑半夏湯
+JGYL-0140 猪苓散
+JGYL-0142 橘皮湯
+JGYL-0150 小承氣湯
+JGYL-0151 訶黎勒散
+JGYL-0154 桃花湯
+JGYL-0155 梔子豉湯
+JGYL-0157 大黃牡丹湯
+JGYL-0158 薏苡附子敗醬散
+JGYL-0168 當歸芍藥散
+JGYL-0169 乾薑人參半夏丸
+JGYL-0170 當歸貝母苦參丸
+JGYL-0171 葵子茯苓散
+JGYL-0172 常服當歸散
+JGYL-0175 當歸生薑羊肉湯
+JGYL-0176 枳實芍藥散
+JGYL-0177 下瘀血湯
+JGYL-0178 枳實芍藥散
+JGYL-0181 竹葉湯
+JGYL-0182 竹皮大丸
+JGYL-0183 白頭翁加甘草阿膠湯
+JGYL-0185 半夏厚朴湯
+JGYL-0186 甘麥大棗湯
+```
+
+## 驗證
+- 題庫總數應為 199 題。
+- 已產出後續可用 `node --check med_questions.js` 檢查語法。
+
+## 注意
+- 本輪目標是清理高風險與空泛註解，不等於正式校注版。
+- 若後續提供正式講義、校訂筆記或錯誤整理，可再做人工審閱版。
+
+## v0.1.20a 後處理
+- 移除自動生成句中的「不是單純背方名」模板語。
+- 針對 JGYL-0118 大黃硝石湯與 JGYL-0160 王不留行散補入更精確方義，並清除殘留可疑句。
+
+
+## v0.1.20b 詞句註釋後處理
+- 改寫 31 題仍殘留的「主症與方名對應」式空泛詞句註釋。
+- 修正「嘔嘔吐」等自動替換造成的重複字。
