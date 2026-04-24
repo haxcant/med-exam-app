@@ -11,13 +11,28 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == userId;
     }
 
-    // IMPORTANT: replace YOUR_ADMIN_UID with your Firebase Authentication UID.
-    function isAdmin() {
-      return isSignedIn() && request.auth.uid == "YOUR_ADMIN_UID";
+    function hasGlobalConfig() {
+      return exists(/databases/$(database)/documents/app_config/global);
     }
 
-    function isMedExamApp() {
-      return request.resource.data.appId == "med-exam-app";
+    function globalConfig() {
+      return get(/databases/$(database)/documents/app_config/global).data;
+    }
+
+    // Admins are configured in Firestore:
+    // app_config/global.adminUids = ["YOUR_UID", "OTHER_ADMIN_UID"]
+    // This avoids editing rules every time an admin changes.
+    function isAdmin() {
+      return isSignedIn()
+        && hasGlobalConfig()
+        && ('adminUids' in globalConfig())
+        && (request.auth.uid in globalConfig().adminUids);
+    }
+
+    function syncEnabled() {
+      return hasGlobalConfig()
+        && ('syncEnabled' in globalConfig())
+        && globalConfig().syncEnabled == true;
     }
 
     function isAllowlisted(userId) {
@@ -25,13 +40,27 @@ service cloud.firestore {
         && get(/databases/$(database)/documents/allowlist/$(userId)).data.enabled == true;
     }
 
-    // Users can create and read their own access request.
+    // Global app config.
+    // You create/update this once from Firebase Console:
+    // appId: "med-exam-app"
+    // syncEnabled: true
+    // adminUids: ["your Firebase Auth UID"]
+    match /app_config/global {
+      allow get: if isSignedIn();
+      allow list: if false;
+      allow create: if false;
+      allow update: if isAdmin();
+      allow delete: if false;
+    }
+
+    // Users can create/read their own access request.
     // Admin can list/update/delete all requests through admin.html.
     match /access_requests/{userId} {
       allow get: if isOwner(userId) || isAdmin();
       allow list: if isAdmin();
 
       allow create: if isOwner(userId)
+        && syncEnabled()
         && request.resource.data.uid == userId
         && request.resource.data.status == "pending"
         && request.resource.data.appId == "med-exam-app";
@@ -39,6 +68,7 @@ service cloud.firestore {
       allow update: if isAdmin()
         || (
           isOwner(userId)
+          && syncEnabled()
           && resource.data.uid == userId
           && resource.data.status in ["pending", "rejected"]
           && request.resource.data.uid == userId
@@ -49,7 +79,7 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
-    // Allowlist is readable by the owner, but writable only by the admin.
+    // Allowlist is readable by the owner, but writable only by admins.
     match /allowlist/{userId} {
       allow get: if isOwner(userId) || isAdmin();
       allow list: if isAdmin();
@@ -58,12 +88,12 @@ service cloud.firestore {
 
     // Med exam app: backup metadata.
     match /apps/med-exam-app/users/{userId}/sync/meta {
-      allow read, write: if isOwner(userId) && isAllowlisted(userId);
+      allow read, write: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
     }
 
     // Med exam app: chunked backup payload.
     match /apps/med-exam-app/users/{userId}/sync_chunks/{chunkId} {
-      allow read, write: if isOwner(userId) && isAllowlisted(userId);
+      allow read, write: if syncEnabled() && isOwner(userId) && isAllowlisted(userId);
     }
   }
 }

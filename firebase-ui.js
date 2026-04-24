@@ -99,7 +99,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       return;
     }
     if (!hasCloudAccess()) {
-      autoCloudUploadStatus.textContent = "雲端同步尚未核准，暫不啟用自動上傳。";
+      autoCloudUploadStatus.textContent = "雲端同步尚未啟用或尚未核准，暫不啟用自動上傳。";
       return;
     }
     const enabled = readAutoUploadEnabled();
@@ -134,6 +134,18 @@ if (btnLogin) {
     if (!currentUser) {
       accessStatusEl.textContent = "";
       if (btnRequestAccess) btnRequestAccess.style.display = "none";
+      return;
+    }
+    if (!accessState?.syncEnabled) {
+      const reason = accessState?.configExists === false
+        ? "尚未建立 app_config/global 設定文件。"
+        : "app_config/global.syncEnabled 不是 true。";
+      accessStatusEl.textContent = "雲端同步目前未啟用：" + reason;
+      if (btnRequestAccess) {
+        btnRequestAccess.style.display = "";
+        btnRequestAccess.disabled = true;
+        btnRequestAccess.textContent = "同步未啟用";
+      }
       return;
     }
     if (accessState?.allowlisted) {
@@ -350,10 +362,10 @@ if (btnLogin) {
   if (btnLogin) btnLogin.textContent = "載入登入模組...";
   try {
     modules = {
-      auth: await import("./firebase-auth.js?v=20260424med012"),
-      smoke: await import("./firebase-sync-smoke.js?v=20260424med012"),
-      backup: await import("./firebase-backup.js?v=20260424med012"),
-      access: await import("./firebase-access.js?v=20260424med012"),
+      auth: await import("./firebase-auth.js?v=20260424med013"),
+      smoke: await import("./firebase-sync-smoke.js?v=20260424med013"),
+      backup: await import("./firebase-backup.js?v=20260424med013"),
+      access: await import("./firebase-access.js?v=20260424med013"),
     };
   } catch (err) {
     console.error("firebase modules import failed", err);

@@ -23,7 +23,7 @@ async function getCurrentUser(waitMs = 4000) {
 function explainError(error) {
   const msg = error?.message || String(error || "");
   if (/Missing or insufficient permissions/i.test(msg)) {
-    return "你已登入，但尚未開通雲端同步權限。請先按「申請同步權限」，待管理者核准後再上傳或下載雲端備份。";
+    return "你已登入，但尚未開通雲端同步權限，或 app_config/global.syncEnabled 不是 true。請先確認已送出申請並由管理者核准。";
   }
   return msg || "未知錯誤";
 }

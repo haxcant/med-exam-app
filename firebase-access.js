@@ -21,7 +21,11 @@ async function getCurrentUser(waitMs = 4000) {
 function explainPermissionError(error) {
   const msg = error?.message || String(error || "");
   if (/Missing or insufficient permissions/i.test(msg)) {
-    return "沒有權限讀寫同步申請資料。請確認 Firestore Rules 已更新為 access_requests / allowlist 審核流程版本。";
+    return [
+      "沒有權限讀寫同步申請資料。",
+      "請確認 Cloud Firestore Rules 已更新為本版 firestore.rules，且 app_config/global.syncEnabled 為 true。",
+      "若你是管理者，請確認 app_config/global.adminUids 陣列已包含你的 Firebase Authentication UID。"
+    ].join("\n");
   }
   return msg || "未知錯誤";
 }
@@ -34,6 +38,10 @@ function plainTimestamp(value) {
   return String(value || "");
 }
 
+export function getGlobalConfigRef() {
+  return doc(db, "app_config", "global");
+}
+
 export function getAccessRequestRef(uid) {
   return doc(db, "access_requests", uid);
 }
@@ -42,10 +50,37 @@ export function getAllowlistRef(uid) {
   return doc(db, "allowlist", uid);
 }
 
+export async function getGlobalSyncConfig() {
+  try {
+    const snap = await getDoc(getGlobalConfigRef());
+    if (!snap.exists()) {
+      return {
+        exists: false,
+        appId: "",
+        syncEnabled: false,
+        hasAdminUids: false,
+      };
+    }
+    const data = snap.data() || {};
+    const adminUids = Array.isArray(data.adminUids) ? data.adminUids : [];
+    return {
+      exists: true,
+      appId: String(data.appId || ""),
+      syncEnabled: data.syncEnabled === true,
+      hasAdminUids: adminUids.length > 0,
+      adminCount: adminUids.length,
+      note: String(data.note || ""),
+    };
+  } catch (error) {
+    throw new Error(explainPermissionError(error));
+  }
+}
+
 export async function getSyncAccessStatus() {
   const user = await getCurrentUser();
   try {
-    const [allowSnap, requestSnap] = await Promise.all([
+    const [config, allowSnap, requestSnap] = await Promise.all([
+      getGlobalSyncConfig(),
       getDoc(getAllowlistRef(user.uid)),
       getDoc(getAccessRequestRef(user.uid)),
     ]);
@@ -56,6 +91,9 @@ export async function getSyncAccessStatus() {
       uid: user.uid,
       email: user.email || "",
       displayName: user.displayName || "",
+      syncEnabled: !!config.syncEnabled,
+      configExists: !!config.exists,
+      configAppId: config.appId || "",
       allowlisted: !!allowData?.enabled,
       allowlistExists: allowSnap.exists(),
       requestExists: requestSnap.exists(),
@@ -73,6 +111,14 @@ export async function requestSyncAccess(message = "") {
   const user = await getCurrentUser();
   const cleanMessage = String(message || "申請醫學題庫雲端同步權限").slice(0, 500);
   try {
+    const config = await getGlobalSyncConfig();
+    if (!config.exists) {
+      throw new Error("尚未建立 app_config/global。請先在 Firestore 建立 global 設定文件。");
+    }
+    if (!config.syncEnabled) {
+      throw new Error("app_config/global.syncEnabled 不是 true，目前不可送出同步申請。");
+    }
+
     await setDoc(getAccessRequestRef(user.uid), {
       uid: user.uid,
       email: user.email || "",
