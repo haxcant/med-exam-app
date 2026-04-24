@@ -2139,7 +2139,7 @@ function renderWrongBook() {
       } else if (msg.includes("檔案過大") || msg.includes("HTML 過大") || msg.includes("JSON 檔案過大") || msg.includes("empty wrongs")) {
         alert(`匯入失敗：${msg}`);
       } else {
-        alert("匯入失敗：請選擇本系統匯出的完整記憶 JSON、錯題 JSON，或錯題列印版 HTML。\n\n建議：若是錯題 JSON，請使用本頁『匯出錯題JSON』或『下載全部錯題本（列印版）』產生的檔案。若仍失敗，請保留該檔並回報。");
+        alert("匯入失敗：請選擇本系統匯出的本機完整記憶備份 JSON、錯題本 JSON，或錯題本列印版 HTML。\n\n建議：若是錯題本 JSON 或列印版 HTML，請使用本頁『匯出錯題本 JSON』或『下載錯題本列印版』產生的檔案。若仍失敗，請保留該檔並回報。");
       }
     } finally {
       if (els.importMemoryInput) els.importMemoryInput.value = "";

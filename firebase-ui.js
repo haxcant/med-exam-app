@@ -166,14 +166,14 @@ if (btnLogin) {
       if (btnRequestAccess) {
         btnRequestAccess.style.display = "";
         btnRequestAccess.disabled = false;
-        btnRequestAccess.textContent = "重新申請同步權限";
+        btnRequestAccess.textContent = "重新申請開通雲端同步";
       }
     } else {
       accessStatusEl.textContent = "雲端同步權限：尚未開通。可送出申請，待管理者核准後即可上傳／下載備份。";
       if (btnRequestAccess) {
         btnRequestAccess.style.display = "";
         btnRequestAccess.disabled = false;
-        btnRequestAccess.textContent = "申請同步權限";
+        btnRequestAccess.textContent = "申請開通雲端同步";
       }
     }
   }
@@ -317,16 +317,16 @@ if (btnLogin) {
         ownerNoteEl.style.display = "";
         ownerNoteEl.textContent = hasCloudAccess()
           ? "你已獲准使用雲端同步。仍建議定期匯出 JSON 作為離線備份。"
-          : "你已登入，但尚未開通雲端同步。可按『申請同步權限』，待管理者核准後即可使用上傳／下載雲端備份。未開通者仍可使用本機功能與 JSON 匯入匯出。";
+          : "你已登入，但尚未開通雲端同步。可按『申請開通雲端同步』，待管理者核准後即可使用上傳／下載雲端記憶到本機。未開通者仍可使用本機功能與 JSON 匯入匯出。";
       }
-      if (helpText) helpText.textContent = "最簡說明：建議使用 Chrome。登入後會先檢查同步權限；核准後才可上傳或下載雲端備份。下載套用成功後系統會自動刷新一次；若數據仍未更新，請再手動刷新。";
+      if (helpText) helpText.textContent = "最簡說明：建議使用 Chrome。登入後會先檢查同步權限；核准後才可上傳或下載雲端記憶到本機。下載套用成功後系統會自動刷新一次；若數據仍未更新，請再手動刷新。";
       renderAccessStatus();
       updateCloudMetaView();
       updateReminder();
       if (!output?.textContent) {
         setOutput(hasCloudAccess()
           ? "已登入且同步權限已核准。雲端不會自動載入；若需要再手動下載。\n載入前會先保存同步前本機備份，可隨時還原。"
-          : "已登入，但尚未開通雲端同步。請按『申請同步權限』，等待管理者核准。\n未核准前仍可正常練題與使用 JSON 匯入匯出。");
+          : "已登入，但尚未開通雲端同步。請按『申請開通雲端同步』，等待管理者核准。\n未核准前仍可正常練題與使用 JSON 匯入匯出。");
       }
       return;
     }
@@ -349,7 +349,7 @@ if (btnLogin) {
     renderAccessStatus();
     updateReminder();
     if (!output?.textContent) {
-      setOutput("請先登入 Google。登入後可直接按『申請同步權限』，不需要手動傳 UID 給管理者。\n若手機無法彈出登入視窗，請允許彈出視窗或改用桌面瀏覽器。");
+      setOutput("請先登入 Google。登入後可直接按『申請開通雲端同步』，不需要手動傳 UID 給管理者。\n若手機無法彈出登入視窗，請允許彈出視窗或改用桌面瀏覽器。");
     }
   }
 
@@ -446,7 +446,7 @@ ${err?.message || String(err)}`);
         setOutput("已送出同步權限申請。請等待管理者在 admin.html 核准；核准後重新整理頁面即可使用同步。");
       } catch (err) {
         console.error(err);
-        setOutput("申請同步權限失敗：\n" + (err?.message || String(err)));
+        setOutput("申請開通雲端同步失敗：\n" + (err?.message || String(err)));
       } finally {
         if (accessState?.requestStatus !== "pending") {
           setButtonBusy(btnRequestAccess, "送出中...", false);
@@ -572,7 +572,7 @@ ${err?.message || String(err)}`);
         const memoryApi = getMemoryApi();
         if (!memoryApi?.applyPayload) throw new Error("找不到完整資料匯入函式。")
         const result = restorePreSyncSnapshot((payload, replaceAll) => getMemoryApi().applyPayload(payload, replaceAll ? "replace" : "conservative"));
-        setOutput(result?.message || "已還原同步前本機備份。");
+        setOutput(result?.message || "已還原下載前本機備份。");
         updateReminder();
       } catch (err) {
         console.error(err);

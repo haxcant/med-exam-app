@@ -30,7 +30,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.4：下載列印版改為整個錯題本，強化錯題 JSON 匯入相容性，補充 Chrome、雲端下載刷新與 AI 筆記整理提醒。</p>
+            <p id="versionSummary">v0.1.5：整理按鈕命名與使用說明，區分「本機檔案備份」與「雲端同步」，讓匯出／匯入／錯題本功能更直觀。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -39,7 +39,19 @@
         </div>
         <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
           <strong>第一次使用</strong>
-          <p style="margin:6px 0 0;">第一次使用者只須點擊 <strong>開始練習</strong> 即可。建議使用 <strong>Chrome 瀏覽器</strong> 開啟，整體相容性較佳。登入後若下載雲端記憶但畫面數據未立即更新，請手動刷新；本系統也會在下載套用成功後自動刷新一次。錯題 JSON 或列印版可丟入 GPT、NotebookLM 等 AI 工具，請它協助整理筆記、方證對照與易錯重點。</p>
+          <p style="margin:6px 0 0;">第一次使用者只要按 <strong>開始練習</strong>。建議使用 <strong>Chrome 瀏覽器</strong> 開啟，整體相容性較佳。</p>
+        </div>
+        <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
+          <strong>按鈕用途速查</strong>
+          <ul style="margin:6px 0 0 1.2em; padding:0;">
+            <li><strong>匯出本機完整記憶備份</strong>：把目前本機的作答進度、錯題本、收藏與設定下載成完整 JSON，適合換裝置前或定期備份。</li>
+            <li><strong>匯入本機備份／錯題檔</strong>：可匯入本系統匯出的完整記憶 JSON、錯題本 JSON，或錯題本列印 HTML。</li>
+            <li><strong>匯出錯題本 JSON</strong>：只匯出錯題資料，適合丟入 GPT、NotebookLM 等 AI 工具整理筆記。</li>
+            <li><strong>下載錯題本列印版</strong>：下載整本錯題 HTML，可列印，也可交給 AI 做重點整理。</li>
+            <li><strong>上傳本機記憶到雲端</strong>：登入並取得權限後，將目前本機記憶備份到雲端。</li>
+            <li><strong>下載雲端記憶到本機</strong>：把雲端備份載入目前瀏覽器；載入前會先保存同步前本機備份，完成後系統會自動刷新一次。若畫面數據仍未更新，請再手動刷新。</li>
+          </ul>
+          <p style="margin:8px 0 0;"><strong>簡單區分：</strong>「匯出／匯入」是本機檔案備份；「上傳／下載雲端」是 Google 登入後的雲端同步。</p>
         </div>
       </details>
     </section>
@@ -147,14 +159,14 @@
         <div class="stat-card"><span class="stat-label">題庫總積分</span><strong id="totalPointsCount">-</strong></div>
       </div>
       <div class="actions compact">
-        <button id="exportBtn" class="ghost-btn">匯出錯題JSON</button>
-        <button id="exportWrongPrintBtn" class="ghost-btn">下載全部錯題本（列印版）</button>
-        <button id="exportMemoryBtn" class="ghost-btn">匯出完整記憶</button>
-        <button id="importMemoryBtn" class="ghost-btn">匯入學習檔案</button>
-        <button id="flattenScoresBtn" class="ghost-btn">平坦化積分（±1）</button>
+        <button id="exportBtn" class="ghost-btn">匯出錯題本 JSON</button>
+        <button id="exportWrongPrintBtn" class="ghost-btn">下載錯題本列印版</button>
+        <button id="exportMemoryBtn" class="ghost-btn">匯出本機完整記憶備份</button>
+        <button id="importMemoryBtn" class="ghost-btn">匯入本機備份／錯題檔</button>
+        <button id="flattenScoresBtn" class="ghost-btn">整理積分為 ±1</button>
         <input id="importMemoryInput" type="file" accept="application/json,.json,text/html,.html" hidden>
         <button id="clearWrongBookBtn" class="ghost-btn danger">清空錯題本</button>
-        <button id="clearAllProgressBtn" class="ghost-btn danger">清空全部記憶</button>
+        <button id="clearAllProgressBtn" class="ghost-btn danger">清空全部本機記憶</button>
       </div>
     </section>
 
@@ -162,7 +174,7 @@
       <details id="firebaseSyncDetails" class="fold-panel">
         <summary><span id="firebaseSummaryText">雲端同步：未登入（展開登入選項）</span></summary>
         <div class="firebase-mini-wrap" style="padding-top:12px;">
-          <p class="scope-summary subtle" id="firebase-help-text">最簡說明：本機資料平常不會自動改動。登入後只會顯示雲端備份摘要；只有按「下載雲端備份」時，才會詢問是否載入。載入前會先保存同步前本機備份。若按登入後完全沒有任何文字變化，通常是網頁腳本未完成載入；若有跳 Google 視窗但最後仍未登入，才比較像 Google/Firebase 流程問題。</p>
+          <p class="scope-summary subtle" id="firebase-help-text">最簡說明：本機資料平常不會自動改動。「匯出／匯入」是本機檔案備份；「上傳本機記憶到雲端／下載雲端記憶到本機」才是 Google 登入後的雲端同步。下載雲端記憶前會先保存同步前本機備份，完成後系統會自動刷新一次。</p>
           <div id="firebase-name-line" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
             <strong id="firebase-display-name">尚未登入</strong>
             <button id="btn-firebase-toggle-private" type="button" class="ghost-btn" style="display:none; padding:6px 10px;">👁</button>
@@ -171,11 +183,11 @@
           <div id="firebase-owner-note" class="scope-summary subtle" style="margin-bottom:10px; display:none;">第三方託管資源額度有限。若要啟用雲端同步，請先登入 Google 後送出同步權限申請。未開通者仍可使用本機功能與 JSON 匯入匯出。</div>
           <div id="firebase-access-status" class="scope-summary subtle" style="margin-bottom:8px;"></div>
           <div class="actions compact" style="margin-bottom:10px;">
-            <button id="btn-request-sync-access" type="button" class="ghost-btn" style="display:none;">申請同步權限</button>
+            <button id="btn-request-sync-access" type="button" class="ghost-btn" style="display:none;">申請開通雲端同步</button>
           </div>
           <div id="firebase-cloud-meta" class="scope-summary subtle" style="margin-bottom:10px;"></div>
           <div id="firebase-sync-reminder" class="scope-summary subtle" style="margin-bottom:6px;"></div>
-          <div class="scope-summary subtle" id="firebase-manual-upload-note" style="margin-bottom:8px;">提醒：建議使用 Chrome。登入後下載雲端記憶若畫面數據未立即更新，請刷新；系統也會自動刷新一次。錯題檔可丟入 GPT / NotebookLM 等 AI 協助整理筆記。</div>
+          <div class="scope-summary subtle" id="firebase-manual-upload-note" style="margin-bottom:8px;">提醒：建議使用 Chrome。下載雲端記憶後若畫面數據未立即更新，系統會自動刷新一次；仍未更新時請手動刷新。錯題本 JSON 或列印版可丟入 GPT / NotebookLM 等 AI 協助整理筆記。</div>
           <label class="scope-summary subtle" for="autoCloudUploadToggle" style="display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; cursor:pointer;">
             <input id="autoCloudUploadToggle" type="checkbox" style="margin-top:3px;">
             <span>本地比雲端多 150 題時自動上傳備份（保守模式）</span>
@@ -184,16 +196,16 @@
           <div class="actions compact">
             <button id="btn-google-login" type="button" class="ghost-btn">Google 登入</button>
             <button id="btn-google-logout" type="button" class="ghost-btn" style="display:none;">登出</button>
-            <button id="btn-smoke-write" type="button" class="ghost-btn" disabled>寫入測試資料</button>
-            <button id="btn-smoke-read" type="button" class="ghost-btn" disabled>讀取測試資料</button>
-            <button id="btn-cloud-upload" type="button" class="ghost-btn" disabled>上傳雲端備份</button>
-            <button id="btn-cloud-download" type="button" class="ghost-btn" disabled>下載雲端備份</button>
-            <button id="btn-local-restore" type="button" class="ghost-btn" disabled>還原同步前本機備份</button>
+            <button id="btn-smoke-write" type="button" class="ghost-btn" disabled>測試雲端寫入</button>
+            <button id="btn-smoke-read" type="button" class="ghost-btn" disabled>測試雲端讀取</button>
+            <button id="btn-cloud-upload" type="button" class="ghost-btn" disabled>上傳本機記憶到雲端</button>
+            <button id="btn-cloud-download" type="button" class="ghost-btn" disabled>下載雲端記憶到本機</button>
+            <button id="btn-local-restore" type="button" class="ghost-btn" disabled>還原下載前本機備份</button>
           </div>
           <pre id="sync-test-output" style="white-space:pre-wrap; margin-top:8px;"></pre>
         <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
-          <strong>第一次使用</strong>
-          <p style="margin:6px 0 0;">第一次使用者只須點擊 <strong>開始練習</strong> 即可。建議使用 <strong>Chrome 瀏覽器</strong> 開啟，整體相容性較佳。登入後若下載雲端記憶但畫面數據未立即更新，請手動刷新；本系統也會在下載套用成功後自動刷新一次。錯題 JSON 或列印版可丟入 GPT、NotebookLM 等 AI 工具，請它協助整理筆記、方證對照與易錯重點。</p>
+          <strong>雲端同步說明</strong>
+          <p style="margin:6px 0 0;">雲端同步需要 Google 登入並送出權限申請。未核准前仍可使用本機練習、錯題本、匯出本機完整記憶備份與匯入本機備份／錯題檔。</p>
         </div>
       </details>
     </section>
