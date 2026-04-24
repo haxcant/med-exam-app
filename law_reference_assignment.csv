@@ -1,0 +1,513 @@
+﻿id,category,page,prompt,law_basis,note
+traffic_law_choice-001,traffic_law_choice,2,汽車在隧道內行駛時,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_choice-002,traffic_law_choice,2,夜間跟隨前車行駛之車輛,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_choice-004,traffic_law_choice,2,汽車在夜間行經市區照明情況良好處應該,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_choice-008,traffic_law_choice,2,在內側車道行駛之汽車，利用外側車道超車,道路交通安全規則第98條,同向多車道路段車道使用規則
+traffic_law_choice-018,traffic_law_choice,3,行車至交岔路口，並已越過停止線，如果黃燈亮了，應該,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-019,traffic_law_choice,3,跟前車行到鐵路平交道前應該,道路交通安全規則第104條,平交道通過規則
+traffic_law_choice-039,traffic_law_choice,4,夜間行車交會，對方不變換近光燈時，應如何處理,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_choice-041,traffic_law_choice,4,載運危險物品車輛是否可進入八卦山或雪山隧道內,道路交通安全規則第84條,危險物品裝載及警示規定
+traffic_law_choice-043,traffic_law_choice,5,長隧道內設置停車彎，其目的是供,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-044,traffic_law_choice,5,汽車行駛於長隧道內,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-045,traffic_law_choice,5,汽車進入長隧道遇火災發生時，應熄火停車,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-046,traffic_law_choice,5,汽車行駛於長隧道遇前方火災發生時，其逃生原則,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-047,traffic_law_choice,5,長隧道之車行聯絡隧道(車行橫坑),高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-048,traffic_law_choice,5,長隧道內若前方發生火災時，為降低火災產生黑煙之危害，逃生時如何方能避免濃煙、高溫擴散危害,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-051,traffic_law_choice,5,學習駕駛證之學習駕車有效期間，自領證日起以幾年為限,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_choice-055,traffic_law_choice,5,汽車駕駛人，允許無駕駛執照之人，駕駛其車輛者應處罰,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-056,traffic_law_choice,5,汽車駕駛人駕駛汽車肇事致人受傷或死亡，應即時處理，如肇事致人重傷或死亡而逃逸者,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_choice-058,traffic_law_choice,6,報考職業駕照者，各科及格成績,道路交通安全規則第60條,考領各級駕照之資格與年齡
+traffic_law_choice-060,traffic_law_choice,6,職業駕駛執照自發照之日起每滿幾年審驗1 次,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-061,traffic_law_choice,6,學習駕駛證，以學習什麼車為限,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_choice-062,traffic_law_choice,6,領有小型車普通駕駛執照，可以駕駛,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-064,traffic_law_choice,6,汽車行駛於道路上哪些人需繫安全帶,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_choice-067,traffic_law_choice,6,領有學習駕駛證者應在何處學習駕駛,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_choice-069,traffic_law_choice,6,汽車行駛至交岔路口欲轉彎時，應距交岔路口多少公尺前顯示方向燈,道路交通安全規則第91條；道路交通安全規則第102條,起駛、轉彎、變換車道之燈光或手勢；交岔路口左右轉與車道使用
+traffic_law_choice-070,traffic_law_choice,6,駕駛執照破爛損毀不易辨明時，要,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-071,traffic_law_choice,6,汽車駕駛人將駕駛執照借供他人駕車者，應處罰,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-072,traffic_law_choice,6,汽車駕駛人使用偽造、變造或矇領之駕駛執照駕車者，應處,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-073,traffic_law_choice,6,駕駛執照遺失後應,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-075,traffic_law_choice,7,汽車顏色、燃料種類等，有變更時，應,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_choice-077,traffic_law_choice,7,自用小客車領有牌照，其出廠年份未滿幾年者，免予定期檢驗,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-078,traffic_law_choice,7,因患病、出國等事由，職業駕駛執照未能按時審驗時，可持原照及有關證明，向當地公路監理機關申請補辦審驗，但須在病癒或回國後,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-080,traffic_law_choice,7,領有汽車學習駕駛證，學習路線駕駛時，應由領有學習車類駕照之駕駛人，在旁指導監護,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_choice-081,traffic_law_choice,7,申請報考職業駕駛執照，最高年齡不得超過,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-082,traffic_law_choice,7,考領普通駕駛執照，最高年齡,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-083,traffic_law_choice,7,應考小型車普通駕駛執照者，須有學習駕駛多少時間之經歷,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-084,traffic_law_choice,7,應考小型車職業駕駛執照者，須有學習駕駛經歷,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-085,traffic_law_choice,7,駕駛人姓名、出生年月日、住址等有變更時，如何處理,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_choice-086,traffic_law_choice,7,駕駛執照受吊銷、註銷或吊扣處分時應如何處理,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-089,traffic_law_choice,8,癲癇疾病患者，檢具醫療院所醫師出具最近二年以上未發作診斷證明書者,道路交通安全規則第64條,體格檢查與健康條件
+traffic_law_choice-090,traffic_law_choice,8,受吊扣、吊銷駕駛執照之處分，尚未期滿者,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-091,traffic_law_choice,8,駕駛執照遺失時,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-094,traffic_law_choice,8,未領有汽車駕照駕駛小型車者應處罰鍰新臺幣,道路交通管理處罰條例第21條,無照、越級、吊扣期間或容許無照駕駛之處罰
+traffic_law_choice-095,traffic_law_choice,8,臨時停車停止時間,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_choice-100,traffic_law_choice,8,貨車裝載貨物寬度,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_choice-101,traffic_law_choice,8,汽車裝載危險物品停車時，應停於,道路交通安全規則第84條,危險物品裝載及警示規定
+traffic_law_choice-102,traffic_law_choice,8,裝載危險物品車輛，發現外洩或滲漏時應即,道路交通安全規則第84條,危險物品裝載及警示規定
+traffic_law_choice-103,traffic_law_choice,8,汽車駕駛人駕車，違反道路交通安全規則，因而肇事致人死亡者,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-104,traffic_law_choice,8,汽車駕駛人駕駛汽車肇事，雖無人受傷或死亡，卻未依規定處置且逃逸者，除處罰鍰外，並,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_choice-105,traffic_law_choice,8,汽車行駛至交岔路口，其設有劃分島，劃分快慢車道者，在慢車道上行駛之車輛,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-106,traffic_law_choice,9,對向行駛之左右轉彎車輛，已轉彎須進入同一車道時應讓,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-107,traffic_law_choice,9,駕駛人不在未劃分標線道路之中央右側駕車者，應處,道路交通安全規則第95條,未劃設分向設施道路應靠右行駛
+traffic_law_choice-109,traffic_law_choice,9,汽車行至號誌故障而無交通指揮人員指揮之交岔路口,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-110,traffic_law_choice,9,汽車行駛至交岔路口，其行進轉彎，遇有交通指揮人員指揮與燈光號誌並用時，以,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-111,traffic_law_choice,9,消防栓、消防車出入口，多少距離以內不得臨時停車,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_choice-115,traffic_law_choice,9,汽車駛至鐵路平交道前，如前面有車輛時，應俟前車駛離鐵路平交道多少公尺始得通過,道路交通安全規則第104條,平交道通過規則
+traffic_law_choice-116,traffic_law_choice,9,以下何種車輛應在車後方加漆牌照號碼,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-117,traffic_law_choice,9,行車中，駕駛人看到鐵路平交道標誌或標線後，應即將車速減低至時速,道路交通安全規則第104條,平交道通過規則
+traffic_law_choice-118,traffic_law_choice,9,汽車在同向二車道以上道路，速度較慢之小型汽車，應行駛,道路交通安全規則第98條,同向多車道路段車道使用規則
+traffic_law_choice-119,traffic_law_choice,9,汽車行駛至交岔路口，右轉彎時，應先,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-122,traffic_law_choice,10,裝載超長、超寬、超高及超重整體物品應,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_choice-124,traffic_law_choice,10,行車前，應對方向盤、煞車等機件,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-125,traffic_law_choice,10,隨車工具，應,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-126,traffic_law_choice,10,汽車起駛前，應,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-128,traffic_law_choice,10,汽車向右轉彎時,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-137,traffic_law_choice,11,汽車在峻狹坡道路會車時，應該,道路交通安全規則第100條,會車、山路、峻狹坡、夜間會車規則
+traffic_law_choice-138,traffic_law_choice,11,在未劃有分向標線之道路，或鐵路平交道，或不良道路會車時，應該,道路交通安全規則第104條,平交道通過規則
+traffic_law_choice-140,traffic_law_choice,11,領有臨時牌照之車輛,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-141,traffic_law_choice,11,前行車駕駛人聞後行車超車之喇叭聲，如車前路況無障礙時,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_choice-143,traffic_law_choice,11,在內側車道行駛之車輛，欲在交岔路口左轉彎時，應該,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-144,traffic_law_choice,11,汽車行近行人穿越道前，應該,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_choice-145,traffic_law_choice,11,鐵路平交道遮斷器未放下，或看守人員未表示停止時，應該,道路交通安全規則第104條,平交道通過規則
+traffic_law_choice-148,traffic_law_choice,11,汽車會車時，相互之間隔，不得少於,道路交通安全規則第100條,會車、山路、峻狹坡、夜間會車規則
+traffic_law_choice-150,traffic_law_choice,11,在設有彎道、坡路、狹橋、隧道標誌路段或鐵路平交道處,道路交通安全規則第104條；道路交通管理處罰條例第54條,平交道通過規則；平交道違規之處罰
+traffic_law_choice-152,traffic_law_choice,12,汽車迴車前應,道路交通安全規則第106條,迴車之禁止地點與程序
+traffic_law_choice-153,traffic_law_choice,12,汽車停車時應,道路交通安全規則第112條,停車地點與方式
+traffic_law_choice-154,traffic_law_choice,12,報廢之車輛,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-159,traffic_law_choice,12,應考聯結車駕照者，其經歷須,道路交通安全規則第60條,考領各級駕照之資格與年齡
+traffic_law_choice-160,traffic_law_choice,12,領有大貨車駕駛執照可駕駛,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-161,traffic_law_choice,12,兒童乘坐小客車時，應坐於,道路交通管理處罰條例第31條,未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_choice-163,traffic_law_choice,12,裝載危險物品之車輛，在橋樑、隧道、火場多少公尺範圍內，嚴禁停車,道路交通安全規則第84條,危險物品裝載及警示規定
+traffic_law_choice-164,traffic_law_choice,12,交岔路口、公共汽車招呼站多少公尺內不得臨時停車,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-165,traffic_law_choice,12,使用偽造、變造、或矇領之牌照者，應處,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-166,traffic_law_choice,12,汽車駕駛人有下列情形之一者，應施以道路交通安全講習,道路交通管理處罰條例第24條,道路交通安全講習制度
+traffic_law_choice-167,traffic_law_choice,13,汽車所有人已領有號牌而不懸掛或不依指定位置懸掛者，應處罰,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-168,traffic_law_choice,13,領有汽車駕照，駕駛重型機車者,道路交通管理處罰條例第21條,無照、越級、吊扣期間或容許無照駕駛之處罰
+traffic_law_choice-169,traffic_law_choice,13,汽車駕駛人、前座或小型車後座乘客未繫安全帶行駛於下列何種道路會受罰鍰之處罰,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_choice-170,traffic_law_choice,13,汽機車駕駛人酒後駕車，其吐氣酒精濃度超過規定標準但未涉刑事處罰者，應處,道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_choice-172,traffic_law_choice,13,汽車駕駛人，行車速度超過規定之最高時速40 公里以上者，處罰鍰新臺幣,道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_choice-175,traffic_law_choice,13,酒醉駕車或行經行人穿越道不讓行人優先通行因而致人傷亡，如應負刑責者,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_choice-179,traffic_law_choice,13,領有牌照之自用小客車，除使用液化石油氣及壓縮天然氣為燃料者外，檢驗次數應為,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-180,traffic_law_choice,14,汽車行駛於非高、快速公路之一般道路上，其駕駛人、前座或小型車後座乘客未繫安全帶者，應處駕駛人罰鍰新臺幣,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_choice-181,traffic_law_choice,14,汽車駕駛人於行駛道路時，以手持方式使用行動電話、電腦或其他相類功能裝置進行撥接、通話、數據通訊或其他有礙駕駛安全之行為者，處罰鍰新臺幣,道路交通安全規則第90條；道路交通管理處罰條例第31-1條,駕駛中不得手持通訊裝置；手持通訊裝置之處罰
+traffic_law_choice-182,traffic_law_choice,14,駕車酒精濃度超過規定標準，除當場移置保管該汽機車及吊扣其駕駛 執照1 至2 年，並處罰鍰新臺幣,道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_choice-183,traffic_law_choice,14,"酒精濃度超過規定標準駕車之違規人，於10 年內第2 次違反酒後駕車之規定，除處罰鍰新臺幣120,000 元，及當場移置保管該汽車，並應施以道路交通安全講習",道路交通管理處罰條例第24條,道路交通安全講習制度
+traffic_law_choice-184,traffic_law_choice,14,"兩輛以上之汽車在道路上競駛或競技者，除處罰汽車駕駛人新台幣30,000~90,000 元罰鍰，及當場禁止其駕駛，並應",道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_choice-185,traffic_law_choice,14,"汽車駕駛人若拒絕接受酒精濃度測試檢定者，除處罰鍰新臺幣180,000 元，並應施以道路交通安全講習",道路交通管理處罰條例第24條,道路交通安全講習制度
+traffic_law_choice-186,traffic_law_choice,14,8 公噸以上汽車未依規定裝設行車紀錄器及行車視野輔助系統者，處汽車所有人,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_choice-187,traffic_law_choice,14,"小型車駕駛執照吊扣期間駕駛小型車者，除處新臺幣6,000～24,000 元罰鍰，並當場禁止其駕駛外，並應",道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-190,traffic_law_choice,14,汽車所有人，明知駕駛人有酒後駕車之情形，而不予禁止者，除處罰鍰外，並應,道路交通安全規則第23條；道路交通安全規則第24條；道路交通管理處罰條例第16條,車輛異動登記項目；車籍、所有人或地址等變更登記；未依規定辦理變更登記之處罰
+traffic_law_choice-191,traffic_law_choice,14,牌照借供他車使用或使用他車牌照行駛者，除罰鍰外，並應,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-192,traffic_law_choice,15,汽車駕駛人行駛高速公路、快速公路而不遵守管制規定之處罰,道路交通管理處罰條例第33條,高速或快速公路違反管制規定之處罰
+traffic_law_choice-193,traffic_law_choice,15,汽車駕駛人超速駕車者應處以,道路交通安全規則第93條；道路交通管理處罰條例第40條,一般道路速限規則；一般超速或低於最低速限之處罰
+traffic_law_choice-194,traffic_law_choice,15,汽車駕駛人行經有燈光號誌管制之交岔路口闖紅燈者,道路交通安全規則第102條；道路交通管理處罰條例第53條,交岔路口轉彎、號誌、指揮與讓車規則；闖紅燈與紅燈右轉之處罰
+traffic_law_choice-195,traffic_law_choice,15,在鐵路平交道超車、迴車、倒車或停車者，應處以,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_choice-196,traffic_law_choice,15,貨車雖未超載但超過所行駛橋樑之載重限制者，應處以罰鍰並記,道路交通安全規則第77條；道路交通管理處罰條例第29條,裝載貨物之長寬高及乘載規定；超限裝載、超重或未依規定過磅之處罰
+traffic_law_choice-197,traffic_law_choice,15,強行闖越鐵路平交道之處罰是,道路交通安全規則第104條；道路交通管理處罰條例第54條,平交道通過規則；平交道違規之處罰
+traffic_law_choice-198,traffic_law_choice,15,汽車駕駛人因違規記點，2 年內經吊扣駕駛執照2 次，再違反記點規定者，處以,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-199,traffic_law_choice,15,汽車不依規定裝載危險物品者，除罰鍰外並,道路交通安全規則第84條；道路交通管理處罰條例第29條,危險物品裝載及警示規定；危險物品裝載違規之處罰
+traffic_law_choice-201,traffic_law_choice,15,駕駛裝載危險物品車輛之駕駛員,道路交通安全規則第84條,危險物品裝載及警示規定
+traffic_law_choice-205,traffic_law_choice,15,汽車所有人或汽車駕駛人接獲違反道路交通管理事件通知單後，於,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_choice-207,traffic_law_choice,16,汽車駕駛人駕駛汽車肇事無人受傷或死亡，且汽車尚能行駛而不儘速將汽車位置標繪移置路邊，致妨礙交通者處罰,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_choice-208,traffic_law_choice,16,汽車肇事逃逸案件，經通知汽車所有人到場說明，無故不到場說明，或不提供汽車駕駛人相關資料者,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_choice-209,traffic_law_choice,16,汽車駕駛人無照駕駛或酒醉駕車因而致人受傷或死亡，依法應負刑事責任者，加重其刑至,道路交通管理處罰條例第21條,無照、越級、吊扣期間或容許無照駕駛之處罰
+traffic_law_choice-212,traffic_law_choice,16,汽車駕駛人，駕車闖紅燈除罰鍰外並記違規點數,道路交通管理處罰條例第53條,闖紅燈與紅燈右轉之處罰
+traffic_law_choice-213,traffic_law_choice,16,下列何種違規行為得對汽車所有人逕行舉發處罰,道路交通安全規則第23條；道路交通安全規則第24條；道路交通管理處罰條例第16條,車輛異動登記項目；車籍、所有人或地址等變更登記；未依規定辦理變更登記之處罰
+traffic_law_choice-214,traffic_law_choice,16,拼裝車輛未經核准 領用牌證行駛或報廢車仍行駛道路者，其車輛,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-215,traffic_law_choice,16,汽車駕駛人無照駕駛大貨車、大客車、聯結車之行為，經舉發後除罰鍰外，並,道路交通管理處罰條例第21條,無照、越級、吊扣期間或容許無照駕駛之處罰
+traffic_law_choice-216,traffic_law_choice,16,汽機車駕駛人，駕駛汽機車經酒精濃度測試檢定超過標準值，除罰鍰、 當場移置保管該汽機車外，並吊扣其駕駛執照,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-217,traffic_law_choice,16,駕駛汽車行駛於高速公路或快速公路，汽車駕駛人、前座或小型車後座乘客未繫安全帶者，將處駕駛人罰鍰新臺幣,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_choice-218,traffic_law_choice,16,裝置高音量喇叭或其他產生噪音器物者，處汽車所有人罰鍰並,道路交通安全規則第23條；道路交通安全規則第24條；道路交通管理處罰條例第16條,車輛異動登記項目；車籍、所有人或地址等變更登記；未依規定辦理變更登記之處罰
+traffic_law_choice-219,traffic_law_choice,16,汽車駕駛人於道路上蛇行駕駛，應處以,道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_choice-223,traffic_law_choice,17,"汽車駕駛人無正當理由，不依規定接受道路交通安全講習者，處新臺幣1,800 元罰鍰，經再通知依限參加講習，逾期6 個月以上仍不參加者，應罰",道路交通管理處罰條例第24條,道路交通安全講習制度
+traffic_law_choice-224,traffic_law_choice,17,酒後駕車酒精濃度超過規定標準被當場移置保管車輛，其罰鍰,道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_choice-225,traffic_law_choice,17,汽車所有人或駕駛人於辦理車輛過戶、停駛、復駛、繳交牌照、註銷牌照、換發牌照或駕駛執照前,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-226,traffic_law_choice,17,汽車駕駛人有下列何種情況，須參加道路交通安全講習,道路交通管理處罰條例第24條,道路交通安全講習制度
+traffic_law_choice-227,traffic_law_choice,17,汽車進入隧道內可否任意停車、臨時停車、超車或倒車,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_choice-232,traffic_law_choice,17,在高速或快速公路同一車道上行駛之小型車輛時速在70 公里時，前後兩車間最少距離應為,高速公路及快速公路交通管制規則第6條,高速或快速公路行車安全距離
+traffic_law_choice-233,traffic_law_choice,17,行駛高速或快速公路之汽車除在指定之場所外,高速公路及快速公路交通管制規則第12條,高速或快速公路停車與路肩暫停規則
+traffic_law_choice-234,traffic_law_choice,18,汽車裝載危險物品行駛高速或快速公路時，應行駛,高速公路及快速公路交通管制規則第8條；道路交通安全規則第84條,高速或快速公路車道使用規則；危險物品裝載及警示規定
+traffic_law_choice-236,traffic_law_choice,18,在高速公路之交通事故由何機關處理,高速公路及快速公路交通管制規則第3條,高速公路及快速公路管理機關
+traffic_law_choice-237,traffic_law_choice,18,在高速公路行車時突然發現車輛性能低落，車速無法達到60 公里時應,高速公路及快速公路交通管制規則第14條,上高速或快速公路前檢查車況及途中不得缺水缺電缺燃料
+traffic_law_choice-239,traffic_law_choice,18,正常天候下，高速或快速公路之最高行車速度限制為,高速公路及快速公路交通管制規則第5條,高速或快速公路速限及低能見度行車
+traffic_law_choice-240,traffic_law_choice,18,濃霧、濃煙、大雨、強風，致能見度甚低時在高速或快速公路行駛之車輛時速,高速公路及快速公路交通管制規則第5條,高速或快速公路速限及低能見度行車
+traffic_law_choice-245,traffic_law_choice,18,汽車行進中，發現鄰側車道車輛已開啟方向燈，有變換車道意圖時應,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_choice-249,traffic_law_choice,19,在高速或快速公路行車錯過了出口匝道,高速公路及快速公路交通管制規則第9條,高速或快速公路禁止事項
+traffic_law_choice-250,traffic_law_choice,19,梅花型的交通標誌是,道路交通標誌標線號誌設置規則第12條,國道路線編號標誌樣式
+traffic_law_choice-251,traffic_law_choice,19,高速或快速公路之內側車道為超車道，但小型車輛於不堵塞行車之狀況下,高速公路及快速公路交通管制規則第8條,高速或快速公路車道使用規則
+traffic_law_choice-253,traffic_law_choice,19,行駛高速或快速公路欲變換車道時，除顯示方向燈外，最重要的是,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_choice-256,traffic_law_choice,19,行駛高速或快速公路駛入主線,高速公路及快速公路交通管制規則第7條,由交流道或匝道進入主線之規則
+traffic_law_choice-260,traffic_law_choice,19,夜間會車如來車以強烈的頭燈或遠光燈照射，駕駛人應,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_choice-262,traffic_law_choice,19,汽車肇事後,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-263,traffic_law_choice,19,對地區鑑定會之汽車肇事責任鑑定有異議時，應,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-265,traffic_law_choice,20,超速是肇事的主因之一，預防之道,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-266,traffic_law_choice,20,車輛於交岔路口左轉，以下何者為錯,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-275,traffic_law_choice,20,酒後開車，對駕駛人會產生「視覺之隧道效應」，駕駛者猶如在隧道中行車，前有亮光但四周漆黑，故酒後駕車,道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_choice-281,traffic_law_choice,21,汽車駕駛人駕駛汽車經測試檢定，其吐氣所含酒精濃度不得達每公升,道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_choice-282,traffic_law_choice,21,汽車肇事，傷者有休克現象時臉色呈,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-288,traffic_law_choice,21,小客車附載幼童未依規定安置於安全椅者，應處駕駛人,道路交通管理處罰條例第31條,未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_choice-291,traffic_law_choice,22,汽車號牌遺失不報請補發，經舉發後仍不辦理而行駛者,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-292,traffic_law_choice,22,"汽車駕駛人對幾歲以下或需要特別看護之兒童，單獨留置於車內者，處駕駛人新臺幣3,000 元罰鍰，並施以4 小時道路交通安全講習",道路交通管理處罰條例第24條,道路交通安全講習制度
+traffic_law_choice-293,traffic_law_choice,22,"汽車駕駛人行車速度，超過規定之最高時速多少公里以上者，處新臺幣6,000～36,000 元罰鍰，並當場禁止其駕駛",道路交通安全規則第93條；道路交通管理處罰條例第40條,一般道路速限規則；一般超速或低於最低速限之處罰
+traffic_law_choice-295,traffic_law_choice,22,汽車駕駛人駕駛營業大客車，因酒後駕駛應吊銷其駕駛執照，並,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-296,traffic_law_choice,22,經終身吊銷汽車駕駛執照之受處分人，如為肇事致人死亡案件，經吊銷駕駛執照處分執行已逾幾年，得向公路主管機關申請考領駕駛執照,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-297,traffic_law_choice,22,大型汽車在同向三車道以上之道路，除準備左轉彎外，不得行駛,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-299,traffic_law_choice,22,適當的跟車距離，為什麼可以防止肇事，因為,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-305,traffic_law_choice,23,汽車駕駛人駕駛汽車肇事，無人受傷或死亡且汽車尚能行駛，應優先,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-306,traffic_law_choice,23,汽車肇事後在地面標繪相關證物位置後，下列何種狀況應將車輛立即移至路邊，切勿妨礙交通,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-307,traffic_law_choice,23,汽車肇事後在最高速限超過50~60 公里之路段，應在車後多少公尺處放置車輛故障標誌,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_choice-308,traffic_law_choice,23,汽車肇事時，若以路權責任歸屬，下列何者為正確,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_choice-313,traffic_law_choice,23,汽車行經交岔路口，行車管制號誌為綠燈時,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-314,traffic_law_choice,23,行車至交岔路口，號誌為閃光黃燈時，應該如何處置才正確,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-315,traffic_law_choice,23,汽車行經無號誌管制之交岔路口，比較安全的做法是,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-319,traffic_law_choice,23,對向行駛之汽車，左右轉彎進入二車道以上之道路時,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-359,traffic_law_choice,26,後車門之兒童安全鎖，其作用是避免兒童於後座不小心開啟車門，致使發生危險。當兒童安全鎖置於關閉位置時,道路交通安全規則第112條,停車地點與方式
+traffic_law_choice-382,traffic_law_choice,28,領有學習駕駛證學習道路駕駛之行駛路線，須報請哪個機關核准,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_choice-383,traffic_law_choice,28,領有學習駕駛證學習道路駕駛時，應在哪些道路實施始為恰當,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_choice-384,traffic_law_choice,28,領有學習駕駛證學習道路駕駛時，如未領有駕駛執照之人在旁監護指導者，屬違規行為，應處以,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-385,traffic_law_choice,28,道路駕駛練習時除攜帶行車執照外，並應隨身攜帶什麼證件,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_choice-386,traffic_law_choice,28,雖帶有學習駕駛證，而在未經許可之道路或規定之時間，開車練習道路駕駛者,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_choice-388,traffic_law_choice,28,禁止臨時停車路段，其禁止時間為每日之,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_choice-389,traffic_law_choice,28,禁止臨時停車路段,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_choice-391,traffic_law_choice,28,停車時應依車輛順行方向緊靠道路右側，但單行道應緊靠路邊停車；其右側前後輪胎外側距離緣石或路面邊緣，不得逾,道路交通安全規則第112條,停車地點與方式
+traffic_law_choice-392,traffic_law_choice,28,小型汽車於路邊臨時停車時，應依車輛順行方向緊靠道路右側，其右側前後輪胎外側距離緣石或路面邊緣不得超過,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_choice-393,traffic_law_choice,28,汽車須臨時停車時，應在無禁止臨時停車路段,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_choice-395,traffic_law_choice,29,行駛於長度4 公里以上或經管理機關公告之隧道時小型車應保持,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-396,traffic_law_choice,29,汽車行駛於長度4 公里以上或經管理機關公告之隧道內因隧道壅塞、事故導致車速低於每小時20 公里或停止時，仍應保持,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-398,traffic_law_choice,29,汽車行駛至設有禁止迴車標誌、禁止左轉標誌，劃有分向限制線、禁止超車線或禁止變換車道線之路段,道路交通安全規則第97條,雙向二車道路段行駛及分向線規則
+traffic_law_choice-399,traffic_law_choice,29,汽車在設有彎道、陡坡、狹橋、隧道標誌之路段，或是鐵路平交道路段,道路交通安全規則第104條,平交道通過規則
+traffic_law_choice-404,traffic_law_choice,29,領有牌照之自用小客車，其出廠年份超過10 年以上者，每年至少定期檢驗,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-406,traffic_law_choice,29,小型車行駛高速公路或快速公路，前後兩車間之行車安全距離為，在正常天候狀況下，依車輛速率之每小時公里數值,高速公路及快速公路交通管制規則第6條,高速或快速公路行車安全距離
+traffic_law_choice-409,traffic_law_choice,30,汽車駕駛人行駛高速公路，未保持安全距離因而肇事致人死亡者，處罰,高速公路及快速公路交通管制規則第6條；道路交通管理處罰條例第33條,高速或快速公路行車安全距離；高速或快速公路違反管制規定之處罰
+traffic_law_choice-413,traffic_law_choice,30,遇有內側車道封閉施工時，可否使用外側路肩通行,高速公路及快速公路交通管制規則第8條,高速或快速公路車道使用規則
+traffic_law_choice-414,traffic_law_choice,30,計程車駕駛人對乘客繫安全帶之規定，已盡告知義務乘客仍不繫安全帶應處罰,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_choice-418,traffic_law_choice,30,行駛於長度4 公里以上或經管理機關公告之隧道時大型車應保持,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_choice-424,traffic_law_choice,31,汽車駕駛人，行經有燈光號誌管制之大眾捷運系統車輛共用通行交岔路口闖紅燈者,道路交通安全規則第102條；道路交通管理處罰條例第53條,交岔路口轉彎、號誌、指揮與讓車規則；闖紅燈與紅燈右轉之處罰
+traffic_law_choice-425,traffic_law_choice,31,汽車行駛至有大眾捷運系統車輛共用通行，但聲光號誌故障而無交通指揮人員指揮之交岔路口時，駕駛人應,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_choice-431,traffic_law_choice,31,汽車駕駛人駕駛汽車肇事，無人受傷或死亡汽車尚能行駛，而不儘速將汽車位置標繪移置路邊，致妨礙交通者，處駕駛人新臺幣,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_choice-432,traffic_law_choice,31,發生道路交通事故，駕駛人或肇事人應先為處置不包含以下那項,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_choice-434,traffic_law_choice,32,汽車駕駛人駕駛汽車肇事，無人受傷或死亡而未依規定處置者，處新臺幣,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_choice-435,traffic_law_choice,32,汽車駕駛人肇事，無人傷亡汽車尚能行駛，應先標繪車輛位置及痕跡證據後，將車輛移置不妨礙交通之處，「標繪」方式包含,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_choice-436,traffic_law_choice,32,汽車駕駛人拆除消音器造成噪音，處罰鍰丶當場禁止其行駛丶吊扣汽車牌照6 個月，於1 年內再犯者，處,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_choice-437,traffic_law_choice,32,車輛行經輕軌號誌化路口，如何安全通過路口,道路交通安全規則第94條；道路交通安全規則第102條,大眾捷運系統車輛共用通行之避讓；共用通行交岔路口之通行規則
+traffic_law_choice-444,traffic_law_choice,33,汽車駕駛人，駕駛汽車行近行人穿越道或其他依法可供行人穿越之交岔路口，有行人穿越時，不暫停讓行人先行通過者，處,道路交通安全規則第103條；道路交通管理處罰條例第44條,行近行人穿越道應暫停讓行人；未讓行人或致人受傷之處罰
+traffic_law_choice-445,traffic_law_choice,33,汽車駕駛人，駕駛汽車行近行人穿越道或其他依法可供行人穿越之交岔路口，有行人穿越時，不暫停讓行人先行通過，因而肇事致人受傷者，處,道路交通安全規則第103條；道路交通管理處罰條例第44條,行近行人穿越道應暫停讓行人；未讓行人或致人受傷之處罰
+traffic_law_choice-446,traffic_law_choice,33,依據車輛具駕駛輔助系統功能的車主手冊內容，該功能遇下列何種道路情境可能無法即時正常運作正確辨識，進而造成交通事故危險,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_choice-447,traffic_law_choice,33,在使用駕駛輔助系統時，駕駛人應如何應對突然的交通情況變化,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_choice-449,traffic_law_choice,33,下列哪項不是使用車輛駕駛輔助系統的優點,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_choice-450,traffic_law_choice,33,使用車輛駕駛輔助系統時最重要的注意事項是什麼,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_truefalse-006,traffic_law_truefalse,2,綠燈允許你依序通過，但駕駛人仍應注意違規闖紅燈的人和車。,道路交通管理處罰條例第53條,闖紅燈與紅燈右轉之處罰
+traffic_law_truefalse-009,traffic_law_truefalse,2,後面汽車為避免灰塵而超越我車，我也討厭灰塵，只有再超越前車。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-012,traffic_law_truefalse,2,隨便按鳴喇叭，製造噪音，是不道德的行為。,道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_truefalse-020,traffic_law_truefalse,3,夜間會車時應使用近光燈。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-021,traffic_law_truefalse,3,聞後車喇叭聲或顯示超車燈光，要求讓其超車時，如車前路況無障礙，應減速靠邊行駛，並顯示燈光或手勢表示允讓。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-023,traffic_law_truefalse,3,如遇老弱婦孺身心障礙者在行人穿越道上行動緩慢，應按鳴喇叭促其快速通過。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-030,traffic_law_truefalse,3,不肇事，不違反道路交通安全規則是行車安全的主要條件。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-049,traffic_law_truefalse,4,開車肇事致人死傷，如果出於故意，是依故意殺人或傷害罪處理。,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-051,traffic_law_truefalse,4,不良的駕駛習慣都是由於不正確、不適當的自然習性養成，諸如：跟車太近、任意變換車道超車、搶道轉彎、開快車超速或匆忙駕駛等都是常見錯誤的行車動作。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-052,traffic_law_truefalse,4,轉向未先顯示方向燈、未注意後方來車等均是車輛轉彎肇事的主要原因。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-053,traffic_law_truefalse,4,駕車起駛進入車道或變換車道前，應先顯示方向燈，注視照後鏡及頭部擺動察看隔鄰車道汽車動態，藉以消除照後鏡之盲點。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-055,traffic_law_truefalse,4,"公路長隧道為一種特殊空間，呈現密閉化、地下化等特性，發生火災時其溫度往往超過 1,000℃，若發生事故，可能引發重大災害。",高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-056,traffic_law_truefalse,4,長隧道內禁止載運危險物品、超長、超寬、超高、及超重汽車行駛。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-059,traffic_law_truefalse,4,汽車行駛於長隧道內，中途嚴禁停車添加燃油。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-060,traffic_law_truefalse,4,汽車進入隧道內，因隧道內光線較為昏暗，應開亮頭燈。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-061,traffic_law_truefalse,5,汽車在隧道內遇事故時，儘可能將汽車停放於路邊設置之緊急停車彎，並開啟危險警告燈。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-062,traffic_law_truefalse,5,若汽車因故停滯於長隧道內，而導致空氣品質不佳或有害氣體濃度過高時，用路人應暫時將座車熄火，以減少廢氣產生。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-063,traffic_law_truefalse,5,行經長隧道內若遇火災，應保持鎮定，車輛立即向隧道兩側停靠，讓出通道以利救災車輛進入。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-064,traffic_law_truefalse,5,行駛於長隧道內若發生火災時，應熄火停車，所有人員攜帶貴重物品下車，鑰匙留置車內，並不得上鎖，以便搶救人員移置車輛。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-065,traffic_law_truefalse,5,汽車行駛於長隧道遇發生火災時，為降低火災產生黑煙之危害，逃生時應儘量降低身形，往車行反方向疏散。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-066,traffic_law_truefalse,5,癲癇疾病患者，檢具醫療院所醫師出具最近二年以上未發作診斷證明書者，得報考機車及普通小型車駕照。,道路交通安全規則第64條,體格檢查與健康條件
+traffic_law_truefalse-067,traffic_law_truefalse,5,酒精、 麻醉劑或興奮劑中毒者，不得參加駕駛執照考驗。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-068,traffic_law_truefalse,5,小型貨車裝載貨物，由地面算起，高度不得超過2.85 公尺。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-069,traffic_law_truefalse,5,小型貨車裝載貨物，由地面算起，高度不得超過3 公尺。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-071,traffic_law_truefalse,5,汽車車廂以外不得載人。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-072,traffic_law_truefalse,5,駕駛執照考驗，路考70 分及格。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-077,traffic_law_truefalse,5,汽車所有人、駕駛人，接獲違反道路交通管理事件通知單後，於30日內得不經裁決，逕依罰鍰基準規定，向指定處所繳納結案。,道路交通安全規則第23條；道路交通安全規則第24條；道路交通管理處罰條例第16條,車輛異動登記項目；車籍、所有人或地址等變更登記；未依規定辦理變更登記之處罰
+traffic_law_truefalse-078,traffic_law_truefalse,5,已領有大貨車駕駛執照者，得駕駛曳引車及小型車。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-079,traffic_law_truefalse,5,受終身不得考領駕駛執照之處分者，不得參加駕駛執照考驗。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間者，不在此限。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-081,traffic_law_truefalse,6,領有駕駛執照之駕駛人，在駕照有效期間內，得憑原照換領同等車類之國際駕駛執照。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-083,traffic_law_truefalse,6,駕駛執照失效，應即繳回當地公路監理機關。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-084,traffic_law_truefalse,6,駕駛人死亡時，應由關係人將駕駛執照繳回當地公路監理機關。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-086,traffic_law_truefalse,6,不依規定或利用不正當手段考領之駕駛執照，公路監理機關即行註銷並追繳之。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-087,traffic_law_truefalse,6,領有互惠國發給之國際駕駛執照，在有效期間內，在我國境內停留超過30 天以上者，須向監理機關辦理簽證後，始可駕車。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-088,traffic_law_truefalse,6,汽車所有人明知駕駛人有酒精濃度超過規定標準、吸食毒品、迷幻藥等而不予禁止駕駛者，除處罰鍰外，並吊扣該汽車牌照2 年。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-089,traffic_law_truefalse,6,汽車駕駛人，連續駕車超過8 小時，如應歸責於汽車所有人者，吊扣其汽車牌照3 個月。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-093,traffic_law_truefalse,6,駕駛執照，是由駕駛人向公路監理機關，申請登記考驗及格後發給。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-094,traffic_law_truefalse,6,抗拒執行交通勤務之警察，或依法執行交通稽查人員之稽查取締，因而引起傷害或死亡者，除罰鍰及吊銷駕照外，並終身不得再考領駕照。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間者，不在此限。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-095,traffic_law_truefalse,6,駕駛執照遺失或損毀時，應向公路監理機關申辦補發或換發。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-096,traffic_law_truefalse,6,裝載危險性之物品，停車時應停在空曠陰涼場所，並須與其他車輛隔離，裝箱外面應粘貼顯明之危險品標籤。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-098,traffic_law_truefalse,6,在峻狹坡路，下坡車未讓上坡車先行，或上坡車在坡下未讓已駛至中途之下坡車駛過而爭先上坡，或在山路行車，靠山壁車未讓道路外緣車優先通過者，均處以罰鍰。,道路交通安全規則第100條,會車、山路、峻狹坡、夜間會車規則
+traffic_law_truefalse-100,traffic_law_truefalse,6,職業駕駛執照，應自發照之日起，每滿兩年審驗1 次。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-102,traffic_law_truefalse,7,人行天橋及人行地下道、行人穿越道等，非不得已才供行人通行。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-104,traffic_law_truefalse,7,汽車駕駛人駕車肇事，無人受傷或死亡，應依規定處置，若逃逸者，除處罰鍰外，並吊扣其駕駛執照。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-106,traffic_law_truefalse,7,報廢登記之汽車仍行駛者，處汽車所有人罰鍰，並禁止其行駛，車輛並沒入之。,道路交通安全規則第23條；道路交通安全規則第24條；道路交通管理處罰條例第16條,車輛異動登記項目；車籍、所有人或地址等變更登記；未依規定辦理變更登記之處罰
+traffic_law_truefalse-107,traffic_law_truefalse,7,汽車駕駛人允許無駕照之人駕駛其車輛者，吊扣其駕駛執照。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-108,traffic_law_truefalse,7,駕車不依規定通過行人穿越道，致使行人傷亡時，依法應負刑責者加重其刑至二分之一。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-109,traffic_law_truefalse,7,檢舉汽車肇事或協助救護肇事受傷者，以及優良駕駛人，政府均訂有獎勵辦法。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-110,traffic_law_truefalse,7,汽車駕駛人駕車肇事，致人重傷或死亡而逃逸者，吊銷其駕駛執照，並不得再考領。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間者，不在此限。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-112,traffic_law_truefalse,7,駕車闖紅燈因而肇事致人重傷者，無須吊扣其駕照。,道路交通管理處罰條例第53條,闖紅燈與紅燈右轉之處罰
+traffic_law_truefalse-113,traffic_law_truefalse,7,汽車駕駛人駕車肇事，無人受傷或死亡應依規定處理，逃逸者，除處罰鍰並吊銷其駕駛執照。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-114,traffic_law_truefalse,7,"汽車行駛於高速公路、快速公路或設站管制之道路，未依規定保持安全距離，處汽車駕駛人新臺幣3,000~6,000 元之罰鍰。",高速公路及快速公路交通管制規則第6條；道路交通管理處罰條例第33條,高速或快速公路行車安全距離；高速或快速公路違反管制規定之處罰
+traffic_law_truefalse-116,traffic_law_truefalse,7,駕駛執照考驗，交通規則及格標準為90 分。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-118,traffic_law_truefalse,7,駕駛執照，可以借供他人使用。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-119,traffic_law_truefalse,7,學習駕駛證，可以學習駕駛大客車。,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_truefalse-120,traffic_law_truefalse,7,貨車裝載貨物寬度，可以超出車身半公尺。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-123,traffic_law_truefalse,8,汽車駕駛人駕車，違反道路交通安全規則，因而肇事致人重傷者，吊扣其駕駛執照。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-126,traffic_law_truefalse,8,駕駛人酒精濃度超過規定標準，駕車肇事致人重傷或死亡者，吊銷駕照並停考1 年。,道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_truefalse-128,traffic_law_truefalse,8,利用汽車犯罪，經判決有期徒刑以上之刑確定者，吊銷其駕照終身不得再考領駕照。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間者，不在此限。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-130,traffic_law_truefalse,8,廂式貨車裝載貨物，長寬均可超出車廂30 公分。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-133,traffic_law_truefalse,8,受吊銷、吊扣駕駛執照處分，尚未屆滿限制報考期限者，不得參加駕照考驗。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-134,traffic_law_truefalse,8,受吊銷、吊扣駕照處分，尚未屆滿限制報考期限者，繳罰鍰後即可參加駕照考驗。,道路交通安全規則第62條,不得報考駕照之情形
+traffic_law_truefalse-135,traffic_law_truefalse,8,汽車駕駛人在1 年內，違規記點共達6 點以上者，應施以道路交通安全講習。,道路交通管理處罰條例第24條,道路交通安全講習制度
+traffic_law_truefalse-137,traffic_law_truefalse,8,汽車右轉彎時，應先顯示前後右邊方向燈，或由駕駛人作左臂向上手掌向右微曲之手勢。,道路交通安全規則第91條；道路交通安全規則第102條,起駛、轉彎、變換車道之燈光或手勢；交岔路口左右轉與車道使用
+traffic_law_truefalse-140,traffic_law_truefalse,9,夜間會車，應用遠光燈。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-142,traffic_law_truefalse,9,汽車駕駛人行經多車道之圓環，可以不讓內側車道之車輛先行。,高速公路及快速公路交通管制規則第8條,高速或快速公路車道使用規則
+traffic_law_truefalse-143,traffic_law_truefalse,9,汽車在雙向二車道行駛時，在劃有分向限制線之路段，可以在該路段駛入對方來車之車道內。,道路交通安全規則第97條,雙向二車道路段行駛及分向線規則
+traffic_law_truefalse-144,traffic_law_truefalse,9,汽車行駛於雙向二車道，在劃有行車分向線之路段，超車時得駛越，但不能並行競駛。,道路交通安全規則第97條,雙向二車道路段行駛及分向線規則
+traffic_law_truefalse-149,traffic_law_truefalse,9,臨時停車，係指停車未滿3 分鐘，並保持立即行駛狀態。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-150,traffic_law_truefalse,9,汽車行駛至交岔路口，其行進轉彎，遇有交通指揮人員之指揮與燈光號誌並用時，以交通指揮人員之指揮為準。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-152,traffic_law_truefalse,9,行人穿越道是指在道路上以枕木紋或斑馬紋之標線標劃，供行人穿越道路之地方。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-153,traffic_law_truefalse,9,"汽車駕駛人行駛於道路時，以手持方式使用行動電話、電腦或其他相類功能裝置進行撥接、通話、數據通訊或其他有礙駕駛安全之行為者，處新臺幣1,000 元罰鍰。",道路交通安全規則第90條；道路交通管理處罰條例第31-1條,駕駛中不得手持通訊裝置；手持通訊裝置之處罰
+traffic_law_truefalse-156,traffic_law_truefalse,9,汽車在同一車道行駛時，除擬超越前車外，後車與前車之間，應保持隨時可以煞停之距離。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-157,traffic_law_truefalse,9,在山路行車交會時，靠山壁車輛，應讓道路外緣車優先通過。,道路交通安全規則第100條,會車、山路、峻狹坡、夜間會車規則
+traffic_law_truefalse-158,traffic_law_truefalse,10,超車時，應顯示左方向燈，並於前車左邊保持半公尺以上之間隔超過，行至安全距離後，再顯示右方向燈駛入原行路線。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-159,traffic_law_truefalse,10,汽車行至無號誌或號誌故障而無交通指揮人員指揮之交岔路口，未劃分幹、支線道，且車道數相同時，如同為直行車或轉彎車者，左方車應暫停，讓右方車先行。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-162,traffic_law_truefalse,10,行車時行車執照、 駕駛執照及其他法定證件，均須隨身攜帶。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-163,traffic_law_truefalse,10,行車不必攜帶隨車工具。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-164,traffic_law_truefalse,10,行車起駛前進，不必顯示方向燈。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-166,traffic_law_truefalse,10,汽車除行駛於單行道外，均應靠右行駛，但遇有特殊情況，必須行駛左側道路時，應減速慢行，並注意前方來車及行人。,道路交通安全規則第95條,未劃設分向設施道路應靠右行駛
+traffic_law_truefalse-167,traffic_law_truefalse,10,汽車在雙向二車道行駛時，均應在遵行車道內行駛。,道路交通安全規則第97條,雙向二車道路段行駛及分向線規則
+traffic_law_truefalse-168,traffic_law_truefalse,10,汽車行駛於劃有路面邊線之單行道上，除準備停車或臨時停車外，不得駛出路面邊線。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-169,traffic_law_truefalse,10,執行任務中的消防車、救護車、警備車、工程救險車，在同向二車道以上之道路行駛時，內外側車道均可行駛。,道路交通安全規則第98條,同向多車道路段車道使用規則
+traffic_law_truefalse-170,traffic_law_truefalse,10,汽車在同向二車道以上道路行駛，變換車道時，應先顯示燈光或手勢，並須保持安全距離。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-172,traffic_law_truefalse,10,汽車行經多車道之圓環，應讓內側車道之車輛先行。,高速公路及快速公路交通管制規則第8條,高速或快速公路車道使用規則
+traffic_law_truefalse-173,traffic_law_truefalse,10,在倒車時，應顯示倒車燈光或手勢後，謹慎緩慢後倒，並應注意其他車輛及行人。,道路交通安全規則第110條,倒車之禁止地點與程序
+traffic_law_truefalse-174,traffic_law_truefalse,10,在同向二車道以上之道路，小型汽車內外側車道均可行駛。但不得任意變換車道行駛。,道路交通安全規則第98條,同向多車道路段車道使用規則
+traffic_law_truefalse-176,traffic_law_truefalse,10,汽車在同向二車道以上之道路行駛，除準備停車或臨時停車外，不得駛出路面邊線或跨越兩條車道行駛。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-177,traffic_law_truefalse,10,設有左右轉彎專用車道之交岔路口，直行車不得占用轉彎專用車道。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-178,traffic_law_truefalse,11,汽車在未劃有分向標線之道路，或鐵路平交道或不良道路交會時，應減速慢行。,道路交通安全規則第104條,平交道通過規則
+traffic_law_truefalse-179,traffic_law_truefalse,11,對面有來車，或前行車連貫二輛以上時，不得超車。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-181,traffic_law_truefalse,11,前行車駕駛人聞後行車按鳴喇叭，如車前路況無障礙，應即減速靠邊或表示允讓。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-183,traffic_law_truefalse,11,交岔路口有交通指揮人員指揮，又有燈光號誌，應以燈光號誌為準。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-184,traffic_law_truefalse,11,汽車行駛至交岔路口欲左轉彎時，應距交岔路口30 公尺前顯示方向燈或手勢，換入內側車道或左轉車道，行至交岔路口中心處左轉，並不得佔用來車車道搶先左轉。,道路交通安全規則第91條；道路交通安全規則第102條,起駛、轉彎、變換車道之燈光或手勢；交岔路口左右轉與車道使用
+traffic_law_truefalse-187,traffic_law_truefalse,11,在多車道的圓環，應讓外側車道之車輛先行。,道路交通安全規則第98條,同向多車道路段車道使用規則
+traffic_law_truefalse-188,traffic_law_truefalse,11,交岔路口，因特殊需要另設有標線、標誌者，應依其指示行車。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-189,traffic_law_truefalse,11,汽車行近行人穿越道前，應減速慢行，在行人穿越道上有人穿越時，應暫停讓行人先行通過。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-190,traffic_law_truefalse,11,在行人穿越道上，有人穿越時，汽車仍可慢行通過。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-191,traffic_law_truefalse,11,行近鐵路平交道遮斷器已開始放下，或看守人表示停止，應即暫停。,道路交通安全規則第104條,平交道通過規則
+traffic_law_truefalse-192,traffic_law_truefalse,11,鐵路平交道警鈴未響，閃光號誌未顯示，汽車駕駛人仍應看、聽鐵路兩方確無火車駛來，始得通過。,道路交通安全規則第104條,平交道通過規則
+traffic_law_truefalse-193,traffic_law_truefalse,11,汽車通過鐵路平交道，前後兩車間，不必保持距離。,道路交通安全規則第104條,平交道通過規則
+traffic_law_truefalse-196,traffic_law_truefalse,11,汽車在設有彎道、坡路、狹路、狹橋、隧道標誌之路段或鐵路平交道，不得迴車。,道路交通安全規則第104條；道路交通管理處罰條例第54條,平交道通過規則；平交道違規之處罰
+traffic_law_truefalse-197,traffic_law_truefalse,11,如有相當空間，汽車在任何地方均可迴車。,道路交通安全規則第106條,迴車之禁止地點與程序
+traffic_law_truefalse-198,traffic_law_truefalse,12,汽車在設有禁止迴車標誌，劃有分向限制線、禁止超車線、禁止變換車道線之路段，不得迴車。,道路交通安全規則第97條,雙向二車道路段行駛及分向線規則
+traffic_law_truefalse-199,traffic_law_truefalse,12,汽車在禁止左轉路段，不得迴車。,道路交通安全規則第106條,迴車之禁止地點與程序
+traffic_law_truefalse-200,traffic_law_truefalse,12,汽車在迴車前，應暫停並顯示左轉燈光或手勢，看清確無來往車輛，並注意行人通過，始得迴轉。,道路交通安全規則第106條,迴車之禁止地點與程序
+traffic_law_truefalse-204,traffic_law_truefalse,12,貨車過渡口，其總重量超過渡船規定之重量者須將逾重物卸下，分別渡過。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-205,traffic_law_truefalse,12,汽車夜間在市區道路行駛，如照明清楚時，應用近光燈。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-206,traffic_law_truefalse,12,汽車夜間在市區道路行駛，如照明清楚時，應用遠光燈。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-207,traffic_law_truefalse,12,汽車在設有彎道、狹路、坡路、單行道標誌之路段或鐵路平交道、快車道、大眾捷運系統車輛共用通行交岔路口且為大眾捷運系統車輛導引路線上等危險地帶，不得倒車。但因讓車、停車或起駛有倒車必要者，不在此限。,道路交通安全規則第104條；道路交通管理處罰條例第54條,平交道通過規則；平交道違規之處罰
+traffic_law_truefalse-208,traffic_law_truefalse,12,倒車時，應按鳴喇叭3 長聲，警告其他車輛或行人。,道路交通安全規則第110條,倒車之禁止地點與程序
+traffic_law_truefalse-209,traffic_law_truefalse,12,汽車在機場、車站、碼頭、學校、娛樂、展覽、競技、市場或其他公共場所出、入口及消防栓之前，不得停車。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-211,traffic_law_truefalse,12,自用汽車，不得在營業汽車招呼站停車。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-212,traffic_law_truefalse,12,在顯有妨礙他車通行處所，不得停車。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-213,traffic_law_truefalse,12,在不得已時，把車停在坡道上，應注意防止車輛滑行。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-214,traffic_law_truefalse,12,汽車在中途發生故障，無法移置於不妨礙交通處所時，如在市區道路，僅閃亮左右方或左方之方向燈即可，無需設置車輛故障標誌。,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-216,traffic_law_truefalse,12,汽車於行車時速在40 公里之路段發生故障，無法移置於無礙交通之場所，應在車身後方5-30 公尺處之路面上，設置車輛故障標誌。,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-217,traffic_law_truefalse,12,夜間將車輛停放在無燈光設備或照明不清之道路時，應顯示停車燈光或反光標識。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-218,traffic_law_truefalse,13,夜間將車輛停放在無燈光設備及照明不清之道路時，亦不必顯示停車燈光或反光標識。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-219,traffic_law_truefalse,13,停車後向外開啟車門時，應注意行人與車輛並讓其先行。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-221,traffic_law_truefalse,13,執行任務之消防車、警備車等，其臨時停車及停車地點不受限制。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-222,traffic_law_truefalse,13,裝載危險物品，除應在車頭及車尾懸掛危險標識外，並應在規定之路線及時間內行駛。,道路交通安全規則第84條,危險物品裝載及警示規定
+traffic_law_truefalse-225,traffic_law_truefalse,13,在超過時速40 公里之路段，汽車拋錨時，應在車身後方30-100 公尺之路面上豎立車輛故障標誌。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-226,traffic_law_truefalse,13,自民國96 年2 月起以領有大貨車駕照直接晉級考領聯結車駕照者，得駕駛大客車。,道路交通安全規則第60條；道路交通安全規則第61條,考領各級駕照之資格與年齡；持照得駕駛之車種範圍
+traffic_law_truefalse-227,traffic_law_truefalse,13,已領有大客車駕駛執照者得駕駛大貨車、代用大客車、大客貨兩用車、曳引車、小型車。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-228,traffic_law_truefalse,13,已領有大貨車駕駛執照者，得駕駛小型車。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-230,traffic_law_truefalse,13,持有職業駕駛執照未滿60 歲之駕駛人，應自發照之日起，每滿3 年審驗1 次。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-231,traffic_law_truefalse,13,貨車裝載貨物寬度不得超過車身。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-232,traffic_law_truefalse,13,廂式貨車裝載貨物不得超出車廂以外。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-233,traffic_law_truefalse,13,慢車駕駛人、行人不依規定接受道路交通安全講習者，處以罰鍰。,道路交通管理處罰條例第24條,道路交通安全講習制度
+traffic_law_truefalse-234,traffic_law_truefalse,13,汽車駕駛人聞消防車、救護車、警備車、工程救險車、毒性化學物質災害事故應變車之警號不立即避讓或跟隨車後急駛處以罰鍰，並吊銷駕駛執照。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-235,traffic_law_truefalse,13,汽車行駛至交岔路口，欲右轉彎時，應距交岔路口30 公尺前，顯示方向燈或手勢，換入外側車道、右轉車道或慢車道，行至路口後再行右轉。,道路交通安全規則第91條；道路交通安全規則第102條,起駛、轉彎、變換車道之燈光或手勢；交岔路口左右轉與車道使用
+traffic_law_truefalse-236,traffic_law_truefalse,14,汽車駕駛人違規肇事致受吊扣駕駛執照處分者，應施以道路交通安全講習。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-237,traffic_law_truefalse,14,道路係指公路、街道、巷弄、廣場、騎樓、走廊或其他供公眾通行之處。,道路交通管理處罰條例第3條,道路、臨時停車及停車之定義
+traffic_law_truefalse-238,traffic_law_truefalse,14,駕駛人酒精濃度超過規定標準，駕車肇事致人重傷或死亡者，除處罰鍰外，吊銷其駕照，並不得再考領。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間，並依規定完成酒駕防制教育或酒癮治療者，不在此限。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-239,traffic_law_truefalse,14,"汽車駕駛人拒絕接受酒精濃度測試之檢定者，處新臺幣30,000 元罰鍰。",道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_truefalse-240,traffic_law_truefalse,14,"汽車行駛於非高、快速公路之ㄧ般道路，汽車駕駛人、前座或小型車後座乘客未繫安全帶者，處駕駛人新臺幣1,500 元罰鍰。",道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-241,traffic_law_truefalse,14,"汽車駕駛人於開車時，以手持方式使用行動電話、電腦或其他相類功能裝置進行撥接、通話、數據通訊或其他有礙駕駛安全之行為者，處新臺幣3,000 元罰鍰。",道路交通安全規則第90條；道路交通管理處罰條例第31-1條,駕駛中不得手持通訊裝置；手持通訊裝置之處罰
+traffic_law_truefalse-242,traffic_law_truefalse,14,"汽車駕駛人酒後駕車，其酒精濃度超過規定標準者，處新臺幣30,000~120,000 元罰鍰，並當場移置保管該汽車及吊扣其駕駛執照。 08",道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-245,traffic_law_truefalse,14,"持小型車駕照駕駛大型汽車者，汽車所有人及駕駛人各處新臺幣40,000~80,000 元罰鍰，並記該車違規紀錄1 次。",道路交通安全規則第23條；道路交通安全規則第24條；道路交通管理處罰條例第16條,車輛異動登記項目；車籍、所有人或地址等變更登記；未依規定辦理變更登記之處罰
+traffic_law_truefalse-246,traffic_law_truefalse,14,未滿18 歲之人，未領有駕駛執照駕駛小型汽車或機車者，除處罰鍰並當場禁止其駕駛外，汽車駕駛人及其法定代理人或監護人，應同時施以道路交通安全講習。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-247,traffic_law_truefalse,14,"汽車裝載貨物超過核定之總重量，總聯結重量或超過所行駛橋樑規定之載重限制者，除責令改正或當場禁止通行外，不分超載程度一律處汽車所有人新台幣10,000 元罰鍰。",道路交通安全規則第23條；道路交通安全規則第24條；道路交通管理處罰條例第16條,車輛異動登記項目；車籍、所有人或地址等變更登記；未依規定辦理變更登記之處罰
+traffic_law_truefalse-250,traffic_law_truefalse,14,駕駛人為了趕時間而闖紅燈，可以不被記違規點數3 點，只繳罰鍰而已。,道路交通管理處罰條例第53條,闖紅燈與紅燈右轉之處罰
+traffic_law_truefalse-251,traffic_law_truefalse,14,在禁止左轉路段不可以迴車，違者除處罰鍰外並違規記點。,道路交通安全規則第106條,迴車之禁止地點與程序
+traffic_law_truefalse-252,traffic_law_truefalse,15,繞行圓環迴車太麻煩，為了方便可以逕行迴車，反正不會被罰款及違規記點。,道路交通安全規則第106條,迴車之禁止地點與程序
+traffic_law_truefalse-253,traffic_law_truefalse,15,未經前行車表示允讓靠邊慢行，即行超車，要處以罰鍰。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-255,traffic_law_truefalse,15,駕駛人酒精濃度超過規定標準駕車，只記違規點數2 點而不罰鍰。,道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_truefalse-257,traffic_law_truefalse,15,汽車記違規紀錄於3 個月內共達3 次以上者，吊扣其汽車牌照。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-258,traffic_law_truefalse,15,隧道區域內禁止任意停車、臨時停車、倒車或超車。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-261,traffic_law_truefalse,15,行經長隧道，當交通壅塞或發生緊急事故時，應利用車行聯絡隧道逕行迴車，趕快駛離現場。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-264,traffic_law_truefalse,15,汽車行駛高速或快速公路不得跨行車道曲折行進或在任何車道及路肩上迴轉反向行駛。,高速公路及快速公路交通管制規則第9條,高速或快速公路禁止事項
+traffic_law_truefalse-265,traffic_law_truefalse,15,汽車行駛高速或快速公路途中，除遇特殊狀況必須減速外，不得驟然減速或在車道中臨時停車或停車。,道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_truefalse-266,traffic_law_truefalse,15,汽車不得在高速或快速公路減速車道或單車道之匝道上超越前車，但在加速車道上前車慢行阻路時，則可以超車。,高速公路及快速公路交通管制規則第9條,高速或快速公路禁止事項
+traffic_law_truefalse-267,traffic_law_truefalse,15,交流道係指設於主線入口最右側，供汽車駛進主線前加速之車道。,高速公路及快速公路交通管制規則第2條,高速公路、匝道、主線車道等名詞定義
+traffic_law_truefalse-268,traffic_law_truefalse,15,匝道係指設於主線出口最右側，供汽車駛離主線時減速之車道。,高速公路及快速公路交通管制規則第2條,高速公路、匝道、主線車道等名詞定義
+traffic_law_truefalse-270,traffic_law_truefalse,15,載重之貨車、客貨兩用車、聯結車進入地磅站時，應依標誌、標線、號誌指示行駛，不得在地磅上緊急煞車。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-271,traffic_law_truefalse,15,主線車道係指車道中可供汽車直駛之車道。,高速公路及快速公路交通管制規則第2條,高速公路、匝道、主線車道等名詞定義
+traffic_law_truefalse-272,traffic_law_truefalse,15,汽車行駛高快或快速公路可曲折行進或在任何車道及路肩上迴轉反向行駛。,高速公路及快速公路交通管制規則第9條,高速或快速公路禁止事項
+traffic_law_truefalse-273,traffic_law_truefalse,16,在高速或快速公路行駛之汽車，可以在加速車道、減速車道或單車道之匝道上超越前車。,高速公路及快速公路交通管制規則第9條,高速或快速公路禁止事項
+traffic_law_truefalse-275,traffic_law_truefalse,16,高速公路係指其出入口完全控制，中央分隔雙向行駛，除起迄點外，並與其他道路立體相交，專供汽車行駛之公路。,高速公路及快速公路交通管制規則第2條,高速公路、匝道、主線車道等名詞定義
+traffic_law_truefalse-276,traffic_law_truefalse,16,高速公路上設有快、慢車道、行人穿越道及斑馬線。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-277,traffic_law_truefalse,16,交流道係指高速公路與快速公路相互間，高速公路或快速公路與其他道路連接，以匝道構成立體相交之部份。,高速公路及快速公路交通管制規則第2條,高速公路、匝道、主線車道等名詞定義
+traffic_law_truefalse-278,traffic_law_truefalse,16,行駛高速或快速公路可利用中央分隔帶迴轉。,高速公路及快速公路交通管制規則第9條,高速或快速公路禁止事項
+traffic_law_truefalse-280,traffic_law_truefalse,16,行駛高速或快速公路時，如發生緊急情況無法繼續行駛時，應滑離車道，在路肩上停車待援。,高速公路及快速公路交通管制規則第12條,高速或快速公路停車與路肩暫停規則
+traffic_law_truefalse-282,traffic_law_truefalse,16,汽車行駛高速或快速公路，除在指定場所以外，沿途不得隨意停車上下乘客或裝卸貨物。,高速公路及快速公路交通管制規則第12條,高速或快速公路停車與路肩暫停規則
+traffic_law_truefalse-284,traffic_law_truefalse,16,高速或快速公路之中央分隔帶係指隔離雙向行車之中間界區。,高速公路及快速公路交通管制規則第2條,高速公路、匝道、主線車道等名詞定義
+traffic_law_truefalse-285,traffic_law_truefalse,16,在高速或快速公路行車時，如錯過了出口交流道，就應立即倒車或迴轉駛回原出口位置。,道路交通安全規則第110條,倒車之禁止地點與程序
+traffic_law_truefalse-290,traffic_law_truefalse,16,高速公路現行最高速限規定為每小時120 公里。,高速公路及快速公路交通管制規則第5條,高速或快速公路速限及低能見度行車
+traffic_law_truefalse-291,traffic_law_truefalse,16,汽車行駛高速或快速公路途中不得有缺水、缺電、缺燃料之情形。,高速公路及快速公路交通管制規則第14條,上高速或快速公路前檢查車況及途中不得缺水缺電缺燃料
+traffic_law_truefalse-293,traffic_law_truefalse,17,高速或快速公路之內側車道為超車道，但小型車輛於不堵塞行車之狀況下，得以該路段容許之最高速限行駛於內側車道。,高速公路及快速公路交通管制規則第8條,高速或快速公路車道使用規則
+traffic_law_truefalse-294,traffic_law_truefalse,17,在高速公路最高速限每小時90 公里以上之路段，行駛速率低於每小時80 公里之較慢速小型車，應行駛於外側車道，並得暫時利用緊鄰外側車道之車道超越前車。,高速公路及快速公路交通管制規則第8條；高速公路及快速公路交通管制規則第9條,高速或快速公路車道使用規則；高速或快速公路禁止事項
+traffic_law_truefalse-297,traffic_law_truefalse,17,濃霧、濃煙、大雨、強風中在高速或快速公路行駛之車輛，最低行車時速限制仍應保持每小時60 公里以上。,高速公路及快速公路交通管制規則第5條,高速或快速公路速限及低能見度行車
+traffic_law_truefalse-298,traffic_law_truefalse,17,在單車道之匝道及加減速車道上行駛之車輛不得超車。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-299,traffic_law_truefalse,17,在高速或快速公路行駛車輛，不可以超速競駛，亦不可低速併行。,道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_truefalse-306,traffic_law_truefalse,17,汽車由加速車道轉入主線車道時，應顯示方向燈並確保足夠之安全間距。,高速公路及快速公路交通管制規則第7條；高速公路及快速公路交通管制規則第11條,由交流道或匝道進入主線之規則；高速或快速公路變換車道規則
+traffic_law_truefalse-308,traffic_law_truefalse,17,變換車道應及早顯示方向燈，告知前後車輛，並注意鄰近車道車輛動向以策安全。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-309,traffic_law_truefalse,17,行進中發現鄰側車道，車輛已顯示方向燈有變換車道意圖時，應加速行駛以免被超越。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-310,traffic_law_truefalse,17,汽車行駛高速或快速公路前後兩車之間行車安全距離，在正常天候狀況下，小型車車速每小時90 公里時，應保持45 公尺以上距離。,高速公路及快速公路交通管制規則第6條,高速或快速公路行車安全距離
+traffic_law_truefalse-311,traffic_law_truefalse,18,行駛高速或快速公路若錯過出口，可立即停車或倒車駛回。,道路交通安全規則第110條,倒車之禁止地點與程序
+traffic_law_truefalse-312,traffic_law_truefalse,18,汽車行駛高速或快速公路途中若突然故障，應注意四周車輛動態，並先顯示方向燈滑離車道，逐漸減速駛進路肩，並在車後50~100 公尺處設置車輛故障標誌，方向燈改為危險警告燈。,高速公路及快速公路交通管制規則第11條,高速或快速公路變換車道規則
+traffic_law_truefalse-313,traffic_law_truefalse,18,貨車裝載整體物品之寬度超過車身寬度，應向起運地或車籍所在地公路監理機關申請核發臨時通行證。,道路交通安全規則第84條,危險物品裝載及警示規定
+traffic_law_truefalse-314,traffic_law_truefalse,18,大貨車裝載整體物品後，高度超過4 公尺者，應向起運地或車籍所在地公路監理機關申請核發臨時通行證。,道路交通安全規則第84條,危險物品裝載及警示規定
+traffic_law_truefalse-315,traffic_law_truefalse,18,大客車行駛高速或快速公路，駕駛人及乘載之四歲以上乘客均應繫安全帶。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-317,traffic_law_truefalse,18,汽車行駛高速或快速公路禁止跨行車道、迴轉、倒車或逆向行駛。,道路交通安全規則第110條,倒車之禁止地點與程序
+traffic_law_truefalse-318,traffic_law_truefalse,18,汽車在道路行駛途中，不得驟然減速或任意變換車道。,道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_truefalse-321,traffic_law_truefalse,18,高速或快速公路之內側車道為超車道，但大、小型車輛於不堵塞行車之狀況下，均得以該路段容許之最高速限行駛於內側車道。,高速公路及快速公路交通管制規則第8條,高速或快速公路車道使用規則
+traffic_law_truefalse-322,traffic_law_truefalse,18,大型車行駛高速或快速公路，應行駛於外側車道，並得暫時利用緊鄰外側車道之車道超越前車。,高速公路及快速公路交通管制規則第8條；高速公路及快速公路交通管制規則第9條,高速或快速公路車道使用規則；高速或快速公路禁止事項
+traffic_law_truefalse-324,traffic_law_truefalse,18,載重貨車行駛高速或快速公路，因超載逾百分之二十而無法當場卸貨分裝者，經舉發後，未改正繼續行駛者，得連續舉發處罰。,道路交通安全規則第77條；道路交通管理處罰條例第29條,裝載貨物之長寬高及乘載規定；超限裝載、超重或未依規定過磅之處罰
+traffic_law_truefalse-325,traffic_law_truefalse,18,貨車行駛高速或快速公路裝載超長物品時，其後伸部分，不得遮擋車後燈光或號牌。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-326,traffic_law_truefalse,18,汽車行駛於道路上，其駕駛人、前座及小型車後座乘客，均應繫安全帶。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-328,traffic_law_truefalse,18,汽車行駛高速或快速公路時，不得連續密集按鳴喇叭、變換燈光或其他方式迫使前車讓道。,高速公路及快速公路交通管制規則第9條,高速或快速公路禁止事項
+traffic_law_truefalse-333,traffic_law_truefalse,19,汽車行駛高速公路，在正常天候狀況下，行駛速率為每小時100 公里時，前後兩車間之最小行車安全距離，大型車為80 公尺，小型車為50 公尺。,高速公路及快速公路交通管制規則第6條,高速或快速公路行車安全距離
+traffic_law_truefalse-335,traffic_law_truefalse,19,在高速或快速公路行駛時，如遇濃霧、濃煙、強風、大雨、夜間行車或其他特殊狀況時，其安全距離應酌量增加。,高速公路及快速公路交通管制規則第6條,高速或快速公路行車安全距離
+traffic_law_truefalse-337,traffic_law_truefalse,19,超速行駛是肇事原因之一。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-345,traffic_law_truefalse,19,夜間行車如來車不變近光燈，可以用遠光燈來報復以增加安全。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-347,traffic_law_truefalse,19,抬頭遠看，增大目視距離，保持足夠行車安全距離和間隔，為肇事預防要點之一。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-348,traffic_law_truefalse,19,肇事發生應立即停車，保持現場以最快方法報請有關單位處理。,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-349,traffic_law_truefalse,20,肇事處理，不可斤斤計較責任誰屬，應發揮道德精神救人為先原則，以免延誤，增大傷亡與損失。,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-350,traffic_law_truefalse,20,發生重大交通事故，為迅速恢復交通，清除現場，可不必等待肇事處理機關之指示，即可進行。,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-351,traffic_law_truefalse,20,辦理肇事和解，應由當事人、法定代理人、監護人或繼承人為之。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-352,traffic_law_truefalse,20,肇事責任屬於對方受傷人，為避免受到牽連，可不須送醫救治。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-355,traffic_law_truefalse,20,長隧道內設有緊急聯絡電話，供車輛故障或發生車禍與災變時通報行控中心之用。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-357,traffic_law_truefalse,20,汽車肇事時，為使失去知覺的傷者儘速恢復知覺，應向傷者拍打搖動。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-358,traffic_law_truefalse,20,汽車肇事時，除非車子著火或有爆炸的危險，儘可能在車內急救傷者。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-359,traffic_law_truefalse,20,汽車肇事時，如果必須將傷者抬起不可只抬他的頭和腳，要將身體每一部份平托抬起。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-369,traffic_law_truefalse,21,"小客車附載幼童未依規定安置於安全椅者，處駕駛人新臺幣1,500～3,000 元罰鍰。",道路交通管理處罰條例第31條,未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-374,traffic_law_truefalse,21,汽車駕駛人駕駛汽車行近未設行車管制號誌之行人穿越道時，可以快速通過，不須減速慢行，以免車道壅塞。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-375,traffic_law_truefalse,21,"汽車駕駛人行經有燈光號誌管制之交岔路口，紅燈右轉者，處新臺幣600～1,800 元罰鍰。",道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-376,traffic_law_truefalse,21,年滿68 歲小型車職業駕駛人，前一年內未受吊扣駕駛執照處分，且依規定體格檢查判定合格者，經檢附通過汽車駕駛人認知功能測驗或無患有失智症證明文件，得換發有效期間一年之小型車職業駕駛執照，或於小型車職業駕駛執照以每年加註方式延長有效期間，至年滿70 歲止。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-377,traffic_law_truefalse,21,未領有汽車駕駛執照之人，違反道路交通管理處罰條例規定，應受吊扣駕駛執照處分，在所規定最長吊扣期間內，不得考領駕駛執照。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-378,traffic_law_truefalse,21,機車、小客車、小客貨兩用車及小貨車所有人，應繳交車輛製造廠、代理商或進口商出具，經內政部認可，施加於車輛特定零組件之防竊辨識碼完工證明文件，始得申請新領牌照登記。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-380,traffic_law_truefalse,21,四輪以上汽車在劃有快慢車道分隔線之道路行駛，除起駛、準備轉彎、準備停車或臨時停車外，不得行駛慢車道。但設有快慢車道分隔島之道路不在此限。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-385,traffic_law_truefalse,22,汽缸總排氣量 550 立方公分以上之大型重型機車行駛於高、快速公路，應全天開亮頭燈。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-388,traffic_law_truefalse,22,「平穩駕駛」的方法，就是不急速起駛，左右轉彎慢一點，不超速急衝、不亂變換車道、保持安全間距，不驟然緊急煞車、不搶道、不爭道、不闖紅燈。,道路交通安全規則第102條；道路交通管理處罰條例第53條,交岔路口轉彎、號誌、指揮與讓車規則；闖紅燈與紅燈右轉之處罰
+traffic_law_truefalse-393,traffic_law_truefalse,22,發生肇事的主因為跟車太近、任意超車、任意變換車道、搶道轉彎、開快車搶時間。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-403,traffic_law_truefalse,23,汽車駕駛人駕駛汽車肇事致人受傷或死亡者，應即採取救護措施及依規定處置，並通知警察機關處理，不得任意移動肇事汽車及現場痕跡證據；但肇事致人受傷案件當事人均同意時，應將肇事汽車標繪後，移置不妨礙交通之處所。,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-409,traffic_law_truefalse,23,飲酒後，會使視覺能力變差，運動反射神經遲鈍，肇事率增加。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-412,traffic_law_truefalse,23,汽、機車所有人將車輛借予他人使用時，除應檢查其有無駕照及身心狀況外，並應將車況詳為告知。,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_truefalse-424,traffic_law_truefalse,24,汽車行經坡道，上坡時不得蛇行前進，下坡時不得關閉引擎或放空檔滑行。,道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_truefalse-434,traffic_law_truefalse,24,汽車行駛時，急加速或急煞車，不但比較耗油，輪胎、煞車來令等磨損較快，而且肇事機率也較大，但與廢氣污染無關。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-435,traffic_law_truefalse,24,汽車除遇突發狀況必須減速外，不得任意驟然減速。,道路交通管理處罰條例第43條,危險駕駛、競駛、超速40公里以上或噪音車之處罰
+traffic_law_truefalse-436,traffic_law_truefalse,24,通過無號誌管制的交岔路口時，最好是先看左，再看右，比較安全。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-438,traffic_law_truefalse,24,汽車行至交岔路口前，行車管制號誌燈如轉為黃燈時，最好事先輕踩煞車減速，讓跟隨在後的車輛提早看到你的煞車燈光，以便後車提前因應，可避免被其追撞的危險。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-440,traffic_law_truefalse,25,汽車行近交岔路口前，在遠方見到行車管制號誌燈已轉為紅燈，應考量車速與車距，不任意踩油門或煞車踏板，儘量讓車輛自行滑行前進，以便節省油耗，達到節能減碳的效果。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-442,traffic_law_truefalse,25,起駛、停車、變換車道、轉彎時，應顯示方向燈，預告動向，並採取平穩漸進的方式為之。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-443,traffic_law_truefalse,25,駕車轉彎時除應使用方向燈及注意照後鏡之外，並轉頭察看確認安全後，始得轉彎。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-444,traffic_law_truefalse,25,汽車左、右兩側照後鏡，可看到側方及後方景物，所以行車轉彎、變換車道等，只要顯示方向燈、察看照後鏡即可，不需再做擺頭動作。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-445,traffic_law_truefalse,25,左轉彎時，行至交岔路口才顯示方向燈或手勢，換入內側車道或左轉車道，行至交岔路口中心處左轉，並不得占用來車車道搶先左轉。,道路交通安全規則第91條；道路交通安全規則第102條,起駛、轉彎、變換車道之燈光或手勢；交岔路口左右轉與車道使用
+traffic_law_truefalse-447,traffic_law_truefalse,25,在交岔路口等候左轉之車輛，綠燈亮時即可搶先左轉。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-450,traffic_law_truefalse,25,綠燈給你行的權利，但不一定給你行的安全，所以行車至交岔路口，還是必須放慢車速行駛。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-451,traffic_law_truefalse,25,路邊停車後欲起駛前進時，不用顯示方向燈，但應注意車輛前後左右動向。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-453,traffic_law_truefalse,25,汽車於劃設有行車分向線之雙向二車道超車時，應注意超車的時間與距離，滯留對向車道時間愈久，肇事危險的機率愈大。,道路交通安全規則第97條,雙向二車道路段行駛及分向線規則
+traffic_law_truefalse-454,traffic_law_truefalse,25,行車轉向、橫越他車或超車時，都要有充裕的時間與空間。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-455,traffic_law_truefalse,25,欲超越前車時，先將排檔換高一檔，可以保持加速性能在最佳狀態。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-457,traffic_law_truefalse,25,變換車道或轉彎時，為爭取時間，無需啟用方向燈，並立即匯入或轉彎。,道路交通安全規則第91條,起駛、轉彎、變換車道之燈光或手勢
+traffic_law_truefalse-460,traffic_law_truefalse,26,倒車時如無法確定車後狀況是否安全，應下車親自察看實況再行倒車。,道路交通安全規則第110條,倒車之禁止地點與程序
+traffic_law_truefalse-461,traffic_law_truefalse,26,停車時儘量停放在陰涼處所，並避免長時間開冷氣在車內休息，耗油又危險。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-463,traffic_law_truefalse,26,上下車開關車門，應謹慎小心，注意察看四周有無障礙物，並注意前後有無來車、行人，確認安全後，再分段開啟車門上下車。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-464,traffic_law_truefalse,26,開啟車門及上下車應注意後方來車，避免發生車禍，確保行車安全。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-467,traffic_law_truefalse,26,汽車行駛長隧道發生火災時，應迅速將車輛停靠兩側路邊，就近找尋安全的場所避難，為了救災需要，此時不可將車門上鎖，並將車鑰匙留在車上。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-481,traffic_law_truefalse,27,汽車於斜坡道上，可抽出機油量尺，正確檢查出機油量與機油平面高度。,道路交通安全規則第112條,停車地點與方式
+traffic_law_truefalse-532,traffic_law_truefalse,29,可以將前座頭枕拆除，以免妨害後座乘客的視線。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-533,traffic_law_truefalse,29,將嬰兒放在膝上，然後繫上安全帶，既安全又能照顧保護嬰兒。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-534,traffic_law_truefalse,29,兩個小孩同時共用一條安全帶，並不影響其安全效果。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-535,traffic_law_truefalse,29,安全帶的肩帶斜綁胸前，壓迫得很不舒服，將手臂繞過肩帶，讓肩帶繫於腋下，感覺鬆弛舒適又不降低保護效果。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-536,traffic_law_truefalse,29,若安全帶已經磨損或損壞時，必須更換新的安全帶。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-537,traffic_law_truefalse,29,汽車嚴重碰撞後，使用過的安全帶，其組件包含收縮器、附件等都必須全部換新。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-538,traffic_law_truefalse,29,有安全氣囊裝備的汽車，不必繫安全帶。,道路交通安全規則第89條；道路交通管理處罰條例第31條,安全帶與起駛前安全檢查；未繫安全帶、兒童乘坐安全及留置車內之處罰
+traffic_law_truefalse-545,traffic_law_truefalse,30,自排車由前進「D」檔換入倒車「R」檔或駐車「P」檔時，應在車輛完全停止時，始能排檔操作。,道路交通安全規則第110條,倒車之禁止地點與程序
+traffic_law_truefalse-567,traffic_law_truefalse,31,汽車定期檢驗不必檢驗車輛故障標誌，所以隨車不一定要帶車輛故障標誌。,道路交通事故處理辦法第3條,事故現場警示、救護、標繪與移置規則
+traffic_law_truefalse-571,traffic_law_truefalse,31,裝有觸媒轉換器的汽車，行駛後不可停放在草地或易燃物品上，以免發生火災。,高速公路及快速公路交通管制規則第16條,長隧道行駛、安全距離與事故處置
+traffic_law_truefalse-573,traffic_law_truefalse,31,領有學習駕駛證，學習道路駕駛時，應依交通標誌、標線、號誌及速限規定行駛，且應注意車前狀況與兩側動態，隨時採取必要之安全措施。,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_truefalse-574,traffic_law_truefalse,31,學習駕駛證可以暫時充當駕駛執照使用，隨時開車上路學習道路駕駛，警察單位依法不得取締。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-575,traffic_law_truefalse,31,取得學習駕駛證，可以在任何道路行駛。,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_truefalse-576,traffic_law_truefalse,31,領有學習駕駛證，學習道路駕駛時，應依公路或市區道路主管機關指定之道路及時間內行之，並應由領有學習車類駕照之汽車駕駛人在旁指導監護。,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_truefalse-577,traffic_law_truefalse,31,未領有駕駛執照，只要我駕車技術優良，也可以教導他人學習開車，並以其做為我的職業。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-578,traffic_law_truefalse,31,汽車駕駛人經駕照考驗及格，未領取駕駛執照前，不得駕駛汽車。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-579,traffic_law_truefalse,31,汽車駕駛人經考驗及格，未領取駕駛執照前，得駕駛汽車。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-580,traffic_law_truefalse,32,職業汽車駕駛人得憑因逾期審驗被註銷之職業駕駛執照，申請換發同等車類之普通駕駛執照。在未換發普通駕駛執照前，得駕駛汽車。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-581,traffic_law_truefalse,32,持職業駕照之計程車駕駛人，執業年齡延長至年滿70 歲時，應依規定申請換發同等車類之普通駕照。,道路交通安全規則第60條,考領各級駕照之資格與年齡
+traffic_law_truefalse-583,traffic_law_truefalse,32,禁止臨時停車路段，全天任何時間都不准臨時停車，亦不得停車。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-584,traffic_law_truefalse,32,禁止停車路段可以臨時停車，但禁止停車。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-585,traffic_law_truefalse,32,禁止臨時停車路段可以停車，但全天禁止臨時停車。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-586,traffic_law_truefalse,32,設有禁止停車之標誌、標線路段，如無其他標誌、標線規定，夜間8 時以後至隔日清晨7 時以前可以停車也可以臨時停車。,道路交通安全規則第111條,臨時停車地點與方式
+traffic_law_truefalse-587,traffic_law_truefalse,32,汽車得併排臨時停車。,道路交通安全規則第111條；道路交通管理處罰條例第55條,臨時停車地點與方式；臨時停車違規之處罰
+traffic_law_truefalse-588,traffic_law_truefalse,32,通過鐵路平交道，前車並未停、看、聽安全通過，我也可以不需停、看、聽快速通過。,道路交通安全規則第104條,平交道通過規則
+traffic_law_truefalse-589,traffic_law_truefalse,32,汽車行駛至無人看守管理之鐵路平交道，或無遮斷器、警鈴、閃光號誌設備者（無柵欄），駕駛人應在軌道外3～6 公尺前，暫停、看、聽，確認兩方無火車駛來時，始得通過。,道路交通安全規則第104條,平交道通過規則
+traffic_law_truefalse-590,traffic_law_truefalse,32,汽車行駛時，不得跨越劃有禁止超車線、分向限制線、禁止變換車道線路段或鐵路平交道，逕行超車或迴車。,道路交通安全規則第97條,雙向二車道路段行駛及分向線規則
+traffic_law_truefalse-591,traffic_law_truefalse,32,汽車在平坦筆直路段，雖劃有雙黃線，而對向無來車時仍可駛入來車之車道內超車前進。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-592,traffic_law_truefalse,32,汽車行經設有彎道、陡坡、狹橋、隧道、交岔路口標誌之路段或鐵路平交道、道路施工地段，不得超車。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-593,traffic_law_truefalse,32,直行車尚未進入交岔路口，轉彎車可先轉彎。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-594,traffic_law_truefalse,32,汽車行經行人穿越道，遇有行人穿越時，無論有無交通指揮人員指揮或號誌指示，均應暫停讓行人優先通過。,道路交通安全規則第103條,行近行人穿越道應暫停讓行人
+traffic_law_truefalse-597,traffic_law_truefalse,32,汽車在夜間行駛或行經隧道、涵洞、地下道應開亮頭燈。或遇有濃霧、大雨、天色昏暗、視線不清時仍應開亮頭燈。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-598,traffic_law_truefalse,32,汽車經過隧道，因隧道內燈光明亮視線良好，為省電可不必開亮頭燈。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-600,traffic_law_truefalse,33,汽車行近急彎、上坡道頂端視距不良處或在郊外同一車道欲超越前車時，或遇有緊急危險情況時，可按鳴喇叭。,道路交通安全規則第101條,超車規則與禁止超車路段
+traffic_law_truefalse-602,traffic_law_truefalse,33,客貨兩用車，載人不得超過核定之人數，載貨不得超過核定之載重量，兼載客、貨時不得超過核定之總重量。,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_truefalse-603,traffic_law_truefalse,33,汽車牌照不得偽造、變造或矇領，但得借供他車使用或使用他車牌照行駛。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-604,traffic_law_truefalse,33,領有牌照之汽車，其出廠年份，自用小客車(使用液化石油氣及壓縮天然氣為燃料者除外)未滿5 年者免予定期檢驗，5 年以上未滿10 年者，每年至少檢驗1 次，10 年以上者每年至少檢驗2 次。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-605,traffic_law_truefalse,33,領有牌照之汽車，其出廠年份，自用小客車未滿6 年者免予定期檢驗，6 年以上未滿10 年者，每年至少檢驗1 次，10 年以上者每年至少檢驗2 次。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-607,traffic_law_truefalse,33,使用中之車輛欲變更使用液化石油氣為燃料者，應依規定取得車輛安全審驗合格報告，並向公路監理機關申請實施檢驗及辦理變更登記。,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_truefalse-609,traffic_law_truefalse,33,汽車引擎、底盤、電系、車門損壞，行駛時顯有危險而不即行停駛修復者，處汽車所有人罰鍰，並扣留其牌照，責令修復檢驗合格後發還之。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-611,traffic_law_truefalse,33,行車前應注意方向盤、煞車、輪胎、燈光、雨刮、喇叭、照後鏡及依規定應裝設之行車紀錄器、載重計與轉彎、倒車警報裝置等須詳細檢查確實有效。,道路交通安全規則第110條,倒車之禁止地點與程序
+traffic_law_truefalse-613,traffic_law_truefalse,33,使用中之車輛自行改裝 HID、LED 頭燈後，需經頭燈檢驗器實施頭燈照射角度調整，以避免眩光，並經公路監理機關檢驗合格，辦理變更登記。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-614,traffic_law_truefalse,34,汽車可以變更顏色，但必須至公路監理機關辦理變更登記。,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_truefalse-615,traffic_law_truefalse,34,已繳銷牌照之車輛，得再重新申請牌照使用。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-617,traffic_law_truefalse,34,執法人員於攔檢汽車駕駛人行駛道路以手持方式使用行動電話、電腦或其他相類功能裝置進行撥接、通話、數據通訊或其他有礙駕駛安全之行為時，應以不妨礙交通秩序及行車安全為原則，必要時可以錄影或照相採證方式辦理。,道路交通安全規則第90條；道路交通管理處罰條例第31-1條,駕駛中不得手持通訊裝置；手持通訊裝置之處罰
+traffic_law_truefalse-618,traffic_law_truefalse,34,吸食毒品、迷幻藥、麻醉藥品及相類似之管制藥品或酒類，不能安全駕駛動力交通工具而駕駛者，處3 年以下有期徒刑，得併科30 萬元以下罰金。,道路交通管理處罰條例第35條,酒駕、拒測與毒駕之處罰
+traffic_law_truefalse-620,traffic_law_truefalse,34,車輛行經平交道遇拋錨或障礙時，應立即進行應變。其順序為：按下「平交道緊急按鈕」→「將故障車輛推離平交道」→「火車接近時，人員迅速跑離平交道」。,道路交通安全規則第104條,平交道通過規則
+traffic_law_truefalse-621,traffic_law_truefalse,34,電化鐵路區間，平交道前後設置限高門，係提醒車輛注意，禁止超過規定裝載高度之車輛通行。,道路交通安全規則第104條,平交道通過規則
+traffic_law_truefalse-622,traffic_law_truefalse,34,汽車在高速或快速公路之隧道內行駛，發生故障時，應開啟危險警告燈，並在後方100 公尺處設置車輛故障標誌警示之，且利用緊急電話或手機通報管理單位。,道路交通安全規則第109條,夜間及隧道燈光使用規則
+traffic_law_truefalse-626,traffic_law_truefalse,34,行駛時，發現前方有交通指揮人員封路封橋，應不予理會，加速闖越以免行程受阻。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-627,traffic_law_truefalse,34,假設欲行駛之路段將封路封橋，應配合交通指揮人員引導，只出不進，儘速駛離該路段，不任意逗留。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-631,traffic_law_truefalse,35,汽車起駛前應關閉駕駛人視線範圍內之娛樂性顯示設備。但提供行車輔助顯示，不在此限。,道路交通安全規則第89條,起駛前應關閉視線範圍內娛樂性顯示設備
+traffic_law_truefalse-632,traffic_law_truefalse,35,汽車行駛於道路，駕駛人觀看行車輔助顯示並不違規，所以一邊開車一邊操作行車輔助顯示，也不違規。,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_truefalse-633,traffic_law_truefalse,35,汽車行駛於大眾捷運系統車輛共用通行之車道時，聞或見大眾捷運系統車輛臨近之聲號或燈光時，應即依規定變換車道，避讓其優先通行，並不得在後跟隨迫近。但道路主管機關另有規定者，不在此限。,道路交通安全規則第94條；道路交通安全規則第102條,大眾捷運系統車輛共用通行之避讓；共用通行交岔路口之通行規則
+traffic_law_truefalse-634,traffic_law_truefalse,35,汽車行駛至有大眾捷運系統車輛共用通行且設有聲光號誌之交岔路口，警鈴已響，閃光號誌已顯示，駕駛人無須暫停俟大眾捷運系統車輛通過後，看、聽兩方無大眾捷運系統車輛駛來，直接加速通過。,道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-635,traffic_law_truefalse,35,"汽車駕駛人行經有燈光號誌管制之大眾捷運系統車輛共用通行交岔路口，紅燈右轉者，處新臺幣600～1,800 元罰鍰。",道路交通安全規則第102條,交岔路口轉彎、號誌、指揮與讓車規則
+traffic_law_truefalse-641,traffic_law_truefalse,35,"汽車駕駛人駕駛汽車肇事，無人受傷或死亡而未依規定處置者，處新臺幣1,000 元以上3,000 元以下罰鍰；逃逸者，並吊扣其駕駛執照一個月至三個月。",道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-642,traffic_law_truefalse,35,"汽車駕駛人駕駛汽車肇事，無人受傷或死亡汽車尚能行駛，而不儘速將汽車位置標繪移置路邊，致妨礙交通者，處駕駛人新臺幣600 元以上1,800 元以下罰鍰。",道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-645,traffic_law_truefalse,36,汽車駕駛人駕駛汽車肇事，無人受傷或死亡汽車尚能行駛，不得任意移動肇事車輛及現場痕跡證據，於現場安全處所等待警察到場處理。,道路交通事故處理辦法第3條；道路交通管理處罰條例第62條,事故現場警示、救護、標繪與移置規則；無人傷亡事故未依規定處置或未標繪移置之處罰
+traffic_law_truefalse-646,traffic_law_truefalse,36,汽車駕駛人拆除消音器造成噪音，處罰鍰丶當場禁止其行駛丶吊扣汽車牌照6 個月，於1 年內再犯者，並吊扣駕照6 個月。,道路交通管理處罰條例第12條,牌照、號牌、報廢車、拼裝車或冒用牌照上路之處罰
+traffic_law_truefalse-648,traffic_law_truefalse,36,行經輕軌路口應迅速通過，切勿在軌道區停留。,道路交通安全規則第94條；道路交通安全規則第102條,大眾捷運系統車輛共用通行之避讓；共用通行交岔路口之通行規則
+traffic_law_truefalse-654,traffic_law_truefalse,36,車輛於國道故障或發生事故時，若無人傷亡且車輛尚能行駛，為防遭後車追撞，應將車移置路肩上，車上所有人員應下車，撤離至護欄外或安全處所等候救援，避免在路肩上逗留，且示警後方來車。,道路交通安全規則第23條；道路交通安全規則第24條,車輛異動登記項目；車籍、所有人或地址等變更登記
+traffic_law_truefalse-655,traffic_law_truefalse,36,中華民國112 年6 月30 日起，新考領之汽車駕駛執照不得駕駛輕型機車。,道路交通安全規則第89條,起駛前安全檢查與證件攜帶規定
+traffic_law_truefalse-658,traffic_law_truefalse,36,汽車駕駛人使用車輛駕駛輔助系統，使用前應瞭解適用範圍和限制，行駛時仍應隨時注意前方車況，必要時應迅速介入操控車輛，切勿過度信賴駕駛輔助系統。,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_truefalse-659,traffic_law_truefalse,37,駕駛輔助系統對所有類型的天氣條件都能正常運作。,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_truefalse-660,traffic_law_truefalse,37,車輛駕駛輔助系統設計，其中加入了自動駕駛輔助功能，目的是為了幫助駕駛人在行駛過程中提高行車安全。,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_truefalse-661,traffic_law_truefalse,37,因汽車駕駛輔助系統有其功能上之限制，汽車駕駛人使用汽車駕駛輔助系統行駛時若與前車速差過大或察覺前車靜止狀態下(如：故障車、高速公路事故處理車輛、施工車輛)，駕駛人應注意車前狀況，並隨時採取必要之安全措施。,道路交通安全規則第90條,駕駛中不得操作或觀看有礙安全之顯示設備
+traffic_law_truefalse-662,traffic_law_truefalse,37,依據「道路交通安全規則」第89 條規定：「起駛前應關閉汽車駕駛人視線範圍內之娛樂性顯示設備。但提供行車輔助顯示，不在此限。 」，因此駕駛人可以在開車時，完全依賴行車輔助顯示之提示開車。,道路交通安全規則第89條,起駛前應關閉視線範圍內娛樂性顯示設備
+traffic_law_choice-052,traffic_law_choice,5,考領普通汽車駕照須年滿,道路交通安全規則第60條,考領各級駕照之資格與年齡
+traffic_law_choice-053,traffic_law_choice,5,考領職業汽車駕照須年滿,道路交通安全規則第60條,考領各級駕照之資格與年齡
+traffic_law_choice-079,traffic_law_choice,7,申請汽車學習駕駛證，須年滿,道路交通安全規則第56條；道路交通安全規則第57條,學習駕駛證之使用範圍；申請學習駕駛證之資格
+traffic_law_choice-097,traffic_law_choice,8,汽車車廂以外,道路交通安全規則第77條,裝載貨物之長寬高及乘載規定
+traffic_law_choice-108,traffic_law_choice,9,夜間會車，應使用,道路交通安全規則第109條,夜間及隧道燈光使用規則

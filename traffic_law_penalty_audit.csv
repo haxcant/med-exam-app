@@ -1,0 +1,136 @@
+﻿id,category,questionNo,hasLawBasis,lawCount,prompt
+traffic_law_choice-050,traffic_law_choice,050,Y,1,汽車定期檢驗，逾期一個月以上者，應處罰
+traffic_law_choice-055,traffic_law_choice,055,Y,1,汽車駕駛人，允許無駕駛執照之人，駕駛其車輛者應處罰
+traffic_law_choice-056,traffic_law_choice,056,Y,2,汽車駕駛人駕駛汽車肇事致人受傷或死亡，應即時處理，如肇事致人重傷或死亡而逃逸者
+traffic_law_choice-071,traffic_law_choice,071,Y,1,汽車駕駛人將駕駛執照借供他人駕車者，應處罰
+traffic_law_choice-072,traffic_law_choice,072,Y,1,汽車駕駛人使用偽造、變造或矇領之駕駛執照駕車者，應處
+traffic_law_choice-086,traffic_law_choice,086,Y,1,駕駛執照受吊銷、註銷或吊扣處分時應如何處理
+traffic_law_choice-090,traffic_law_choice,090,Y,1,受吊扣、吊銷駕駛執照之處分，尚未期滿者
+traffic_law_choice-094,traffic_law_choice,094,Y,1,未領有汽車駕照駕駛小型車者應處罰鍰新臺幣
+traffic_law_choice-103,traffic_law_choice,103,Y,1,汽車駕駛人駕車，違反道路交通安全規則，因而肇事致人死亡者
+traffic_law_choice-104,traffic_law_choice,104,Y,2,汽車駕駛人駕駛汽車肇事，雖無人受傷或死亡，卻未依規定處置且逃逸者，除處罰鍰外，並
+traffic_law_choice-107,traffic_law_choice,107,Y,1,駕駛人不在未劃分標線道路之中央右側駕車者，應處
+traffic_law_choice-156,traffic_law_choice,156,Y,2,利用汽車犯罪經判決有期徒刑以上之刑確定者
+traffic_law_choice-158,traffic_law_choice,158,Y,1,計程車駕駛人不依規定辦理執業登記並領取登記證即行執業者
+traffic_law_choice-165,traffic_law_choice,165,Y,1,使用偽造、變造、或矇領之牌照者，應處
+traffic_law_choice-167,traffic_law_choice,167,Y,1,汽車所有人已領有號牌而不懸掛或不依指定位置懸掛者，應處罰
+traffic_law_choice-168,traffic_law_choice,168,Y,1,領有汽車駕照，駕駛重型機車者
+traffic_law_choice-169,traffic_law_choice,169,Y,2,汽車駕駛人、前座或小型車後座乘客未繫安全帶行駛於下列何種道路會受罰鍰之處罰
+traffic_law_choice-170,traffic_law_choice,170,Y,1,汽機車駕駛人酒後駕車，其吐氣酒精濃度超過規定標準但未涉刑事處罰者，應處
+traffic_law_choice-172,traffic_law_choice,172,Y,1,汽車駕駛人，行車速度超過規定之最高時速40 公里以上者，處罰鍰新臺幣
+traffic_law_choice-173,traffic_law_choice,173,Y,2,汽車駕駛人在1 年內違規記點每達12 點以上者，除施以道安講習，並處
+traffic_law_choice-174,traffic_law_choice,174,Y,1,汽車記違規紀錄於3 個月內共達3 次以上者，處罰
+traffic_law_choice-180,traffic_law_choice,180,Y,2,汽車行駛於非高、快速公路之一般道路上，其駕駛人、前座或小型車後座乘客未繫安全帶者，應處駕駛人罰鍰新臺幣
+traffic_law_choice-181,traffic_law_choice,181,Y,2,汽車駕駛人於行駛道路時，以手持方式使用行動電話、電腦或其他相類功能裝置進行撥接、通話、數據通訊或其他有礙駕駛安全之行為者，處罰鍰新臺幣
+traffic_law_choice-182,traffic_law_choice,182,Y,1,駕車酒精濃度超過規定標準，除當場移置保管該汽機車及吊扣其駕駛 執照1 至2 年，並處罰鍰新臺幣
+traffic_law_choice-183,traffic_law_choice,183,Y,1,"酒精濃度超過規定標準駕車之違規人，於10 年內第2 次違反酒後駕車之規定，除處罰鍰新臺幣120,000 元，及當場移置保管該汽車，並應施以道路交通安全講習"
+traffic_law_choice-184,traffic_law_choice,184,Y,1,"兩輛以上之汽車在道路上競駛或競技者，除處罰汽車駕駛人新台幣30,000~90,000 元罰鍰，及當場禁止其駕駛，並應"
+traffic_law_choice-185,traffic_law_choice,185,Y,1,"汽車駕駛人若拒絕接受酒精濃度測試檢定者，除處罰鍰新臺幣180,000 元，並應施以道路交通安全講習"
+traffic_law_choice-186,traffic_law_choice,186,Y,2,8 公噸以上汽車未依規定裝設行車紀錄器及行車視野輔助系統者，處汽車所有人
+traffic_law_choice-187,traffic_law_choice,187,Y,1,"小型車駕駛執照吊扣期間駕駛小型車者，除處新臺幣6,000～24,000 元罰鍰，並當場禁止其駕駛外，並應"
+traffic_law_choice-188,traffic_law_choice,188,Y,2,遇幼童專用車、校車不依規定禮讓，或減速慢行者，除記違規點數外，並處
+traffic_law_choice-189,traffic_law_choice,189,Y,2,於身心障礙專用停車位違規停車者
+traffic_law_choice-190,traffic_law_choice,190,Y,3,汽車所有人，明知駕駛人有酒後駕車之情形，而不予禁止者，除處罰鍰外，並應
+traffic_law_choice-191,traffic_law_choice,191,Y,1,牌照借供他車使用或使用他車牌照行駛者，除罰鍰外，並應
+traffic_law_choice-192,traffic_law_choice,192,Y,1,汽車駕駛人行駛高速公路、快速公路而不遵守管制規定之處罰
+traffic_law_choice-193,traffic_law_choice,193,Y,2,汽車駕駛人超速駕車者應處以
+traffic_law_choice-194,traffic_law_choice,194,Y,2,汽車駕駛人行經有燈光號誌管制之交岔路口闖紅燈者
+traffic_law_choice-195,traffic_law_choice,195,Y,1,在鐵路平交道超車、迴車、倒車或停車者，應處以
+traffic_law_choice-196,traffic_law_choice,196,Y,2,貨車雖未超載但超過所行駛橋樑之載重限制者，應處以罰鍰並記
+traffic_law_choice-197,traffic_law_choice,197,Y,2,強行闖越鐵路平交道之處罰是
+traffic_law_choice-198,traffic_law_choice,198,Y,1,汽車駕駛人因違規記點，2 年內經吊扣駕駛執照2 次，再違反記點規定者，處以
+traffic_law_choice-199,traffic_law_choice,199,Y,2,汽車不依規定裝載危險物品者，除罰鍰外並
+traffic_law_choice-200,traffic_law_choice,200,Y,2,駕駛人因違規而被處罰鍰並記違規記點以後應
+traffic_law_choice-205,traffic_law_choice,205,Y,2,汽車所有人或汽車駕駛人接獲違反道路交通管理事件通知單後，於
+traffic_law_choice-206,traffic_law_choice,206,Y,1,小客車前座或貨車駕駛室乘人超過規定人數者，處汽車駕駛人
+traffic_law_choice-207,traffic_law_choice,207,Y,2,汽車駕駛人駕駛汽車肇事無人受傷或死亡，且汽車尚能行駛而不儘速將汽車位置標繪移置路邊，致妨礙交通者處罰
+traffic_law_choice-208,traffic_law_choice,208,Y,2,汽車肇事逃逸案件，經通知汽車所有人到場說明，無故不到場說明，或不提供汽車駕駛人相關資料者
+traffic_law_choice-209,traffic_law_choice,209,Y,1,汽車駕駛人無照駕駛或酒醉駕車因而致人受傷或死亡，依法應負刑事責任者，加重其刑至
+traffic_law_choice-212,traffic_law_choice,212,Y,1,汽車駕駛人，駕車闖紅燈除罰鍰外並記違規點數
+traffic_law_choice-214,traffic_law_choice,214,Y,1,拼裝車輛未經核准 領用牌證行駛或報廢車仍行駛道路者，其車輛
+traffic_law_choice-215,traffic_law_choice,215,Y,1,汽車駕駛人無照駕駛大貨車、大客車、聯結車之行為，經舉發後除罰鍰外，並
+traffic_law_choice-216,traffic_law_choice,216,Y,1,汽機車駕駛人，駕駛汽機車經酒精濃度測試檢定超過標準值，除罰鍰、 當場移置保管該汽機車外，並吊扣其駕駛執照
+traffic_law_choice-217,traffic_law_choice,217,Y,2,駕駛汽車行駛於高速公路或快速公路，汽車駕駛人、前座或小型車後座乘客未繫安全帶者，將處駕駛人罰鍰新臺幣
+traffic_law_choice-218,traffic_law_choice,218,Y,3,裝置高音量喇叭或其他產生噪音器物者，處汽車所有人罰鍰並
+traffic_law_choice-219,traffic_law_choice,219,Y,1,汽車駕駛人於道路上蛇行駕駛，應處以
+traffic_law_choice-222,traffic_law_choice,222,Y,1,汽車駕駛人違規併排停車將處罰鍰新臺幣
+traffic_law_choice-223,traffic_law_choice,223,Y,1,"汽車駕駛人無正當理由，不依規定接受道路交通安全講習者，處新臺幣1,800 元罰鍰，經再通知依限參加講習，逾期6 個月以上仍不參加者，應罰"
+traffic_law_choice-224,traffic_law_choice,224,Y,1,酒後駕車酒精濃度超過規定標準被當場移置保管車輛，其罰鍰
+traffic_law_choice-225,traffic_law_choice,225,Y,1,汽車所有人或駕駛人於辦理車輛過戶、停駛、復駛、繳交牌照、註銷牌照、換發牌照或駕駛執照前
+traffic_law_choice-288,traffic_law_choice,288,Y,1,小客車附載幼童未依規定安置於安全椅者，應處駕駛人
+traffic_law_choice-289,traffic_law_choice,289,Y,2,汽車駕駛人對於6 歲以下或需要特別看護之兒童，單獨留置車內者，處駕駛人
+traffic_law_choice-291,traffic_law_choice,291,Y,1,汽車號牌遺失不報請補發，經舉發後仍不辦理而行駛者
+traffic_law_choice-292,traffic_law_choice,292,Y,1,"汽車駕駛人對幾歲以下或需要特別看護之兒童，單獨留置於車內者，處駕駛人新臺幣3,000 元罰鍰，並施以4 小時道路交通安全講習"
+traffic_law_choice-293,traffic_law_choice,293,Y,2,"汽車駕駛人行車速度，超過規定之最高時速多少公里以上者，處新臺幣6,000～36,000 元罰鍰，並當場禁止其駕駛"
+traffic_law_choice-295,traffic_law_choice,295,Y,1,汽車駕駛人駕駛營業大客車，因酒後駕駛應吊銷其駕駛執照，並
+traffic_law_choice-296,traffic_law_choice,296,Y,1,經終身吊銷汽車駕駛執照之受處分人，如為肇事致人死亡案件，經吊銷駕駛執照處分執行已逾幾年，得向公路主管機關申請考領駕駛執照
+traffic_law_choice-384,traffic_law_choice,384,Y,1,領有學習駕駛證學習道路駕駛時，如未領有駕駛執照之人在旁監護指導者，屬違規行為，應處以
+traffic_law_choice-386,traffic_law_choice,386,Y,2,雖帶有學習駕駛證，而在未經許可之道路或規定之時間，開車練習道路駕駛者
+traffic_law_choice-407,traffic_law_choice,407,Y,2,高速公路違規行駛路肩，經取締處以
+traffic_law_choice-409,traffic_law_choice,409,Y,2,汽車駕駛人行駛高速公路，未保持安全距離因而肇事致人死亡者，處罰
+traffic_law_choice-417,traffic_law_choice,417,Y,2,汽缸總排氣量 550 立方公分以上大型重型機車行駛高速公路，有同車道併駛、超車行為者處駕駛人新臺幣
+traffic_law_choice-424,traffic_law_choice,424,Y,3,汽車駕駛人，行經有燈光號誌管制之大眾捷運系統車輛共用通行交岔路口闖紅燈者
+traffic_law_choice-431,traffic_law_choice,431,Y,2,汽車駕駛人駕駛汽車肇事，無人受傷或死亡汽車尚能行駛，而不儘速將汽車位置標繪移置路邊，致妨礙交通者，處駕駛人新臺幣
+traffic_law_choice-434,traffic_law_choice,434,Y,2,汽車駕駛人駕駛汽車肇事，無人受傷或死亡而未依規定處置者，處新臺幣
+traffic_law_choice-436,traffic_law_choice,436,Y,1,汽車駕駛人拆除消音器造成噪音，處罰鍰丶當場禁止其行駛丶吊扣汽車牌照6 個月，於1 年內再犯者，處
+traffic_law_choice-444,traffic_law_choice,444,Y,2,汽車駕駛人，駕駛汽車行近行人穿越道或其他依法可供行人穿越之交岔路口，有行人穿越時，不暫停讓行人先行通過者，處
+traffic_law_choice-445,traffic_law_choice,445,Y,2,汽車駕駛人，駕駛汽車行近行人穿越道或其他依法可供行人穿越之交岔路口，有行人穿越時，不暫停讓行人先行通過，因而肇事致人受傷者，處
+traffic_law_truefalse-046,traffic_law_truefalse,046,Y,3,駕駛人駕車如因過失致人於死傷，在法律上要負刑事 (判刑)、民事(賠償)及行政 (吊銷駕照) 等三種責任。
+traffic_law_truefalse-077,traffic_law_truefalse,077,Y,3,汽車所有人、駕駛人，接獲違反道路交通管理事件通知單後，於30日內得不經裁決，逕依罰鍰基準規定，向指定處所繳納結案。
+traffic_law_truefalse-079,traffic_law_truefalse,079,Y,1,受終身不得考領駕駛執照之處分者，不得參加駕駛執照考驗。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間者，不在此限。
+traffic_law_truefalse-088,traffic_law_truefalse,088,Y,1,汽車所有人明知駕駛人有酒精濃度超過規定標準、吸食毒品、迷幻藥等而不予禁止駕駛者，除處罰鍰外，並吊扣該汽車牌照2 年。
+traffic_law_truefalse-089,traffic_law_truefalse,089,Y,1,汽車駕駛人，連續駕車超過8 小時，如應歸責於汽車所有人者，吊扣其汽車牌照3 個月。
+traffic_law_truefalse-094,traffic_law_truefalse,094,Y,1,抗拒執行交通勤務之警察，或依法執行交通稽查人員之稽查取締，因而引起傷害或死亡者，除罰鍰及吊銷駕照外，並終身不得再考領駕照。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間者，不在此限。
+traffic_law_truefalse-098,traffic_law_truefalse,098,Y,1,在峻狹坡路，下坡車未讓上坡車先行，或上坡車在坡下未讓已駛至中途之下坡車駛過而爭先上坡，或在山路行車，靠山壁車未讓道路外緣車優先通過者，均處以罰鍰。
+traffic_law_truefalse-104,traffic_law_truefalse,104,Y,1,汽車駕駛人駕車肇事，無人受傷或死亡，應依規定處置，若逃逸者，除處罰鍰外，並吊扣其駕駛執照。
+traffic_law_truefalse-106,traffic_law_truefalse,106,Y,3,報廢登記之汽車仍行駛者，處汽車所有人罰鍰，並禁止其行駛，車輛並沒入之。
+traffic_law_truefalse-107,traffic_law_truefalse,107,Y,1,汽車駕駛人允許無駕照之人駕駛其車輛者，吊扣其駕駛執照。
+traffic_law_truefalse-110,traffic_law_truefalse,110,Y,1,汽車駕駛人駕車肇事，致人重傷或死亡而逃逸者，吊銷其駕駛執照，並不得再考領。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間者，不在此限。
+traffic_law_truefalse-112,traffic_law_truefalse,112,Y,1,駕車闖紅燈因而肇事致人重傷者，無須吊扣其駕照。
+traffic_law_truefalse-113,traffic_law_truefalse,113,Y,1,汽車駕駛人駕車肇事，無人受傷或死亡應依規定處理，逃逸者，除處罰鍰並吊銷其駕駛執照。
+traffic_law_truefalse-114,traffic_law_truefalse,114,Y,2,"汽車行駛於高速公路、快速公路或設站管制之道路，未依規定保持安全距離，處汽車駕駛人新臺幣3,000~6,000 元之罰鍰。"
+traffic_law_truefalse-123,traffic_law_truefalse,123,Y,1,汽車駕駛人駕車，違反道路交通安全規則，因而肇事致人重傷者，吊扣其駕駛執照。
+traffic_law_truefalse-124,traffic_law_truefalse,124,Y,1,汽車行駛應繳費之公路橋樑逃避繳費，並有傷害收費人員之情事者，應吊銷駕照。
+traffic_law_truefalse-126,traffic_law_truefalse,126,Y,1,駕駛人酒精濃度超過規定標準，駕車肇事致人重傷或死亡者，吊銷駕照並停考1 年。
+traffic_law_truefalse-128,traffic_law_truefalse,128,Y,1,利用汽車犯罪，經判決有期徒刑以上之刑確定者，吊銷其駕照終身不得再考領駕照。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間者，不在此限。
+traffic_law_truefalse-132,traffic_law_truefalse,132,Y,2,受永遠吊銷、吊扣駕照之處分者，受違規再教育1 個月，即可參加駕照考驗。
+traffic_law_truefalse-133,traffic_law_truefalse,133,Y,1,受吊銷、吊扣駕駛執照處分，尚未屆滿限制報考期限者，不得參加駕照考驗。
+traffic_law_truefalse-134,traffic_law_truefalse,134,Y,1,受吊銷、吊扣駕照處分，尚未屆滿限制報考期限者，繳罰鍰後即可參加駕照考驗。
+traffic_law_truefalse-135,traffic_law_truefalse,135,Y,1,汽車駕駛人在1 年內，違規記點共達6 點以上者，應施以道路交通安全講習。
+traffic_law_truefalse-153,traffic_law_truefalse,153,Y,2,"汽車駕駛人行駛於道路時，以手持方式使用行動電話、電腦或其他相類功能裝置進行撥接、通話、數據通訊或其他有礙駕駛安全之行為者，處新臺幣1,000 元罰鍰。"
+traffic_law_truefalse-233,traffic_law_truefalse,233,Y,1,慢車駕駛人、行人不依規定接受道路交通安全講習者，處以罰鍰。
+traffic_law_truefalse-234,traffic_law_truefalse,234,Y,1,汽車駕駛人聞消防車、救護車、警備車、工程救險車、毒性化學物質災害事故應變車之警號不立即避讓或跟隨車後急駛處以罰鍰，並吊銷駕駛執照。
+traffic_law_truefalse-236,traffic_law_truefalse,236,Y,1,汽車駕駛人違規肇事致受吊扣駕駛執照處分者，應施以道路交通安全講習。
+traffic_law_truefalse-238,traffic_law_truefalse,238,Y,1,駕駛人酒精濃度超過規定標準，駕車肇事致人重傷或死亡者，除處罰鍰外，吊銷其駕照，並不得再考領。但符合特定條件，且所受吊銷駕駛執照處分，執行已逾相關規定期間，並依規定完成酒駕防制教育或酒癮治療者，不在此限。
+traffic_law_truefalse-239,traffic_law_truefalse,239,Y,1,"汽車駕駛人拒絕接受酒精濃度測試之檢定者，處新臺幣30,000 元罰鍰。"
+traffic_law_truefalse-240,traffic_law_truefalse,240,Y,2,"汽車行駛於非高、快速公路之ㄧ般道路，汽車駕駛人、前座或小型車後座乘客未繫安全帶者，處駕駛人新臺幣1,500 元罰鍰。"
+traffic_law_truefalse-241,traffic_law_truefalse,241,Y,2,"汽車駕駛人於開車時，以手持方式使用行動電話、電腦或其他相類功能裝置進行撥接、通話、數據通訊或其他有礙駕駛安全之行為者，處新臺幣3,000 元罰鍰。"
+traffic_law_truefalse-242,traffic_law_truefalse,242,Y,1,"汽車駕駛人酒後駕車，其酒精濃度超過規定標準者，處新臺幣30,000~120,000 元罰鍰，並當場移置保管該汽車及吊扣其駕駛執照。 08"
+traffic_law_truefalse-244,traffic_law_truefalse,244,Y,1,大型車未依規定裝設行車紀錄器及行車視野輔助系統或行車紀錄器及行車視野輔助系統無法正常運作或不當使用行車紀錄器致無法正確記錄資料者，除罰鍰外，應責令其參加臨時檢驗。
+traffic_law_truefalse-245,traffic_law_truefalse,245,Y,3,"持小型車駕照駕駛大型汽車者，汽車所有人及駕駛人各處新臺幣40,000~80,000 元罰鍰，並記該車違規紀錄1 次。"
+traffic_law_truefalse-246,traffic_law_truefalse,246,Y,1,未滿18 歲之人，未領有駕駛執照駕駛小型汽車或機車者，除處罰鍰並當場禁止其駕駛外，汽車駕駛人及其法定代理人或監護人，應同時施以道路交通安全講習。
+traffic_law_truefalse-247,traffic_law_truefalse,247,Y,3,"汽車裝載貨物超過核定之總重量，總聯結重量或超過所行駛橋樑規定之載重限制者，除責令改正或當場禁止通行外，不分超載程度一律處汽車所有人新台幣10,000 元罰鍰。"
+traffic_law_truefalse-248,traffic_law_truefalse,248,Y,2,駕駛人開車時應按遵行方向行駛，違者除罰鍰外並違規記點。
+traffic_law_truefalse-249,traffic_law_truefalse,249,Y,2,駕車行駛於人行道，應處以罰鍰並違規記點。
+traffic_law_truefalse-250,traffic_law_truefalse,250,Y,1,駕駛人為了趕時間而闖紅燈，可以不被記違規點數3 點，只繳罰鍰而已。
+traffic_law_truefalse-251,traffic_law_truefalse,251,Y,1,在禁止左轉路段不可以迴車，違者除處罰鍰外並違規記點。
+traffic_law_truefalse-252,traffic_law_truefalse,252,Y,1,繞行圓環迴車太麻煩，為了方便可以逕行迴車，反正不會被罰款及違規記點。
+traffic_law_truefalse-253,traffic_law_truefalse,253,Y,1,未經前行車表示允讓靠邊慢行，即行超車，要處以罰鍰。
+traffic_law_truefalse-254,traffic_law_truefalse,254,Y,1,汽車駕駛人在1 年內違規記點共達6 點以上，才吊扣駕照1 個月，因此可以不遵守交通規則。
+traffic_law_truefalse-255,traffic_law_truefalse,255,Y,1,駕駛人酒精濃度超過規定標準駕車，只記違規點數2 點而不罰鍰。
+traffic_law_truefalse-256,traffic_law_truefalse,256,Y,1,違規記點又不登記在駕照上，所以可以不必理會而任意違反交通規則。
+traffic_law_truefalse-257,traffic_law_truefalse,257,Y,1,汽車記違規紀錄於3 個月內共達3 次以上者，吊扣其汽車牌照。
+traffic_law_truefalse-369,traffic_law_truefalse,369,Y,1,"小客車附載幼童未依規定安置於安全椅者，處駕駛人新臺幣1,500～3,000 元罰鍰。"
+traffic_law_truefalse-370,traffic_law_truefalse,370,Y,1,汽車駕駛人，不依規定使用燈光者，處以罰鍰。
+traffic_law_truefalse-371,traffic_law_truefalse,371,Y,1,利用道路為工作場所，除責令行為人即時停止並消除障礙外，處行為人或雇主罰鍰。
+traffic_law_truefalse-373,traffic_law_truefalse,373,Y,1,"汽車裝載貨物行經設有地磅處所5 公里內路段，未依標誌、標線、號誌指示過磅者，處汽車駕駛人新臺幣90,000 元罰鍰，並得強制其過磅。"
+traffic_law_truefalse-375,traffic_law_truefalse,375,Y,1,"汽車駕駛人行經有燈光號誌管制之交岔路口，紅燈右轉者，處新臺幣600～1,800 元罰鍰。"
+traffic_law_truefalse-376,traffic_law_truefalse,376,Y,1,年滿68 歲小型車職業駕駛人，前一年內未受吊扣駕駛執照處分，且依規定體格檢查判定合格者，經檢附通過汽車駕駛人認知功能測驗或無患有失智症證明文件，得換發有效期間一年之小型車職業駕駛執照，或於小型車職業駕駛執照以每年加註方式延長有效期間，至年滿70 歲止。
+traffic_law_truefalse-377,traffic_law_truefalse,377,Y,1,未領有汽車駕駛執照之人，違反道路交通管理處罰條例規定，應受吊扣駕駛執照處分，在所規定最長吊扣期間內，不得考領駕駛執照。
+traffic_law_truefalse-466,traffic_law_truefalse,466,Y,3,為節能減碳，停車怠速時間不得超過3 分鐘，以免排放廢氣污染環境，違者可依空氣污染防制法處以罰鍰。
+traffic_law_truefalse-609,traffic_law_truefalse,609,Y,1,汽車引擎、底盤、電系、車門損壞，行駛時顯有危險而不即行停駛修復者，處汽車所有人罰鍰，並扣留其牌照，責令修復檢驗合格後發還之。
+traffic_law_truefalse-635,traffic_law_truefalse,635,Y,3,"汽車駕駛人行經有燈光號誌管制之大眾捷運系統車輛共用通行交岔路口，紅燈右轉者，處新臺幣600～1,800 元罰鍰。"
+traffic_law_truefalse-641,traffic_law_truefalse,641,Y,1,"汽車駕駛人駕駛汽車肇事，無人受傷或死亡而未依規定處置者，處新臺幣1,000 元以上3,000 元以下罰鍰；逃逸者，並吊扣其駕駛執照一個月至三個月。"
+traffic_law_truefalse-642,traffic_law_truefalse,642,Y,2,"汽車駕駛人駕駛汽車肇事，無人受傷或死亡汽車尚能行駛，而不儘速將汽車位置標繪移置路邊，致妨礙交通者，處駕駛人新臺幣600 元以上1,800 元以下罰鍰。"
+traffic_law_truefalse-646,traffic_law_truefalse,646,Y,1,汽車駕駛人拆除消音器造成噪音，處罰鍰丶當場禁止其行駛丶吊扣汽車牌照6 個月，於1 年內再犯者，並吊扣駕照6 個月。
+traffic_law_truefalse-657,traffic_law_truefalse,657,Y,3,汽車行駛在行人優先區內，行車時速不得超過20 公里，並禁止按鳴喇叭，違者將處以罰鍰。

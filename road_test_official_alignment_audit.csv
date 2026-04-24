@@ -1,0 +1,77 @@
+﻿bankId,segmentId,examRelevant,alignmentLevel,operationText,spokenText,officialCodes,officialSourceLabel
+RT-001,road-seg-001,True,official_core,從左前輪開始，雙手壓輪胎,胎紋、胎壓正常,A1,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-002,road-seg-002,True,official_core,查看左右車燈並蹲下看車底,車燈無破損／車底無異物,A1,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-003,road-seg-003,True,official_core,檢查右前輪，雙手壓輪胎並蹲下查看車底,胎紋、胎壓正常／車底無異物,A1,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-004,road-seg-004,True,official_core,檢查右後輪,胎紋、胎壓正常,A1,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-005,road-seg-005,True,official_core,檢查左右車燈，蹲下看車底,車燈無破損／車底無異物,A1,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-006,road-seg-006,True,official_core,檢查左後輪，蹲下看車底,胎紋、胎壓正常／車底無異物,A1,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-007,road-seg-007,True,official_core,先看左、看右，確認,兩段式開車門／左右無來車,R1,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-008,road-seg-008,True,official_related,車門先開約15公分，身體不轉動，再看左、看右確認後，再開至約45度上車,左右無來車,,
+RT-009,road-seg-009,True,official_core,車內：,調整座椅／調整椅背／調整頭枕,A2,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-010,road-seg-010,True,official_core,【繫上安全帶】【調整中央後照鏡、左右後照鏡】【確定檔位在P檔、手煞車已拉起】,繫上安全帶／調整中央後照鏡、左右後照鏡／確定檔位在P檔、手煞車已拉起,A2,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-011,road-seg-011,True,official_related,鑰匙往外轉,開啟紅火,A5,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-012,road-seg-012,True,official_core,檢查儀表（溫度、油量、煞車、充電、機油）作用,油量、溫度、引擎、電瓶、手煞車燈、機油 正常,A4,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-013,road-seg-013,True,official_core,踩煞車、發動引擎,引擎發動：儀表板正常,A5,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-014,road-seg-014,False,coach_only,開風扇並開AC,,,
+RT-014,road-seg-015,True,official_core,口誦【試踩煞車：煞車正常】,試踩煞車：煞車正常,A6,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-015,road-seg-016,True,official_related,口誦【試打左右方向燈：方向燈正常】,試打左右方向燈：方向燈正常,A7,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-016,road-seg-017,True,official_core,打左方向燈,準備起步，打D檔，放手煞車,"A6,A7",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-017,road-seg-018,True,official_core,起駛前轉頭查看前後左右,左右無來車，後方無來車,A8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-018,road-seg-019,True,official_related,方向燈回正，打右邊方向燈,,,
+RT-019,road-seg-020,True,official_related,前方路口減速查看,,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-020,road-seg-021,True,official_related,(行駛時出入都靠大門左側),,,
+RT-021,road-seg-022,True,official_core,右轉後打左方向燈,左右無來車、後方無來車,"R3,R4,R8",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-022,road-seg-023,True,official_related,左轉走快車道 此路口需特別注意雙黃線,"前方路口減速查看,左右無來車",R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-023,road-seg-024,True,official_core,打右方向燈,前方路口減速查看，進行變換車道／左右無來車，後方無來車,"R3,R4,R7",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-024,road-seg-025,True,official_related,由快車道切換至慢車道，轉頭時需看到B柱,,"A8,R3",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1/2頁
+RT-025,road-seg-026,True,official_related,完成變換車道後，持續穩定行駛於慢車道,,,
+RT-026,road-seg-027,True,official_core,打右方向燈，再看左後方,前方路口減速查看，左右無來車，後方無來車／後方無來車,"R3,R4,R8",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-027,road-seg-028,True,official_related,頭需看到B柱，車身盡量靠近道路邊線,,"A8,R3",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1/2頁
+RT-028,road-seg-029,True,official_related,注意道路邊線不可壓到,,,
+RT-029,road-seg-030,True,official_related,打右方向燈,,,
+RT-030,road-seg-031,True,official_related,【前方路口減速查看，進行路邊臨時停車，左右無來車，後方無來車】，,前方路口減速查看，進行路邊臨時停車，左右無來車，後方無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-031,road-seg-032,True,official_related,頭需看到B柱,,"A8,R3",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1/2頁
+RT-032,road-seg-033,True,official_related,【打P檔、拉手煞車】；,打P檔、拉手煞車,R7,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-033,road-seg-034,True,official_related,放鬆腳煞車，確認不滑動後，腳再回煞車,,,
+RT-034,road-seg-035,True,official_related,【路邊臨時停車完畢】,路邊臨時停車完畢,R7,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-035,road-seg-036,True,official_core,踩剎車，打左方向燈,切入主線道，打D檔，放手煞車，後方無來車,"A6,A7",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1頁
+RT-036,road-seg-037,True,official_related,頭需看到B柱後再起步,,"A8,R3",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1/2頁
+RT-037,road-seg-038,True,official_core,打左方向燈,進行變換車道，後方無來車,"R3,R4,R7",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-038,road-seg-039,True,official_related,頭需看到B柱，沒車再變換車道,,"A8,R3",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1/2頁
+RT-039,road-seg-040,True,official_related,前方路口減速查看,左右無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-040,road-seg-041,True,official_related,直線路段留意兩側照後鏡與車身、車道線間距,,,
+RT-041,road-seg-042,True,official_related,前方路口減速查看,左右無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-042,road-seg-043,True,official_related,行駛中隨時注意不要壓到左右車道線,,,
+RT-043,road-seg-044,True,official_related,再次通過路口前減速查看,左右無來車,,
+RT-044,road-seg-045,True,official_related,打左方向燈,,,
+RT-045,road-seg-046,True,official_related,配合準備迴轉,前方路口減速查看,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-046,road-seg-047,True,official_related,確認，到達定點後迅速完成方向盤操作,左右無來車,,
+RT-047,road-seg-048,True,official_related,迴轉後走外側車道,,,
+RT-048,road-seg-049,True,official_related,持續注意兩側車道線，盡量讓車輛保持在車道中央,,,
+RT-049,road-seg-050,True,official_related,壓到任何一側邊線都會扣分,,,
+RT-050,road-seg-051,True,official_related,【前方路口減速查看】【左右無來車】,前方路口減速查看／左右無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-051,road-seg-052,True,official_related,行車速度盡量維持在約40公里左右,,,
+RT-052,road-seg-053,True,official_related,【前方路口減速查看】【左右無來車】,前方路口減速查看／左右無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-053,road-seg-054,True,official_related,【前方路口減速查看】【左右無來車】,前方路口減速查看／左右無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-054,road-seg-055,True,official_related,此路段須特別注意車速，標示約40公里，最高速度不要超過44公里,,,
+RT-055,road-seg-056,True,official_related,【前方路口減速查看】【左右無來車】,前方路口減速查看／左右無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-056,road-seg-057,True,official_core,到路口前打左方向燈,前方路口減速查看／左右無來車,"R3,R4,R8",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-057,road-seg-058,True,official_related,等紅綠燈後，起步前記得做左右擺頭，尤其是第一台,,,
+RT-058,road-seg-059,True,official_related,頭需看到B柱,左右無來車，後方無來車,"A8,R3",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第1/2頁
+RT-059,road-seg-060,True,official_related,左轉後直接走慢車道,,,
+RT-060,road-seg-061,True,official_related,注意左側可能有違規插入的車輛，確認左後方來車,,,
+RT-061,road-seg-062,True,official_related,【前方路口減速查看】【左右無來車】,前方路口減速查看／左右無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-062,road-seg-063,True,official_related,注意道路邊線，白線不可壓到,前方路口減速查看／左右無來車,R8,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-063,road-seg-064,True,official_core,"【前方路口減速查看(打右方向燈)左右無來車,後方無來車】","前方路口減速查看(打右方向燈)左右無來車,後方無來車","R3,R4,R8",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-064,road-seg-065,True,official_core,"【前方路口減速查看(打左方向燈)左右無來車,後方無來車】","前方路口減速查看(打左方向燈)左右無來車,後方無來車","R3,R4,R8",小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-065,road-seg-066,True,official_related,"【打右方向燈,左右無來車,後方無來車】","打右方向燈,左右無來車,後方無來車",,
+RT-066,road-seg-067,True,official_related,回到起終點區域，找空位將車輛停正,,,
+RT-067,road-seg-068,True,official_core,停妥後依序 打P檔、拉手煞車、關風扇、關AC、熄火,,R16,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-068,road-seg-069,True,official_core,解開安全帶、椅子退後，進行,兩段式開車門,R1,小型車駕駛人場考評分基準及成績紀錄表(115/3/31起) 第2頁
+RT-069,road-seg-070,True,official_related,先看後照鏡，再把頭伸出車外看後方，確認打開車門15公分下車,後方無來車／左右無來車,,
+RT-071,road-seg-071,False,coach_only,最後關上車門，道路考照動作全部完成,,,
+RT-072,road-seg-072,False,coach_only,歡迎各位到忠正駕訓班學習開車，本班提供新型TOYOTA車輛供教學使用 今天示範的也是新車，未來學員到班上學車時，使用的車輛與教學環境皆相同,,,
+RT-073,road-seg-073,False,coach_only,平時車輛整齊停放於車庫，駕訓班提供良好學習環境，也歡迎大家介紹親友前來學習,,,
+RT-074,road-seg-074,False,coach_only,依照新制度，行車前都要做安全檢查，駕訓班也設置車棚，遇颱風或大雨考試時仍可進行檢查,,,
+RT-075,road-seg-075,False,coach_only,車輛可在停車棚內完成行車前安全檢查，這也是忠正駕訓班對學員安全與環境的用心,,,
+RT-076,road-seg-076,False,coach_only,影片介紹到這裡，希望對各位有所幫助，謝謝大家，再見,,,

@@ -1,0 +1,77 @@
+﻿segment_id,exam_relevant,alignment_level,module_id,operation_text,spoken_text,official_codes,official_labels
+road-seg-001,True,official_core,vehicle_exterior_check,從左前輪開始，雙手壓輪胎,胎紋、胎壓正常,D1-1,行車前檢查及起駛前動作｜上車前察看車輛四周、車底及輪胎有無異物（狀）
+road-seg-002,True,official_core,vehicle_exterior_check,查看左右車燈並蹲下看車底,車燈無破損／車底無異物,D1-1,行車前檢查及起駛前動作｜上車前察看車輛四周、車底及輪胎有無異物（狀）
+road-seg-003,True,official_core,vehicle_exterior_check,檢查右前輪，雙手壓輪胎並蹲下查看車底,胎紋、胎壓正常／車底無異物,D1-1,行車前檢查及起駛前動作｜上車前察看車輛四周、車底及輪胎有無異物（狀）
+road-seg-004,True,official_core,vehicle_exterior_check,檢查右後輪,胎紋、胎壓正常,D1-1,行車前檢查及起駛前動作｜上車前察看車輛四周、車底及輪胎有無異物（狀）
+road-seg-005,True,official_core,vehicle_exterior_check,檢查左右車燈，蹲下看車底,車燈無破損／車底無異物,D1-1,行車前檢查及起駛前動作｜上車前察看車輛四周、車底及輪胎有無異物（狀）
+road-seg-006,True,official_core,vehicle_exterior_check,檢查左後輪，蹲下看車底,胎紋、胎壓正常／車底無異物,D1-1,行車前檢查及起駛前動作｜上車前察看車輛四周、車底及輪胎有無異物（狀）
+road-seg-007,True,official_core,two_stage_door_entry,上車前先觀察左右來車，再依二段式開門流程短開車門,兩段式開車門／左右無來車,D7-1 | D1-1,全程道路行駛｜上、下車開車門前未留意有無人車通過（下車應以2段式開門） | 行車前檢查及起駛前動作｜上車前察看車輛四周、車底及輪胎有無異物（狀）
+road-seg-008,True,official_related,two_stage_door_entry,車門先短開再複查左右安全，確認後再完成上車,左右無來車,D7-1,全程道路行駛｜上、下車開車門前未留意有無人車通過（下車應以2段式開門）
+road-seg-009,True,official_core,cockpit_setup_and_engine_start,起駛前調整座椅、椅背與頭枕,調整座椅／調整椅背／調整頭枕,D1-2,行車前檢查及起駛前動作｜起駛前調整座椅、頭枕或照後鏡（受測人應口誦及動作檢查項目）
+road-seg-010,True,official_core,cockpit_setup_and_engine_start,調整中央後照鏡、左右後照鏡並繫妥安全帶，確認P檔與手煞車,繫上安全帶／調整中央後照鏡、左右後照鏡／確定檔位在P檔、手煞車已拉起,D1-2 | D1-3 | D1-5,行車前檢查及起駛前動作｜起駛前調整座椅、頭枕或照後鏡（受測人應口誦及動作檢查項目） | 行車前檢查及起駛前動作｜未依規定繫安全帶 | 行車前檢查及起駛前動作｜自排車發動引擎未入P檔或未踩煞車
+road-seg-011,True,official_core,cockpit_setup_and_engine_start,發動前確認自排車在P檔並踩住煞車，再轉動鑰匙至紅火,開啟紅火,D1-5,行車前檢查及起駛前動作｜自排車發動引擎未入P檔或未踩煞車
+road-seg-012,True,official_core,cockpit_setup_and_engine_start,檢查儀表（溫度、油量、煞車、充電、機油）作用,油量、溫度、引擎、電瓶、手煞車燈、機油 正常,D1-4,行車前檢查及起駛前動作｜起駛前未檢查儀表（溫度、油量、煞車、充電、機油）作用
+road-seg-013,True,official_related,cockpit_setup_and_engine_start,踩住煞車發動引擎，確認儀表板顯示正常,引擎發動：儀表板正常,D1-5,行車前檢查及起駛前動作｜自排車發動引擎未入P檔或未踩煞車
+road-seg-014,False,coach_only,cockpit_setup_and_engine_start,開風扇並開AC,,,
+road-seg-015,True,official_core,cockpit_setup_and_engine_start,起駛前鬆開手煞車並檢查煞車作用,試踩煞車：煞車正常,D1-6,行車前檢查及起駛前動作｜起駛前未鬆開手煞車及檢查煞車作用
+road-seg-016,True,official_related,cockpit_setup_and_engine_start,確認左右方向燈作動正常,試打左右方向燈：方向燈正常,D1-7 | D5-4,行車前檢查及起駛前動作｜起駛前未依規定顯示方向燈 | 車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況
+road-seg-017,True,official_core,start_and_initial_turns,起駛前顯示左方向燈，入D檔、放手煞車準備起步,準備起步，打D檔，放手煞車,D1-7 | D1-6,行車前檢查及起駛前動作｜起駛前未依規定顯示方向燈 | 行車前檢查及起駛前動作｜起駛前未鬆開手煞車及檢查煞車作用
+road-seg-018,True,official_core,start_and_initial_turns,起駛前轉頭察看照後鏡並確認前後左右安全，再禮讓人車起步,左右無來車，後方無來車,D1-8,行車前檢查及起駛前動作｜起駛前未轉頭察看照後鏡並注意前後左右有無障礙或車輛行人
+road-seg-019,True,official_related,start_and_initial_turns,轉彎前依規定切換方向燈,,D5-4,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況
+road-seg-020,True,official_core,start_and_initial_turns,接近路口先減速查看，預作隨時停車準備,,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-021,False,coach_only,start_and_initial_turns,依考驗員指定路線行駛,,D5-8,車道行駛、變換車道、路口轉彎、迴車｜未依規定路線行駛或未依規定行駛正確車道
+road-seg-022,True,official_related,start_and_initial_turns,右轉完成後依規定切換左方向燈，準備後續車道操作,左右無來車、後方無來車,D5-4 | D5-8,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況 | 車道行駛、變換車道、路口轉彎、迴車｜未依規定路線行駛或未依規定行駛正確車道
+road-seg-023,True,official_core,start_and_initial_turns,左轉前減速查看路口安全，左轉後依規定進入正確車道,"前方路口減速查看,左右無來車",D5-4 | D5-8 | D5-9,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況 | 車道行駛、變換車道、路口轉彎、迴車｜未依規定路線行駛或未依規定行駛正確車道 | 車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-024,True,official_core,lane_change_fast_to_slow,由快車道切換至慢車道前，顯示右方向燈並減速查看,前方路口減速查看，進行變換車道／左右無來車，後方無來車,D5-4 | D5-9,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況 | 車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-025,True,official_core,lane_change_fast_to_slow,變換車道前轉頭察看照後鏡並確認側後方安全，再切入慢車道,,D5-4,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況
+road-seg-026,True,official_core,lane_change_fast_to_slow,完成變換車道後，穩定行駛於正確車道,,D5-8,車道行駛、變換車道、路口轉彎、迴車｜未依規定路線行駛或未依規定行駛正確車道
+road-seg-027,True,official_core,roadside_temporary_stop,靠邊停車前顯示右方向燈，並再次確認左右與後方安全,前方路口減速查看，左右無來車，後方無來車／後方無來車,D4-3,路邊臨時停車｜靠邊停車前或起駛前，未依規定顯示方向燈或未轉頭察看照後鏡及注意有無障礙或車輛行人
+road-seg-028,True,official_related,roadside_temporary_stop,靠邊停車前轉頭確認側後方安全，再讓車身靠近路面邊緣,,D4-3,路邊臨時停車｜靠邊停車前或起駛前，未依規定顯示方向燈或未轉頭察看照後鏡及注意有無障礙或車輛行人
+road-seg-029,True,official_related,roadside_temporary_stop,路邊臨時停車時注意不可壓到路面邊線，並控制與邊緣距離,,D4-4 | D5-5,路邊臨時停車｜臨時停車時右側前後輪胎外側距離緣石或路面邊緣逾六十公分 | 車道行駛、變換車道、路口轉彎、迴車｜行駛中車輪壓實線（分向限制線、快慢車道分隔線、禁止變換車道線或路面邊線）
+road-seg-030,True,official_core,roadside_temporary_stop,再次靠邊停車前依規定顯示右方向燈,,D4-3,路邊臨時停車｜靠邊停車前或起駛前，未依規定顯示方向燈或未轉頭察看照後鏡及注意有無障礙或車輛行人
+road-seg-031,True,official_core,roadside_temporary_stop,路邊臨時停車前減速查看並確認左右與後方安全,前方路口減速查看，進行路邊臨時停車，左右無來車，後方無來車,D4-3 | D5-9,路邊臨時停車｜靠邊停車前或起駛前，未依規定顯示方向燈或未轉頭察看照後鏡及注意有無障礙或車輛行人 | 車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-032,True,official_related,roadside_temporary_stop,靠邊停車最後修正前，再次轉頭確認側後方安全,,D4-3,路邊臨時停車｜靠邊停車前或起駛前，未依規定顯示方向燈或未轉頭察看照後鏡及注意有無障礙或車輛行人
+road-seg-033,False,coach_only,roadside_temporary_stop,臨時停車後確認車輛已穩定停妥,打P檔、拉手煞車,D8-4,其他技術操作｜煞車（含手煞車）操作不當
+road-seg-034,False,coach_only,roadside_temporary_stop,確認車輛不滑動後再保持煞車穩定,,D8-4,其他技術操作｜煞車（含手煞車）操作不當
+road-seg-035,False,coach_only,roadside_temporary_stop,確認路邊臨時停車已完成,路邊臨時停車完畢,D4-4,路邊臨時停車｜臨時停車時右側前後輪胎外側距離緣石或路面邊緣逾六十公分
+road-seg-036,True,official_core,resume_and_left_lane_change,由路邊起駛前顯示左方向燈，入D檔、放手煞車並確認後方安全,切入主線道，打D檔，放手煞車，後方無來車,D4-3 | D7-2,路邊臨時停車｜靠邊停車前或起駛前，未依規定顯示方向燈或未轉頭察看照後鏡及注意有無障礙或車輛行人 | 全程道路行駛｜起駛前未依規定顯示方向燈或未察看照後鏡並轉頭注意前後左右有無障礙或車輛行人
+road-seg-037,True,official_core,resume_and_left_lane_change,由路邊起駛前轉頭察看照後鏡並確認後方安全後再起步,,D4-3 | D7-2,路邊臨時停車｜靠邊停車前或起駛前，未依規定顯示方向燈或未轉頭察看照後鏡及注意有無障礙或車輛行人 | 全程道路行駛｜起駛前未依規定顯示方向燈或未察看照後鏡並轉頭注意前後左右有無障礙或車輛行人
+road-seg-038,True,official_core,resume_and_left_lane_change,往左變換車道前顯示左方向燈並確認後方安全,進行變換車道，後方無來車,D5-4,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況
+road-seg-039,True,official_core,resume_and_left_lane_change,變換車道前轉頭察看照後鏡並確認側後方安全，再切入車道,,D5-4,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況
+road-seg-040,True,official_core,straight_intersection_checks,通過路口前先減速查看，確認安全後再通行,左右無來車,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-041,True,official_related,straight_intersection_checks,直線路段保持車身在車道內，注意照後鏡與車身位置,,D5-5,車道行駛、變換車道、路口轉彎、迴車｜行駛中車輪壓實線（分向限制線、快慢車道分隔線、禁止變換車道線或路面邊線）
+road-seg-042,True,official_core,straight_intersection_checks,通過路口前先減速查看，確認安全後再通行,左右無來車,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-043,True,official_core,straight_intersection_checks,行駛中保持車身不壓線，持續留意車道線位置,,D5-5,車道行駛、變換車道、路口轉彎、迴車｜行駛中車輪壓實線（分向限制線、快慢車道分隔線、禁止變換車道線或路面邊線）
+road-seg-044,True,official_core,straight_intersection_checks,通過路口前先減速查看，確認安全後再通行,左右無來車,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-045,True,official_core,u_turn_sequence,迴轉前依規定顯示左方向燈,,D5-4,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況
+road-seg-046,True,official_core,u_turn_sequence,迴轉前減速查看路口安全，預作隨時停車準備,前方路口減速查看,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-047,True,official_related,u_turn_sequence,迴轉前確認左右安全後，依序完成方向盤操作,左右無來車,D5-4 | D5-7,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況 | 車道行駛、變換車道、路口轉彎、迴車｜未遵守路權（含轉彎讓直行、圓環優先等）
+road-seg-048,True,official_core,u_turn_sequence,迴轉後依規定行駛於正確車道,,D5-8,車道行駛、變換車道、路口轉彎、迴車｜未依規定路線行駛或未依規定行駛正確車道
+road-seg-049,True,official_related,post_uturn_speed_and_centering,迴轉後持續保持車身在車道中央,,D5-5,車道行駛、變換車道、路口轉彎、迴車｜行駛中車輪壓實線（分向限制線、快慢車道分隔線、禁止變換車道線或路面邊線）
+road-seg-050,True,official_core,post_uturn_speed_and_centering,行駛中不可壓到任何實線或路面邊線,,D5-5,車道行駛、變換車道、路口轉彎、迴車｜行駛中車輪壓實線（分向限制線、快慢車道分隔線、禁止變換車道線或路面邊線）
+road-seg-051,True,official_core,post_uturn_speed_and_centering,接近路口先減速查看，確認安全後再通行,前方路口減速查看／左右無來車,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-052,True,official_related,post_uturn_speed_and_centering,一般道路行駛時平穩控制車速，接近路口前先減速,,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-053,True,official_core,post_uturn_speed_and_centering,接近路口先減速查看，確認安全後再通行,前方路口減速查看／左右無來車,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-054,True,official_core,post_uturn_speed_and_centering,接近路口先減速查看，確認安全後再通行,前方路口減速查看／左右無來車,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-055,True,official_related,post_uturn_speed_and_centering,依速限與路況控制車速，不可因標示40就忽略前方路況,,D5-9 | D6-4,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備 | 交通法規之遵守｜未遵守道路交通法規或道路交通標誌、標線、號誌行車
+road-seg-056,True,official_core,post_uturn_speed_and_centering,接近路口先減速查看，確認安全後再通行,前方路口減速查看／左右無來車,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-057,True,official_core,signalized_left_turn_to_slow_lane,到號誌路口左轉前，顯示左方向燈並減速查看路口安全,前方路口減速查看／左右無來車,D5-4 | D5-9,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況 | 車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-058,True,official_core,signalized_left_turn_to_slow_lane,紅燈停等後重新起駛前，先轉頭確認照後鏡與前後左右安全,,D2-3,交岔路口｜起駛前未轉頭察看照後鏡並注意有無障礙或車輛行人
+road-seg-059,True,official_core,signalized_left_turn_to_slow_lane,起駛前確認左右與後方安全後再完成左轉,左右無來車，後方無來車,D2-3 | D5-4,交岔路口｜起駛前未轉頭察看照後鏡並注意有無障礙或車輛行人 | 車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況
+road-seg-060,True,official_core,signalized_left_turn_to_slow_lane,左轉後依規定進入慢車道,,D5-8,車道行駛、變換車道、路口轉彎、迴車｜未依規定路線行駛或未依規定行駛正確車道
+road-seg-061,True,official_related,signalized_left_turn_to_slow_lane,左轉後持續注意左側與左後方車流，避免影響優先車流,,D5-7 | D5-8,車道行駛、變換車道、路口轉彎、迴車｜未遵守路權（含轉彎讓直行、圓環優先等） | 車道行駛、變換車道、路口轉彎、迴車｜未依規定路線行駛或未依規定行駛正確車道
+road-seg-062,True,official_core,return_and_finish_stop,返回終點前通過路口先減速查看，確認安全後再通行,前方路口減速查看／左右無來車,D5-9,車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-063,True,official_core,return_and_finish_stop,接近終點前保持不壓路面邊線，並減速查看路口安全,前方路口減速查看／左右無來車,D5-5 | D5-9,車道行駛、變換車道、路口轉彎、迴車｜行駛中車輪壓實線（分向限制線、快慢車道分隔線、禁止變換車道線或路面邊線） | 車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-064,True,official_core,return_and_finish_stop,靠終點區域前顯示右方向燈並確認左右與後方安全,"前方路口減速查看(打右方向燈)左右無來車,後方無來車",D5-4 | D5-9,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況 | 車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-065,True,official_related,return_and_finish_stop,需要再調整位置時依規定顯示左方向燈並確認左右與後方安全,"前方路口減速查看(打左方向燈)左右無來車,後方無來車",D5-4 | D5-9,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況 | 車道行駛、變換車道、路口轉彎、迴車｜行車速度控制不當，未減速慢行作隨時停車之準備
+road-seg-066,True,official_core,return_and_finish_stop,最終靠位前依規定顯示右方向燈並確認安全,"打右方向燈,左右無來車,後方無來車",D5-4,車道行駛、變換車道、路口轉彎、迴車｜岔路轉彎、變換車道前，未依規定顯示方向燈及未轉頭察看照後鏡並注意車輛與行人路況
+road-seg-067,True,official_related,return_and_finish_stop,依考驗員指定完成終點停車，將車輛停正,,D7-9,全程道路行駛｜考驗終點停車後下車前未熄火或未拉緊手煞車（自排車未排入P檔）
+road-seg-068,True,official_core,return_and_finish_stop,考驗終點停車後，依序排入P檔、拉緊手煞車並熄火,,D7-9,全程道路行駛｜考驗終點停車後下車前未熄火或未拉緊手煞車（自排車未排入P檔）
+road-seg-069,True,official_core,return_and_finish_stop,下車前解開安全帶並準備二段式開門,兩段式開車門,D7-1,全程道路行駛｜上、下車開車門前未留意有無人車通過（下車應以2段式開門）
+road-seg-070,True,official_core,return_and_finish_stop,下車前先看照後鏡，再確認後方與左右安全後依二段式開門下車,後方無來車／左右無來車,D7-1,全程道路行駛｜上、下車開車門前未留意有無人車通過（下車應以2段式開門）
+road-seg-071,False,coach_only,return_and_finish_stop,最後關上車門，道路考照動作全部完成,,,
+road-seg-072,False,coach_only,supplementary_promo,歡迎各位到忠正駕訓班學習開車，本班提供新型TOYOTA車輛供教學使用 今天示範的也是新車，未來學員到班上學車時，使用的車輛與教學環境皆相同,,,
+road-seg-073,False,coach_only,supplementary_promo,平時車輛整齊停放於車庫，駕訓班提供良好學習環境，也歡迎大家介紹親友前來學習,,,
+road-seg-074,False,coach_only,supplementary_promo,依照新制度，行車前都要做安全檢查，駕訓班也設置車棚，遇颱風或大雨考試時仍可進行檢查,,,
+road-seg-075,False,coach_only,supplementary_promo,車輛可在停車棚內完成行車前安全檢查，這也是忠正駕訓班對學員安全與環境的用心,,,
+road-seg-076,False,coach_only,supplementary_promo,影片介紹到這裡，希望對各位有所幫助，謝謝大家，再見,,,
