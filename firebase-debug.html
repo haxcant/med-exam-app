@@ -37,7 +37,7 @@
     <section class="panel">
       <h2>檢查結果</h2>
       <pre id="output">載入中...</pre>
-      <p class="scope-summary subtle">若要成為管理者，請把上方顯示的 UID 加到 Firestore 的 <code>app_config/global.adminUids</code> 陣列。</p>
+      <p class="scope-summary subtle">若要成為管理者，請在 Firestore 建立 <code>admins/{你的UID}</code> 文件，並設 <code>enabled: true</code>。</p>
     </section>
   </div>
 

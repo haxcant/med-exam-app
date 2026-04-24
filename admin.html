@@ -23,7 +23,7 @@
     <header class="admin-title">
       <div>
         <h1>醫學題庫同步權限審核</h1>
-        <p class="scope-summary subtle">用途：查看使用者送出的同步申請，核准後自動建立 allowlist 文件。此頁面權限由 Firestore Rules 控制。建議做法：在 Firestore 建立 admins/你的UID 文件並設 enabled=true；也相容舊做法 app_config/global.adminUids。</p>
+        <p class="scope-summary subtle">用途：查看使用者送出的同步申請，核准後自動建立 allowlist 文件。此頁面權限由 Firestore Rules 控制。請在 Firestore 建立 admins/你的UID 文件並設 enabled=true。</p>
       </div>
       <div class="actions compact">
         <a class="ghost-btn" href="./index.html">回主程式</a>
@@ -36,7 +36,7 @@
     <section class="panel">
       <h2>目前登入帳號</h2>
       <pre id="adminUser" class="admin-output">尚未登入。</pre>
-      <p class="scope-summary subtle">請確認這裡顯示的 UID 已被加入 <code>admins/UID.enabled=true</code>，或仍存在於舊版 <code>app_config/global.adminUids</code>；且 <code>syncEnabled</code> 為 Boolean true。</p>
+      <p class="scope-summary subtle">請確認這裡顯示的 UID 已建立為 <code>admins/{UID}</code> 文件，且 <code>enabled</code> 為 Boolean true；同時 <code>app_config/global.syncEnabled</code> 也要是 Boolean true。</p>
     </section>
 
     <section class="panel">

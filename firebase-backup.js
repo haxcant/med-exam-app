@@ -60,6 +60,10 @@ function pickPlainObject(value) {
   return value && typeof value === "object" && !Array.isArray(value) ? value : {};
 }
 
+function cleanShortString(value, maxLen = 200) {
+  return typeof value === "string" ? value.slice(0, maxLen) : "";
+}
+
 function keepTouchedQuestions(byQuestionRaw) {
   const src = pickPlainObject(byQuestionRaw);
   const out = {};
@@ -71,11 +75,23 @@ function keepTouchedQuestions(byQuestionRaw) {
     const score = Number.isFinite(Number(item.score)) ? Number(item.score) : (totalCorrect - totalWrong);
     const masteryStreak = Math.max(0, Number(item.masteryStreak || 0));
     const inWrongBook = !!item.inWrongBook;
-    const lastWrongAt = typeof item.lastWrongAt === "string" ? item.lastWrongAt : "";
-    const lastSeenAt = typeof item.lastSeenAt === "string" ? item.lastSeenAt : "";
-    const touched = totalSeen > 0 || totalCorrect > 0 || totalWrong > 0 || score !== 0 || masteryStreak > 0 || inWrongBook || !!lastWrongAt || !!lastSeenAt;
+    const lastWrongAt = cleanShortString(item.lastWrongAt, 64);
+    const lastSeenAt = cleanShortString(item.lastSeenAt, 64);
+    const lastResultRaw = cleanShortString(item.lastResult, 16);
+    const lastResult = ["correct", "wrong"].includes(lastResultRaw) ? lastResultRaw : "";
+    const lastSelectedValue = cleanShortString(item.lastSelectedValue, 200);
+    const lastSelectedLabel = cleanShortString(item.lastSelectedLabel, 200);
+    const lastWrongSelectedValue = cleanShortString(item.lastWrongSelectedValue, 200);
+    const lastWrongSelectedLabel = cleanShortString(item.lastWrongSelectedLabel, 200);
+    const touched = totalSeen > 0 || totalCorrect > 0 || totalWrong > 0 || score !== 0 || masteryStreak > 0 || inWrongBook || !!lastWrongAt || !!lastSeenAt || !!lastResult || !!lastSelectedLabel || !!lastWrongSelectedLabel;
     if (!touched) continue;
-    out[id] = { totalSeen, totalCorrect, totalWrong, score, inWrongBook, masteryStreak, lastWrongAt, lastSeenAt };
+    const compact = { totalSeen, totalCorrect, totalWrong, score, inWrongBook, masteryStreak, lastWrongAt, lastSeenAt };
+    if (lastResult) compact.lastResult = lastResult;
+    if (lastSelectedValue) compact.lastSelectedValue = lastSelectedValue;
+    if (lastSelectedLabel) compact.lastSelectedLabel = lastSelectedLabel;
+    if (lastWrongSelectedValue) compact.lastWrongSelectedValue = lastWrongSelectedValue;
+    if (lastWrongSelectedLabel) compact.lastWrongSelectedLabel = lastWrongSelectedLabel;
+    out[id] = compact;
   }
   return out;
 }

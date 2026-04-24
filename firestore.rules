@@ -19,24 +19,13 @@ service cloud.firestore {
       return get(/databases/$(database)/documents/app_config/global).data;
     }
 
-    // Recommended admin model: create admins/{uid} with { enabled: true }.
-    // Backward-compatible fallback: app_config/global.adminUids may still contain UID strings.
-    // After admins/{uid} is ready, you may remove adminUids from app_config/global to avoid exposing admin UID list to signed-in users.
-    function isAdminByDoc() {
+    // Admin model: create admins/{uid} with { enabled: true }.
+    // app_config/global.adminUids is intentionally no longer used, so signed-in users
+    // can read the global sync switch without learning the admin UID list.
+    function isAdmin() {
       return isSignedIn()
         && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
         && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.enabled == true;
-    }
-
-    function isAdminByLegacyConfig() {
-      return isSignedIn()
-        && hasGlobalConfig()
-        && ('adminUids' in globalConfig())
-        && (request.auth.uid in globalConfig().adminUids);
-    }
-
-    function isAdmin() {
-      return isAdminByDoc() || isAdminByLegacyConfig();
     }
 
     function syncEnabled() {
@@ -57,11 +46,10 @@ service cloud.firestore {
 
     function validGlobalConfig() {
       let d = request.resource.data;
-      return d.keys().hasOnly(['appId', 'syncEnabled', 'note', 'adminUids'])
+      return d.keys().hasOnly(['appId', 'syncEnabled', 'note'])
         && d.appId == 'med-exam-app'
         && d.syncEnabled is bool
-        && (!('note' in d) || shortString(d.note, 500))
-        && (!('adminUids' in d) || d.adminUids is list);
+        && (!('note' in d) || shortString(d.note, 500));
     }
 
     function validAdminDoc(userId) {
@@ -174,8 +162,8 @@ service cloud.firestore {
         && (!('testValue' in d) || shortString(d.testValue, 200));
     }
 
-    // Global app config. Signed-in users may read syncEnabled/appId. If you keep legacy adminUids here,
-    // signed-in users can also read that UID list. For better privacy, create admins/{uid} and remove adminUids.
+    // Global app config. Signed-in users may read only the global app switch fields.
+    // Do not store adminUids here; use the private admins/{uid} collection instead.
     match /app_config/global {
       allow get: if isSignedIn();
       allow list: if false;
@@ -184,7 +172,7 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    // Optional private admin collection. Create admins/{yourUid} from Firebase Console once:
+    // Private admin collection. Create admins/{yourUid} from Firebase Console once:
     // { enabled: true, email: "...", role: "owner" }
     match /admins/{userId} {
       allow get: if isOwner(userId) || isAdmin();

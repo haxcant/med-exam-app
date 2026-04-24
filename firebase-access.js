@@ -24,7 +24,7 @@ function explainPermissionError(error) {
     return [
       "沒有權限讀寫同步申請資料。",
       "請確認 Cloud Firestore Rules 已更新為本版 firestore.rules，且 app_config/global.syncEnabled 為 true。",
-      "若你是管理者，請確認 app_config/global.adminUids 陣列已包含你的 Firebase Authentication UID。"
+      "若你是管理者，請確認 Firestore 已建立 admins/{你的UID}，且 enabled 為 true。"
     ].join("\n");
   }
   return msg || "未知錯誤";
@@ -58,17 +58,13 @@ export async function getGlobalSyncConfig() {
         exists: false,
         appId: "",
         syncEnabled: false,
-        hasAdminUids: false,
       };
     }
     const data = snap.data() || {};
-    const adminUids = Array.isArray(data.adminUids) ? data.adminUids : [];
     return {
       exists: true,
       appId: String(data.appId || ""),
       syncEnabled: data.syncEnabled === true,
-      hasAdminUids: adminUids.length > 0,
-      adminCount: adminUids.length,
       note: String(data.note || ""),
     };
   } catch (error) {
