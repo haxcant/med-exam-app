@@ -13,6 +13,12 @@
   <link rel="icon" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
+    .fold-panel [style*="background:#1e293b"] li { color:#f8fafc; }
+    .fold-panel [style*="background:#1e293b"] p { color:#f8fafc; }
+  </style>
 </head>
 <body>
   <div class="app-shell">
@@ -30,19 +36,20 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.5：整理按鈕命名與使用說明，區分「本機檔案備份」與「雲端同步」，讓匯出／匯入／錯題本功能更直觀。</p>
+            <p id="versionSummary">v0.1.12：新增逐題白話註解、病機、治法、方義與關鍵字記憶點，並整理學習輔助提示。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
             <p>先用條文填空建立方證對應，再用錯題／低分題補強；保留的舊模組預設隱藏，日後需要時再開。</p>
           </div>
         </div>
-        <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
-          <strong>第一次使用</strong>
-          <p style="margin:6px 0 0;">第一次使用者只要按 <strong>開始練習</strong>。建議使用 <strong>Chrome 瀏覽器</strong> 開啟，整體相容性較佳。</p>
+        <div style="margin-top:12px; font-size:0.95rem; color:#f8fafc; background:#1e293b; border:1px solid #334155; border-radius:12px; padding:12px; line-height:1.7;">
+          <strong style="color:#ffffff;">第一次使用</strong>
+          <p style="margin:6px 0 0;">第一次使用者只要按 <strong style="color:#ffffff;">開始練習</strong>。建議使用 <strong style="color:#ffffff;">Chrome 瀏覽器</strong> 開啟，整體相容性較佳。</p>
+          <p style="margin:8px 0 0; color:#bfdbfe;">這批註解定位是學習輔助與背誦提示，不是正式校注或臨床診療建議。</p>
         </div>
-        <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
-          <strong>按鈕用途速查</strong>
+        <div style="margin-top:12px; font-size:0.95rem; color:#f8fafc; background:#1e293b; border:1px solid #334155; border-radius:12px; padding:12px; line-height:1.7;">
+          <strong style="color:#ffffff;">按鈕用途速查</strong>
           <ul style="margin:6px 0 0 1.2em; padding:0;">
             <li><strong>匯出本機完整記憶備份</strong>：把目前本機的作答進度、錯題本、收藏與設定下載成完整 JSON，適合換裝置前或定期備份。</li>
             <li><strong>匯入本機備份／錯題檔</strong>：可匯入本系統匯出的完整記憶 JSON、錯題本 JSON，或錯題本列印 HTML。</li>
@@ -404,9 +411,9 @@
       <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
     </section>
   </div>
-  <script src="med_questions.js?v=20260425note1"></script>
+  <script src="med_questions.js?v=20260425note2"></script>
   <script src="memory-bridge.js?v=20260425med020"></script>
-  <script src="app.js?v=20260425note1"></script>
+  <script src="app.js?v=20260425note2"></script>
   <script type="module" src="firebase-ui.js?v=20260425med020"></script>
 </body>
 </html>
