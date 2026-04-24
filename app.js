@@ -3138,6 +3138,10 @@ function restoreRecommendedSettings() {
     return text;
   }
 
+  function formatExplanationText(text) {
+    return escapeHtml(text).replace(/\r?\n/g, "<br>");
+  }
+
 function normalizeNetworkReferenceAnswer(question, rawText) {
   const text = String(rawText || "").trim();
   if (!text) return "";
@@ -3473,7 +3477,7 @@ function buildAnswerExplanationHtml(question) {
     parts.push(`
       <div class="feedback-explanation-block">
         <div class="feedback-explanation-title">題庫補充說明</div>
-        <div>${escapeHtml(base)}</div>
+        <div>${formatExplanationText(base)}</div>
       </div>
     `);
   }
