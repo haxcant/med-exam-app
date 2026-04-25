@@ -12,7 +12,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="styles.css?v=20260425ui28">
+  <link rel="stylesheet" href="styles.css?v=20260425fix29">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -36,7 +36,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.12：新增逐題白話註解、病機、治法、方義與關鍵字記憶點，並整理學習輔助提示。</p>
+            <p id="versionSummary">v0.1.29：恢復完整網頁必要檔案，更新快取版本，加入空白／無反應救援提示。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -411,9 +411,44 @@
       <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
     </section>
   </div>
-  <script src="med_questions.js?v=20260425note2"></script>
-  <script src="memory-bridge.js?v=20260425med020"></script>
-  <script src="app.js?v=20260425ui28"></script>
-  <script type="module" src="firebase-ui.js?v=20260425med020"></script>
+  <script src="med_questions.js?v=20260425fix29"></script>
+  <script src="memory-bridge.js?v=20260425fix29"></script>
+  <script src="app.js?v=20260425fix29"></script>
+  <script type="module" src="firebase-ui.js?v=20260425fix29"></script>
+  <script>
+    // v0.1.29 emergency boot guard: if the main app failed to define its API,
+    // show recovery controls instead of leaving users with a silent empty page.
+    window.setTimeout(function () {
+      try {
+        if (window.DriverQuizApp && typeof window.DriverQuizApp.startSessionFromControls === "function") return;
+        var main = document.getElementById("mainContent");
+        if (!main) return;
+        document.body.classList.remove("quiz-mode-active", "image-review-mode", "summary-mode");
+        document.body.classList.add("empty-mode");
+        main.className = "panel quiz-panel empty-state";
+        main.innerHTML = '<div class="empty-start-card"><h2>主程式尚未成功載入</h2><p>可能是舊版 Service Worker 快取、部署缺檔，或瀏覽器封鎖部分腳本。請先清除本站快取後重新載入。</p><div class="actions compact"><button id="bootGuardReloadBtn" type="button" class="primary-btn">清快取並重新載入</button><button id="bootGuardPlainReloadBtn" type="button" class="ghost-btn">直接重新整理</button></div></div>';
+        var clearAndReload = function () {
+          var jobs = [];
+          if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+            jobs.push(navigator.serviceWorker.getRegistrations().then(function (regs) {
+              return Promise.all(regs.map(function (reg) { return reg.unregister(); }));
+            }));
+          }
+          if (window.caches && caches.keys) {
+            jobs.push(caches.keys().then(function (keys) {
+              return Promise.all(keys.map(function (key) { return caches.delete(key); }));
+            }));
+          }
+          Promise.allSettled(jobs).finally(function () {
+            location.replace(location.pathname + '?v=20260425fix29-reload-' + Date.now());
+          });
+        };
+        document.getElementById("bootGuardReloadBtn")?.addEventListener("click", clearAndReload);
+        document.getElementById("bootGuardPlainReloadBtn")?.addEventListener("click", function () { location.reload(); });
+      } catch (err) {
+        console.error("boot guard failed", err);
+      }
+    }, 1800);
+  </script>
 </body>
 </html>
