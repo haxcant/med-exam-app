@@ -1472,3 +1472,353 @@ html[data-theme] .wrong-thumb{background:#fff;color:#1f2937;}
 :root[data-theme="pixel_game"] .stat-card{border-width:2px;}
 :root[data-theme="pixel_game"] .primary-btn{box-shadow:0 4px 0 #8f1d1d;}
 :root[data-theme="tech_dark"] .primary-btn{box-shadow:0 0 18px rgba(34,211,238,.25);}
+
+/* v0.1.34 theme harmonization patch
+   目標：非原版主題不再殘留深色硬框；原版清爽維持既有暗色風格。 */
+:root{
+  --header-bg:rgba(var(--panel-rgb),.94);
+  --session-bg:rgba(var(--panel-rgb),.94);
+  --session-border:var(--border);
+  --prompt-bg:var(--input-bg);
+  --option-bg:var(--input-bg);
+  --option-hover-bg:var(--card-bg);
+  --option-index-bg:rgba(148,163,184,.16);
+  --option-index-text:var(--text);
+  --meta-text:var(--muted);
+  --link-text:#bfdbfe;
+  --inline-card-bg:var(--feedback-bg);
+  --subtle-card-bg:var(--card-bg);
+  --toolbar-bg:var(--chip-bg);
+  --kbd-bg:rgba(148,163,184,.14);
+  --kbd-text:var(--text);
+  --ai-toggle-bg:var(--chip-bg);
+  --ai-toggle-text:var(--text);
+  --image-bg:#ffffff;
+  --danger-text:var(--danger);
+  --secondary-text:var(--text);
+}
+
+:root[data-theme="home_light"]{
+  --border:#cbd7e6;
+  --header-bg:linear-gradient(135deg,#ffffff 0%,#edf6ff 100%);
+  --session-bg:linear-gradient(180deg,#ffffff 0%,#f6fbff 100%);
+  --session-border:#c8d8ea;
+  --prompt-bg:#f8fbff;
+  --option-bg:linear-gradient(180deg,#ffffff 0%,#f7fbff 100%);
+  --option-hover-bg:#eef6ff;
+  --option-index-bg:#e6efff;
+  --option-index-text:#1d4ed8;
+  --meta-text:#52657a;
+  --link-text:#1d4ed8;
+  --inline-card-bg:#ffffff;
+  --subtle-card-bg:#f1f6fc;
+  --toolbar-bg:#eef6ff;
+  --kbd-bg:#e6efff;
+  --kbd-text:#1d4ed8;
+  --ai-toggle-bg:#eef6ff;
+  --ai-toggle-text:#1f2937;
+  --image-bg:#ffffff;
+  --danger-text:#b91c1c;
+  --secondary-text:#1f2937;
+}
+
+:root[data-theme="light_wood"]{
+  --bg:#f6ecdd;
+  --panel:#fff8ee;
+  --panel-2:#f1ddc4;
+  --border:#b98a5f;
+  --primary:#8b5e34;
+  --primary-2:#6f4323;
+  --muted:#75563a;
+  --header-bg:linear-gradient(135deg,#fff4e4 0%,#ead0ad 100%);
+  --session-bg:linear-gradient(180deg,#fff8ee 0%,#f4e3cd 100%);
+  --session-border:#9a6a43;
+  --prompt-bg:#f7ead8;
+  --option-bg:linear-gradient(180deg,#fffaf2 0%,#f5e6d2 100%);
+  --option-hover-bg:#ecd1af;
+  --option-index-bg:#d7b58c;
+  --option-index-text:#3a2618;
+  --meta-text:#705034;
+  --link-text:#6f4323;
+  --inline-card-bg:#fff8ee;
+  --subtle-card-bg:#f3dfc1;
+  --toolbar-bg:#f0dbc0;
+  --kbd-bg:#d7b58c;
+  --kbd-text:#34251b;
+  --ai-toggle-bg:#f0dbc0;
+  --ai-toggle-text:#34251b;
+  --image-bg:#fffdf7;
+  --danger-text:#9f1d1d;
+  --secondary-text:#34251b;
+}
+
+:root[data-theme="pixel_game"]{
+  --border:#1d3557;
+  --header-bg:linear-gradient(135deg,#ffe66d 0%,#ff9f1c 45%,#4dabf7 100%);
+  --session-bg:linear-gradient(180deg,#fff7d6 0%,#ffe08a 100%);
+  --session-border:#1d3557;
+  --prompt-bg:#fffdf3;
+  --option-bg:linear-gradient(180deg,#fffdf3 0%,#fff3b0 100%);
+  --option-hover-bg:#ffe08a;
+  --option-index-bg:#e63946;
+  --option-index-text:#ffffff;
+  --meta-text:#26435f;
+  --link-text:#1d4ed8;
+  --inline-card-bg:#fffdf3;
+  --subtle-card-bg:#fff3b0;
+  --toolbar-bg:#fff3b0;
+  --kbd-bg:#e63946;
+  --kbd-text:#ffffff;
+  --ai-toggle-bg:#fff3b0;
+  --ai-toggle-text:#16213e;
+  --image-bg:#ffffff;
+  --danger-text:#b91c1c;
+  --secondary-text:#16213e;
+}
+
+:root[data-theme="tech_dark"]{
+  --header-bg:linear-gradient(135deg,rgba(7,19,33,.98) 0%,rgba(5,29,50,.98) 100%);
+  --session-bg:linear-gradient(180deg,rgba(7,19,33,.98) 0%,rgba(6,18,34,.98) 100%);
+  --session-border:rgba(34,211,238,.22);
+  --prompt-bg:#071b2f;
+  --option-bg:linear-gradient(180deg,#071b2f 0%,#0b1d31 100%);
+  --option-hover-bg:#0f2a42;
+  --option-index-bg:rgba(34,211,238,.16);
+  --option-index-text:#bae6fd;
+  --meta-text:#8ecae6;
+  --link-text:#bae6fd;
+  --inline-card-bg:#061222;
+  --subtle-card-bg:#071b2f;
+  --toolbar-bg:#051527;
+  --kbd-bg:rgba(34,211,238,.16);
+  --kbd-text:#bae6fd;
+  --ai-toggle-bg:#061222;
+  --ai-toggle-text:#e0f2fe;
+  --image-bg:#ffffff;
+  --danger-text:#fecdd3;
+  --secondary-text:#e0f2fe;
+}
+
+/* 非原版主題：整體頁首與說明、雲端同步、進階設定都跟主題走 */
+html[data-theme]:not([data-theme="original"]) body{
+  background:var(--body-gradient) !important;
+  color:var(--text) !important;
+}
+html[data-theme]:not([data-theme="original"]) .topbar{
+  background:var(--header-bg);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:16px 18px;
+  box-shadow:var(--shadow);
+}
+html[data-theme]:not([data-theme="original"]) .topbar h1,
+html[data-theme]:not([data-theme="original"]) .topbar .subtitle{
+  color:var(--text);
+}
+html[data-theme]:not([data-theme="original"]) .subtitle,
+html[data-theme]:not([data-theme="original"]) label span,
+html[data-theme]:not([data-theme="original"]) .scope-summary,
+html[data-theme]:not([data-theme="original"]) .scope-summary.subtle,
+html[data-theme]:not([data-theme="original"]) .secondary-meta,
+html[data-theme]:not([data-theme="original"]) .question-source,
+html[data-theme]:not([data-theme="original"]) .wrong-item-note,
+html[data-theme]:not([data-theme="original"]) .flashcard-question-ref,
+html[data-theme]:not([data-theme="original"]) .roadtest-progress,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-tip{
+  color:var(--meta-text) !important;
+}
+html[data-theme]:not([data-theme="original"]) .panel,
+html[data-theme]:not([data-theme="original"]) .fold-panel,
+html[data-theme]:not([data-theme="original"]) .advanced-fold,
+html[data-theme]:not([data-theme="original"]) .theme-info-box,
+html[data-theme]:not([data-theme="original"]) .firebase-mini-wrap,
+html[data-theme]:not([data-theme="original"]) .roadtest-config-panel,
+html[data-theme]:not([data-theme="original"]) .roadtest-info-card,
+html[data-theme]:not([data-theme="original"]) .roadtest-switch-card{
+  background:var(--inline-card-bg) !important;
+  color:var(--text) !important;
+  border-color:var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .fold-panel > summary,
+html[data-theme]:not([data-theme="original"]) .roadtest-info-fold > summary,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-fold > summary,
+html[data-theme]:not([data-theme="original"]) .roadtest-settings-fold > summary{
+  color:var(--text) !important;
+}
+
+/* 表單與操作按鈕 */
+html[data-theme]:not([data-theme="original"]) select,
+html[data-theme]:not([data-theme="original"]) input[type="number"],
+html[data-theme]:not([data-theme="original"]) input[type="text"],
+html[data-theme]:not([data-theme="original"]) input[type="url"],
+html[data-theme]:not([data-theme="original"]) textarea,
+html[data-theme]:not([data-theme="original"]) .issue-note-input,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-controls select{
+  background:var(--input-bg) !important;
+  color:var(--input-text) !important;
+  border-color:var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .secondary-btn,
+html[data-theme]:not([data-theme="original"]) .small-btn,
+html[data-theme]:not([data-theme="original"]) .aux-btn{
+  background:var(--subtle-card-bg) !important;
+  color:var(--secondary-text) !important;
+  border:1px solid var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .ghost-btn{
+  background:transparent !important;
+  color:var(--secondary-text) !important;
+  border-color:var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .ghost-btn.danger{
+  color:var(--danger-text) !important;
+  border-color:var(--danger) !important;
+}
+
+/* 答題區：把深色硬框改成主題色 */
+html[data-theme]:not([data-theme="original"]) .quiz-panel.exam-active,
+html[data-theme]:not([data-theme="original"]) .question-session-card,
+html[data-theme]:not([data-theme="original"]) .question-session-card.bright,
+html[data-theme]:not([data-theme="original"]) .flashcard,
+html[data-theme]:not([data-theme="original"]) .summary-mini-card,
+html[data-theme]:not([data-theme="original"]) .image-review-card,
+html[data-theme]:not([data-theme="original"]) .roadtest-question-wrap,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-current-card,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-question-wrap{
+  background:var(--session-bg) !important;
+  color:var(--text) !important;
+  border-color:var(--session-border) !important;
+  box-shadow:var(--shadow) !important;
+}
+html[data-theme]:not([data-theme="original"]) .prompt,
+html[data-theme]:not([data-theme="original"]) .quiz-panel.exam-active .prompt,
+html[data-theme]:not([data-theme="original"]) .feedback,
+html[data-theme]:not([data-theme="original"]) .quiz-panel.exam-active .feedback,
+html[data-theme]:not([data-theme="original"]) .feedback-explanation-block,
+html[data-theme]:not([data-theme="original"]) .verify-tool-card,
+html[data-theme]:not([data-theme="original"]) .wrong-item,
+html[data-theme]:not([data-theme="original"]) .reward-card,
+html[data-theme]:not([data-theme="original"]) .stat-card,
+html[data-theme]:not([data-theme="original"]) .checkbox-row,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-context,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-build,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-completed-item,
+html[data-theme]:not([data-theme="original"]) .roadtest-answer-box,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-current-card,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-current-text{
+  background:var(--prompt-bg) !important;
+  color:var(--text) !important;
+  border-color:var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .option-btn,
+html[data-theme]:not([data-theme="original"]) .image-option-btn,
+html[data-theme]:not([data-theme="original"]) .quiz-panel.exam-active .option-btn,
+html[data-theme]:not([data-theme="original"]) .quiz-panel.exam-active .image-option-btn,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-btn{
+  background:var(--option-bg) !important;
+  color:var(--text) !important;
+  border-color:var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .option-btn:hover,
+html[data-theme]:not([data-theme="original"]) .image-option-btn:hover,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn:hover,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-btn:hover{
+  background:var(--option-hover-bg) !important;
+  border-color:var(--hover-border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .option-kbd,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-index,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-completed-index,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-index{
+  background:var(--kbd-bg) !important;
+  color:var(--kbd-text) !important;
+  border-color:var(--border) !important;
+}
+
+/* 狀態 chip、進度條與小工具 */
+html[data-theme]:not([data-theme="original"]) .badge,
+html[data-theme]:not([data-theme="original"]) .badge-chip,
+html[data-theme]:not([data-theme="original"]) .accent-badge,
+html[data-theme]:not([data-theme="original"]) .roadtest-module-badge,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-module-badge{
+  background:var(--chip-bg) !important;
+  color:var(--text) !important;
+  border-color:var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .progress-wrap,
+html[data-theme]:not([data-theme="original"]) .timer-bar-wrap,
+html[data-theme]:not([data-theme="original"]) .reward-progress-wrap{
+  background:var(--toolbar-bg) !important;
+  border-color:var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .ai-copy-toggle,
+html[data-theme]:not([data-theme="original"]) .mobile-recovery-dock{
+  background:var(--ai-toggle-bg) !important;
+  color:var(--ai-toggle-text) !important;
+  border-color:var(--border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .mobile-recovery-text{
+  color:var(--ai-toggle-text) !important;
+}
+html[data-theme]:not([data-theme="original"]) .verify-tool-card-title,
+html[data-theme]:not([data-theme="original"]) .verify-tool-keywords,
+html[data-theme]:not([data-theme="original"]) .handbook-keyword,
+html[data-theme]:not([data-theme="original"]) .feedback-explanation-title,
+html[data-theme]:not([data-theme="original"]) .image-review-title,
+html[data-theme]:not([data-theme="original"]) .roadtest-info-card strong,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-current-head strong,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-next-wrap > strong,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-video-head strong{
+  color:var(--link-text) !important;
+}
+html[data-theme]:not([data-theme="original"]) .image-card,
+html[data-theme]:not([data-theme="original"]) .image-option-frame,
+html[data-theme]:not([data-theme="original"]) .wrong-thumb,
+html[data-theme]:not([data-theme="original"]) .image-review-thumb,
+html[data-theme]:not([data-theme="original"]) .flashcard-image{
+  background:var(--image-bg) !important;
+  color:#1f2937 !important;
+}
+
+/* 正確／錯誤狀態保留辨識度 */
+html[data-theme]:not([data-theme="original"]) .option-btn.correct,
+html[data-theme]:not([data-theme="original"]) .image-option-btn.correct,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn.correct,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-btn.correct{
+  background:var(--correct-bg) !important;
+  border-color:var(--correct-border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .option-btn.wrong,
+html[data-theme]:not([data-theme="original"]) .image-option-btn.wrong,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn.incorrect,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-btn.incorrect{
+  background:var(--wrong-bg) !important;
+  border-color:var(--wrong-border) !important;
+}
+
+/* 淺木頭：胡桃木色框；復古遊戲：像素感邊框 */
+:root[data-theme="light_wood"] .panel,
+:root[data-theme="light_wood"] .topbar,
+:root[data-theme="light_wood"] .question-session-card,
+:root[data-theme="light_wood"] .option-btn,
+:root[data-theme="light_wood"] .image-option-btn,
+:root[data-theme="light_wood"] .fold-panel{
+  border-color:#9a6a43 !important;
+}
+:root[data-theme="light_wood"] .primary-btn{
+  background:linear-gradient(180deg,#9b6a3d,#704624) !important;
+  color:#fffaf2 !important;
+}
+:root[data-theme="pixel_game"] .topbar,
+:root[data-theme="pixel_game"] .panel,
+:root[data-theme="pixel_game"] .question-session-card,
+:root[data-theme="pixel_game"] .option-btn,
+:root[data-theme="pixel_game"] .image-option-btn,
+:root[data-theme="pixel_game"] .fold-panel{
+  border-width:2px !important;
+}
+:root[data-theme="pixel_game"] .topbar h1{
+  text-shadow:1px 1px 0 rgba(255,255,255,.65);
+}

@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260425fix33">
+  <link rel="stylesheet" href="styles.css?v=20260425fix34">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.33：新增可切換網頁色系，保留原版清爽主題，並維持三題庫與同步功能。</p>
+            <p id="versionSummary">v0.1.34：修正淺色、木頭與復古遊戲主題的未套色框線，保留原版清爽主題，並維持三題庫與同步功能。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -431,10 +431,10 @@
       <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
     </section>
   </div>
-  <script src="med_questions.js?v=20260425fix33"></script>
-  <script src="memory-bridge.js?v=20260425fix33"></script>
-  <script src="app.js?v=20260425fix33"></script>
-  <script type="module" src="firebase-ui.js?v=20260425fix33"></script>
+  <script src="med_questions.js?v=20260425fix34"></script>
+  <script src="memory-bridge.js?v=20260425fix34"></script>
+  <script src="app.js?v=20260425fix34"></script>
+  <script type="module" src="firebase-ui.js?v=20260425fix34"></script>
   <script>
     // v0.1.29 emergency boot guard: if the main app failed to define its API,
     // show recovery controls instead of leaving users with a silent empty page.
@@ -460,7 +460,7 @@
             }));
           }
           Promise.allSettled(jobs).finally(function () {
-            location.replace(location.pathname + '?v=20260425fix33-reload-' + Date.now());
+            location.replace(location.pathname + '?v=20260425fix34-reload-' + Date.now());
           });
         };
         document.getElementById("bootGuardReloadBtn")?.addEventListener("click", clearAndReload);
