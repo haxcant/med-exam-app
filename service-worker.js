@@ -1,12 +1,12 @@
-const CACHE_NAME = 'med-exam-app-v0.1.26';
+const CACHE_NAME = 'med-exam-app-v0.1.27';
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./admin.html",
   "./firebase-debug.html",
-  "./styles.css",
+  "./styles.css?v=20260425ui27",
   "./memory-bridge.js?v=20260425med020",
-  "./app.js?v=20260425ai26",
+  "./app.js?v=20260425ui27",
   "./med_questions.js?v=20260425vernacular15",
   "./manifest.webmanifest",
   "./firebase-init.js",

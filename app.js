@@ -258,10 +258,37 @@ const HANDBOOK_RULES = [
   function setQuizChromeMode(mode) {
     const body = document.body;
     if (!body) return;
-    body.classList.remove("quiz-mode-active", "image-review-mode", "summary-mode");
+    body.classList.remove("quiz-mode-active", "image-review-mode", "summary-mode", "empty-mode");
     if (mode === "question" || mode === "flashcard") body.classList.add("quiz-mode-active");
-    if (mode === "imageReview") body.classList.add("image-review-mode");
-    if (mode === "summary") body.classList.add("summary-mode");
+    else if (mode === "imageReview") body.classList.add("image-review-mode");
+    else if (mode === "summary") body.classList.add("summary-mode");
+    else body.classList.add("empty-mode");
+  }
+
+  function hasVisibleQuestionUi() {
+    return !!document.querySelector(".quiz-card, .flashcard-wrap, .summary-card, .image-review-wrap");
+  }
+
+  function recoverEmptyUiChrome(reason = "") {
+    const main = els?.mainContent;
+    const body = document.body;
+    if (!main || !body) return;
+    const isEmpty = main.classList.contains("empty-state") || /第一次使用者|開始練習/.test(main.textContent || "");
+    if (isEmpty && body.classList.contains("quiz-mode-active") && !hasVisibleQuestionUi()) {
+      console.warn("[ui-recovery] reset quiz chrome while empty", reason);
+      setQuizChromeMode("idle");
+    }
+  }
+
+  function installUiRecoveryGuard() {
+    const recover = () => recoverEmptyUiChrome("guard");
+    window.addEventListener("pageshow", recover);
+    window.addEventListener("focus", recover);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) recover();
+    });
+    setTimeout(recover, 0);
+    setTimeout(recover, 500);
   }
 
 
@@ -349,6 +376,7 @@ const HANDBOOK_RULES = [
     refreshRewards();
     renderWrongBook();
     renderSessionOrEmpty();
+    installUiRecoveryGuard();
     wireEvents();
     ensureCriticalBindings();
     registerPWA();
@@ -688,14 +716,73 @@ const HANDBOOK_RULES = [
     renderSessionOrEmpty();
   }
 
-  function renderSessionOrEmpty() {
-    if (!session || !Array.isArray(session.queue) || !session.queue.length) {
+  function validateAndNormalizeSession() {
+    if (!session || !Array.isArray(session.queue)) return { ok: false, reason: "no-session" };
+
+    const originalLen = session.queue.length;
+    const normalizedQueue = session.queue.filter((id) => typeof id === "string" && !!getQuestion(id));
+    if (normalizedQueue.length !== originalLen) {
+      console.warn("[session-repair] removed missing question ids", { originalLen, normalizedLen: normalizedQueue.length });
+      session.queue = normalizedQueue;
+      if (session.questionModeMap && typeof session.questionModeMap === "object") {
+        const allowed = new Set(normalizedQueue);
+        Object.keys(session.questionModeMap).forEach((id) => { if (!allowed.has(id)) delete session.questionModeMap[id]; });
+      }
+    }
+
+    if (!session.queue.length) return { ok: false, reason: "empty-or-stale-session" };
+
+    let idx = Number(session.index || 0);
+    if (!Number.isFinite(idx) || idx < 0) idx = 0;
+    session.index = Math.floor(idx);
+    if (session.index > session.queue.length) session.index = session.queue.length;
+
+    if (normalizedQueue.length !== originalLen) {
+      try { saveSession(); } catch (error) { console.warn("[session-repair] save failed", error); }
+    }
+
+    return { ok: true, reason: "ok" };
+  }
+
+  function renderEmptyStartState(reason = "") {
+    clearAllTimers();
+    setQuizChromeMode("idle");
+    els.mainContent.className = "panel quiz-panel empty-state";
+    if (importedWrongs?.length) { renderImportedWrongs(); return; }
+    const reasonNote = reason && reason !== "no-session"
+      ? `<p class="secondary-meta">已自動解除舊題組或快取造成的卡住狀態（${escapeHtml(reason)}）。</p>`
+      : "";
+    els.mainContent.innerHTML = `
+      <div class="empty-start-card">
+        <p>第一次使用者只須點擊「開始練習」即可，題目會顯示在這裡。</p>
+        ${reasonNote}
+        <div class="actions compact empty-start-actions">
+          <button id="emptyStartBtn" class="primary-btn" type="button">開始練習</button>
+          <button id="emptyResetUiBtn" class="ghost-btn" type="button">解除卡住狀態</button>
+        </div>
+        <p class="secondary-meta">若手機刷新後只剩黑畫面，請按「解除卡住狀態」或重新整理；這不會清除錯題本與作答記憶。</p>
+      </div>
+    `;
+    document.getElementById("emptyStartBtn")?.addEventListener("click", startSessionFromControls);
+    document.getElementById("emptyResetUiBtn")?.addEventListener("click", () => {
       clearAllTimers();
-      setQuizChromeMode("idle");
-      els.mainContent.className = "panel quiz-panel empty-state";
-      if (importedWrongs?.length) { renderImportedWrongs(); return; }
-      els.mainContent.innerHTML = "<p>第一次使用者只須點擊「開始練習」即可，題目會顯示在這裡。</p>";
-      attachResilientImageHandlers(els.mainContent);
+      document.body?.classList.remove("quiz-mode-active", "image-review-mode", "summary-mode");
+      document.body?.classList.add("empty-mode");
+      session = null;
+      try { localStorage.removeItem(SESSION_KEY); } catch {}
+      renderEmptyStartState("manual-ui-reset");
+    });
+    attachResilientImageHandlers(els.mainContent);
+  }
+
+  function renderSessionOrEmpty() {
+    const validation = validateAndNormalizeSession();
+    if (!validation.ok) {
+      if (validation.reason !== "no-session") {
+        session = null;
+        try { localStorage.removeItem(SESSION_KEY); } catch {}
+      }
+      renderEmptyStartState(validation.reason);
       return;
     }
     if (session.index >= session.queue.length) {
@@ -710,12 +797,14 @@ const HANDBOOK_RULES = [
 
 function renderQuestion() {
   clearAllTimers();
-  setQuizChromeMode("question");
   const question = currentQuestion();
   if (!question) {
-    renderSummary();
+    session = null;
+    try { localStorage.removeItem(SESSION_KEY); } catch {}
+    renderEmptyStartState("missing-current-question");
     return;
   }
+  setQuizChromeMode("question");
 
   const progressPct = Math.round((session.index / Math.max(session.queue.length, 1)) * 100);
   const practiceMode = session.filters?.practiceMode || "practice";
@@ -819,12 +908,14 @@ function renderQuestion() {
 
 function renderFlashcard() {
   clearAllTimers();
-  setQuizChromeMode("flashcard");
   const question = currentQuestion();
   if (!question) {
-    renderSummary();
+    session = null;
+    try { localStorage.removeItem(SESSION_KEY); } catch {}
+    renderEmptyStartState("missing-current-flashcard");
     return;
   }
+  setQuizChromeMode("flashcard");
 
   const progressPct = Math.round((session.index / Math.max(session.queue.length, 1)) * 100);
   const questionMode = currentQuestionMode(question.id);
@@ -4283,7 +4374,7 @@ function truncateText(text, maxLen = 80) {
   }
 
   function isSessionInProgress() {
-    return !!(session && Array.isArray(session.queue) && session.queue.length && Number(session.index || 0) < session.queue.length && document.body.classList.contains("quiz-mode-active"));
+    return !!(session && Array.isArray(session.queue) && session.queue.length && Number(session.index || 0) < session.queue.length && document.body.classList.contains("quiz-mode-active") && hasVisibleQuestionUi());
   }
 
   window.addEventListener("pageshow", () => {

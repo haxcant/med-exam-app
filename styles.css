@@ -1134,3 +1134,36 @@ select,input,button,textarea{font-size:16px;}
 
 /* v0.1.1 med scaffold: keep legacy modules in package but hide by default. */
 .legacy-hidden-by-default { display: none !important; }
+
+
+/* v0.1.27 mobile recovery: if the app is empty, never hide the start controls. */
+body.empty-mode .info-panel,
+body.empty-mode .stats-panel,
+body.empty-mode .controls-panel {
+  display: block !important;
+}
+body.empty-mode .app-shell {
+  max-width: 1180px;
+}
+.empty-start-card {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+}
+.empty-start-card p {
+  margin: 0;
+  line-height: 1.7;
+}
+.empty-start-actions {
+  justify-content: center;
+}
+@media (max-width: 720px) {
+  .empty-start-actions {
+    width: 100%;
+  }
+  .empty-start-actions .primary-btn,
+  .empty-start-actions .ghost-btn {
+    flex: 1 1 140px;
+  }
+}
