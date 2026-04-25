@@ -3,319 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>駕訓班筆試練習｜含路考模擬</title>
-  <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="手機可用的駕訓班筆試練習 PWA，可看圖選答案、文字題四選一／是非題、模擬考、錯題本、單字卡與積分追蹤。">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="format-detection" content="telephone=no">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/icon-192.png">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="styles.css">
+  <title>重新導向到醫學題庫</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url=./index.html?v=20260425fix30">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    main {
+      width: min(92vw, 520px);
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.92);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      line-height: 1.7;
+    }
+    a { color: #93c5fd; font-weight: 700; }
+    code { padding: 2px 6px; border-radius: 6px; background: rgba(148,163,184,.18); }
+  </style>
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <div>
-        <h1>駕訓班筆試練習</h1>
-        <p class="subtitle">正式筆試練習、錯題本、積分追蹤、手冊對照說明、快捷鍵答題、單字卡、限時作答與路考模擬</p>
-      </div>
-      <button id="installBtn" class="ghost-btn hidden">安裝到主畫面</button>
-    </header>
-
-    <section class="panel info-panel collapsed-panel">
-      <details class="fold-panel">
-        <summary>使用說明與版本資訊</summary>
-        <div class="info-grid">
-          <div>
-            <strong>目前版本</strong>
-            <p id="versionSummary">v21.0：路考模擬改成更流暢的考試模式，支援題庫編碼、切題自動播放、答題後自動跳轉與預設靜音。</p>
-          </div>
-          <div>
-            <strong>建議使用方式</strong>
-            <p>先按「開始練習」提升覆蓋率，再用錯題／低分題加強，最後用模擬考驗證。預設答對後自動跳題 1 秒、答錯後自動跳題 4 秒。</p>
-          </div>
-        </div>
-        <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
-          <strong>第一次使用</strong>
-          <p style="margin:6px 0 0;">第一次使用者只須點擊 <strong>開始練習</strong> 即可。建議先提升覆蓋率，再練錯題，最後用模擬考驗證。匯入完整記憶時可自行選擇覆蓋、覆蓋率優先合併或保守合併；也請定期下載 JSON 備份，以免雲端託管額度或服務狀況影響資料存取。</p>
-        </div>
-      </details>
-    </section>
-
-    <section class="panel controls-panel">
-      <div class="grid two-col three-col-desktop">
-        <label>
-          <span>考試範圍</span>
-          <select id="examScopeSelect">
-            <option value="official_small_car" selected>正式筆試模式（普通小型車）</option>
-            <option value="official_plus_mechanical">加強學習模式（正式筆試＋機械常識）</option>
-            <option value="full_extended">完整延伸模式（全部題庫）</option>
-          </select>
-        </label>
-        <label>
-          <span>練習模式</span>
-          <select id="practiceModeSelect">
-            <option value="practice">一般練習</option>
-            <option value="wrongOnly">只練錯題</option>
-            <option value="exam">模擬考</option>
-            <option value="flashcard">單字卡複習</option>
-          </select>
-        </label>
-        <label>
-          <span>題型</span>
-          <select id="questionModeSelect">
-            <option value="imageToText">看圖選名稱</option>
-            <option value="textToImage">看名稱選圖</option>
-            <option value="mixed">混合題型</option>
-          </select>
-        </label>
-        <label>
-          <span>分類</span>
-          <select id="categorySelect"></select>
-        </label>
-        <label>
-          <span>題數</span>
-          <select id="questionCountSelect">
-            <option value="10">10 題</option>
-            <option value="20" selected>20 題</option>
-            <option value="30">30 題</option>
-            <option value="40">40 題</option>
-            <option value="50">50 題</option>
-            <option value="100">100 題</option>
-            <option value="200">200 題</option>
-            <option value="9999">全部可用題目</option>
-          </select>
-        </label>
-        <label>
-          <span>答對幾次後移出錯題</span>
-          <select id="masterySelect">
-            <option value="1">1 次</option>
-            <option value="2" selected>2 次</option>
-            <option value="3">3 次</option>
-          </select>
-        </label>
-      </div>
-
-      <details class="fold-panel advanced-fold"><summary>進階設定</summary>
-      <div class="grid advanced-grid three-col-desktop">
-        <label><span>積分篩選</span><select id="scoreFilterOperatorSelect"><option value="any" selected>不限</option><option value="gt">大於</option><option value="lt">小於</option><option value="eq">等於</option></select></label>
-        <label><span>積分門檻（自填）</span><input id="scoreFilterValueInput" type="number" step="1" value="0" placeholder="例如 0、1、-2"></label>
-        <label><span>每題限時（秒，0=不限）</span><input id="answerTimeLimitInput" type="number" min="0" step="1" value="15"></label>
-        <label><span>答對後自動跳題（秒，0=不自動）</span><input id="autoNextCorrectDelayInput" type="number" min="0" step="0.5" value="1"></label>
-        <label><span>答錯後自動跳題（秒，0=不自動）</span><input id="autoNextWrongDelayInput" type="number" min="0" step="0.5" value="4"></label>
-        <label><span>提示音量</span><input id="soundVolumeInput" type="range" min="0" max="500" step="10" value="180"><small id="soundVolumeValue">180%</small></label>
-        <label><span>音量測試</span><button id="soundTestBtn" class="ghost-btn" type="button">播放提示音</button></label>
-        <label><span>建議預設</span><button id="restoreRecommendedBtn" class="ghost-btn" type="button">恢復 15 / 1 / 4</button></label>
-      </div>
-      <div class="grid advanced-grid shortcut-grid three-col-desktop">
-        <label><span>選項 1 快捷鍵</span><input id="shortcutOption1Input" type="text" maxlength="12" value="1" placeholder="1"></label>
-        <label><span>選項 2 快捷鍵</span><input id="shortcutOption2Input" type="text" maxlength="12" value="2" placeholder="2"></label>
-        <label><span>選項 3 快捷鍵</span><input id="shortcutOption3Input" type="text" maxlength="12" value="3" placeholder="3"></label>
-        <label><span>選項 4 快捷鍵</span><input id="shortcutOption4Input" type="text" maxlength="12" value="4" placeholder="4"></label>
-        <label><span>下一題快捷鍵</span><input id="shortcutNextInput" type="text" maxlength="12" value="Enter" placeholder="Enter"></label>
-      </div>
-      <div class="actions compact" style="margin-top:10px;">
-        <button id="quickFilterUnseenBtn" type="button" class="ghost-btn">考沒考過題（=0）</button>
-        <button id="quickFilterWrongBtn" type="button" class="ghost-btn">考錯過題目（&lt;0）</button>
-        <button id="quickFilterClearBtn" type="button" class="ghost-btn">清除快捷篩選</button>
-      </div>
-      <p class="scope-summary subtle" style="margin-top:8px;">快捷按鈕會直接套用進階設定中的積分篩選，不會與原本的進階功能衝突。</p>
-      <p id="scopeSummary" class="scope-summary">正式筆試模式只出普通小型車官方筆試題庫。</p>
-      <p id="filterSummary" class="scope-summary subtle">目前未啟用積分篩選。</p>
-      <input type="checkbox" id="maskTextToggle" hidden>
-      <p class="scope-summary subtle">目前圖示題已取消文字遮罩，作答前就會完整顯示圖片。</p>
-      </details>
-
-      <div class="actions">
-        <button id="startBtn" class="primary-btn" onclick="window.DriverQuizApp?.startSessionFromControls?.()">開始練習</button>
-        <button id="continueBtn" class="secondary-btn">繼續上次題組</button>
-        <button id="imageReviewBtn" class="ghost-btn">圖示檢視模式</button>
-        <button id="resetSessionBtn" class="ghost-btn">清除目前題組</button>
-      </div>
-    </section>
-
-    <section class="panel stats-panel">
-      <div class="stats-grid six-grid">
-        <div class="stat-card"><span class="stat-label">題庫總數</span><strong id="bankCount">-</strong></div>
-        <div class="stat-card"><span class="stat-label">錯題本</span><strong id="wrongBookCount">-</strong></div>
-        <div class="stat-card"><span class="stat-label">累計作答</span><strong id="answeredCount">-</strong></div>
-        <div class="stat-card"><span class="stat-label">累計答對率</span><strong id="accuracyCount">-</strong></div>
-        <div class="stat-card highlight-card"><span class="stat-label">正分覆蓋率（積分 ≥ 1）</span><strong id="masteredCoverageCount">-</strong><small id="masteredCoverageDetail">-</small></div>
-        <div class="stat-card"><span class="stat-label">題庫總積分</span><strong id="totalPointsCount">-</strong></div>
-      </div>
-      <div class="actions compact">
-        <button id="exportBtn" class="ghost-btn">匯出錯題JSON</button>
-        <button id="exportWrongPrintBtn" class="ghost-btn">下載本輪錯題（列印版）</button>
-        <button id="exportMemoryBtn" class="ghost-btn">匯出完整記憶</button>
-        <button id="importMemoryBtn" class="ghost-btn">匯入學習檔案</button>
-        <button id="flattenScoresBtn" class="ghost-btn">平坦化積分（±1）</button>
-        <input id="importMemoryInput" type="file" accept="application/json,.json,text/html,.html" hidden>
-        <button id="clearWrongBookBtn" class="ghost-btn danger">清空錯題本</button>
-        <button id="clearAllProgressBtn" class="ghost-btn danger">清空全部記憶</button>
-      </div>
-    </section>
-
-    <section class="panel firebase-panel collapsed-panel">
-      <details id="firebaseSyncDetails" class="fold-panel">
-        <summary><span id="firebaseSummaryText">雲端同步：未登入（展開登入選項）</span></summary>
-        <div class="firebase-mini-wrap" style="padding-top:12px;">
-          <p class="scope-summary subtle" id="firebase-help-text">最簡說明：本機資料平常不會自動改動。登入後只會顯示雲端備份摘要；只有按「下載雲端備份」時，才會詢問是否載入。載入前會先保存同步前本機備份。若按登入後完全沒有任何文字變化，通常是網頁腳本未完成載入；若有跳 Google 視窗但最後仍未登入，才比較像 Google/Firebase 流程問題。</p>
-          <div id="firebase-name-line" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
-            <strong id="firebase-display-name">尚未登入</strong>
-            <button id="btn-firebase-toggle-private" type="button" class="ghost-btn" style="display:none; padding:6px 10px;">👁</button>
-          </div>
-          <div id="firebase-private-info" class="scope-summary subtle" style="display:none; margin-bottom:10px;"></div>
-          <div id="firebase-owner-note" class="scope-summary subtle" style="margin-bottom:10px; display:none;">第三方託管資源額度有限。若要啟用雲端同步，請先登入 Google，並將名稱 / 信箱 / UID 提供給擁有者加入白名單。未開通者仍可使用本機功能與 JSON 匯入匯出。</div>
-          <div id="firebase-cloud-meta" class="scope-summary subtle" style="margin-bottom:10px;"></div>
-          <div id="firebase-sync-reminder" class="scope-summary subtle" style="margin-bottom:6px;"></div>
-          <div class="scope-summary subtle" id="firebase-manual-upload-note" style="margin-bottom:8px;">提醒：請定期手動上傳雲端備份。</div>
-          <label class="scope-summary subtle" for="autoCloudUploadToggle" style="display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; cursor:pointer;">
-            <input id="autoCloudUploadToggle" type="checkbox" style="margin-top:3px;">
-            <span>本地比雲端多 150 題時自動上傳備份（保守模式）</span>
-          </label>
-          <div id="autoCloudUploadStatus" class="scope-summary subtle" style="margin-bottom:10px;"></div>
-          <div class="actions compact">
-            <button id="btn-google-login" type="button" class="ghost-btn">Google 登入</button>
-            <button id="btn-google-logout" type="button" class="ghost-btn" style="display:none;">登出</button>
-            <button id="btn-smoke-write" type="button" class="ghost-btn" disabled>寫入測試資料</button>
-            <button id="btn-smoke-read" type="button" class="ghost-btn" disabled>讀取測試資料</button>
-            <button id="btn-cloud-upload" type="button" class="ghost-btn" disabled>上傳雲端備份</button>
-            <button id="btn-cloud-download" type="button" class="ghost-btn" disabled>下載雲端備份</button>
-            <button id="btn-local-restore" type="button" class="ghost-btn" disabled>還原同步前本機備份</button>
-          </div>
-          <pre id="sync-test-output" style="white-space:pre-wrap; margin-top:8px;"></pre>
-        <div style="margin-top:12px; font-size:0.95rem; color:#475569; line-height:1.65;">
-          <strong>第一次使用</strong>
-          <p style="margin:6px 0 0;">第一次使用者只須點擊 <strong>開始練習</strong> 即可。建議先提升覆蓋率，再練錯題，最後用模擬考驗證。匯入完整記憶時可自行選擇覆蓋、覆蓋率優先合併或保守合併；也請定期下載 JSON 備份，以免雲端託管額度或服務狀況影響資料存取。</p>
-        </div>
-      </details>
-    </section>
-
-
-    <main id="mainContent" class="panel quiz-panel empty-state"><p>第一次使用者只須點擊「開始練習」即可，題目會顯示在這裡。</p></main>
-
-
-    <section class="panel roadtest-panel collapsed-panel">
-      <details id="roadTestDetails" class="fold-panel">
-        <summary>路考模擬（可收納）</summary>
-        <div class="roadtest-grid roadtest-top-grid">
-          <label>
-            <span>YouTube 影片網址</span>
-            <input id="roadTestYoutubeUrlInput" type="url" placeholder="貼上 YouTube 網址，例如 https://www.youtube.com/watch?v=...">
-          </label>
-          <label>
-            <span>模組篩選</span>
-            <select id="roadTestModuleSelect"></select>
-          </label>
-          <div class="roadtest-info-card">
-            <strong>題庫狀態</strong>
-            <p id="roadTestBankMeta" class="scope-summary subtle">正在建立題庫。</p>
-            <p id="roadTestFlowHint" class="scope-summary subtle">考試時影片預設靜音；切題後可自動播放；答題後可自動跳轉。</p>
-          </div>
-        </div>
-
-        <div class="roadtest-toolbar roadtest-toolbar-secondary-wrap">
-          <div class="roadtest-toolbar-group roadtest-toolbar-secondary">
-            <button id="roadTestSaveUrlBtn" type="button" class="ghost-btn">套用影片網址</button>
-            <button id="roadTestUseDefaultBtn" type="button" class="ghost-btn">恢復預設影片</button>
-            <a id="roadTestOpenYoutubeBtn" class="ghost-btn" href="https://www.youtube.com/watch?v=ldsprS-5Y9E" target="_blank" rel="noopener noreferrer">在 YouTube 開啟</a>
-          </div>
-        </div>
-
-        <div class="roadtest-settings-grid">
-          <label class="roadtest-switch-card">
-            <input id="roadTestMutedToggle" type="checkbox" checked>
-            <span>
-              <strong>考試時影片預設靜音</strong>
-              <small>自動播放較穩定，也避免做題時被影片語音提示影響。</small>
-            </span>
-          </label>
-          <label class="roadtest-switch-card">
-            <input id="roadTestAutoplayNextToggle" type="checkbox" checked>
-            <span>
-              <strong>切題自動播放</strong>
-              <small>按上一題、下一題或隨機一題後，自動播放本題片段。</small>
-            </span>
-          </label>
-          <label class="roadtest-switch-card">
-            <input id="roadTestAutoAdvanceToggle" type="checkbox" checked>
-            <span>
-              <strong>答題後自動跳轉</strong>
-              <small>作答完成後，自動前往下一題；可配合自動播放連續刷題。</small>
-            </span>
-          </label>
-          <label>
-            <span>自動跳題延遲（秒）</span>
-            <input id="roadTestAdvanceDelayInput" type="number" min="0.5" max="5" step="0.1" value="1.2">
-          </label>
-        </div>
-
-        <p id="roadTestSourceLabel" class="scope-summary subtle" style="margin-top:10px;">影片來源：YouTube｜字幕來源：captions.sbv</p>
-        <div class="roadtest-player-wrap">
-          <iframe id="roadTestVideoFrame" class="roadtest-video-frame" src="" title="路考模擬影片播放器" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-
-        <div class="roadtest-toolbar roadtest-toolbar-player-actions">
-          <div class="roadtest-toolbar-group roadtest-toolbar-primary">
-            <button id="roadTestPrevBtn" type="button" class="ghost-btn">上一題</button>
-            <button id="roadTestPlayClipBtn" type="button" class="primary-btn">重播片段</button>
-            <button id="roadTestNextBtn" type="button" class="primary-btn">下一題</button>
-            <button id="roadTestRandomBtn" type="button" class="ghost-btn">隨機一題</button>
-          </div>
-        </div>
-
-        <div class="roadtest-meta-row">
-          <div id="roadTestVideoStatus" class="scope-summary subtle">尚未播放片段。</div>
-          <div id="roadTestExamStatus" class="scope-summary subtle roadtest-exam-status"></div>
-        </div>
-        <div id="roadTestQuestionWrap" class="roadtest-question-wrap hidden">
-          <div class="roadtest-question-head">
-            <div>
-              <div id="roadTestProgress" class="roadtest-progress">第 1 / 1 題</div>
-              <h3 id="roadTestPrompt">依影片畫面與字幕，這一步最正確的作法是？</h3>
-              <p id="roadTestSegmentMeta" class="scope-summary subtle"></p>
-            </div>
-            <span id="roadTestModuleLabel" class="roadtest-module-badge">模組</span>
-          </div>
-          <div id="roadTestOptions" class="roadtest-options"></div>
-          <div id="roadTestFeedback" class="roadtest-feedback"></div>
-          <div class="actions compact roadtest-answer-actions" style="margin-top:10px;">
-            <button id="roadTestShowAnswerBtn" type="button" class="ghost-btn">顯示字幕答案</button>
-          </div>
-          <div id="roadTestAnswerBox" class="roadtest-answer-box hidden">
-            <strong>字幕答案</strong>
-            <p id="roadTestAnswerText"></p>
-          </div>
-          <p id="roadTestReferenceNote" class="scope-summary subtle"></p>
-        </div>
-        <div id="roadTestEmpty" class="empty-state">正在準備路考模擬題目。</div>
-      </details>
-    </section>
-
-    <section class="panel reward-panel">
-      <div class="review-header"><h2>學習獎勵</h2><p>用覆蓋率、連續答對與累計作答推進徽章，讓刷題更有回饋。</p></div>
-      <div class="reward-grid">
-        <div class="reward-card main"><div class="reward-level" id="rewardLevelLabel">-</div><div class="reward-next" id="rewardNextGoal">-</div><div class="reward-progress-wrap"><div id="rewardProgressBar" class="reward-progress-bar"></div></div><p id="rewardEncouragement" class="reward-note">-</p></div>
-        <div class="reward-card"><strong>已解鎖徽章</strong><div id="badgeList" class="badge-list"></div></div>
-      </div>
-    </section>
-
-    <section class="panel review-panel">
-      <div class="review-header"><h2>錯題本</h2><p>答錯、逾時或按「不會」都會加入。連續答對達設定次數後移出。</p></div>
-      <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
-    </section>
-  </div>
-
-  <script src="questions.js"></script>
-  <script src="handbook_explanations.js"></script>
-  <script src="network_reference_answers.js"></script>
-  <script src="road_test_reference_data.js?v=20260411captionfinal1"></script>
-  <script src="handbook_pages.js"></script>
-  <script src="memory-bridge.js?v=20260402fixdownload1"></script>
-  <script src="app.js?v=20260402fixdownload1"></script>
-  <script src="road-test-sim.js?v=20260412roadlayout1"></script>
-  <script type="module" src="firebase-ui.js?v=20260402fixdownload1"></script>
+  <main>
+    <h1>正在開啟醫學題庫</h1>
+    <p>這個舊入口 <code>index_fixed.html</code> 已停用，避免載入舊駕照題庫大型 JS 造成手機黑畫面或無回應。</p>
+    <p>若沒有自動跳轉，請點：<a href="./index.html?v=20260425fix30">開啟醫學題庫</a></p>
+  </main>
+  <script>
+    (function () {
+      var target = './index.html?v=20260425fix30';
+      try {
+        window.location.replace(target);
+      } catch (err) {
+        window.location.href = target;
+      }
+    })();
+  </script>
 </body>
 </html>

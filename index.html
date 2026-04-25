@@ -12,7 +12,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="styles.css?v=20260425fix29">
+  <link rel="stylesheet" href="styles.css?v=20260425fix30">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -411,10 +411,10 @@
       <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
     </section>
   </div>
-  <script src="med_questions.js?v=20260425fix29"></script>
-  <script src="memory-bridge.js?v=20260425fix29"></script>
-  <script src="app.js?v=20260425fix29"></script>
-  <script type="module" src="firebase-ui.js?v=20260425fix29"></script>
+  <script src="med_questions.js?v=20260425fix30"></script>
+  <script src="memory-bridge.js?v=20260425fix30"></script>
+  <script src="app.js?v=20260425fix30"></script>
+  <script type="module" src="firebase-ui.js?v=20260425fix30"></script>
   <script>
     // v0.1.29 emergency boot guard: if the main app failed to define its API,
     // show recovery controls instead of leaving users with a silent empty page.
@@ -440,7 +440,7 @@
             }));
           }
           Promise.allSettled(jobs).finally(function () {
-            location.replace(location.pathname + '?v=20260425fix29-reload-' + Date.now());
+            location.replace(location.pathname + '?v=20260425fix30-reload-' + Date.now());
           });
         };
         document.getElementById("bootGuardReloadBtn")?.addEventListener("click", clearAndReload);
