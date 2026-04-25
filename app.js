@@ -787,6 +787,7 @@ function renderQuestion() {
             <div class="secondary-meta">答對 +1 分，答錯 / 逾時 / 不會 -1 分。</div>
             <div class="inline-action-group">
               <button id="searchQuestionQuickBtn" class="ghost-btn aux-btn">搜尋此題</button>
+              ${buildYizongSourceButtonHtml(question)}
               ${buildAiVerifyButtonsHtml(question)}
               <button id="dontKnowBtn" class="ghost-btn aux-btn">不會（-1）</button>
             </div>
@@ -809,6 +810,7 @@ function renderQuestion() {
   document.getElementById("drawerExitBtn")?.addEventListener("click", confirmExitCurrentMode);
   document.getElementById("exitModeBtn")?.addEventListener("click", confirmExitCurrentMode);
   bindQuestionSearchButton(question);
+  bindYizongSourceButtons(question);
   bindAiVerifyButtons(question);
   bindVerifyToolButton();
   attachResilientImageHandlers(els.mainContent);
@@ -902,6 +904,7 @@ function renderFlashcard() {
   document.getElementById("prevCardBtn")?.addEventListener("click", goToPreviousFlashcard);
   document.getElementById("nextCardBtn")?.addEventListener("click", goToNextFlashcardWithoutGrading);
   bindQuestionSearchButton(question);
+  bindYizongSourceButtons(question);
   bindAiVerifyButtons();
   bindVerifyToolButton();
   attachResilientImageHandlers(els.mainContent);
@@ -1102,6 +1105,7 @@ function goToNextFlashcardWithoutGrading() {
     }
 
     document.getElementById("nextBtn")?.addEventListener("click", advanceToNextQuestion);
+    bindYizongSourceButtons();
     bindAiVerifyButtons();
     bindVerifyToolButton();
     scheduleNext(autoNextDelaySec, "nextCountdown");
@@ -1227,6 +1231,7 @@ function goToNextFlashcardWithoutGrading() {
     });
     document.getElementById("retryWrongBtn")?.addEventListener("click", () => retrySummaryWrong("wrongOnly"));
     document.getElementById("flashcardWrongBtn")?.addEventListener("click", () => retrySummaryWrong("flashcard"));
+    bindYizongSourceButtons();
     bindAiVerifyButtons();
     bindVerifyToolButton();
     try {
@@ -3125,6 +3130,54 @@ function restoreRecommendedSettings() {
     `;
   }
 
+  function extractFirstUrlFromText(text) {
+    const raw = String(text || "").trim();
+    if (!raw) return "";
+    const match = raw.match(/https?:\/\/[^\s，。；、)）\]】"'<>]+/i);
+    if (!match) return "";
+    return match[0].replace(/[。；，、]+$/g, "");
+  }
+
+  function isSafeExternalHttpUrl(url) {
+    try {
+      const parsed = new URL(String(url || ""));
+      return parsed.protocol === "http:" || parsed.protocol === "https:";
+    } catch {
+      return false;
+    }
+  }
+
+  function getYizongSourceUrl(question) {
+    const source = question?.source || {};
+    const refs = Array.isArray(source.webReferences)
+      ? source.webReferences.map((item) => String(item || "").trim()).filter(Boolean)
+      : [];
+
+    const preferred = refs.find((item) => /醫宗金鑑|tchaa\.uncma\.com\.tw|\/u5\/book12\//i.test(item));
+    let url = extractFirstUrlFromText(preferred || "");
+
+    if (!url) {
+      const explanation = String(question?.explanation || "");
+      const yizongLine = (explanation.split(/\r?\n/).find((line) => /醫宗金鑑.*https?:\/\//.test(line)) || "");
+      url = extractFirstUrlFromText(yizongLine);
+    }
+
+    if (!url) {
+      const anyRef = refs.find((item) => /https?:\/\//i.test(item));
+      url = extractFirstUrlFromText(anyRef || "");
+    }
+
+    return isSafeExternalHttpUrl(url) ? url : "";
+  }
+
+  function buildYizongSourceButtonHtml(question) {
+    if (!isJinguiQuestion(question)) return "";
+    const url = getYizongSourceUrl(question);
+    if (!url) return "";
+    const qid = question?.id ? String(question.id) : "";
+    return `<button type="button" class="ghost-btn aux-btn yizong-source-btn" data-question-id="${escapeAttr(qid)}" title="開啟本題醫宗金鑑網頁來源">醫宗</button>`;
+  }
+
   const AI_VERIFY_PROVIDERS = {
     chatgpt: {
       label: "GPT",
@@ -3338,6 +3391,47 @@ function restoreRecommendedSettings() {
           return;
         }
         openAiVerification(targetQuestion, providerKey);
+      });
+    });
+  }
+
+  async function openYizongSource(question) {
+    const url = getYizongSourceUrl(question);
+    if (activeTimerState && !activeTimerState.paused) pauseActiveTimer();
+
+    if (!url) {
+      window.alert("本題目前沒有可直接開啟的醫宗金鑑網頁來源。可改用搜尋此題或 AI 查證按鈕。");
+      return;
+    }
+
+    let opened = null;
+    try {
+      opened = window.open(url, "_blank", "noopener,noreferrer");
+    } catch {
+      opened = null;
+    }
+
+    if (opened) return;
+
+    const copied = await copyTextToClipboard(url);
+    window.alert([
+      "瀏覽器阻擋了醫宗金鑑來源分頁。",
+      copied ? "來源網址已複製，可手動貼到瀏覽器開啟。" : "來源網址複製失敗，請改用搜尋此題。",
+      url
+    ].join("\n\n"));
+  }
+
+  function bindYizongSourceButtons(defaultQuestion = null) {
+    const buttons = Array.from(document.querySelectorAll(".yizong-source-btn"));
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const qid = button.getAttribute("data-question-id") || defaultQuestion?.id || "";
+        const targetQuestion = qid && QUESTION_MAP.has(qid) ? QUESTION_MAP.get(qid) : defaultQuestion;
+        if (!targetQuestion) {
+          window.alert("找不到這題資料，請重新整理頁面後再試。");
+          return;
+        }
+        openYizongSource(targetQuestion);
       });
     });
   }
@@ -3806,8 +3900,9 @@ function buildAnswerExplanationHtml(question) {
     <div class="feedback-explanation-block handbook-block search-tool-block">
       <div class="search-tool-row">
         <button type="button" class="ghost-btn aux-btn verify-tool-btn" aria-expanded="false">搜尋此題</button>
+        ${buildYizongSourceButtonHtml(question)}
         ${buildAiVerifyButtonsHtml(question)}
-        <span class="secondary-meta">AI 按鈕會複製查證 prompt、暫停計時並外開頁面。</span>
+        <span class="secondary-meta">醫宗開本題來源；AI 按鈕會複製查證 prompt、暫停計時並外開頁面。</span>
       </div>
       ${buildVerifyToolDetailHtml(question)}
     </div>
