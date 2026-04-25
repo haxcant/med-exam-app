@@ -747,7 +747,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.35｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.36｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -1016,7 +1016,7 @@ function renderQuestion() {
   document.getElementById("dontKnowBtn")?.addEventListener("click", () => {
     handleAnswer(question, "__dont_know__", optionPayload, { forcedWrong: true, selectedLabel: "不會", reason: "dontKnow" });
   });
-  document.getElementById("pauseBtn")?.addEventListener("click", togglePauseResume);
+  bindPauseButtons();
   document.getElementById("toggleDrawerBtn")?.addEventListener("click", () => toggleExamDrawer());
   document.getElementById("drawerContinueBtn")?.addEventListener("click", () => toggleExamDrawer(false));
   document.getElementById("drawerExitBtn")?.addEventListener("click", confirmExitCurrentMode);
@@ -1119,6 +1119,7 @@ function renderFlashcard() {
   });
   document.getElementById("prevCardBtn")?.addEventListener("click", goToPreviousFlashcard);
   document.getElementById("nextCardBtn")?.addEventListener("click", goToNextFlashcardWithoutGrading);
+  bindPauseButtons();
   bindQuestionSearchButton(question);
   bindYizongSourceButtons(question);
   bindAiVerifyButtons();
@@ -1338,6 +1339,7 @@ function goToNextFlashcardWithoutGrading() {
     }
 
     document.getElementById("nextBtn")?.addEventListener("click", advanceToNextQuestion);
+    bindPauseButtons();
     bindYizongSourceButtons();
     bindAiVerifyButtons();
     bindAiVerifyCopyToggles();
@@ -1798,6 +1800,18 @@ function renderWrongBook() {
   }
 
   async function exportWrongBookPrintable() {
+    saveProgress();
+    if (session) saveSession();
+    progress = loadProgress();
+    refreshStats();
+    refreshFilterSummaryText();
+    await new Promise((resolve) => {
+      if (typeof requestAnimationFrame === "function") {
+        requestAnimationFrame(() => requestAnimationFrame(resolve));
+      } else {
+        setTimeout(resolve, 0);
+      }
+    });
     const payload = buildPrintableWrongPayload();
     if (!payload.length) {
       alert("目前錯題本是空的，沒有可下載的錯題。請先作答並累積錯題後再下載。");
@@ -2987,15 +3001,29 @@ function restoreRecommendedSettings() {
   }
 
   function updatePauseButton() {
-    const btn = document.getElementById("pauseBtn");
-    if (!btn) return;
-    if (!activeTimerState) {
-      btn.textContent = "暫停";
-      btn.disabled = true;
-      return;
-    }
-    btn.disabled = false;
-    btn.textContent = activeTimerState.paused ? "繼續" : "暫停";
+    const buttons = Array.from(document.querySelectorAll("#pauseBtn, .inline-pause-btn"));
+    if (!buttons.length) return;
+    buttons.forEach((btn) => {
+      if (!activeTimerState) {
+        btn.textContent = "暫停";
+        btn.disabled = true;
+        btn.setAttribute("aria-disabled", "true");
+        return;
+      }
+      btn.disabled = false;
+      btn.removeAttribute("aria-disabled");
+      btn.textContent = activeTimerState.paused ? "繼續" : "暫停";
+    });
+  }
+
+  function bindPauseButtons() {
+    const buttons = Array.from(document.querySelectorAll("#pauseBtn, .inline-pause-btn"));
+    buttons.forEach((btn) => {
+      if (btn.dataset.pauseBound === "1") return;
+      btn.dataset.pauseBound = "1";
+      btn.addEventListener("click", togglePauseResume);
+    });
+    updatePauseButton();
   }
 
   function togglePauseResume() {
@@ -3337,7 +3365,7 @@ function restoreRecommendedSettings() {
         <div class="verify-tool-card">
           <div class="verify-tool-card-title">查證重點</div>
           <ul class="verify-tool-list">
-            <li>核對《金匱要略》原文、方名與題庫暫定答案是否一致。</li>
+            <li>核對《金匱要略》原文、方名與目前答案是否一致。</li>
             <li>核對醫宗金鑑、醫砭宋本或中醫笈成中相同條文的方義與藥物組成。</li>
             <li>留意古文異體字、省略句、題幹抽字錯誤與類方鑑別。</li>
           </ul>
@@ -3537,11 +3565,11 @@ function restoreRecommendedSettings() {
     const options = questionOptionsForPrompt(question).replace(/\s+/g, " ").trim();
     const refs = compactSourceReferencesForPrompt(question);
     return [
-      "請上網查證這題中醫經典考題，勿預設題庫答案正確，請用繁體中文回答。",
+      "請上網查證這題中醫經典考題，請用繁體中文回答。",
       `ID：${id}`,
       `題幹：${prompt}`,
       `選項：${options}`,
-      `暫定答案：${answer || "未提供"}`,
+      `目前答案：${answer || "未提供"}`,
       `來源線索：${refs}`,
       "請核對原文與版本、正確答案、詞句註釋、白話翻譯、辨證要點、病機、方子性質、治法、方義與組成、類方鑑別、記憶點、可疑錯誤與來源URL。"
     ].join("\n");
@@ -3557,14 +3585,14 @@ function restoreRecommendedSettings() {
 
     return [
       "請扮演嚴謹的中醫經典與考題校訂助理，主動上網查證下列題目。",
-      "不要預設題庫暫定答案一定正確；請用可靠來源驗證原文、方名、方義與選項。",
+      "請用可靠來源驗證原文、方名、方義與選項。",
       "不要只重述題庫內容。請以《金匱要略》原文、醫宗金鑑、醫砭宋本、中醫笈成、可靠教材或官方方劑資料交叉核對。",
       "若查不到可靠來源，請明確標示不確定，不要編造方藥組成或臨床功效。",
       "",
       `題目 ID：${id}`,
       `分類：${categoryLabel}`,
       `題幹／原文：${prompt}`,
-      `題庫暫定答案：${answer || "（未提供）"}`,
+      `目前答案：${answer || "（未提供）"}`,
       "選項：",
       options,
       "",
@@ -4175,6 +4203,7 @@ function buildAnswerExplanationHtml(question) {
     <div class="feedback-explanation-block handbook-block search-tool-block">
       <div class="search-tool-row">
         <button type="button" class="ghost-btn aux-btn verify-tool-btn" aria-expanded="false">搜尋此題</button>
+        <button type="button" class="ghost-btn aux-btn inline-pause-btn">暫停</button>
         ${buildYizongSourceButtonHtml(question)}
         ${buildAiVerifyButtonsHtml(question)}
         ${buildAiVerifyCopyToggleHtml()}

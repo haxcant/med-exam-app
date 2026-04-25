@@ -2015,3 +2015,129 @@ html[data-theme]:not([data-theme="original"]) .feedback.bad{
 }
 html[data-theme]:not([data-theme="original"]) .feedback-title.good{color:var(--correct-strong-text) !important;}
 html[data-theme]:not([data-theme="original"]) .feedback-title.bad{color:var(--wrong-strong-text) !important;}
+
+/* v0.1.36 small polish: warmer walnut wood + more unified retro-game palette. */
+:root[data-theme="light_wood"]{
+  --bg:#ead8c2;
+  --panel:#fff4e3;
+  --panel-2:#d6ad82;
+  --border:#7a4b2a;
+  --text:#2f2118;
+  --muted:#5f422d;
+  --primary:#6b3f21;
+  --primary-2:#4c2b18;
+  --success:#4f772d;
+  --danger:#9d2f23;
+  --warning:#9a5b16;
+  --shadow:0 18px 44px rgba(76,43,24,.22);
+  --body-gradient:linear-gradient(180deg,#fff2df 0%,#dfc09b 100%);
+  --panel-rgb:255,244,227;
+  --input-bg:#fffaf1;
+  --input-text:#2f2118;
+  --chip-bg:#ead2b4;
+  --card-bg:#f3dfc1;
+  --feedback-bg:#fff8ec;
+  --soft-panel:#ead2b4;
+  --soft-panel-text:#2f2118;
+  --soft-panel-muted:#5f422d;
+  --hover-border:#6b3f21;
+  --progress-a:#7a4b2a;
+  --progress-b:#b88450;
+  --reward-a:#4f772d;
+  --reward-b:#b88450;
+  --header-bg:linear-gradient(135deg,#f7e0c4 0%,#c99562 100%);
+  --session-bg:linear-gradient(180deg,#fff4e3 0%,#e5c39e 100%);
+  --session-border:#6b3f21;
+  --prompt-bg:#f3dfc1;
+  --option-bg:linear-gradient(180deg,#fff8ec 0%,#ead2b4 100%);
+  --option-hover-bg:#dfbd96;
+  --option-index-bg:#b88450;
+  --option-index-text:#fff8ec;
+  --meta-text:#5f422d;
+  --link-text:#6b3f21;
+  --inline-card-bg:#fff4e3;
+  --subtle-card-bg:#ead2b4;
+  --toolbar-bg:#e5c39e;
+  --kbd-bg:#b88450;
+  --kbd-text:#fff8ec;
+  --ai-toggle-bg:#ead2b4;
+  --ai-toggle-text:#2f2118;
+  --correct-strong-bg:#e4f1cf;
+  --correct-strong-border:#3f6212;
+  --correct-strong-text:#243d17;
+  --wrong-strong-bg:#f2c6b9;
+  --wrong-strong-border:#8f241a;
+  --wrong-strong-text:#5f1711;
+}
+:root[data-theme="light_wood"] .panel,
+:root[data-theme="light_wood"] .topbar,
+:root[data-theme="light_wood"] .question-session-card,
+:root[data-theme="light_wood"] .option-btn,
+:root[data-theme="light_wood"] .image-option-btn,
+:root[data-theme="light_wood"] .fold-panel{
+  border-color:#6b3f21 !important;
+}
+:root[data-theme="light_wood"] .primary-btn{
+  background:linear-gradient(180deg,#7a4b2a,#4c2b18) !important;
+  color:#fff8ec !important;
+}
+:root[data-theme="pixel_game"]{
+  --bg:#8ecae6;
+  --panel:#fff3bf;
+  --panel-2:#ffd166;
+  --border:#17324d;
+  --text:#14213d;
+  --muted:#284763;
+  --primary:#ef476f;
+  --primary-2:#d63c5f;
+  --success:#2f9e44;
+  --danger:#d62828;
+  --warning:#f4a261;
+  --shadow:0 10px 0 rgba(23,50,77,.22),0 18px 36px rgba(23,50,77,.14);
+  --body-gradient:linear-gradient(180deg,#8ecae6 0%,#bde0fe 52%,#c7f9cc 100%);
+  --panel-rgb:255,243,191;
+  --input-bg:#fffbea;
+  --input-text:#14213d;
+  --chip-bg:#ffe49a;
+  --card-bg:#ffe49a;
+  --feedback-bg:#fffbea;
+  --soft-panel:#ffe49a;
+  --soft-panel-text:#14213d;
+  --soft-panel-muted:#284763;
+  --hover-border:#118ab2;
+  --progress-a:#ef476f;
+  --progress-b:#118ab2;
+  --reward-a:#2f9e44;
+  --reward-b:#ffd166;
+  --header-bg:linear-gradient(135deg,#ffd166 0%,#f4a261 55%,#8ecae6 100%);
+  --session-bg:linear-gradient(180deg,#fff3bf 0%,#ffe49a 100%);
+  --session-border:#17324d;
+  --prompt-bg:#fffbea;
+  --option-bg:linear-gradient(180deg,#fffbea 0%,#ffe49a 100%);
+  --option-hover-bg:#ffd166;
+  --option-index-bg:#118ab2;
+  --option-index-text:#ffffff;
+  --meta-text:#284763;
+  --link-text:#0b5f83;
+  --inline-card-bg:#fffbea;
+  --subtle-card-bg:#ffe49a;
+  --toolbar-bg:#ffe49a;
+  --kbd-bg:#118ab2;
+  --kbd-text:#ffffff;
+  --ai-toggle-bg:#ffe49a;
+  --ai-toggle-text:#14213d;
+  --correct-strong-bg:#2f9e44;
+  --correct-strong-border:#14532d;
+  --correct-strong-text:#ffffff;
+  --wrong-strong-bg:#d62828;
+  --wrong-strong-border:#7f1d1d;
+  --wrong-strong-text:#ffffff;
+}
+:root[data-theme="pixel_game"] .primary-btn{
+  background:linear-gradient(180deg,#ef476f,#c9184a) !important;
+  color:#ffffff !important;
+  box-shadow:0 4px 0 #8f1236 !important;
+}
+:root[data-theme="pixel_game"] .topbar h1{
+  text-shadow:none;
+}
