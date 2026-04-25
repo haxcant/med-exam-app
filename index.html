@@ -12,7 +12,18 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="styles.css?v=20260425fix32">
+  <script>
+    (function(){
+      try {
+        var s = JSON.parse(localStorage.getItem("med-exam-settings-v1") || "{}");
+        var theme = s && typeof s.uiTheme === "string" ? s.uiTheme : "original";
+        document.documentElement.setAttribute("data-theme", theme || "original");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "original");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20260425fix33">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -36,21 +47,21 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.32：新增溫病條文題庫，三題庫同級並更新快取版本。</p>
+            <p id="versionSummary">v0.1.33：新增可切換網頁色系，保留原版清爽主題，並維持三題庫與同步功能。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
             <p>先用條文填空建立方證對應，再用錯題／低分題補強；保留的舊模組預設隱藏，日後需要時再開。</p>
           </div>
         </div>
-        <div style="margin-top:12px; font-size:0.95rem; color:#f8fafc; background:#1e293b; border:1px solid #334155; border-radius:12px; padding:12px; line-height:1.7;">
-          <strong style="color:#ffffff;">第一次使用</strong>
-          <p style="margin:6px 0 0;">第一次使用者只要按 <strong style="color:#ffffff;">開始練習</strong>。建議使用 <strong style="color:#ffffff;">Chrome 瀏覽器</strong> 開啟，整體相容性較佳。</p>
-          <p style="margin:8px 0 0; color:#bfdbfe;">這批註解定位是學習輔助與背誦提示，不是正式校注或臨床診療建議。</p>
+        <div class="theme-info-box">
+          <strong>第一次使用</strong>
+          <p>第一次使用者只要按 <strong>開始練習</strong>。建議使用 <strong>Chrome 瀏覽器</strong> 開啟，整體相容性較佳。</p>
+          <p class="theme-info-note">這批註解定位是學習輔助與背誦提示，不是正式校注或臨床診療建議。</p>
         </div>
-        <div style="margin-top:12px; font-size:0.95rem; color:#f8fafc; background:#1e293b; border:1px solid #334155; border-radius:12px; padding:12px; line-height:1.7;">
-          <strong style="color:#ffffff;">按鈕用途速查</strong>
-          <ul style="margin:6px 0 0 1.2em; padding:0;">
+        <div class="theme-info-box">
+          <strong>按鈕用途速查</strong>
+          <ul>
             <li><strong>匯出本機完整記憶備份</strong>：把目前本機的作答進度、錯題本、收藏與設定下載成完整 JSON，適合換裝置前或定期備份。</li>
             <li><strong>匯入本機備份／錯題檔</strong>：可匯入本系統匯出的完整記憶 JSON、錯題本 JSON，或錯題本列印 HTML。</li>
             <li><strong>匯出錯題本 JSON</strong>：只匯出錯題資料，適合丟入 GPT、NotebookLM 等 AI 工具整理筆記。</li>
@@ -58,7 +69,7 @@
             <li><strong>上傳本機記憶到雲端</strong>：登入並取得權限後，將目前本機記憶備份到雲端。</li>
             <li><strong>下載雲端記憶到本機</strong>：把雲端備份載入目前瀏覽器；載入前會先保存同步前本機備份，完成後系統會自動刷新一次。若畫面數據仍未更新，請再手動刷新。</li>
           </ul>
-          <p style="margin:8px 0 0;"><strong>簡單區分：</strong>「匯出／匯入」是本機檔案備份；「上傳／下載雲端」是 Google 登入後的雲端同步。</p>
+          <p><strong>簡單區分：</strong>「匯出／匯入」是本機檔案備份；「上傳／下載雲端」是 Google 登入後的雲端同步。</p>
         </div>
       </details>
     </section>
@@ -128,6 +139,13 @@
         <label><span>答對後自動跳題（秒，0=不自動）</span><input id="autoNextCorrectDelayInput" type="number" min="0" step="0.5" value="1"></label>
         <label><span>答錯後自動跳題（秒，0=不自動）</span><input id="autoNextWrongDelayInput" type="number" min="0" step="0.5" value="4"></label>
         <label><span>提示音量</span><input id="soundVolumeInput" type="range" min="0" max="500" step="10" value="180"><small id="soundVolumeValue">180%</small></label>
+        <label><span>網頁色系</span><select id="themeSelect">
+          <option value="original">原版清爽</option>
+          <option value="home_light">舒服白居家</option>
+          <option value="light_wood">淺木頭居家</option>
+          <option value="pixel_game">復古遊戲色系</option>
+          <option value="tech_dark">科技感深色</option>
+        </select></label>
         <label><span>音量測試</span><button id="soundTestBtn" class="ghost-btn" type="button">播放提示音</button></label>
         <label><span>建議預設</span><button id="restoreRecommendedBtn" class="ghost-btn" type="button">恢復 15 / 1 / 4</button></label>
       </div>
@@ -413,10 +431,10 @@
       <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
     </section>
   </div>
-  <script src="med_questions.js?v=20260425fix32"></script>
-  <script src="memory-bridge.js?v=20260425fix32"></script>
-  <script src="app.js?v=20260425fix32"></script>
-  <script type="module" src="firebase-ui.js?v=20260425fix32"></script>
+  <script src="med_questions.js?v=20260425fix33"></script>
+  <script src="memory-bridge.js?v=20260425fix33"></script>
+  <script src="app.js?v=20260425fix33"></script>
+  <script type="module" src="firebase-ui.js?v=20260425fix33"></script>
   <script>
     // v0.1.29 emergency boot guard: if the main app failed to define its API,
     // show recovery controls instead of leaving users with a silent empty page.
@@ -442,7 +460,7 @@
             }));
           }
           Promise.allSettled(jobs).finally(function () {
-            location.replace(location.pathname + '?v=20260425fix32-reload-' + Date.now());
+            location.replace(location.pathname + '?v=20260425fix33-reload-' + Date.now());
           });
         };
         document.getElementById("bootGuardReloadBtn")?.addEventListener("click", clearAndReload);

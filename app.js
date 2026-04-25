@@ -87,6 +87,29 @@
     lt: "<",
     eq: "="
   };
+  const UI_THEME_LABELS = {
+    original: "原版清爽",
+    home_light: "舒服白居家",
+    light_wood: "淺木頭居家",
+    pixel_game: "復古遊戲色系",
+    tech_dark: "科技感深色",
+  };
+  const UI_THEME_META_COLORS = {
+    original: "#0f172a",
+    home_light: "#f8fafc",
+    light_wood: "#f5ead8",
+    pixel_game: "#2563eb",
+    tech_dark: "#0b1220",
+  };
+  function normalizeUiTheme(value) {
+    return Object.prototype.hasOwnProperty.call(UI_THEME_LABELS, value) ? value : "original";
+  }
+  function applyUiTheme(themeValue) {
+    const theme = normalizeUiTheme(themeValue);
+    document.documentElement.setAttribute("data-theme", theme);
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", UI_THEME_META_COLORS[theme] || UI_THEME_META_COLORS.original);
+  }
   const REWARD_LEVELS = [
     { key: "starter", label: "起步徽章", minPct: 0, nextPct: 10, note: "先把低分題刷起來，讓更多題目進入正分區。" },
     { key: "bronze", label: "銅牌學習者", minPct: 10, nextPct: 30, note: "你已經開始建立穩定記憶，接下來把熟題擴大到三成。" },
@@ -203,6 +226,7 @@ const HANDBOOK_RULES = [
     autoNextCorrectDelayInput: document.getElementById("autoNextCorrectDelayInput"),
     autoNextWrongDelayInput: document.getElementById("autoNextWrongDelayInput"),
     soundVolumeInput: document.getElementById("soundVolumeInput"),
+    themeSelect: document.getElementById("themeSelect"),
     soundVolumeValue: document.getElementById("soundVolumeValue"),
     soundTestBtn: document.getElementById("soundTestBtn"),
     restoreRecommendedBtn: document.getElementById("restoreRecommendedBtn"),
@@ -247,6 +271,7 @@ const HANDBOOK_RULES = [
   let progress = loadProgress();
   let session = loadSession();
   let settings = loadSettings();
+  applyUiTheme(settings.uiTheme);
   let imageIssues = loadImageIssues();
   let importedWrongs = loadImportedWrongs();
   let deferredPrompt = null;
@@ -441,6 +466,7 @@ const HANDBOOK_RULES = [
   }
 
   function init() {
+    applyUiTheme(settings.uiTheme);
     window.addEventListener("pointerdown", unlockAudio, { passive: true });
     window.addEventListener("keydown", unlockAudio, { passive: true });
     hydrateControlsFromSettings();
@@ -494,6 +520,7 @@ const HANDBOOK_RULES = [
       els.autoNextCorrectDelayInput,
       els.autoNextWrongDelayInput,
       els.soundVolumeInput,
+      els.themeSelect,
       els.categorySelect,
       els.shortcutOption1Input,
       els.shortcutOption2Input,
@@ -612,11 +639,13 @@ const HANDBOOK_RULES = [
     settings.autoNextCorrectDelaySec = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value, 1);
     settings.autoNextWrongDelaySec = sanitizeNonNegativeNumber(els.autoNextWrongDelayInput?.value, 4);
     settings.soundVolumePct = sanitizeNonNegativeNumber(els.soundVolumeInput?.value, 180);
+    settings.uiTheme = normalizeUiTheme(els.themeSelect?.value || settings.uiTheme || "original");
     settings.shortcutOption1 = normalizeShortcutSetting(els.shortcutOption1Input?.value, "1");
     settings.shortcutOption2 = normalizeShortcutSetting(els.shortcutOption2Input?.value, "2");
     settings.shortcutOption3 = normalizeShortcutSetting(els.shortcutOption3Input?.value, "3");
     settings.shortcutOption4 = normalizeShortcutSetting(els.shortcutOption4Input?.value, "4");
     settings.shortcutNext = normalizeShortcutSetting(els.shortcutNextInput?.value, "Enter");
+    applyUiTheme(settings.uiTheme);
     saveSettings();
     updateSoundVolumeLabel();
     refreshFilterSummary();
@@ -639,6 +668,7 @@ const HANDBOOK_RULES = [
     if (els.autoNextCorrectDelayInput) els.autoNextCorrectDelayInput.value = String(settings.autoNextCorrectDelaySec ?? 1);
     if (els.autoNextWrongDelayInput) els.autoNextWrongDelayInput.value = String(settings.autoNextWrongDelaySec ?? 4);
     if (els.soundVolumeInput) els.soundVolumeInput.value = String(settings.soundVolumePct ?? 180);
+    if (els.themeSelect) els.themeSelect.value = normalizeUiTheme(settings.uiTheme);
     updateSoundVolumeLabel();
     if (els.shortcutOption1Input) els.shortcutOption1Input.value = settings.shortcutOption1 || "1";
     if (els.shortcutOption2Input) els.shortcutOption2Input.value = settings.shortcutOption2 || "2";
@@ -717,7 +747,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.32｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.33｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -2121,6 +2151,7 @@ function renderWrongBook() {
     progress = repairProgressSnapshot(progress);
     session = null;
     importedWrongs = [];
+    applyUiTheme(settings.uiTheme);
     saveProgress();
     saveSettings();
     saveImageIssues();
@@ -2480,6 +2511,7 @@ function renderWrongBook() {
       autoNextCorrectDelaySec: resolveAutoNextDelayValue(data, "autoNextCorrectDelaySec", "autoNextDelaySec", base.autoNextCorrectDelaySec ?? 1),
       autoNextWrongDelaySec: resolveAutoNextDelayValue(data, "autoNextWrongDelaySec", "autoNextDelaySec", base.autoNextWrongDelaySec ?? 4),
       soundVolumePct: sanitizeNonNegativeNumber(data.soundVolumePct, base.soundVolumePct ?? 180),
+      uiTheme: normalizeUiTheme(data.uiTheme || base.uiTheme || "original"),
       shortcutOption1: normalizeShortcutSetting(data.shortcutOption1, base.shortcutOption1 || "1"),
       shortcutOption2: normalizeShortcutSetting(data.shortcutOption2, base.shortcutOption2 || "2"),
       shortcutOption3: normalizeShortcutSetting(data.shortcutOption3, base.shortcutOption3 || "3"),
@@ -2788,6 +2820,7 @@ function restoreRecommendedSettings() {
       autoNextCorrectDelaySec: resolveAutoNextDelayValue(data, "autoNextCorrectDelaySec", "autoNextDelaySec", 1),
       autoNextWrongDelaySec: resolveAutoNextDelayValue(data, "autoNextWrongDelaySec", "autoNextDelaySec", 4),
       soundVolumePct: sanitizeNonNegativeNumber(data?.soundVolumePct, 180),
+      uiTheme: normalizeUiTheme(data?.uiTheme || "original"),
       shortcutOption1: normalizeShortcutSetting(data?.shortcutOption1, "1"),
       shortcutOption2: normalizeShortcutSetting(data?.shortcutOption2, "2"),
       shortcutOption3: normalizeShortcutSetting(data?.shortcutOption3, "3"),
@@ -4556,6 +4589,7 @@ function truncateText(text, maxLen = 80) {
     startSessionFromControls,
     renderSessionOrEmpty,
     ensureCriticalBindings,
+    applyUiTheme,
   };
 
   window.DriverQuizMemory = {
