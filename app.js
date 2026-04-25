@@ -281,16 +281,86 @@ const HANDBOOK_RULES = [
   }
 
   function installUiRecoveryGuard() {
-    const recover = () => recoverEmptyUiChrome("guard");
+    const recover = () => {
+      recoverEmptyUiChrome("guard");
+      updateMobileRecoveryDock("guard");
+    };
     window.addEventListener("pageshow", recover);
     window.addEventListener("focus", recover);
+    window.addEventListener("resize", recover);
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) recover();
     });
+    try {
+      const observer = new MutationObserver(() => recover());
+      observer.observe(document.body, { attributes: true, attributeFilter: ["class"], childList: true, subtree: true });
+    } catch {}
     setTimeout(recover, 0);
-    setTimeout(recover, 500);
+    setTimeout(recover, 250);
+    setTimeout(recover, 900);
+    window.setInterval(recover, 2500);
   }
 
+  function hasHiddenStartControls() {
+    const controls = document.querySelector(".controls-panel");
+    if (!controls) return true;
+    try {
+      const style = window.getComputedStyle(controls);
+      return style.display === "none" || style.visibility === "hidden" || Number(style.opacity || 1) === 0;
+    } catch {
+      return false;
+    }
+  }
+
+  function isLikelyMobileEmptyScreen() {
+    const body = document.body;
+    const main = els?.mainContent;
+    if (!body || !main) return false;
+    const hasQuizUi = hasVisibleQuestionUi();
+    if (hasQuizUi) return false;
+    const text = (main.textContent || "").replace(/\s+/g, " ").trim();
+    const mainEmpty = !text || /第一次使用者|開始練習|卡住狀態/.test(text);
+    return mainEmpty && (body.classList.contains("quiz-mode-active") || hasHiddenStartControls());
+  }
+
+  function ensureMobileRecoveryDock() {
+    let dock = document.getElementById("mobileRecoveryDock");
+    if (dock) return dock;
+    dock = document.createElement("div");
+    dock.id = "mobileRecoveryDock";
+    dock.className = "mobile-recovery-dock hidden";
+    dock.innerHTML = `
+      <div class="mobile-recovery-text">畫面卡住或空白時可直接恢復。</div>
+      <button type="button" class="primary-btn mobile-recovery-start">開始</button>
+      <button type="button" class="ghost-btn mobile-recovery-reset">解除</button>
+    `;
+    document.body.appendChild(dock);
+    dock.querySelector(".mobile-recovery-start")?.addEventListener("click", () => {
+      document.body?.classList.remove("quiz-mode-active", "image-review-mode", "summary-mode");
+      document.body?.classList.add("empty-mode");
+      startSessionFromControls();
+    });
+    dock.querySelector(".mobile-recovery-reset")?.addEventListener("click", () => {
+      clearAllTimers();
+      session = null;
+      try { localStorage.removeItem(SESSION_KEY); } catch {}
+      setQuizChromeMode("idle");
+      renderEmptyStartState("mobile-recovery-dock");
+    });
+    return dock;
+  }
+
+  function updateMobileRecoveryDock(reason = "") {
+    const dock = ensureMobileRecoveryDock();
+    const show = isLikelyMobileEmptyScreen();
+    dock.classList.toggle("hidden", !show);
+    if (show) {
+      console.warn("[ui-recovery] mobile recovery dock visible", reason);
+      document.body?.classList.add("mobile-recovery-visible");
+    } else {
+      document.body?.classList.remove("mobile-recovery-visible");
+    }
+  }
 
   function toggleExamDrawer(forceState = null) {
     const drawer = document.getElementById("examDrawer");
@@ -773,6 +843,7 @@ const HANDBOOK_RULES = [
       renderEmptyStartState("manual-ui-reset");
     });
     attachResilientImageHandlers(els.mainContent);
+    updateMobileRecoveryDock("empty-state-rendered");
   }
 
   function renderSessionOrEmpty() {
@@ -878,6 +949,7 @@ function renderQuestion() {
               <button id="searchQuestionQuickBtn" class="ghost-btn aux-btn">搜尋此題</button>
               ${buildYizongSourceButtonHtml(question)}
               ${buildAiVerifyButtonsHtml(question)}
+              ${buildAiVerifyCopyToggleHtml()}
               <button id="dontKnowBtn" class="ghost-btn aux-btn">不會（-1）</button>
             </div>
           </div>
@@ -901,8 +973,10 @@ function renderQuestion() {
   bindQuestionSearchButton(question);
   bindYizongSourceButtons(question);
   bindAiVerifyButtons(question);
+  bindAiVerifyCopyToggles();
   bindVerifyToolButton();
   attachResilientImageHandlers(els.mainContent);
+  updateMobileRecoveryDock("question-rendered");
   startQuestionTimer(question);
 }
 
@@ -1112,6 +1186,23 @@ function goToNextFlashcardWithoutGrading() {
     scheduleNext(autoNextDelaySec, "flashcardNextCountdown", advanceToNextQuestion);
   }
 
+  function scrollFeedbackIntoView(feedbackMount, options = {}) {
+    if (!feedbackMount) return;
+    const shouldAutoScroll = window.matchMedia?.("(max-width: 900px)")?.matches || (feedbackMount.scrollHeight || 0) > 480;
+    if (!shouldAutoScroll) return;
+    const run = () => {
+      try {
+        feedbackMount.scrollIntoView({ behavior: options.immediate ? "auto" : "smooth", block: "start", inline: "nearest" });
+      } catch {
+        try {
+          const top = feedbackMount.getBoundingClientRect().top + window.scrollY - 12;
+          window.scrollTo({ top: Math.max(0, top), behavior: options.immediate ? "auto" : "smooth" });
+        } catch {}
+      }
+    };
+    requestAnimationFrame(() => window.setTimeout(run, 40));
+  }
+
   function handleAnswer(question, selectedValue, optionPayload, meta = {}) {
     if (session.answeredMap[question.id]) return;
     clearAllTimers();
@@ -1198,7 +1289,9 @@ function goToNextFlashcardWithoutGrading() {
     document.getElementById("nextBtn")?.addEventListener("click", advanceToNextQuestion);
     bindYizongSourceButtons();
     bindAiVerifyButtons();
+    bindAiVerifyCopyToggles();
     bindVerifyToolButton();
+    scrollFeedbackIntoView(feedbackMount, { immediate: meta.reason === "timeout" });
     scheduleNext(autoNextDelaySec, "nextCountdown");
   }
 
@@ -1324,6 +1417,7 @@ function goToNextFlashcardWithoutGrading() {
     document.getElementById("flashcardWrongBtn")?.addEventListener("click", () => retrySummaryWrong("flashcard"));
     bindYizongSourceButtons();
     bindAiVerifyButtons();
+    bindAiVerifyCopyToggles();
     bindVerifyToolButton();
     try {
       window.dispatchEvent(new CustomEvent("driverquiz:session-completed", {
@@ -2677,6 +2771,7 @@ function restoreRecommendedSettings() {
       shortcutOption3: normalizeShortcutSetting(data?.shortcutOption3, "3"),
       shortcutOption4: normalizeShortcutSetting(data?.shortcutOption4, "4"),
       shortcutNext: normalizeShortcutSetting(data?.shortcutNext, "Enter"),
+      aiVerifyCopyEnabled: data?.aiVerifyCopyEnabled !== false,
     };
   }
 
@@ -2686,6 +2781,36 @@ function restoreRecommendedSettings() {
     } catch (error) {
       console.warn("saveSettings failed", error);
     }
+  }
+
+  function isAiVerifyCopyEnabled() {
+    return settings?.aiVerifyCopyEnabled !== false;
+  }
+
+  function setAiVerifyCopyEnabled(enabled) {
+    settings.aiVerifyCopyEnabled = !!enabled;
+    saveSettings();
+    syncAiVerifyCopyToggles();
+  }
+
+  function syncAiVerifyCopyToggles() {
+    const enabled = isAiVerifyCopyEnabled();
+    document.querySelectorAll?.(".ai-copy-toggle-input").forEach((input) => {
+      input.checked = enabled;
+    });
+  }
+
+  function buildAiVerifyCopyToggleHtml() {
+    return `<label class="ai-copy-toggle" title="是否在開啟外部 AI 前複製完整查證 prompt"><input type="checkbox" class="ai-copy-toggle-input" ${isAiVerifyCopyEnabled() ? "checked" : ""}>複製</label>`;
+  }
+
+  function bindAiVerifyCopyToggles() {
+    document.querySelectorAll?.(".ai-copy-toggle-input").forEach((input) => {
+      if (input.dataset.copyToggleBound === "1") return;
+      input.dataset.copyToggleBound = "1";
+      input.addEventListener("change", () => setAiVerifyCopyEnabled(input.checked));
+    });
+    syncAiVerifyCopyToggles();
   }
 
   function readStorageObject(primaryKey, legacyKeys = []) {
@@ -3446,7 +3571,8 @@ function restoreRecommendedSettings() {
 
     const prompt = buildAiVerificationPrompt(question);
     const urlPrompt = buildAiVerificationUrlPrompt(question);
-    const copied = await copyTextToClipboard(prompt);
+    const copyEnabled = isAiVerifyCopyEnabled();
+    const copied = copyEnabled ? await copyTextToClipboard(prompt) : false;
     const url = buildAiProviderUrl(provider, urlPrompt);
     let opened = null;
     try {
@@ -3458,14 +3584,14 @@ function restoreRecommendedSettings() {
     if (!opened) {
       window.alert([
         `瀏覽器阻擋了 ${provider.label} 外部頁面。`,
-        copied ? "查證 prompt 已複製，可手動開啟 AI 後貼上。" : "查證 prompt 複製失敗，請改用一般搜尋或手動複製題目。"
+        copied ? "查證 prompt 已複製，可手動開啟 AI 後貼上。" : (copyEnabled ? "查證 prompt 複製失敗，請改用一般搜尋或手動複製題目。" : "你已關閉自動複製，請手動複製題目或重新勾選「複製」。")
       ].join("\n"));
       return;
     }
 
     if (!provider.buildUrl || url === provider.homeUrl) {
       window.setTimeout(() => {
-        window.alert(`${provider.label} 已開啟。${copied ? "查證 prompt 已複製，請到輸入框貼上。" : "但 prompt 複製可能失敗，請回本頁手動複製題目。"}\n\n${provider.note || ""}`.trim());
+        window.alert(`${provider.label} 已開啟。${copied ? "查證 prompt 已複製，請到輸入框貼上。" : (copyEnabled ? "但 prompt 複製可能失敗，請回本頁手動複製題目。" : "你已關閉自動複製；若頁面未帶入查詢，請回本頁重新勾選「複製」後再開。")}\n\n${provider.note || ""}`.trim());
       }, 80);
     }
   }
@@ -3993,7 +4119,8 @@ function buildAnswerExplanationHtml(question) {
         <button type="button" class="ghost-btn aux-btn verify-tool-btn" aria-expanded="false">搜尋此題</button>
         ${buildYizongSourceButtonHtml(question)}
         ${buildAiVerifyButtonsHtml(question)}
-        <span class="secondary-meta">醫宗開本題來源；AI 按鈕會複製查證 prompt、暫停計時並外開頁面。</span>
+        ${buildAiVerifyCopyToggleHtml()}
+        <span class="secondary-meta">AI 按鈕會依設定複製查證 prompt、暫停計時並外開頁面。</span>
       </div>
       ${buildVerifyToolDetailHtml(question)}
     </div>
