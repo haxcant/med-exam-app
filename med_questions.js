@@ -5794,5 +5794,5545 @@ window.MED_QUESTION_BANK = [
       "五苓散",
       "膏髮煎"
     ]
+  },
+  {
+    "id": "TCMF-0001",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰寒 胃痛；肝陰不足 脅痛；心肝陰虛 癭病",
+    "answer": "一貫煎",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "一貫煎",
+      "小半夏湯",
+      "疏鑿飲子",
+      "附子理中湯"
+    ]
+  },
+  {
+    "id": "TCMF-0002",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n胃中寒冷 實證 呃逆",
+    "answer": "丁香散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "復元通氣散",
+      "杞菊地黃丸",
+      "丁香散",
+      "腎氣丸"
+    ]
+  },
+  {
+    "id": "TCMF-0003",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n失志內傷 心腎氣滯 腰痛",
+    "answer": "七氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "溫肺湯",
+      "七氣湯",
+      "桃仁紅花煎",
+      "聖愈湯"
+    ]
+  },
+  {
+    "id": "TCMF-0004",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣虛 心氣虛 虛勞",
+    "answer": "七福飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "十灰散",
+      "八正散",
+      "七福飲",
+      "二陳平胃湯"
+    ]
+  },
+  {
+    "id": "TCMF-0005",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎陰虧損 尿濁",
+    "answer": "二至丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "二至丸",
+      "潤腸丸",
+      "蔥豉桔梗湯",
+      "安神定志丸"
+    ]
+  },
+  {
+    "id": "TCMF-0006",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n溼熱痹阻 腰痛；濕熱濡漬 氣血不運 痿證",
+    "answer": "二妙散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "敗毒散五味消毒飲",
+      "二妙散",
+      "溫脾湯",
+      "痛瀉要方"
+    ]
+  },
+  {
+    "id": "TCMF-0007",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰濁阻肺 實喘",
+    "answer": "二陳湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "茵陳五苓散",
+      "甘薑苓朮湯",
+      "二陳湯",
+      "黃連溫膽湯"
+    ]
+  },
+  {
+    "id": "TCMF-0008",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱淋；膀胱溼熱 尿血；膀胱溼熱 癃閉",
+    "answer": "八正散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "葛根湯",
+      "茵陳五苓散",
+      "保元湯",
+      "八正散"
+    ]
+  },
+  {
+    "id": "TCMF-0009",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n下消 陰虛及陽 消渴",
+    "answer": "八味丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "麻杏石甘湯",
+      "敗毒散五味消毒飲",
+      "消渴方",
+      "八味丸"
+    ]
+  },
+  {
+    "id": "TCMF-0010",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣血兩虛 痙病主證",
+    "answer": "八珍湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "八珍湯",
+      "四海舒鬱丸",
+      "藻藥散",
+      "地黃飲子"
+    ]
+  },
+  {
+    "id": "TCMF-0011",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n胃熱壅盛 吐血",
+    "answer": "十灰散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "十灰散",
+      "防風湯",
+      "潤腸丸",
+      "沉香散"
+    ]
+  },
+  {
+    "id": "TCMF-0012",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風寒襲肺 外感 咳嗽",
+    "answer": "三拗湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五味消毒飲",
+      "沙參清肺湯",
+      "大補陰丸",
+      "三拗湯"
+    ]
+  },
+  {
+    "id": "TCMF-0013",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n水溼內瘀 腎脈不通 腰痛；陽水 水濕浸漬 水腫",
+    "answer": "五苓散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五苓散",
+      "消渴方",
+      "真武湯",
+      "復元活血湯"
+    ]
+  },
+  {
+    "id": "TCMF-0014",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風寒挾溼 痹阻腰絡 腰痛",
+    "answer": "五積散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "涼膈散",
+      "補中益氣合春澤湯",
+      "黃連清心飲",
+      "五積散"
+    ]
+  },
+  {
+    "id": "TCMF-0015",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣秘 實證 便秘",
+    "answer": "六磨湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "石葦散",
+      "六磨湯",
+      "復元活血湯",
+      "小半夏加茯苓湯"
+    ]
+  },
+  {
+    "id": "TCMF-0016",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝胃鬱熱 胃痛",
+    "answer": "化肝煎",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "化肝煎",
+      "宣痹陽",
+      "贊育丹",
+      "人參黃耆湯"
+    ]
+  },
+  {
+    "id": "TCMF-0017",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風寒襲肺 外感 咳嗽",
+    "answer": "止咳散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五苓散",
+      "止咳散",
+      "地榆散",
+      "白虎桂枝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0018",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n水溼內瘀 腎脈不通 腰痛",
+    "answer": "牛膝散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "大小半夏湯",
+      "牛膝散",
+      "實脾飲",
+      "平胃散"
+    ]
+  },
+  {
+    "id": "TCMF-0019",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n冷秘 虛證 便秘",
+    "answer": "半硫丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "補中益氣合春澤湯",
+      "理中湯",
+      "半硫丸",
+      "牛膝散"
+    ]
+  },
+  {
+    "id": "TCMF-0020",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎精不足 眩暈；陽虛 腎陽虛 虛勞",
+    "answer": "右歸丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "八味丸",
+      "苓桂朮甘湯",
+      "黃耆建中湯",
+      "右歸丸"
+    ]
+  },
+  {
+    "id": "TCMF-0021",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾腎陽虛 腎陽虛 關格",
+    "answer": "右歸飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "炙甘草湯",
+      "人參黃耆湯",
+      "茵陳朮附湯",
+      "右歸飲"
+    ]
+  },
+  {
+    "id": "TCMF-0022",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝氣犯胃 實證 嘔吐",
+    "answer": "四七湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "無比山藥丸",
+      "五苓散",
+      "四七湯",
+      "參附湯"
+    ]
+  },
+  {
+    "id": "TCMF-0023",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血虛 肝血虛 虛勞",
+    "answer": "四物湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "清燥救肺湯",
+      "四物湯",
+      "順氣導痰湯",
+      "二妙散"
+    ]
+  },
+  {
+    "id": "TCMF-0024",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝胃不和 噯氣",
+    "answer": "四逆散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "四逆散",
+      "桑螵蛸散",
+      "沉香散",
+      "桂附八味丸"
+    ]
+  },
+  {
+    "id": "TCMF-0025",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心陽欲脫 心痛",
+    "answer": "四逆湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "濟生菟絲子丸",
+      "羚羊鉤藤湯",
+      "越鞠丸",
+      "四逆湯"
+    ]
+  },
+  {
+    "id": "TCMF-0026",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎虛 泄瀉",
+    "answer": "四神丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "左金丸",
+      "四神丸",
+      "補陽還五湯",
+      "如金解毒散"
+    ]
+  },
+  {
+    "id": "TCMF-0027",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱證 吐酸；肝胃鬱熱 胃痛",
+    "answer": "左金丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "潤腸丸",
+      "定喘湯",
+      "桃紅飲",
+      "左金丸"
+    ]
+  },
+  {
+    "id": "TCMF-0028",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎精不足 眩暈；陰虛 腎陰虛 虛勞",
+    "answer": "左歸丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "左歸丸",
+      "地黃飲子",
+      "茵陳五苓散",
+      "通竅活血湯"
+    ]
+  },
+  {
+    "id": "TCMF-0029",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心腎陰虛 心痛；腎虛 遺精；下消 腎虛火亢 消渴",
+    "answer": "左歸飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "左歸飲",
+      "丁香散",
+      "四物湯",
+      "黃連解毒湯"
+    ]
+  },
+  {
+    "id": "TCMF-0030",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n飲食積滯 痞滿",
+    "answer": "平胃散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "平胃散",
+      "四味回陽飲",
+      "四逆湯",
+      "麻子仁丸"
+    ]
+  },
+  {
+    "id": "TCMF-0031",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰溼內阻 痞滿",
+    "answer": "平陳湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "木香勻氣散",
+      "平陳湯",
+      "桑杏湯",
+      "半下炢米湯"
+    ]
+  },
+  {
+    "id": "TCMF-0032",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n邪火蓄結 鬱熱內閉 腰痛",
+    "answer": "甘豆湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "栝蔞薤白半夏湯",
+      "五味消毒飲",
+      "蘇子降氣湯",
+      "甘豆湯"
+    ]
+  },
+  {
+    "id": "TCMF-0033",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺虛 哮證 緩解期；肺虛 虛喘；氣陰兩虛 心痛；心陽欲脫 心痛",
+    "answer": "生脈散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "保和丸",
+      "耳聾左磁丸",
+      "生脈散",
+      "麻杏石甘湯"
+    ]
+  },
+  {
+    "id": "TCMF-0034",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中消 脾胃氣虛 消渴",
+    "answer": "白朮散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "玉屏風散",
+      "順氣導痰湯",
+      "白朮散",
+      "一貫煎"
+    ]
+  },
+  {
+    "id": "TCMF-0035",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n暑厥 厥證；中消 胃火消中 消渴",
+    "answer": "白虎湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "己椒藶黃丸",
+      "身痛逐瘀湯",
+      "竹葉石膏湯",
+      "白虎湯"
+    ]
+  },
+  {
+    "id": "TCMF-0036",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n石淋",
+    "answer": "石葦散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "知柏地黃湯",
+      "蘇子降氣湯",
+      "石葦散",
+      "溫肺湯"
+    ]
+  },
+  {
+    "id": "TCMF-0037",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腸道濕熱 便血",
+    "answer": "地榆散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "三子養親湯",
+      "附子理中湯",
+      "桃仁紅花煎",
+      "地榆散"
+    ]
+  },
+  {
+    "id": "TCMF-0038",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風發作期 中臟腑 閉證 陽閉",
+    "answer": "至寶丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "越婢半夏湯",
+      "黛蛤散",
+      "至寶丹",
+      "四物湯"
+    ]
+  },
+  {
+    "id": "TCMF-0039",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣虛 遺精",
+    "answer": "妙香散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "平陳湯",
+      "蘇合香丸",
+      "妙香散",
+      "增液承氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0040",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風燥傷肺 外感 咳嗽",
+    "answer": "杏蘇散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "四神丸",
+      "生脈散",
+      "杏蘇散",
+      "參蛤散"
+    ]
+  },
+  {
+    "id": "TCMF-0041",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n實證 氣淋；肝鬱氣滯 癃閉",
+    "answer": "沉香散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "元戎四物湯",
+      "柴胡疏肝湯",
+      "桃紅飲",
+      "沉香散"
+    ]
+  },
+  {
+    "id": "TCMF-0042",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n胃寒 胃痛",
+    "answer": "良附丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "良附丸",
+      "龍膽瀉肝湯",
+      "甘豆湯",
+      "補中益氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0043",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n行痺 痹證",
+    "answer": "防風湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "蔥豉桔梗湯",
+      "沙參清肺湯",
+      "防風湯",
+      "濟生腎氣丸"
+    ]
+  },
+  {
+    "id": "TCMF-0044",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰熱雍肺 肺失清肅 熱哮",
+    "answer": "定喘湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "定喘湯",
+      "白虎湯",
+      "代抵擋丸",
+      "茵陳朮附湯"
+    ]
+  },
+  {
+    "id": "TCMF-0045",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝風痰濁 癇",
+    "answer": "定癇丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "定癇丸",
+      "大定風珠",
+      "十棗湯控涎丹",
+      "左歸丸"
+    ]
+  },
+  {
+    "id": "TCMF-0046",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝腎虧損 髓枯筋痿 痿證",
+    "answer": "虎潛丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "十棗湯控涎丹",
+      "清氣化痰湯",
+      "虎潛丸",
+      "烏頭湯"
+    ]
+  },
+  {
+    "id": "TCMF-0047",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎氣不足 腰腑不健 腰痛；久痛絡虛 督脈失養 腰痛",
+    "answer": "青娥丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "疏鑿飲子",
+      "杞菊地黃丸",
+      "杏蘇散",
+      "青娥丸"
+    ]
+  },
+  {
+    "id": "TCMF-0048",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽虛 心陽虛 虛勞",
+    "answer": "保元湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "保元湯",
+      "翹荷湯",
+      "小半夏加茯苓湯",
+      "參附湯"
+    ]
+  },
+  {
+    "id": "TCMF-0049",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n飲食停積 實證 嘔吐；食滯 胃痛；食滯不化 噯氣；飲食積滯 痞滿；傷食 泄瀉；痰厥 厥證",
+    "answer": "保和丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "補陽還五湯",
+      "天麻鉤藤飲",
+      "保和丸",
+      "桑菊飲"
+    ]
+  },
+  {
+    "id": "TCMF-0050",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱痺 痹證；邪壅經絡 痙病變證 濕熱入絡",
+    "answer": "宣痹陽",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "柴枳半夏湯",
+      "四逆散",
+      "宣痹陽",
+      "小降氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0051",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n營衛不和 汗證",
+    "answer": "桂枝湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "小承氣湯",
+      "實脾飲",
+      "二至丸",
+      "桂枝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0052",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n久痺 痰瘀阻絡 痹證",
+    "answer": "桃紅飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桃紅飲",
+      "黃耆建中湯",
+      "瀉白散",
+      "大補陰丸"
+    ]
+  },
+  {
+    "id": "TCMF-0053",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風燥傷肺 外感 咳嗽；燥熱傷肺 咳血",
+    "answer": "桑杏湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "小半夏湯",
+      "白虎湯",
+      "當歸六黃湯",
+      "桑杏湯"
+    ]
+  },
+  {
+    "id": "TCMF-0054",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風熱犯肺 外感 咳嗽",
+    "answer": "桑菊飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "補肺湯",
+      "桑菊飲",
+      "葛根芩連湯",
+      "止咳散"
+    ]
+  },
+  {
+    "id": "TCMF-0055",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n上消 燥熱傷肺 消渴",
+    "answer": "消渴方",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "金沸草散",
+      "苓桂朮甘湯",
+      "麥門冬湯",
+      "消渴方"
+    ]
+  },
+  {
+    "id": "TCMF-0056",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痛痺 痹證",
+    "answer": "烏頭湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "瀉白散",
+      "烏頭湯",
+      "補中益氣湯",
+      "地黃飲子"
+    ]
+  },
+  {
+    "id": "TCMF-0057",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰水 腎虛水泛 水腫",
+    "answer": "真武湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "荊蓬煎丸",
+      "黃連溫膽湯",
+      "養心湯",
+      "真武湯"
+    ]
+  },
+  {
+    "id": "TCMF-0058",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽氣虛弱 心痛；心陽欲脫 心痛；中風發作期 中臟腑 脫證",
+    "answer": "參附湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "膈下逐瘀湯合六味地黃湯",
+      "參附湯",
+      "復元通氣散",
+      "半下炢米湯"
+    ]
+  },
+  {
+    "id": "TCMF-0059",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎虛 虛喘",
+    "answer": "參蛤散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "濟生菟絲子丸",
+      "參蛤散",
+      "旋覆花湯",
+      "葛根芩連湯"
+    ]
+  },
+  {
+    "id": "TCMF-0060",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺胃邪熱 口瘡",
+    "answer": "涼膈散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "荊防拜毒散",
+      "涼膈散",
+      "白朮散",
+      "程氏萆蘚分清飲"
+    ]
+  },
+  {
+    "id": "TCMF-0061",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濕熱中阻 胃痛",
+    "answer": "清中湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "清中湯",
+      "獨參湯",
+      "蘇子降氣湯",
+      "茵陳蒿湯合中滿分消丸"
+    ]
+  },
+  {
+    "id": "TCMF-0062",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺熱壅盛 癃閉",
+    "answer": "清肺飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "清肺飲",
+      "參蛤散",
+      "藿香正氣散",
+      "小青龍湯"
+    ]
+  },
+  {
+    "id": "TCMF-0063",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風發作期 中經絡 脈絡空虛 風邪入中",
+    "answer": "牽正散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "羌活勝濕湯",
+      "牽正散",
+      "椒目括蔞湯",
+      "甘麥大棗湯"
+    ]
+  },
+  {
+    "id": "TCMF-0064",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾胃虛寒 噯氣",
+    "answer": "理中丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "理中丸",
+      "溫膽湯",
+      "越鞠丸",
+      "獨活寄生湯"
+    ]
+  },
+  {
+    "id": "TCMF-0065",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾胃陽虛 虛證 嘔吐；虛寒 胃痛；陽虛浮火 口瘡；脾胃陽虛 虛證 呃逆；脾胃虛弱 痞滿；脾腎陽虛 脾陽虛 關格",
+    "answer": "理中湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "理中湯",
+      "沉香散",
+      "宣痹陽",
+      "耳聾左磁丸"
+    ]
+  },
+  {
+    "id": "TCMF-0066",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n思慮傷脾 精不輸腎 腰痛",
+    "answer": "異功散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "程氏萆蘚分清飲",
+      "加味桔梗湯",
+      "定癇丸",
+      "異功散"
+    ]
+  },
+  {
+    "id": "TCMF-0067",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛血瘀 虛 瘀證",
+    "answer": "通幽湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黃連溫膽湯",
+      "三子養親湯",
+      "通幽湯",
+      "四味回陽飲"
+    ]
+  },
+  {
+    "id": "TCMF-0068",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血厥 實 厥證",
+    "answer": "通瘀煎",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "甘露消毒丹",
+      "補中益氣湯",
+      "通瘀煎",
+      "清燥救肺湯"
+    ]
+  },
+  {
+    "id": "TCMF-0069",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風寒襲肺 實喘",
+    "answer": "麻黃湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "二陳湯",
+      "溫肺湯",
+      "麻黃湯",
+      "黃連解毒湯"
+    ]
+  },
+  {
+    "id": "TCMF-0070",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n急黃 黃疸",
+    "answer": "犀角散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "通瘀煎",
+      "旋覆花湯",
+      "甘遂半夏湯",
+      "犀角散"
+    ]
+  },
+  {
+    "id": "TCMF-0071",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎陽不足 腰當失養 腰痛",
+    "answer": "腎氣丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "腎氣丸",
+      "瓜蔞桂枝湯",
+      "神麵酒",
+      "七福飲"
+    ]
+  },
+  {
+    "id": "TCMF-0072",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風寒襲肺 實喘",
+    "answer": "華蓋散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "華蓋散",
+      "瀉心湯",
+      "六君子湯",
+      "三子養親湯"
+    ]
+  },
+  {
+    "id": "TCMF-0073",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽水 風水泛濫 水腫",
+    "answer": "越婢湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桂枝去芍藥湯",
+      "清燥救肺湯",
+      "黃土湯",
+      "越婢湯"
+    ]
+  },
+  {
+    "id": "TCMF-0074",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝鬱氣滯 痞滿",
+    "answer": "越鞠丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "二陰煎合千金定志丸",
+      "如金解毒散",
+      "越鞠丸",
+      "甘露消毒丹"
+    ]
+  },
+  {
+    "id": "TCMF-0075",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾胃虛寒 便血",
+    "answer": "黃土湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "贊育丹",
+      "益氣聰明湯",
+      "黃土湯",
+      "參苓白朮散"
+    ]
+  },
+  {
+    "id": "TCMF-0076",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣虛 虛證 便秘",
+    "answer": "黃耆湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黃耆湯",
+      "濟生腎氣丸",
+      "天麻鉤藤飲",
+      "龍膽瀉肝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0077",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n閃挫墜墮氣滯血瘀 腰痛",
+    "answer": "黑神散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "少腹逐瘀湯",
+      "清燥救肺湯",
+      "大小半夏湯",
+      "黑神散"
+    ]
+  },
+  {
+    "id": "TCMF-0078",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺氣虛弱 內傷 咳嗽",
+    "answer": "溫肺湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "六味地黃丸",
+      "少腹逐瘀湯",
+      "四物湯",
+      "溫肺湯"
+    ]
+  },
+  {
+    "id": "TCMF-0079",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n冷秘 虛證 便秘",
+    "answer": "溫脾湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "溫脾湯",
+      "無比山藥丸",
+      "四味回陽飲",
+      "知柏地黃湯"
+    ]
+  },
+  {
+    "id": "TCMF-0080",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰熱內擾 不寐；胃熱 嘈雜；胃中痰火 噯氣",
+    "answer": "溫膽湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "補肝散",
+      "四神丸",
+      "溫膽湯",
+      "左金丸"
+    ]
+  },
+  {
+    "id": "TCMF-0081",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血虛血瘀 虛 瘀證",
+    "answer": "聖愈湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "真武湯",
+      "聖愈湯",
+      "小建中湯",
+      "補中益氣合春澤湯"
+    ]
+  },
+  {
+    "id": "TCMF-0082",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n邪壅經絡 痙病變證 剛痙",
+    "answer": "葛根湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "參苓白朮散",
+      "梔子清肝湯",
+      "甘薑苓朮湯",
+      "葛根湯"
+    ]
+  },
+  {
+    "id": "TCMF-0083",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n鬱怒不解 肝腎氣滯 腰痛；陰虛 肝陰虛 虛勞",
+    "answer": "補肝散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "百合固金湯",
+      "柴胡疏肝湯",
+      "補肝散",
+      "黃耆建中湯"
+    ]
+  },
+  {
+    "id": "TCMF-0084",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺虛 虛喘；氣虛 肺氣虛 虛勞",
+    "answer": "補肺湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桑螵蛸散",
+      "解語丹",
+      "半夏天麻白朮湯",
+      "補肺湯"
+    ]
+  },
+  {
+    "id": "TCMF-0085",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風恢復期 語言不利 風痰阻絡",
+    "answer": "解語丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "百合固金湯",
+      "半夏天麻白朮湯",
+      "解語丹",
+      "五子衍宗丸"
+    ]
+  },
+  {
+    "id": "TCMF-0086",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n水濕困脾 臌脹；濁犯中焦 邪陷困脾 關格；陰水 脾不制水 水腫",
+    "answer": "實脾飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "聖愈湯",
+      "補肝散",
+      "生脈散",
+      "實脾飲"
+    ]
+  },
+  {
+    "id": "TCMF-0087",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝火痰熱 癇；中風發作期 中臟腑 閉證 陰閉；痰火氣鬱 耳鳴 耳聾",
+    "answer": "滌痰湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "半下炢米湯",
+      "甘薑苓朮湯",
+      "麻黃連翹赤小豆湯",
+      "滌痰湯"
+    ]
+  },
+  {
+    "id": "TCMF-0088",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n虛證 膏淋",
+    "answer": "膏淋湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "六味地黃丸合 生脈散補腦丸",
+      "良附丸",
+      "天麻鉤藤飲",
+      "膏淋湯"
+    ]
+  },
+  {
+    "id": "TCMF-0089",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風熱 感冒；肺癰 初期；風熱夾濕 口糜",
+    "answer": "銀翹散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "銀翹散",
+      "黃耆湯",
+      "急救回陽湯",
+      "梔子清肝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0090",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血虛 虛證 便秘",
+    "answer": "潤腸丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "二陳平胃湯",
+      "黃連解毒湯",
+      "苓桂朮甘湯",
+      "潤腸丸"
+    ]
+  },
+  {
+    "id": "TCMF-0091",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n鬱怒不解 肝腎氣滯 腰痛",
+    "answer": "調肝散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "調肝散",
+      "葛根湯",
+      "定喘湯",
+      "梔子清肝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0092",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝脾血瘀 臌脹",
+    "answer": "調營飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "異功散",
+      "調營飲",
+      "葛根湯",
+      "半夏厚朴湯"
+    ]
+  },
+  {
+    "id": "TCMF-0093",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心脾兩虛 癲；血虛 心血虛 虛勞",
+    "answer": "養心湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五味消毒飲",
+      "養心湯",
+      "通竅活血湯",
+      "丹溪鼻淵方"
+    ]
+  },
+  {
+    "id": "TCMF-0094",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心脾積熱 口瘡；濕熱口糜 口糜",
+    "answer": "導赤散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "越鞠丸",
+      "導赤散",
+      "導痰湯",
+      "甘薑苓朮湯"
+    ]
+  },
+  {
+    "id": "TCMF-0095",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n溼痰流注經絡 腰痛；痰厥 厥證",
+    "answer": "導痰湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "導痰湯",
+      "葶藶大棗瀉肺湯",
+      "清燥救肺湯",
+      "木香勻氣散"
+    ]
+  },
+  {
+    "id": "TCMF-0096",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血厥 虛 厥證",
+    "answer": "獨參湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "地榆散",
+      "宣痹陽",
+      "天香正氣散",
+      "獨參湯"
+    ]
+  },
+  {
+    "id": "TCMF-0097",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝火犯肺 內傷 咳嗽；肝火犯肺 咳血",
+    "answer": "黛蛤散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "竹葉石膏湯",
+      "沉香散",
+      "黛蛤散",
+      "茵陳蒿湯合中滿分消丸"
+    ]
+  },
+  {
+    "id": "TCMF-0098",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心脾兩虛 心悸；氣陰兩虛 心痛；心脾兩虛 不寐；血虛 嘈雜；氣虛血溢 吐血；氣虛不攝 便血；氣血 虧虛 眩暈；心脾虧虛 陽痿；心脾兩虛 鬱證；心血不足 汗證；血虛 心血虛 虛勞",
+    "answer": "歸脾湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "歸脾湯",
+      "補肺湯",
+      "黃連清心飲",
+      "牽正散"
+    ]
+  },
+  {
+    "id": "TCMF-0099",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n胃熱壅盛 吐血",
+    "answer": "瀉心湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "瀉心湯",
+      "桑杏湯",
+      "參苓白朮散",
+      "止咳散"
+    ]
+  },
+  {
+    "id": "TCMF-0100",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝火犯肺 內傷 咳嗽；陰虛內熱 懸飲；肝火犯肺 咳血",
+    "answer": "瀉白散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "溫脾湯",
+      "瀉白散",
+      "二至丸",
+      "小建中湯"
+    ]
+  },
+  {
+    "id": "TCMF-0101",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心脾積熱 口瘡；濕熱口糜 口糜",
+    "answer": "瀉黃散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "柴胡疏肝湯",
+      "黃耆赤風湯",
+      "瀉黃散",
+      "桂甘龍牡湯"
+    ]
+  },
+  {
+    "id": "TCMF-0102",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風邪壅遏 耳鳴 耳聾",
+    "answer": "翹荷湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "翹荷湯",
+      "蔥豉桔梗湯",
+      "沙參麥冬湯",
+      "葛根湯"
+    ]
+  },
+  {
+    "id": "TCMF-0103",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n命門火衰 陽痿",
+    "answer": "贊育丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "贊育丹",
+      "桂枝去芍藥湯",
+      "養心湯",
+      "白朮散"
+    ]
+  },
+  {
+    "id": "TCMF-0104",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝火亢盛 癭病",
+    "answer": "藻藥散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "人參養營湯",
+      "藻藥散",
+      "四味回陽飲",
+      "地榆散"
+    ]
+  },
+  {
+    "id": "TCMF-0105",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n胃虛 嘈雜；胃陰不足 虛證 呃逆；陰虛 脾胃陰虛 虛勞",
+    "answer": "益胃湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "葶藶大棗瀉肺湯",
+      "益胃湯",
+      "茵陳蒿湯合中滿分消丸",
+      "苓桂朮甘湯"
+    ]
+  },
+  {
+    "id": "TCMF-0106",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n食滯濁氣 流漬少陰 腰痛",
+    "answer": "神麵酒",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "痛瀉要方",
+      "定喘湯",
+      "神麵酒",
+      "清瘟敗毒飲"
+    ]
+  },
+  {
+    "id": "TCMF-0107",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n邪火蓄結 鬱熱內閉 腰痛",
+    "answer": "大分清飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "六磨湯",
+      "大分清飲",
+      "荊蓬煎丸",
+      "生鐵落飲"
+    ]
+  },
+  {
+    "id": "TCMF-0108",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝腎陰虛 癇；熱甚發痙 虛風內動 熱盛動風",
+    "answer": "大定風珠",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "八味丸",
+      "犀角地黃湯",
+      "大定風珠",
+      "清咽寧肺湯"
+    ]
+  },
+  {
+    "id": "TCMF-0109",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濕熱積滯 腹痛",
+    "answer": "大承氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "大承氣湯",
+      "白虎桂枝湯",
+      "四逆散",
+      "七氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0110",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n溢飲",
+    "answer": "大青龍湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "蘇子降氣湯",
+      "草薑苓朮湯",
+      "大青龍湯",
+      "二至丸"
+    ]
+  },
+  {
+    "id": "TCMF-0111",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n恐懼傷腎 陽痿；氣虛 腎氣虛 虛勞；腎虛 頭痛",
+    "answer": "大補元煎",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "大補元煎",
+      "黃連解毒湯",
+      "栝蔞薤白白酒湯",
+      "甘露消毒丹"
+    ]
+  },
+  {
+    "id": "TCMF-0112",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎陰虧損 尿濁",
+    "answer": "大補陰丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "附子理中湯",
+      "膏淋湯",
+      "旋覆花湯",
+      "大補陰丸"
+    ]
+  },
+  {
+    "id": "TCMF-0113",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰飲內阻 實證 嘔吐",
+    "answer": "小半夏湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "小半夏湯",
+      "益胃湯",
+      "至寶丹",
+      "導赤散"
+    ]
+  },
+  {
+    "id": "TCMF-0114",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n胃火上衝 實證 呃逆；食厥 厥證",
+    "answer": "小承氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黑神散",
+      "大小半夏湯",
+      "川芎茶調散",
+      "小承氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0115",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n寒飲伏肺 內傷 咳嗽；寒飲伏肺 肺失宣暢 寒哮；溢飲；寒隱伏肺 支飲",
+    "answer": "小青龍湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "華蓋散",
+      "桃仁紅花煎",
+      "小青龍湯",
+      "八味丸"
+    ]
+  },
+  {
+    "id": "TCMF-0116",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中虛臟寒 腹痛；脾腎陽虛 脾陽虛 關格",
+    "answer": "小建中湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "冠心二號方",
+      "參附湯",
+      "小建中湯",
+      "益胃湯"
+    ]
+  },
+  {
+    "id": "TCMF-0117",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心火亢盛 尿血",
+    "answer": "小薊飲子",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "人參養營湯",
+      "小薊飲子",
+      "復元通氣散",
+      "平胃散"
+    ]
+  },
+  {
+    "id": "TCMF-0118",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣鬱 實證 失音",
+    "answer": "小降氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "痛瀉要方",
+      "羚羊鉤藤湯",
+      "小薊飲子合導赤散",
+      "小降氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0119",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺氣鬱閉 實喘",
+    "answer": "五磨飲子",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五磨飲子",
+      "保元湯",
+      "七氣湯",
+      "青娥丸"
+    ]
+  },
+  {
+    "id": "TCMF-0120",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣厥 實 厥證",
+    "answer": "五磨飲子",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "荊防拜毒散",
+      "五磨飲子",
+      "益氣聰明湯",
+      "二陰煎合千金定志丸"
+    ]
+  },
+  {
+    "id": "TCMF-0121",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾虛 哮證 緩解期；脾胃虛弱 癇；脾胃虛寒 噯氣",
+    "answer": "六君子湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "六君子湯",
+      "瀉白散",
+      "苓桂朮甘湯",
+      "栝蔞薤白白酒湯"
+    ]
+  },
+  {
+    "id": "TCMF-0122",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n尿道阻塞 癃閉",
+    "answer": "代抵擋丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "蒼耳子散",
+      "二陳湯",
+      "代抵擋丸",
+      "萆薢分清飲"
+    ]
+  },
+  {
+    "id": "TCMF-0123",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心氣不足 心悸；胃虛 嘈雜；氣虛 脾氣虛 虛勞",
+    "answer": "四君子湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "六君子湯",
+      "翹荷湯",
+      "四君子湯",
+      "八味丸"
+    ]
+  },
+  {
+    "id": "TCMF-0124",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺虛 哮證 緩解期；肺衛不固 汗證",
+    "answer": "玉屏風散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "玉屏風散",
+      "防風湯",
+      "導痰湯",
+      "越婢半夏湯"
+    ]
+  },
+  {
+    "id": "TCMF-0125",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰火上擾 狂",
+    "answer": "生鐵落飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "無比山藥丸",
+      "黃連解毒湯",
+      "桑螵蛸散",
+      "生鐵落飲"
+    ]
+  },
+  {
+    "id": "TCMF-0126",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風恢復期 半身不遂 肝腎虧損 筋骨失養；中風恢復期 半身不遂 腎精虧虛",
+    "answer": "地黃飲子",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "地黃飲子",
+      "二至丸",
+      "生鐵落飲",
+      "神麵酒"
+    ]
+  },
+  {
+    "id": "TCMF-0127",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣陰兩虛 心悸",
+    "answer": "炙甘草湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "小建中湯",
+      "宣痹陽",
+      "炙甘草湯",
+      "附子 人參 灌服黑錫丹"
+    ]
+  },
+  {
+    "id": "TCMF-0128",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風塞閉鬱 實證 失音",
+    "answer": "金沸草散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "清肺飲",
+      "安神定志丸",
+      "金沸草散",
+      "甘遂半夏湯"
+    ]
+  },
+  {
+    "id": "TCMF-0129",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰熱鬱肺 實喘",
+    "answer": "桑白皮湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桑白皮湯",
+      "黑神散",
+      "黃連溫膽湯",
+      "瀉白散"
+    ]
+  },
+  {
+    "id": "TCMF-0130",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n睡中遺尿 遺尿",
+    "answer": "桑螵蛸散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "復元通氣散",
+      "桑螵蛸散",
+      "羚羊角湯",
+      "保和丸"
+    ]
+  },
+  {
+    "id": "TCMF-0131",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱重於濕 陽黃 黃疸",
+    "answer": "茵陳蒿湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "青娥丸",
+      "代抵擋丸",
+      "茵陳蒿湯",
+      "千金葦莖湯"
+    ]
+  },
+  {
+    "id": "TCMF-0132",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血瘀成積 實 瘀證",
+    "answer": "荊蓬煎丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "荊蓬煎丸",
+      "四七湯",
+      "青娥丸",
+      "黃連溫膽湯"
+    ]
+  },
+  {
+    "id": "TCMF-0133",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n瘀血停著 脅痛",
+    "answer": "旋覆花湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "二陳平胃湯",
+      "旋覆花湯",
+      "清燥救肺湯",
+      "滌痰湯"
+    ]
+  },
+  {
+    "id": "TCMF-0134",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽水 濕熱壅結 水腫",
+    "answer": "疏鑿飲子",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "疏鑿飲子",
+      "半硫丸",
+      "平陳湯",
+      "梔子清肝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0135",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風發作期 中臟腑 閉證 陽閉",
+    "answer": "羚羊角湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "羚羊角湯",
+      "丁香散",
+      "丹梔逍遙散",
+      "濟生腎氣丸"
+    ]
+  },
+  {
+    "id": "TCMF-0136",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛痰熱 氣虛痰勝 虛哮；胃陰不足 虛證 嘔吐",
+    "answer": "麥門冬湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "硃砂安神丸",
+      "木香勻氣散",
+      "麥門冬湯",
+      "四物湯"
+    ]
+  },
+  {
+    "id": "TCMF-0137",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱秘 實證 便秘",
+    "answer": "麻子仁丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黃土湯",
+      "麻子仁丸",
+      "丹梔逍遙散",
+      "金匱腎氣丸"
+    ]
+  },
+  {
+    "id": "TCMF-0138",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝鬱 泄瀉",
+    "answer": "痛瀉要方",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "痛瀉要方",
+      "清氣化痰湯",
+      "茵陳朮附湯",
+      "青娥丸"
+    ]
+  },
+  {
+    "id": "TCMF-0139",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱雍肺竅 實證 鼻淵",
+    "answer": "蒼耳子散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "防風湯",
+      "丹梔逍遙散",
+      "蒼耳子散",
+      "椒目括蔞湯"
+    ]
+  },
+  {
+    "id": "TCMF-0140",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心膽氣虛 不寐",
+    "answer": "酸棗仁湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "酸棗仁湯",
+      "二陳平胃湯",
+      "五味消毒飲",
+      "十灰散"
+    ]
+  },
+  {
+    "id": "TCMF-0141",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n著痺 痹證",
+    "answer": "薏苡仁湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "薏苡仁湯",
+      "黛蛤散",
+      "濟生菟絲子丸",
+      "金匱腎氣丸"
+    ]
+  },
+  {
+    "id": "TCMF-0142",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風發作期 中臟腑 閉證 陰閉；濁犯上焦 邪陷心包 關格",
+    "answer": "蘇合香丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "蘇合香丸",
+      "玉屏風散",
+      "沙參清肺湯",
+      "獨參湯"
+    ]
+  },
+  {
+    "id": "TCMF-0143",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎虛 哮證 緩解期；腎虛 虛喘",
+    "answer": "七味都氣丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "金匱腎氣丸",
+      "七味都氣丸",
+      "知柏八味丸",
+      "荊蓬煎丸"
+    ]
+  },
+  {
+    "id": "TCMF-0144",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰濕蘊肺 內傷 咳嗽",
+    "answer": "二陳平胃湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "二陳平胃湯",
+      "調肝散",
+      "增液承氣湯",
+      "桃紅四物飲"
+    ]
+  },
+  {
+    "id": "TCMF-0145",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣虛血瘀 心痛",
+    "answer": "人參黃耆湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "真武湯",
+      "人參黃耆湯",
+      "八珍湯",
+      "鹿茸補澀丸"
+    ]
+  },
+  {
+    "id": "TCMF-0146",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血厥 虛 厥證；血虛 頭痛",
+    "answer": "人參養營湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "人參養營湯",
+      "活絡效靈丹",
+      "栝蔞薤白半夏湯",
+      "栝蔞薤白白酒湯"
+    ]
+  },
+  {
+    "id": "TCMF-0147",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰濕蘊肺 內傷 咳嗽；痰氣壅肺 肺失肅降 痰哮；痰濁阻肺 實喘",
+    "answer": "三子養親湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五苓散",
+      "四海舒鬱丸",
+      "新加香薷飲",
+      "三子養親湯"
+    ]
+  },
+  {
+    "id": "TCMF-0148",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺癰 成癰期",
+    "answer": "千金葦莖湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "真武湯",
+      "千金葦莖湯",
+      "栝蔞薤白半夏湯",
+      "桂甘龍牡湯"
+    ]
+  },
+  {
+    "id": "TCMF-0149",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濁犯中焦 濁邪犯胃 關格",
+    "answer": "大小半夏湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "大小半夏湯",
+      "四味回陽飲",
+      "消渴方",
+      "越婢半夏湯"
+    ]
+  },
+  {
+    "id": "TCMF-0150",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風寒 頭痛",
+    "answer": "川芎茶調散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "川芎茶調散",
+      "如金解毒散",
+      "小建中湯",
+      "益氣聰明湯"
+    ]
+  },
+  {
+    "id": "TCMF-0151",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n飲留胃腸 痰飲",
+    "answer": "己椒藶黃丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "銀翹散",
+      "海藻玉壺湯",
+      "大承氣湯",
+      "己椒藶黃丸"
+    ]
+  },
+  {
+    "id": "TCMF-0152",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣鬱化火 鬱證",
+    "answer": "丹梔逍遙散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "元戎四物湯",
+      "桃紅飲",
+      "丹梔逍遙散",
+      "益胃湯"
+    ]
+  },
+  {
+    "id": "TCMF-0153",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾經溼熱 實證 鼻淵",
+    "answer": "丹溪鼻淵方",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "丹溪鼻淵方",
+      "參附湯",
+      "川芎茶調散",
+      "桑螵蛸散"
+    ]
+  },
+  {
+    "id": "TCMF-0154",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n命門火衰 陽痿",
+    "answer": "五子衍宗丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五子衍宗丸",
+      "麻黃湯",
+      "涼膈散",
+      "牛黃清心丸"
+    ]
+  },
+  {
+    "id": "TCMF-0155",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血瘀成癰 熱 瘀證；癱疽 消渴兼證",
+    "answer": "五味消毒飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "生鐵落飲",
+      "硃砂安神丸",
+      "涼膈散",
+      "五味消毒飲"
+    ]
+  },
+  {
+    "id": "TCMF-0156",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n閃挫墜墮氣滯血瘀 腰痛",
+    "answer": "元戎四物湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "真武湯",
+      "養心湯",
+      "麻黃連翹赤小豆湯",
+      "元戎四物湯"
+    ]
+  },
+  {
+    "id": "TCMF-0157",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛火旺 不寐；腎精不足 陰虛火擾 腰痛；腎虛 遺精",
+    "answer": "六味地黃丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "大補陰丸",
+      "四君子湯",
+      "六味地黃丸",
+      "桑白皮湯"
+    ]
+  },
+  {
+    "id": "TCMF-0158",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心肝陰虛 癭病；陰虛 心陰虛 虛勞",
+    "answer": "天王補心丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桂枝湯",
+      "天王補心丹",
+      "二陳平胃湯",
+      "茵陳蒿湯合中滿分消丸"
+    ]
+  },
+  {
+    "id": "TCMF-0159",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n寒邪內阻 腹痛",
+    "answer": "天香正氣散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "瀉黃散",
+      "四七湯",
+      "天香正氣散",
+      "桃仁承氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0160",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝陽上亢 眩暈；肝陽 頭痛",
+    "answer": "天麻鉤藤飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "天麻鉤藤飲",
+      "清暑益氣湯",
+      "八味丸",
+      "七氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0161",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血瘀 腹痛；少腹血瘀 實 瘀證",
+    "answer": "少腹逐瘀湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "補中益氣合春澤湯",
+      "少腹逐瘀湯",
+      "良附丸",
+      "沙參清肺湯"
+    ]
+  },
+  {
+    "id": "TCMF-0162",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n思慮傷脾 精不輸腎 腰痛",
+    "answer": "木香勻氣散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "小降氣湯",
+      "麻杏石甘湯",
+      "木香勻氣散",
+      "清中湯"
+    ]
+  },
+  {
+    "id": "TCMF-0163",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n暑厥 厥證",
+    "answer": "牛黃清心丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "四逆散",
+      "虎潛丸",
+      "黃連解毒湯",
+      "牛黃清心丸"
+    ]
+  },
+  {
+    "id": "TCMF-0164",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺癰 潰膿期",
+    "answer": "加味桔梗湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "增液承氣湯",
+      "麻杏石甘湯",
+      "烏頭湯",
+      "加味桔梗湯"
+    ]
+  },
+  {
+    "id": "TCMF-0165",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n胃氣失和 不寐",
+    "answer": "半下炢米湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "半下炢米湯",
+      "牽正散",
+      "補肝散",
+      "越鞠丸"
+    ]
+  },
+  {
+    "id": "TCMF-0166",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣結痰阻 鬱證",
+    "answer": "半夏厚朴湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "半夏厚朴湯",
+      "痛瀉要方",
+      "小半夏湯",
+      "旋覆代赭湯"
+    ]
+  },
+  {
+    "id": "TCMF-0167",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣厥 虛 厥證",
+    "answer": "四味回陽飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "無比山藥丸",
+      "濟生菟絲子丸",
+      "四味回陽飲",
+      "白朮散"
+    ]
+  },
+  {
+    "id": "TCMF-0168",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣鬱痰阻 癭病",
+    "answer": "四海舒鬱丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "天王補心丹",
+      "海藻玉壺湯",
+      "甘薑苓朮湯",
+      "四海舒鬱丸"
+    ]
+  },
+  {
+    "id": "TCMF-0169",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n邪壅經絡 痙病變證 柔痙",
+    "answer": "瓜蔞桂枝湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "柴胡疏肝湯",
+      "瓜蔞桂枝湯",
+      "葛根湯",
+      "四神丸"
+    ]
+  },
+  {
+    "id": "TCMF-0170",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心神失養 鬱證",
+    "answer": "甘麥大棗湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "甘麥大棗湯",
+      "梔子清肝湯",
+      "真武湯",
+      "瀉黃散"
+    ]
+  },
+  {
+    "id": "TCMF-0171",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n飲留胃腸 痰飲",
+    "answer": "甘遂半夏湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "溫膽湯",
+      "生脈散",
+      "甘遂半夏湯",
+      "硃砂安神丸"
+    ]
+  },
+  {
+    "id": "TCMF-0172",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n寢臥冷地 腎著腰痛 腰痛",
+    "answer": "甘薑苓朮湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "參附湯",
+      "犀角地黃湯",
+      "甘薑苓朮湯",
+      "理中丸"
+    ]
+  },
+  {
+    "id": "TCMF-0173",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾經溼熱 實證 鼻淵；心脾積熱 口糜",
+    "answer": "甘露消毒丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "華蓋散",
+      "甘露消毒丹",
+      "一貫煎",
+      "滋水清肝飲"
+    ]
+  },
+  {
+    "id": "TCMF-0174",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱痺 痹證",
+    "answer": "白虎桂枝湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桔梗杏仁煎",
+      "白虎桂枝湯",
+      "桑菊飲加黃芩 梔子",
+      "二至丸"
+    ]
+  },
+  {
+    "id": "TCMF-0175",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺癰 成癰期",
+    "answer": "如金解毒散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "七氣湯",
+      "清瘟敗毒飲",
+      "新加香薷飲",
+      "如金解毒散"
+    ]
+  },
+  {
+    "id": "TCMF-0176",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風發作期 中臟腑 閉證 陽閉",
+    "answer": "安宮牛黃丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "身痛逐瘀湯",
+      "黃連阿膠湯",
+      "安宮牛黃丸",
+      "人參黃耆湯"
+    ]
+  },
+  {
+    "id": "TCMF-0177",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心膽虛怯 心悸；心膽氣虛 不寐",
+    "answer": "安神定志丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "安神定志丸",
+      "四海舒鬱丸",
+      "增液承氣湯",
+      "蔥豉桔梗湯"
+    ]
+  },
+  {
+    "id": "TCMF-0178",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺腎陰虛 虛證 失音；陰虛火旺 咳血",
+    "answer": "百合固金湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "加味桔梗湯",
+      "新加香薷飲",
+      "百合固金湯",
+      "茵陳蒿湯"
+    ]
+  },
+  {
+    "id": "TCMF-0179",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n胃火上衝 實證 呃逆",
+    "answer": "竹葉石膏湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黃連解毒湯",
+      "竹葉石膏湯",
+      "大青龍湯",
+      "麻黃湯"
+    ]
+  },
+  {
+    "id": "TCMF-0180",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎精虧虛 耳鳴 耳聾",
+    "answer": "耳聾左磁丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "耳聾左磁丸",
+      "理中湯",
+      "生鐵落飲",
+      "黃土湯"
+    ]
+  },
+  {
+    "id": "TCMF-0181",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血瘀氣滯 心痛；胸脇血瘀 實 瘀證",
+    "answer": "血府逐瘀湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "地黃飲子",
+      "血府逐瘀湯",
+      "四逆散",
+      "桂枝去芍藥湯"
+    ]
+  },
+  {
+    "id": "TCMF-0182",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腫脹 消渴兼證",
+    "answer": "杞菊地黃丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "知柏地黃湯",
+      "杞菊地黃丸",
+      "四海舒鬱丸",
+      "左歸丸"
+    ]
+  },
+  {
+    "id": "TCMF-0183",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺癰 恢復期 陰傷氣耗",
+    "answer": "沙參清肺湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "蘇合香丸",
+      "防風湯",
+      "沙參清肺湯",
+      "人參養營湯"
+    ]
+  },
+  {
+    "id": "TCMF-0184",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺陰虧耗 內傷 咳嗽；陰虛內熱 懸飲；陰虛 肺陰虛 虛勞",
+    "answer": "沙參麥冬湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "腎氣丸",
+      "三拗湯",
+      "沙參麥冬湯",
+      "清暑益氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0185",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n瘀痺經絡 寒 瘀證；久痺 痰瘀阻絡 痹證",
+    "answer": "身痛逐瘀湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "身痛逐瘀湯",
+      "桃紅四物飲",
+      "小承氣湯",
+      "解語丹"
+    ]
+  },
+  {
+    "id": "TCMF-0186",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛火旺 口瘡",
+    "answer": "知柏八味丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "荊防拜毒散",
+      "知柏八味丸",
+      "甘豆湯",
+      "柴枳半夏湯"
+    ]
+  },
+  {
+    "id": "TCMF-0187",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛火旺 口糜；虛證 血淋；腎陰虧損 尿濁；腎虛火旺 尿血；濕熱下注 陽痿",
+    "answer": "知柏地黃湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "知柏地黃湯",
+      "桑菊飲",
+      "茵陳五苓散",
+      "瀉黃散"
+    ]
+  },
+  {
+    "id": "TCMF-0188",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風濕 頭痛；邪壅經絡 痙病主證",
+    "answer": "羌活勝濕湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "牽正散",
+      "參附湯",
+      "左歸丸",
+      "羌活勝濕湯"
+    ]
+  },
+  {
+    "id": "TCMF-0189",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎虛 哮證 緩解期；腎虛 虛喘；脾腎陽虛 支飲；脾腎陽虛 腎陽虛 關格；陰水 腎虛水泛 水腫",
+    "answer": "金匱腎氣丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "羚羊角湯",
+      "六君子湯",
+      "金匱腎氣丸",
+      "左金丸"
+    ]
+  },
+  {
+    "id": "TCMF-0190",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾腎陽虛 臌脹",
+    "answer": "附子理中湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "十棗湯控涎丹",
+      "附子理中湯",
+      "麻杏石甘湯",
+      "胃苓湯合柴胡舒肝散"
+    ]
+  },
+  {
+    "id": "TCMF-0191",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽虛 脾陽虛 虛勞",
+    "answer": "附子理中湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "大補陰丸",
+      "二妙散",
+      "附子理中湯",
+      "銀翹散"
+    ]
+  },
+  {
+    "id": "TCMF-0192",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n瘀阻心脈 寒 瘀證",
+    "answer": "冠心二號方",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "冠心二號方",
+      "桂甘龍牡湯",
+      "牽正散",
+      "白虎湯"
+    ]
+  },
+  {
+    "id": "TCMF-0193",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽虛血瘀 虛 瘀證",
+    "answer": "急救回陽湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "參附湯",
+      "左歸飲",
+      "急救回陽湯",
+      "通幽湯"
+    ]
+  },
+  {
+    "id": "TCMF-0194",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n血瘀 胃痛；瘀阻經絡 實 瘀證",
+    "answer": "活絡效靈丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "活絡效靈丹",
+      "五磨飲子",
+      "桑白皮湯",
+      "桂枝去芍藥湯"
+    ]
+  },
+  {
+    "id": "TCMF-0195",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾陽虛弱 痰飲；脾腎陽虛 支飲；水飲凌心 心悸；痰飲內阻 實證 嘔吐；濁犯上焦 痰濁壅肺 關格",
+    "answer": "苓桂朮甘湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "獨參湯",
+      "苓桂朮甘湯",
+      "黃連阿膠湯",
+      "半硫丸"
+    ]
+  },
+  {
+    "id": "TCMF-0196",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n寒飲伏肺 肺失宣暢 寒哮",
+    "answer": "射干麻黃湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "柴胡疏肝湯",
+      "射干麻黃湯",
+      "葛根湯",
+      "清氣化痰湯"
+    ]
+  },
+  {
+    "id": "TCMF-0197",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n邪鬱少陽 懸飲",
+    "answer": "柴枳半夏湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "丹溪鼻淵方",
+      "桂甘龍牡湯",
+      "柴枳半夏湯",
+      "保元湯"
+    ]
+  },
+  {
+    "id": "TCMF-0198",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣鬱 實證 失音；氣滯 胃痛；氣滯 腹痛；肝氣鬱結 脅痛；肝氣鬱結 鬱證",
+    "answer": "柴胡疏肝湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "牽正散",
+      "如金解毒散",
+      "柴胡疏肝湯",
+      "二陰煎合千金定志丸"
+    ]
+  },
+  {
+    "id": "TCMF-0199",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心陽不足 心悸",
+    "answer": "桂甘龍牡湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桂甘龍牡湯",
+      "桂枝去芍藥湯",
+      "黃耆五物湯",
+      "栝蔞薤白白酒湯"
+    ]
+  },
+  {
+    "id": "TCMF-0200",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺虛 哮證 緩解期",
+    "answer": "桂枝黃耆湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桂枝黃耆湯",
+      "栝蔞薤白半夏湯",
+      "消渴方",
+      "桃仁紅花煎"
+    ]
+  },
+  {
+    "id": "TCMF-0201",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽虛浮火 口瘡",
+    "answer": "桂附八味丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "沉香散",
+      "桂附八味丸",
+      "天麻鉤藤飲",
+      "補中益氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0202",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n瘀熱互結 熱 瘀證",
+    "answer": "桃仁承氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "膈下逐瘀湯合六味地黃湯",
+      "桃仁承氣湯",
+      "八正散",
+      "麻黃連翹赤小豆湯"
+    ]
+  },
+  {
+    "id": "TCMF-0203",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心血瘀阻 心悸",
+    "answer": "桃仁紅花煎",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "宣痹陽",
+      "桃仁紅花煎",
+      "旋覆花湯",
+      "四神丸"
+    ]
+  },
+  {
+    "id": "TCMF-0204",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰瘀交阻 心痛；氣虛血瘀 心痛；瘀閉血脈 寒 瘀證；血虛血瘀 虛 瘀證",
+    "answer": "桃紅四物飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "地黃飲子",
+      "羚羊鉤藤湯",
+      "川芎茶調散",
+      "桃紅四物飲"
+    ]
+  },
+  {
+    "id": "TCMF-0205",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺癰 恢復期 正虛邪戀",
+    "answer": "桔梗杏仁煎",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "參苓白朮散",
+      "越婢湯",
+      "桔梗杏仁煎",
+      "石葦散"
+    ]
+  },
+  {
+    "id": "TCMF-0206",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰結血瘀 癭病",
+    "answer": "海藻玉壺湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "增液承氣湯",
+      "清咽寧肺湯",
+      "海藻玉壺湯",
+      "六君子湯"
+    ]
+  },
+  {
+    "id": "TCMF-0207",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濕重於熱 陽黃 黃疸",
+    "answer": "茵陳五苓散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五味消毒飲",
+      "茵陳五苓散",
+      "加味桔梗湯",
+      "二陳平胃湯"
+    ]
+  },
+  {
+    "id": "TCMF-0208",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰黃 黃疸",
+    "answer": "茵陳朮附湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "濟生菟絲子丸",
+      "茵陳朮附湯",
+      "通瘀煎",
+      "補肺湯"
+    ]
+  },
+  {
+    "id": "TCMF-0209",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濁犯上焦 痰濁壅肺 關格",
+    "answer": "草薑苓朮湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "四逆湯",
+      "草薑苓朮湯",
+      "瀉白散",
+      "白虎桂枝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0210",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風寒 感冒",
+    "answer": "荊防拜毒散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "腎氣丸",
+      "二妙散",
+      "荊防拜毒散",
+      "甘露消毒丹"
+    ]
+  },
+  {
+    "id": "TCMF-0211",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾虛 泄瀉；腫脹 消渴兼證；陽明脈虛 宗筋弛縱 痿證",
+    "answer": "參苓白朮散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "小承氣湯",
+      "通瘀煎",
+      "參苓白朮散",
+      "白虎桂枝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0212",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰阻氣逆 實證 呃逆；濁犯中焦 濁邪犯胃 關格",
+    "answer": "旋覆代赭湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "旋覆代赭湯",
+      "栝蔞薤白半夏湯",
+      "通幽湯",
+      "清肺飲"
+    ]
+  },
+  {
+    "id": "TCMF-0213",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝火亢盛 癭病",
+    "answer": "梔子清肝湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "補陽還五湯",
+      "香砂六君子湯加 吳茱萸",
+      "疏鑿飲子",
+      "梔子清肝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0214",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風熱上壅 實證 失音",
+    "answer": "清咽寧肺湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "右歸丸",
+      "沉香散",
+      "順氣導痰湯",
+      "清咽寧肺湯"
+    ]
+  },
+  {
+    "id": "TCMF-0215",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰熱鬱肺 內傷 咳嗽",
+    "answer": "清氣化痰湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "大分清飲",
+      "清氣化痰湯",
+      "石葦散",
+      "瀉黃散"
+    ]
+  },
+  {
+    "id": "TCMF-0216",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n暑厥 厥證",
+    "answer": "清暑益氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "甘遂半夏湯",
+      "清暑益氣湯",
+      "葶藶大棗瀉肺湯",
+      "桔梗杏仁煎"
+    ]
+  },
+  {
+    "id": "TCMF-0217",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱證血瘀 熱 瘀證",
+    "answer": "清瘟敗毒飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "七福飲",
+      "補中益氣合春澤湯",
+      "清瘟敗毒飲",
+      "敗毒散五味消毒飲"
+    ]
+  },
+  {
+    "id": "TCMF-0218",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺燥津傷 虛證 失音；肺熱陰傷 津失濡布 痿證",
+    "answer": "清燥救肺湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "清燥救肺湯",
+      "痛瀉要方",
+      "荊防拜毒散",
+      "柴胡疏肝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0219",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心火熾盛 不寐",
+    "answer": "硃砂安神丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "牛膝散",
+      "贊育丹",
+      "硃砂安神丸",
+      "半硫丸"
+    ]
+  },
+  {
+    "id": "TCMF-0220",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱甚發痙 痙病變證 熱盛動風",
+    "answer": "羚羊鉤藤湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "安神定志丸",
+      "牛黃清心丸",
+      "補中益氣湯",
+      "羚羊鉤藤湯"
+    ]
+  },
+  {
+    "id": "TCMF-0221",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n頭面血瘀 實 瘀證；瘀血 頭痛",
+    "answer": "通竅活血湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "地黃飲子",
+      "通竅活血湯",
+      "養心湯",
+      "四海舒鬱丸"
+    ]
+  },
+  {
+    "id": "TCMF-0222",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎陽虛衰 尿濁",
+    "answer": "鹿茸補澀丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "麻黃湯",
+      "二至丸",
+      "鹿茸補澀丸",
+      "補陽還五湯"
+    ]
+  },
+  {
+    "id": "TCMF-0223",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n表寒裡熱 實喘",
+    "answer": "麻杏石甘湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "元戎四物湯",
+      "四逆湯",
+      "清瘟敗毒飲",
+      "麻杏石甘湯"
+    ]
+  },
+  {
+    "id": "TCMF-0224",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n惡血內留 瀝血瘀滯 腰痛",
+    "answer": "復元活血湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "瀉白散",
+      "復元活血湯",
+      "柴枳半夏湯",
+      "桑白皮湯"
+    ]
+  },
+  {
+    "id": "TCMF-0225",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n閃挫墜墮氣滯血瘀 腰痛",
+    "answer": "復元通氣散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "五子衍宗丸",
+      "良附丸",
+      "復元通氣散",
+      "小薊飲子合導赤散"
+    ]
+  },
+  {
+    "id": "TCMF-0226",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n飲停胸脅 懸飲",
+    "answer": "椒目括蔞湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "椒目括蔞湯",
+      "黃土湯",
+      "益胃湯",
+      "五磨飲子"
+    ]
+  },
+  {
+    "id": "TCMF-0227",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛火旺 鬱證",
+    "answer": "滋水清肝飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "滋水清肝飲",
+      "益胃湯",
+      "補中益氣湯",
+      "增液承氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0228",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n勞淋；脾腎兩虧 尿血",
+    "answer": "無比山藥丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "膈下逐瘀湯合六味地黃湯",
+      "調營飲",
+      "少腹逐瘀湯",
+      "無比山藥丸"
+    ]
+  },
+  {
+    "id": "TCMF-0229",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱毒熾盛 口糜",
+    "answer": "犀角地黃湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "犀角地黃湯",
+      "地榆散",
+      "七福飲",
+      "瀉黃散"
+    ]
+  },
+  {
+    "id": "TCMF-0230",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濕熱內蘊 尿濁；濕熱 遺精",
+    "answer": "萆薢分清飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "天王補心丹",
+      "萆薢分清飲",
+      "通瘀煎",
+      "香砂六君子湯"
+    ]
+  },
+  {
+    "id": "TCMF-0231",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰熱雍肺 肺失清肅 熱哮",
+    "answer": "越婢半夏湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "竹葉石膏湯",
+      "越婢半夏湯",
+      "安宮牛黃丸",
+      "六味地黃丸"
+    ]
+  },
+  {
+    "id": "TCMF-0232",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰氣鬱結 癲",
+    "answer": "順氣導痰湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "天麻鉤藤飲",
+      "葛根湯",
+      "石葦散",
+      "順氣導痰湯"
+    ]
+  },
+  {
+    "id": "TCMF-0233",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n勞作太過 腎氣損益 腰痛",
+    "answer": "黃耆五物湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "銀翹散",
+      "黃耆五物湯",
+      "獨活寄生湯",
+      "四神丸"
+    ]
+  },
+  {
+    "id": "TCMF-0234",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣虛血瘀 癇",
+    "answer": "黃耆赤風湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "葛根湯",
+      "黃耆赤風湯",
+      "桃仁承氣湯",
+      "金沸草散"
+    ]
+  },
+  {
+    "id": "TCMF-0235",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n虛寒 胃痛",
+    "answer": "黃耆建中湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "補肺湯",
+      "黃耆建中湯",
+      "桃仁承氣湯",
+      "甘薑苓朮湯"
+    ]
+  },
+  {
+    "id": "TCMF-0236",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛火旺 不寐；陰虛火旺 心悸",
+    "answer": "黃連阿膠湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黃連阿膠湯",
+      "荊防拜毒散",
+      "薏苡仁湯",
+      "桑白皮湯"
+    ]
+  },
+  {
+    "id": "TCMF-0237",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n心火 遺精",
+    "answer": "黃連清心飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黃連清心飲",
+      "敗毒散五味消毒飲",
+      "四神丸",
+      "硃砂安神丸"
+    ]
+  },
+  {
+    "id": "TCMF-0238",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰火擾心 心悸",
+    "answer": "黃連溫膽湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黃連溫膽湯",
+      "程氏萆蘚分清飲",
+      "五積散",
+      "金匱腎氣丸"
+    ]
+  },
+  {
+    "id": "TCMF-0239",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱毒熾盛 口糜；血瘀成癰 熱 瘀證",
+    "answer": "黃連解毒湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "黃連解毒湯",
+      "柴胡疏肝湯",
+      "通瘀煎",
+      "人參養營湯"
+    ]
+  },
+  {
+    "id": "TCMF-0240",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n暑濕 感冒",
+    "answer": "新加香薷飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "理中丸",
+      "新加香薷飲",
+      "牛膝散",
+      "桂枝黃耆湯"
+    ]
+  },
+  {
+    "id": "TCMF-0241",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肺氣虛寒 虛證 鼻淵",
+    "answer": "溫肺止流丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "炙甘草湯",
+      "溫肺止流丹",
+      "天香正氣散",
+      "桂枝湯"
+    ]
+  },
+  {
+    "id": "TCMF-0242",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛火旺 汗證",
+    "answer": "當歸六黃湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "當歸六黃湯",
+      "清咽寧肺湯",
+      "妙香散",
+      "翹荷湯"
+    ]
+  },
+  {
+    "id": "TCMF-0243",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濕熱 泄瀉",
+    "answer": "葛根芩連湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "葛根芩連湯",
+      "二妙散",
+      "大青龍湯",
+      "大定風珠"
+    ]
+  },
+  {
+    "id": "TCMF-0244",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾氣虛弱 虛證 鼻淵；脾胃虛弱 痞滿；虛證 氣淋；脾虛氣陷 尿濁；小便不禁 脾肺氣虛 遺尿",
+    "answer": "補中益氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "麻黃湯",
+      "桃仁紅花煎",
+      "補中益氣湯",
+      "玉屏風散"
+    ]
+  },
+  {
+    "id": "TCMF-0245",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風恢復期 半身不遂 氣虛血瘀 脈絡閉阻；氣虛血瘀 虛 瘀證",
+    "answer": "補陽還五湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "越鞠丸",
+      "補陽還五湯",
+      "清中湯",
+      "四味回陽飲"
+    ]
+  },
+  {
+    "id": "TCMF-0246",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n熱甚發痙 痙病主證",
+    "answer": "增液承氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "射干麻黃湯",
+      "增液承氣湯",
+      "越婢湯",
+      "香砂六君子湯加 吳茱萸"
+    ]
+  },
+  {
+    "id": "TCMF-0247",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風熱 感冒",
+    "answer": "蔥豉桔梗湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "保元湯",
+      "小建中湯",
+      "蔥豉桔梗湯",
+      "蘇合香丸"
+    ]
+  },
+  {
+    "id": "TCMF-0248",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n腎氣不利 風虛腰痛 腰痛；久痺 氣血虧虛 痹證",
+    "answer": "獨活寄生湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "通幽湯",
+      "虎潛丸",
+      "獨活寄生湯",
+      "小降氣湯"
+    ]
+  },
+  {
+    "id": "TCMF-0249",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n膽火上干 實證 鼻淵；肝鬱化火 不寐；肝火痰熱 癇；肝火犯胃 吐血；肝膽濕熱 脅痛；熱壅上竅 耳鳴 耳聾；邪熱鬱蒸 汗證",
+    "answer": "龍膽瀉肝湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "龍膽瀉肝湯",
+      "腎氣丸",
+      "藻藥散",
+      "青娥丸"
+    ]
+  },
+  {
+    "id": "TCMF-0250",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾腎陽虛 臌脹；腎陽衰備 癃閉",
+    "answer": "濟生腎氣丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "六君子湯",
+      "左歸飲",
+      "甘遂半夏湯",
+      "濟生腎氣丸"
+    ]
+  },
+  {
+    "id": "TCMF-0251",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n中風發作期 中經絡 肝腎陰虛 風揚上擾；濁犯下焦 肝風內動 關格",
+    "answer": "鎮肝息風湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "鎮肝息風湯",
+      "養心湯",
+      "歸脾湯",
+      "保和丸"
+    ]
+  },
+  {
+    "id": "TCMF-0252",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n外邪犯胃 實證 嘔吐；寒濕 泄瀉",
+    "answer": "藿香正氣散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "藿香正氣散",
+      "沙參清肺湯",
+      "栝蔞薤白白酒湯",
+      "銀翹散"
+    ]
+  },
+  {
+    "id": "TCMF-0253",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰虛痰熱 氣虛痰勝 虛哮",
+    "answer": "蘇子降氣湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "木香勻氣散",
+      "保和丸",
+      "蘇子降氣湯",
+      "青娥丸"
+    ]
+  },
+  {
+    "id": "TCMF-0254",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n清陽不升 耳鳴 耳聾",
+    "answer": "益氣聰明湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "清暑益氣湯",
+      "益氣聰明湯",
+      "腎氣丸",
+      "炙甘草湯"
+    ]
+  },
+  {
+    "id": "TCMF-0255",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n火盛傷陰 狂",
+    "answer": "二陰煎合千金定志丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "新加香薷飲",
+      "二陰煎合千金定志丸",
+      "急救回陽湯",
+      "羌活勝濕湯"
+    ]
+  },
+  {
+    "id": "TCMF-0256",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n飲停胸脅 懸飲",
+    "answer": "十棗湯控涎丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "右歸丸",
+      "十棗湯控涎丹",
+      "人參養營湯",
+      "宣痹陽"
+    ]
+  },
+  {
+    "id": "TCMF-0257",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾陽虛弱 痰飲",
+    "answer": "小半夏加茯苓湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "滌痰湯",
+      "苓桂朮甘湯",
+      "小半夏加茯苓湯",
+      "黃連阿膠湯"
+    ]
+  },
+  {
+    "id": "TCMF-0258",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n髓海不充 虛證 鼻淵",
+    "answer": "六味地黃丸合 生脈散補腦丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "桃紅飲",
+      "六味地黃丸合 生脈散補腦丸",
+      "葶藶大棗瀉肺湯",
+      "右歸飲"
+    ]
+  },
+  {
+    "id": "TCMF-0259",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n氣滯濕阻 臌脹",
+    "answer": "胃苓湯合柴胡舒肝散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "鎮肝息風湯",
+      "胃苓湯合柴胡舒肝散",
+      "小建中湯",
+      "安宮牛黃丸"
+    ]
+  },
+  {
+    "id": "TCMF-0260",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脈絡不和 懸飲",
+    "answer": "香附旋覆花湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "二至丸",
+      "香附旋覆花湯",
+      "生鐵落飲",
+      "越婢湯"
+    ]
+  },
+  {
+    "id": "TCMF-0261",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾胃氣虛 虛證 嘔吐",
+    "answer": "香砂六君子湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "香砂六君子湯",
+      "小建中湯",
+      "地黃飲子",
+      "實脾飲"
+    ]
+  },
+  {
+    "id": "TCMF-0262",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n寒證 吐酸",
+    "answer": "香砂六君子湯加 吳茱萸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "鹿茸補澀丸",
+      "香砂六君子湯加 吳茱萸",
+      "黃耆五物湯",
+      "異功散"
+    ]
+  },
+  {
+    "id": "TCMF-0263",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰濁閉阻 心痛；痰瘀交阻 心痛",
+    "answer": "栝蔞薤白半夏湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "栝蔞薤白半夏湯",
+      "至寶丹",
+      "大小半夏湯",
+      "己椒藶黃丸"
+    ]
+  },
+  {
+    "id": "TCMF-0264",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陰寒內結 心痛",
+    "answer": "栝蔞薤白白酒湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "栝蔞薤白白酒湯",
+      "消渴方",
+      "金沸草散",
+      "桂枝黃耆湯"
+    ]
+  },
+  {
+    "id": "TCMF-0265",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽氣虛弱 心痛",
+    "answer": "桂枝去芍藥湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "白朮散",
+      "杞菊地黃丸",
+      "銀翹散",
+      "桂枝去芍藥湯"
+    ]
+  },
+  {
+    "id": "TCMF-0266",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濕熱蘊結 臌脹",
+    "answer": "茵陳蒿湯合中滿分消丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "茵陳蒿湯合中滿分消丸",
+      "三子養親湯",
+      "六磨湯",
+      "二至丸"
+    ]
+  },
+  {
+    "id": "TCMF-0267",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n寒隱伏肺 支飲",
+    "answer": "葶藶大棗瀉肺湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "華蓋散",
+      "葶藶大棗瀉肺湯",
+      "七氣湯",
+      "安宮牛黃丸"
+    ]
+  },
+  {
+    "id": "TCMF-0268",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n肝腎陰虛 臌脹",
+    "answer": "膈下逐瘀湯合六味地黃湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "沙參麥冬湯",
+      "膈下逐瘀湯合六味地黃湯",
+      "導赤散",
+      "小建中湯"
+    ]
+  },
+  {
+    "id": "TCMF-0269",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n痰濁中阻 眩暈；痰濁 頭痛",
+    "answer": "半夏天麻白朮湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "蔥豉桔梗湯",
+      "半夏天麻白朮湯",
+      "甘豆湯",
+      "七福飲"
+    ]
+  },
+  {
+    "id": "TCMF-0270",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n實證 血淋",
+    "answer": "小薊飲子合導赤散",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "小薊飲子合導赤散",
+      "小承氣湯",
+      "瀉白散",
+      "右歸丸"
+    ]
+  },
+  {
+    "id": "TCMF-0271",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n實證 膏淋",
+    "answer": "程氏萆蘚分清飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "程氏萆蘚分清飲",
+      "大小半夏湯",
+      "四神丸",
+      "元戎四物湯"
+    ]
+  },
+  {
+    "id": "TCMF-0272",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n脾氣不升 癃閉",
+    "answer": "補中益氣合春澤湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "八正散",
+      "大定風珠",
+      "補中益氣合春澤湯",
+      "五子衍宗丸"
+    ]
+  },
+  {
+    "id": "TCMF-0273",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n小便不禁 腎氣虛 遺尿",
+    "answer": "濟生菟絲子丸",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "大分清飲",
+      "濟生菟絲子丸",
+      "調肝散",
+      "活絡效靈丹"
+    ]
+  },
+  {
+    "id": "TCMF-0274",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n濁犯下焦 肝風內動 關格",
+    "answer": "附子 人參 灌服黑錫丹",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "真武湯",
+      "黃土湯",
+      "附子 人參 灌服黑錫丹",
+      "椒目括蔞湯"
+    ]
+  },
+  {
+    "id": "TCMF-0275",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽水 瘡毒內歸 水腫",
+    "answer": "麻黃連翹赤小豆湯",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "麻黃連翹赤小豆湯",
+      "大青龍湯",
+      "保元湯",
+      "左歸丸"
+    ]
+  },
+  {
+    "id": "TCMF-0276",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n陽水 瘡毒內歸 水腫",
+    "answer": "敗毒散五味消毒飲",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "活絡效靈丹",
+      "敗毒散五味消毒飲",
+      "冠心二號方",
+      "血府逐瘀湯"
+    ]
+  },
+  {
+    "id": "TCMF-0277",
+    "category": "tcm_internal_formula",
+    "kind": "text_choice",
+    "prompt": "下列對應內容應選何方？\n風熱頭痛",
+    "answer": "桑菊飲加黃芩 梔子",
+    "explanation": "",
+    "tags": [
+      "中醫內科",
+      "方劑",
+      "對應內容"
+    ],
+    "difficulty": 2,
+    "options": [
+      "烏頭湯",
+      "桑菊飲加黃芩 梔子",
+      "理中湯",
+      "二陳平胃湯"
+    ]
   }
 ];

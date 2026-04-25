@@ -12,7 +12,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="styles.css?v=20260425fix30">
+  <link rel="stylesheet" href="styles.css?v=20260425fix31">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -36,7 +36,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.29：恢復完整網頁必要檔案，更新快取版本，加入空白／無反應救援提示。</p>
+            <p id="versionSummary">v0.1.31：新增中醫內科方劑題庫，並更新快取版本。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -69,6 +69,7 @@
           <span>考試範圍</span>
           <select id="examScopeSelect">
             <option value="official_small_car" selected>金匱條文填空</option>
+            <option value="tcm_internal_formula">中醫內科方劑題庫</option>
             <option value="official_plus_mechanical">醫學題庫加強模式</option>
             <option value="full_extended">全部題庫模式</option>
           </select>
@@ -85,7 +86,7 @@
         <label>
           <span>題型</span>
           <select id="questionModeSelect">
-            <option value="textChoice" selected>條文挖空選方</option>
+            <option value="textChoice" selected>選方題</option>
             <option value="mixed">混合題型</option>
             <option value="imageToText">看圖選名稱（保留）</option>
             <option value="textToImage">看名稱選圖（保留）</option>
@@ -411,10 +412,10 @@
       <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
     </section>
   </div>
-  <script src="med_questions.js?v=20260425fix30"></script>
-  <script src="memory-bridge.js?v=20260425fix30"></script>
-  <script src="app.js?v=20260425fix30"></script>
-  <script type="module" src="firebase-ui.js?v=20260425fix30"></script>
+  <script src="med_questions.js?v=20260425fix31"></script>
+  <script src="memory-bridge.js?v=20260425fix31"></script>
+  <script src="app.js?v=20260425fix31"></script>
+  <script type="module" src="firebase-ui.js?v=20260425fix31"></script>
   <script>
     // v0.1.29 emergency boot guard: if the main app failed to define its API,
     // show recovery controls instead of leaving users with a silent empty page.
@@ -440,7 +441,7 @@
             }));
           }
           Promise.allSettled(jobs).finally(function () {
-            location.replace(location.pathname + '?v=20260425fix30-reload-' + Date.now());
+            location.replace(location.pathname + '?v=20260425fix31-reload-' + Date.now());
           });
         };
         document.getElementById("bootGuardReloadBtn")?.addEventListener("click", clearAndReload);

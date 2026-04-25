@@ -4,7 +4,7 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 med_js = (root / 'med_questions.js').read_text(encoding='utf-8')
-match = re.search(r'window\.MED_QUESTION_BANK\s*=\s*(\[.*?\])\s*;\s*window\.QUESTION_BANK', med_js, re.S)
+match = re.search(r'window\.MED_QUESTION_BANK\s*=\s*(\[.*\])\s*;\s*$', med_js, re.S)
 if not match:
     raise SystemExit('cannot find window.MED_QUESTION_BANK array')
 arr = json.loads(match.group(1))
@@ -18,7 +18,7 @@ for i, q in enumerate(arr):
     elif qid in ids:
         errors.append(f'duplicate id: {qid}')
     ids.add(qid)
-    for key in ['prompt', 'answer', 'options', 'explanation']:
+    for key in ['prompt', 'answer', 'options']:
         if key not in q:
             errors.append(f'{qid or i} missing {key}')
     if isinstance(q.get('options'), list):

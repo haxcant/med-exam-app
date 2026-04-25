@@ -23,6 +23,7 @@
   const CATEGORY_LABELS = {
     all: "全部分類",
     jingui_formula: "金匱方證填空",
+    tcm_internal_formula: "中醫內科方劑題庫",
     internal_medicine: "內科",
     surgery: "外科",
     obgyn: "婦產科",
@@ -62,16 +63,18 @@
     imageToText: "看圖選名稱（保留）",
     textToImage: "看名稱選圖（保留）",
     mixed: "混合題型",
-    textChoice: "條文挖空選方",
+    textChoice: "選方題",
     trueFalse: "是非題",
   };
   const EXAM_SCOPE_LABELS = {
     official_small_car: "金匱條文填空",
+    tcm_internal_formula: "中醫內科方劑題庫",
     official_plus_mechanical: "醫學題庫加強模式",
     full_extended: "全部題庫模式",
   };
   const EXAM_SCOPE_DESCRIPTIONS = {
     official_small_car: "目前主題庫為《金匱要略》條文填空：將方名作為答案選項，原條文挖空作為題幹。",
+    tcm_internal_formula: "中醫內科方劑題庫：以對應內容作為題幹，從選項中選出正確方劑。",
     official_plus_mechanical: "保留給後續醫學題庫擴充，目前與金匱條文填空相同。",
     full_extended: "顯示目前載入的全部題庫。"
   };
@@ -664,14 +667,22 @@ const HANDBOOK_RULES = [
     );
   }
 
+  function isTcmInternalFormulaQuestion(question) {
+    return !!(
+      question?.id?.startsWith("TCMF-") ||
+      question?.category === "tcm_internal_formula"
+    );
+  }
+
   function isMechanicalQuestion(question) {
-    return !!(question?.category && !isOfficialSmallCarQuestion(question));
+    return !!(question?.category && !isOfficialSmallCarQuestion(question) && !isTcmInternalFormulaQuestion(question));
   }
 
   function isQuestionInScope(question, scope) {
     if (!question) return false;
     if (scope === "official_small_car") return isOfficialSmallCarQuestion(question);
-    if (scope === "official_plus_mechanical") return isOfficialSmallCarQuestion(question) || isMechanicalQuestion(question);
+    if (scope === "tcm_internal_formula") return isTcmInternalFormulaQuestion(question);
+    if (scope === "official_plus_mechanical") return isOfficialSmallCarQuestion(question) || isTcmInternalFormulaQuestion(question) || isMechanicalQuestion(question);
     return true;
   }
 
@@ -695,7 +706,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.1｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.31｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -3094,6 +3105,9 @@ function restoreRecommendedSettings() {
     if (isJinguiQuestion(question)) {
       return ["金匱要略", "醫宗金鑑", "方證", "白話註解"];
     }
+    if (isTcmInternalFormulaQuestion(question)) {
+      return ["中醫內科", "方劑", "方證", "國考"];
+    }
     if (isTrafficQuestion(question)) {
       return ["駕駛人手冊"];
     }
@@ -4140,6 +4154,7 @@ function buildAnswerExplanationHtml(question) {
   }
 
   function buildQuestionOriginLabel(question) {
+    if (isTcmInternalFormulaQuestion(question)) return "中醫內科方劑題庫";
     const source = question?.source || {};
     const sourceName = source.pdf ? String(source.pdf).replace(/\.pdf$/i, "") : "題庫來源未標示";
     const bits = [sourceName];
