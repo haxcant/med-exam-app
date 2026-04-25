@@ -787,9 +787,7 @@ function renderQuestion() {
             <div class="secondary-meta">答對 +1 分，答錯 / 逾時 / 不會 -1 分。</div>
             <div class="inline-action-group">
               <button id="searchQuestionQuickBtn" class="ghost-btn aux-btn">搜尋此題</button>
-              <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-provider="chatgpt">GPT</button>
-              <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-provider="gemini">Gemini</button>
-              <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-provider="perplexity">Perp</button>
+              ${buildAiVerifyButtonsHtml(question)}
               <button id="dontKnowBtn" class="ghost-btn aux-btn">不會（-1）</button>
             </div>
           </div>
@@ -904,6 +902,7 @@ function renderFlashcard() {
   document.getElementById("prevCardBtn")?.addEventListener("click", goToPreviousFlashcard);
   document.getElementById("nextCardBtn")?.addEventListener("click", goToNextFlashcardWithoutGrading);
   bindQuestionSearchButton(question);
+  bindAiVerifyButtons();
   bindVerifyToolButton();
   attachResilientImageHandlers(els.mainContent);
 }
@@ -1103,6 +1102,7 @@ function goToNextFlashcardWithoutGrading() {
     }
 
     document.getElementById("nextBtn")?.addEventListener("click", advanceToNextQuestion);
+    bindAiVerifyButtons();
     bindVerifyToolButton();
     scheduleNext(autoNextDelaySec, "nextCountdown");
   }
@@ -1227,6 +1227,7 @@ function goToNextFlashcardWithoutGrading() {
     });
     document.getElementById("retryWrongBtn")?.addEventListener("click", () => retrySummaryWrong("wrongOnly"));
     document.getElementById("flashcardWrongBtn")?.addEventListener("click", () => retrySummaryWrong("flashcard"));
+    bindAiVerifyButtons();
     bindVerifyToolButton();
     try {
       window.dispatchEvent(new CustomEvent("driverquiz:session-completed", {
@@ -2856,14 +2857,36 @@ function restoreRecommendedSettings() {
     return { phrases, tokens, displayTerms };
   }
 
+  function isJinguiQuestion(question) {
+    const id = String(question?.id || "");
+    const category = String(question?.category || "");
+    const sourceText = [question?.source?.pdf, question?.source?.topicLabel, question?.prompt, question?.answer].filter(Boolean).join(" ");
+    return id.startsWith("JGYL-") || category === "jingui_formula" || /金匱|金匮|仲景|方證|方证/.test(sourceText);
+  }
+
+  function isTrafficQuestion(question) {
+    const category = String(question?.category || "");
+    return /traffic|road|sign|signal|mechanical|dashboard|law|driver|car/.test(category);
+  }
+
+  function buildExternalSearchContextTerms(question) {
+    if (isJinguiQuestion(question)) {
+      return ["金匱要略", "醫宗金鑑", "方證", "白話註解"];
+    }
+    if (isTrafficQuestion(question)) {
+      return ["駕駛人手冊"];
+    }
+    return ["醫學考試", "題庫", "查證"];
+  }
+
   function buildQuestionSearchQuery(question) {
     const profile = buildQuestionSearchProfile(question);
     const parts = [];
     if (question?.prompt) parts.push(String(question.prompt).replace(/^依圖示判斷[，：:]?/, "").trim());
     if (question?.answer && !isGenericKeyword(question.answer)) parts.push(question.answer);
     if (profile.displayTerms.length) parts.push(profile.displayTerms.join(" "));
-    if (question?.source?.pdf) parts.push(question.source.pdf.replace(/\.pdf$/i, ""));
-    parts.push("駕駛人手冊");
+    if (question?.source?.pdf) parts.push(String(question.source.pdf).replace(/\.pdf$/i, ""));
+    parts.push(...buildExternalSearchContextTerms(question));
     return parts.join(" ").replace(/\s+/g, " ").trim();
   }
 
@@ -3024,10 +3047,36 @@ function restoreRecommendedSettings() {
 
   function buildVerifyToolDetailHtml(question) {
     const keywords = extractQuestionKeywordCandidates(question);
+    const focusItems = buildVerifyFocusItems(question, keywords);
+
+    if (isJinguiQuestion(question)) {
+      const refs = Array.isArray(question?.source?.webReferences) ? question.source.webReferences.map((item) => String(item || "").trim()).filter(Boolean) : [];
+      const sourceHtml = refs.length
+        ? `<ul class="verify-tool-list">${refs.slice(0, 6).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`
+        : `<div>本題未附網頁來源；建議以題幹、方名、《金匱要略》與醫宗金鑑進行外部查證。</div>`;
+      const focusHtml = `
+        <div class="verify-tool-card">
+          <div class="verify-tool-card-title">查證重點</div>
+          <ul class="verify-tool-list">
+            <li>核對《金匱要略》原文、方名與題庫暫定答案是否一致。</li>
+            <li>核對醫宗金鑑、醫砭宋本或中醫笈成中相同條文的方義與藥物組成。</li>
+            <li>留意古文異體字、省略句、題幹抽字錯誤與類方鑑別。</li>
+          </ul>
+        </div>`;
+      return `
+        <div class="verify-tool-inline hidden">
+          <div class="verify-tool-card">
+            <div class="verify-tool-card-title">醫宗金鑑／原文來源</div>
+            ${sourceHtml}
+          </div>
+          ${focusHtml}
+        </div>
+      `;
+    }
+
     const handbook = getHandbookExplanation(question);
     const officialFallback = buildOfficialFallbackExplanation(question, keywords);
     const lawResources = collectOfficialLawResources(question);
-    const focusItems = buildVerifyFocusItems(question, keywords);
 
     const handbookHtml = handbook
       ? `
@@ -3076,6 +3125,190 @@ function restoreRecommendedSettings() {
     `;
   }
 
+  const AI_VERIFY_PROVIDERS = {
+    chatgpt: {
+      label: "GPT",
+      homeUrl: "https://chatgpt.com/",
+      buildUrl: (prompt) => `https://chatgpt.com/?q=${encodeURIComponent(prompt)}&hints=search`,
+      maxEncodedLength: 6500,
+      note: "若輸入框未自動帶入，請直接貼上已複製的 prompt。"
+    },
+    gemini: {
+      label: "Gemini",
+      homeUrl: "https://gemini.google.com/app",
+      buildUrl: null,
+      maxEncodedLength: 0,
+      note: "Gemini 網頁版通常不穩定支援 URL 預填，請在開啟頁面後貼上已複製的 prompt。"
+    },
+    perplexity: {
+      label: "Perp",
+      homeUrl: "https://www.perplexity.ai/",
+      buildUrl: (prompt) => `https://www.perplexity.ai/search?q=${encodeURIComponent(prompt)}`,
+      maxEncodedLength: 6500,
+      note: "若輸入框未自動帶入，請直接貼上已複製的 prompt。"
+    },
+    grok: {
+      label: "Grok",
+      homeUrl: "https://grok.com/",
+      buildUrl: null,
+      maxEncodedLength: 0,
+      note: "Grok 目前不保證 URL 預填 prompt，請在開啟頁面後貼上已複製的 prompt。"
+    }
+  };
+
+  function buildAiVerifyButtonsHtml(question) {
+    const qid = question?.id ? String(question.id) : "";
+    return Object.entries(AI_VERIFY_PROVIDERS).map(([key, provider]) => (
+      `<button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-provider="${escapeAttr(key)}" data-question-id="${escapeAttr(qid)}" title="複製查證 prompt 並開啟 ${escapeAttr(provider.label)}">${escapeHtml(provider.label)}</button>`
+    )).join("\n");
+  }
+
+  function questionOptionsForPrompt(question) {
+    if (Array.isArray(question?.options) && question.options.length) {
+      return question.options.map((opt, idx) => `${idx + 1}. ${String(opt || "")}`).join("\n");
+    }
+    if (question?.kind === "true_false") {
+      return getTrueFalseOptions(question).map((opt, idx) => `${idx + 1}. ${String(opt || "")}`).join("\n");
+    }
+    return "（本題沒有明確選項欄位）";
+  }
+
+  function sourceReferencesForPrompt(question) {
+    const refs = [];
+    const source = question?.source || {};
+    if (source.pdf) refs.push(`題庫 PDF：${String(source.pdf)}${source.page ? `，第 ${source.page} 頁` : ""}`);
+    if (source.topicLabel) refs.push(`題庫主題：${String(source.topicLabel)}`);
+    if (source.questionNo) refs.push(`題庫題號：${String(source.questionNo)}`);
+    if (Array.isArray(source.webReferences)) {
+      source.webReferences.forEach((item) => {
+        const text = String(item || "").trim();
+        if (text) refs.push(text);
+      });
+    }
+    return refs.length ? refs.map((ref, idx) => `${idx + 1}. ${ref}`).join("\n") : "（本題沒有附外部來源 URL，請自行以題幹與方名搜尋可靠資料。）";
+  }
+
+  function buildAiVerificationPrompt(question) {
+    const id = String(question?.id || "未知 ID");
+    const prompt = String(question?.prompt || buildQuestionPreview(question) || "").trim();
+    const answer = String(question?.answer || "").trim();
+    const options = questionOptionsForPrompt(question);
+    const sourceRefs = sourceReferencesForPrompt(question);
+    const categoryLabel = CATEGORY_LABELS[question?.category] || question?.category || "未標示";
+
+    return [
+      "請扮演嚴謹的中醫經典與考題校訂助理，主動上網查證下列題目。",
+      "不要預設題庫暫定答案一定正確；請用可靠來源驗證原文、方名、方義與選項。",
+      "不要只重述題庫內容。請以《金匱要略》原文、醫宗金鑑、醫砭宋本、中醫笈成、可靠教材或官方方劑資料交叉核對。",
+      "若查不到可靠來源，請明確標示不確定，不要編造方藥組成或臨床功效。",
+      "",
+      `題目 ID：${id}`,
+      `分類：${categoryLabel}`,
+      `題幹／原文：${prompt}`,
+      `題庫暫定答案：${answer || "（未提供）"}`,
+      "選項：",
+      options,
+      "",
+      "本系統已附來源線索：",
+      sourceRefs,
+      "",
+      "請依序輸出以下 14 點：",
+      "1. 正確答案判定：答案是否正確？若錯，正確答案是什麼？",
+      "2. 原文定位與版本校對：指出可查到的原文、篇章或條文脈絡，並說明題幹是否有抽字、異體字、錯字或省略。",
+      "3. 詞句註釋：解釋古文關鍵字、罕見字、病名、症狀語與方證術語。",
+      "4. 白話翻譯：把整條古文翻成現代中文，不要只說這是方證線索。",
+      "5. 辨證要點：病位、寒熱、虛實、主症組合，以及如何與相近方區分。",
+      "6. 病機：說明症狀形成的中醫機轉，必須對應題幹原文。",
+      "7. 方子性質：此方屬於何種治療方向，為何適合本條文。",
+      "8. 治法：用精簡中醫治法語言表述。",
+      "9. 方義與藥物組成：列主要組成與配伍邏輯；不確定時請明說，不要捏造藥味。",
+      "10. 類方鑑別：至少列 1–3 個容易混淆的方或條文，說明差異。",
+      "11. 關鍵字記憶點：提供考試用短句。",
+      "12. 可疑錯誤／需人工審閱處：列出本題可能仍需老師確認的點。",
+      "13. 參考來源：列出實際查到的 URL、書名、篇名或資料庫名；不要只寫泛稱。",
+      "14. 簡短考試筆記：用 3–5 行整理成可背誦版本。",
+      "",
+      "請用繁體中文回答。"
+    ].join("\n");
+  }
+
+  async function copyTextToClipboard(text) {
+    try {
+      if (navigator.clipboard?.writeText && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch {}
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      const ok = document.execCommand("copy");
+      textarea.remove();
+      return !!ok;
+    } catch {
+      return false;
+    }
+  }
+
+  function buildAiProviderUrl(provider, prompt) {
+    if (!provider?.buildUrl) return provider?.homeUrl || "";
+    const encoded = encodeURIComponent(prompt);
+    if (encoded.length > provider.maxEncodedLength) return provider.homeUrl;
+    return provider.buildUrl(prompt);
+  }
+
+  async function openAiVerification(question, providerKey) {
+    const provider = AI_VERIFY_PROVIDERS[providerKey] || AI_VERIFY_PROVIDERS.chatgpt;
+    if (activeTimerState && !activeTimerState.paused) pauseActiveTimer();
+
+    const prompt = buildAiVerificationPrompt(question);
+    const copied = await copyTextToClipboard(prompt);
+    const url = buildAiProviderUrl(provider, prompt);
+    let opened = null;
+    try {
+      opened = window.open(url, "_blank", "noopener,noreferrer");
+    } catch {
+      opened = null;
+    }
+
+    if (!opened) {
+      window.alert([
+        `瀏覽器阻擋了 ${provider.label} 外部頁面。`,
+        copied ? "查證 prompt 已複製，可手動開啟 AI 後貼上。" : "查證 prompt 複製失敗，請改用一般搜尋或手動複製題目。"
+      ].join("\n"));
+      return;
+    }
+
+    if (!provider.buildUrl || url === provider.homeUrl) {
+      window.setTimeout(() => {
+        window.alert(`${provider.label} 已開啟。${copied ? "查證 prompt 已複製，請到輸入框貼上。" : "但 prompt 複製可能失敗，請回本頁手動複製題目。"}\n\n${provider.note || ""}`.trim());
+      }, 80);
+    }
+  }
+
+  function bindAiVerifyButtons(defaultQuestion = null) {
+    const buttons = Array.from(document.querySelectorAll(".ai-verify-btn"));
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const providerKey = button.getAttribute("data-ai-provider") || "chatgpt";
+        const qid = button.getAttribute("data-question-id") || defaultQuestion?.id || "";
+        const targetQuestion = qid && QUESTION_MAP.has(qid) ? QUESTION_MAP.get(qid) : defaultQuestion;
+        if (!targetQuestion) {
+          window.alert("找不到這題資料，請重新整理頁面後再試。");
+          return;
+        }
+        openAiVerification(targetQuestion, providerKey);
+      });
+    });
+  }
+
   function openQuestionSearch(question) {
     const query = buildQuestionSearchQuery(question);
     const prompt = buildQuestionPreview(question);
@@ -3116,148 +3349,6 @@ function restoreRecommendedSettings() {
     const buttons = Array.from(document.querySelectorAll("#searchQuestionQuickBtn"));
     buttons.forEach((button) => {
       button.addEventListener("click", () => openQuestionSearch(question));
-    });
-  }
-
-  function buildAiVerifyPrompt(question) {
-    const prompt = String(question?.prompt || buildQuestionPreview(question) || "").trim();
-    const answer = String(question?.answer || "").trim();
-    const options = Array.isArray(question?.options) ? question.options : [];
-    const source = question?.source || {};
-    const refs = Array.isArray(source.webReferences) ? source.webReferences.filter(Boolean) : [];
-    const origin = buildQuestionOriginLabel(question);
-    const lines = [];
-
-    lines.push("請你扮演『中醫經典條文、方劑學與國文訓詁』審查者，針對下列《金匱要略》條文填空題進行獨立查證。");
-    lines.push("");
-    lines.push("重要要求：");
-    lines.push("1. 請主動搜尋網路與可靠資料來源，不要只依題庫暫定答案判斷。");
-    lines.push("2. 我沒有附上本系統既有註解，避免你被舊註解誘導；請以原文、醫宗金鑑、金匱原文、方劑資料與可靠教材脈絡自行判斷。");
-    lines.push("3. 題庫暫定答案只作為待查證線索，不可預設一定正確。若你判斷答案或題幹有錯，請明確指出。");
-    lines.push("4. 不要空泛回答；請把古文罕見詞、病機、治法、方義與類方差異講清楚。");
-    lines.push("5. 回答請附可核對來源 URL 或書名篇名；網頁來源請列在各段或最後。");
-    lines.push("");
-    lines.push("【題目資料】");
-    lines.push(`題目 ID：${question?.id || "未標示"}`);
-    lines.push(`題幹／原文：${prompt || "未標示"}`);
-    lines.push(`題庫暫定答案：${answer || "未標示"}`);
-    if (options.length) lines.push(`選項：${options.map((opt, idx) => `${idx + 1}. ${opt}`).join("；")}`);
-    lines.push(`題庫出處標示：${origin || "未標示"}`);
-    if (refs.length) {
-      lines.push("既有來源線索：");
-      refs.slice(0, 8).forEach((ref) => lines.push(`- ${ref}`));
-    }
-    lines.push("");
-    lines.push("【請依 14 點格式回答】");
-    lines.push("1. 正確答案判定：判斷暫定答案是否正確，並說明理由。");
-    lines.push("2. 原文定位與版本校對：指出可查到的篇章、條文或校勘差異，並說明題幹是否混入註記或殘字。");
-    lines.push("3. 詞句註釋：解釋關鍵古字、罕見詞、中醫術語與句法。");
-    lines.push("4. 白話翻譯：把整句條文翻成現代中文，不要只說『這是方證線索』。");
-    lines.push("5. 辨證要點：列病位、寒熱、虛實、主症組合與作答切入點。");
-    lines.push("6. 病機：說明症狀如何由病機產生。");
-    lines.push("7. 方子性質：說明此方屬於何種治療方向，為何適合本條文。");
-    lines.push("8. 治法：用中醫治法語言精簡表述。");
-    lines.push("9. 方義與藥物組成：列主要藥味／藥群與配伍邏輯；不確定時請明說，不要編造。");
-    lines.push("10. 類方鑑別：至少比較 1–3 個容易混淆的相近方，說明差異。");
-    lines.push("11. 關鍵字記憶點：整理一行考試用記憶句。");
-    lines.push("12. 可疑錯誤與需人工審閱處：指出題幹、答案、註解、來源可能有疑義之處。");
-    lines.push("13. 參考來源：列出你實際使用的網頁 URL／書名／篇名，並區分原文、註解、方劑組成來源。");
-    lines.push("14. 簡短考試筆記：最後用 3–5 句濃縮成可背誦版本。");
-    lines.push("");
-    lines.push("請以繁體中文回答。若資料不足，請直接說明不足，不要捏造。");
-    return lines.join("\n");
-  }
-
-  function aiProviderUrl(provider, promptText) {
-    const encoded = encodeURIComponent(promptText);
-    if (provider === "chatgpt") return `https://chatgpt.com/?q=${encoded}`;
-    if (provider === "perplexity") return `https://www.perplexity.ai/search?q=${encoded}`;
-    if (provider === "gemini") return "https://gemini.google.com/app";
-    return `https://www.google.com/search?q=${encoded}`;
-  }
-
-  function aiProviderLabel(provider) {
-    if (provider === "chatgpt") return "ChatGPT";
-    if (provider === "gemini") return "Gemini";
-    if (provider === "perplexity") return "Perplexity";
-    return "AI";
-  }
-
-  function copyTextBestEffort(text) {
-    try {
-      if (navigator.clipboard?.writeText) {
-        navigator.clipboard.writeText(text).catch(() => {});
-        return true;
-      }
-    } catch {}
-    try {
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.setAttribute("readonly", "readonly");
-      textarea.style.position = "fixed";
-      textarea.style.left = "-9999px";
-      textarea.style.top = "-9999px";
-      document.body.appendChild(textarea);
-      textarea.select();
-      const ok = document.execCommand("copy");
-      textarea.remove();
-      return !!ok;
-    } catch {
-      return false;
-    }
-  }
-
-  function markAiVerifyButton(button, text) {
-    if (!button) return;
-    const old = button.textContent;
-    button.textContent = text;
-    window.setTimeout(() => {
-      button.textContent = old;
-    }, 1400);
-  }
-
-  function openAiVerify(question, provider, button = null) {
-    if (activeTimerState && !activeTimerState.paused) {
-      pauseActiveTimer();
-    }
-
-    const promptText = buildAiVerifyPrompt(question);
-    const copied = copyTextBestEffort(promptText);
-    const label = aiProviderLabel(provider);
-    const url = aiProviderUrl(provider, promptText);
-
-    let opened = null;
-    try {
-      opened = window.open(url, "_blank", "noopener,noreferrer");
-    } catch {
-      opened = null;
-    }
-
-    if (button) markAiVerifyButton(button, copied ? "已複製" : "已暫停");
-
-    if (!opened) {
-      window.alert([
-        `瀏覽器阻擋了 ${label} 外部頁面。`,
-        copied ? "完整查證 prompt 已嘗試複製到剪貼簿。" : "剪貼簿寫入失敗，請改用搜尋此題或手動複製題目。",
-        provider === "gemini" ? "Gemini 目前不穩定支援 URL 預填；請在 Gemini 頁面手動貼上已複製的 prompt。" : "若頁面未自動帶入內容，請手動貼上已複製的 prompt。"
-      ].join("\n\n"));
-      return;
-    }
-
-    if (provider === "gemini") {
-      window.setTimeout(() => {
-        window.alert("已暫停計時，並已嘗試複製完整 Gemini 查證 prompt。Gemini 網頁通常不穩定支援 URL 預填，請在新頁面輸入框貼上後送出。");
-      }, 250);
-    }
-  }
-
-  function bindAiVerifyButtons(question) {
-    const buttons = Array.from(document.querySelectorAll(".ai-verify-btn"));
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const provider = String(button.dataset.aiProvider || "chatgpt").trim();
-        openAiVerify(question, provider, button);
-      });
     });
   }
 
@@ -3615,9 +3706,10 @@ function buildAnswerExplanationHtml(question) {
   const parts = [];
   const base = getBaseExplanationText(question);
   const keywords = extractQuestionKeywordCandidates(question);
-  const handbook = getHandbookExplanation(question);
-  const officialFallback = buildOfficialFallbackExplanation(question, keywords);
-  const networkReference = getNetworkReferenceAnswer(question);
+  const jinguiQuestion = isJinguiQuestion(question);
+  const handbook = jinguiQuestion ? null : getHandbookExplanation(question);
+  const officialFallback = jinguiQuestion ? null : buildOfficialFallbackExplanation(question, keywords);
+  const networkReference = jinguiQuestion ? "" : getNetworkReferenceAnswer(question);
 
   if (base) {
     parts.push(`
@@ -3638,7 +3730,7 @@ function buildAnswerExplanationHtml(question) {
     `);
   }
 
-  const lawBasisHtml = buildLawBasisHtml(question);
+  const lawBasisHtml = jinguiQuestion ? "" : buildLawBasisHtml(question);
   if (lawBasisHtml) parts.push(lawBasisHtml);
 
   if (handbook) {
@@ -3682,10 +3774,8 @@ function buildAnswerExplanationHtml(question) {
       <div class="feedback-explanation-title">查證工具</div>
       <div class="search-tool-row">
         <button type="button" class="ghost-btn aux-btn verify-tool-btn" aria-expanded="false">搜尋此題</button>
-        <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-provider="chatgpt">GPT</button>
-        <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-provider="gemini">Gemini</button>
-        <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-provider="perplexity">Perp</button>
-        <span class="secondary-meta">AI 查證會先複製獨立查證 prompt，並暫停計時；不帶入本系統既有註解，降低誘導偏差。</span>
+        ${buildAiVerifyButtonsHtml(question)}
+        <span class="secondary-meta">搜尋此題顯示本題查證重點；AI 按鈕會複製查證 prompt、暫停計時並外開頁面。</span>
       </div>
       ${buildVerifyToolDetailHtml(question)}
     </div>
