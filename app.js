@@ -3129,30 +3129,32 @@ function restoreRecommendedSettings() {
     chatgpt: {
       label: "GPT",
       homeUrl: "https://chatgpt.com/",
-      buildUrl: (prompt) => `https://chatgpt.com/?q=${encodeURIComponent(prompt)}&hints=search`,
-      maxEncodedLength: 6500,
-      note: "若輸入框未自動帶入，請直接貼上已複製的 prompt。"
+      // ChatGPT currently accepts the q parameter; hints=search is kept to bias toward web search.
+      buildUrl: (prompt) => `https://chatgpt.com/?hints=search&q=${encodeURIComponent(prompt)}`,
+      maxEncodedLength: 12000,
+      note: "若輸入框未自動帶入，完整 prompt 已複製，可直接貼上。"
     },
     gemini: {
       label: "Gemini",
       homeUrl: "https://gemini.google.com/app",
       buildUrl: null,
       maxEncodedLength: 0,
-      note: "Gemini 網頁版通常不穩定支援 URL 預填，請在開啟頁面後貼上已複製的 prompt。"
+      note: "Gemini 網頁版不穩定支援 URL 預填；本系統會先複製 prompt，再開啟頁面。"
     },
     perplexity: {
       label: "Perp",
       homeUrl: "https://www.perplexity.ai/",
-      buildUrl: (prompt) => `https://www.perplexity.ai/search?q=${encodeURIComponent(prompt)}`,
-      maxEncodedLength: 6500,
-      note: "若輸入框未自動帶入，請直接貼上已複製的 prompt。"
+      // Perplexity community search-engine pattern; full prompt is still copied as fallback.
+      buildUrl: (prompt) => `https://www.perplexity.ai/search?q=${encodeURIComponent(prompt)}&focus=internet`,
+      maxEncodedLength: 9000,
+      note: "若輸入框未自動帶入，完整 prompt 已複製，可直接貼上。"
     },
     grok: {
       label: "Grok",
       homeUrl: "https://grok.com/",
-      buildUrl: null,
-      maxEncodedLength: 0,
-      note: "Grok 目前不保證 URL 預填 prompt，請在開啟頁面後貼上已複製的 prompt。"
+      buildUrl: (prompt) => `https://grok.com/?q=${encodeURIComponent(prompt)}`,
+      maxEncodedLength: 9000,
+      note: "若輸入框未自動帶入，完整 prompt 已複製，可直接貼上。"
     }
   };
 
@@ -3186,6 +3188,36 @@ function restoreRecommendedSettings() {
       });
     }
     return refs.length ? refs.map((ref, idx) => `${idx + 1}. ${ref}`).join("\n") : "（本題沒有附外部來源 URL，請自行以題幹與方名搜尋可靠資料。）";
+  }
+
+  function compactSourceReferencesForPrompt(question) {
+    const source = question?.source || {};
+    const refs = [];
+    if (Array.isArray(source.webReferences)) {
+      source.webReferences.forEach((item) => {
+        const text = String(item || "").trim();
+        if (text && refs.length < 3) refs.push(text);
+      });
+    }
+    if (!refs.length && source.pdf) refs.push(`題庫 PDF：${String(source.pdf)}${source.page ? `，第 ${source.page} 頁` : ""}`);
+    return refs.length ? refs.join("；") : "請自行查《金匱要略》、醫宗金鑑、醫砭宋本、中醫笈成。";
+  }
+
+  function buildAiVerificationUrlPrompt(question) {
+    const id = String(question?.id || "未知 ID");
+    const prompt = String(question?.prompt || buildQuestionPreview(question) || "").replace(/\s+/g, " ").trim();
+    const answer = String(question?.answer || "").trim();
+    const options = questionOptionsForPrompt(question).replace(/\s+/g, " ").trim();
+    const refs = compactSourceReferencesForPrompt(question);
+    return [
+      "請上網查證這題中醫經典考題，勿預設題庫答案正確，請用繁體中文回答。",
+      `ID：${id}`,
+      `題幹：${prompt}`,
+      `選項：${options}`,
+      `暫定答案：${answer || "未提供"}`,
+      `來源線索：${refs}`,
+      "請核對原文與版本、正確答案、詞句註釋、白話翻譯、辨證要點、病機、方子性質、治法、方義與組成、類方鑑別、記憶點、可疑錯誤與來源URL。"
+    ].join("\n");
   }
 
   function buildAiVerificationPrompt(question) {
@@ -3257,11 +3289,11 @@ function restoreRecommendedSettings() {
     }
   }
 
-  function buildAiProviderUrl(provider, prompt) {
+  function buildAiProviderUrl(provider, urlPrompt) {
     if (!provider?.buildUrl) return provider?.homeUrl || "";
-    const encoded = encodeURIComponent(prompt);
+    const encoded = encodeURIComponent(urlPrompt);
     if (encoded.length > provider.maxEncodedLength) return provider.homeUrl;
-    return provider.buildUrl(prompt);
+    return provider.buildUrl(urlPrompt);
   }
 
   async function openAiVerification(question, providerKey) {
@@ -3269,8 +3301,9 @@ function restoreRecommendedSettings() {
     if (activeTimerState && !activeTimerState.paused) pauseActiveTimer();
 
     const prompt = buildAiVerificationPrompt(question);
+    const urlPrompt = buildAiVerificationUrlPrompt(question);
     const copied = await copyTextToClipboard(prompt);
-    const url = buildAiProviderUrl(provider, prompt);
+    const url = buildAiProviderUrl(provider, urlPrompt);
     let opened = null;
     try {
       opened = window.open(url, "_blank", "noopener,noreferrer");
@@ -3771,11 +3804,10 @@ function buildAnswerExplanationHtml(question) {
 
   parts.push(`
     <div class="feedback-explanation-block handbook-block search-tool-block">
-      <div class="feedback-explanation-title">查證工具</div>
       <div class="search-tool-row">
         <button type="button" class="ghost-btn aux-btn verify-tool-btn" aria-expanded="false">搜尋此題</button>
         ${buildAiVerifyButtonsHtml(question)}
-        <span class="secondary-meta">搜尋此題顯示本題查證重點；AI 按鈕會複製查證 prompt、暫停計時並外開頁面。</span>
+        <span class="secondary-meta">AI 按鈕會複製查證 prompt、暫停計時並外開頁面。</span>
       </div>
       ${buildVerifyToolDetailHtml(question)}
     </div>
