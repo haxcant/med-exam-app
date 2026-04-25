@@ -598,7 +598,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.1｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.22｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -787,6 +787,7 @@ function renderQuestion() {
             <div class="secondary-meta">答對 +1 分，答錯 / 逾時 / 不會 -1 分。</div>
             <div class="inline-action-group">
               <button id="searchQuestionQuickBtn" class="ghost-btn aux-btn">搜尋此題</button>
+              ${buildAiVerifyButtonsHtml(question)}
               <button id="dontKnowBtn" class="ghost-btn aux-btn">不會（-1）</button>
             </div>
           </div>
@@ -809,6 +810,7 @@ function renderQuestion() {
   document.getElementById("exitModeBtn")?.addEventListener("click", confirmExitCurrentMode);
   bindQuestionSearchButton(question);
   bindVerifyToolButton();
+  bindAiVerifyButtons();
   attachResilientImageHandlers(els.mainContent);
   startQuestionTimer(question);
 }
@@ -901,6 +903,7 @@ function renderFlashcard() {
   document.getElementById("nextCardBtn")?.addEventListener("click", goToNextFlashcardWithoutGrading);
   bindQuestionSearchButton(question);
   bindVerifyToolButton();
+  bindAiVerifyButtons();
   attachResilientImageHandlers(els.mainContent);
 }
 
@@ -1100,6 +1103,7 @@ function goToNextFlashcardWithoutGrading() {
 
     document.getElementById("nextBtn")?.addEventListener("click", advanceToNextQuestion);
     bindVerifyToolButton();
+  bindAiVerifyButtons();
     scheduleNext(autoNextDelaySec, "nextCountdown");
   }
 
@@ -1224,6 +1228,7 @@ function goToNextFlashcardWithoutGrading() {
     document.getElementById("retryWrongBtn")?.addEventListener("click", () => retrySummaryWrong("wrongOnly"));
     document.getElementById("flashcardWrongBtn")?.addEventListener("click", () => retrySummaryWrong("flashcard"));
     bindVerifyToolButton();
+  bindAiVerifyButtons();
     try {
       window.dispatchEvent(new CustomEvent("driverquiz:session-completed", {
         detail: {
@@ -3108,6 +3113,121 @@ function restoreRecommendedSettings() {
     ].join("\n\n"));
   }
 
+  function buildAiVerifyButtonsHtml(question) {
+    if (!question || !question.id) return "";
+    const qid = escapeAttr(question.id);
+    return `
+      <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-target="chatgpt" data-question-id="${qid}" title="用 ChatGPT 查證此題">GPT</button>
+      <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-target="gemini" data-question-id="${qid}" title="複製查證 prompt 並開啟 Gemini">Gemini</button>
+      <button type="button" class="ghost-btn aux-btn ai-verify-btn" data-ai-target="perplexity" data-question-id="${qid}" title="用 Perplexity 查證此題">Perp</button>
+    `;
+  }
+
+  function compactTextForAi(value, maxLen = 1800) {
+    const text = String(value || "").replace(/\r\n/g, "\n").replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+    if (text.length <= maxLen) return text;
+    return `${text.slice(0, maxLen)}\n……（以下略，請以題目原文與可靠來源自行查證）`;
+  }
+
+  function buildAiVerificationPrompt(question) {
+    const options = Array.isArray(question?.options) && question.options.length
+      ? question.options.map((opt, idx) => `${idx + 1}. ${opt}`).join("\n")
+      : "（本題未提供選項）";
+    const webRefs = Array.isArray(question?.source?.webReferences)
+      ? question.source.webReferences.map((ref) => {
+          if (typeof ref === "string") return ref;
+          return [ref?.title, ref?.url].filter(Boolean).join("：");
+        }).filter(Boolean).join("\n")
+      : "";
+    const sourceText = [buildQuestionOriginLabel(question), webRefs].filter(Boolean).join("\n");
+    const currentExplanation = compactTextForAi(question?.explanation || "", 2200);
+    return [
+      "請你扮演嚴謹的中醫經典與國文註釋助教，針對下列《金匱要略》條文填空題進行查證與解說。",
+      "請主動搜尋或查閱可靠資料，優先比對：《金匱要略》原文、醫宗金鑑《金匱要略註》、醫砭宋本、中醫笈成、可靠教材或官方方劑資料。",
+      "不要只改寫題目，也不要只說這是方證線索；請具體解釋古文字義、病機、方義與相近方差異。若資料不足，請明確標示不確定，不要捏造藥物組成。",
+      "",
+      `題目 ID：${question?.id || ""}`,
+      `題幹／原文：${question?.prompt || ""}`,
+      `選項：\n${options}`,
+      `目前題庫答案：${question?.answer || ""}`,
+      sourceText ? `題庫來源：\n${sourceText}` : "題庫來源：未標示",
+      "",
+      currentExplanation ? `目前題庫註解，請查錯、補缺、去廢話：\n${currentExplanation}` : "目前題庫註解：無",
+      "",
+      "請依下列格式回答：",
+      "1. 正確答案與原文定位：確認答案是否正確，指出條文篇章或上下文。",
+      "2. 詞句註釋：解釋古文關鍵字、罕見字、醫學術語。",
+      "3. 白話翻譯：把原文翻成現代中文，不要只寫讀書提醒。",
+      "4. 辨證要點：病位、寒熱、虛實、症狀組合、與相近方區別。",
+      "5. 病機：說明症狀形成原因。",
+      "6. 方子性質：說明此方治療方向與為何適合。",
+      "7. 治法：用中醫治法語言精簡表述。",
+      "8. 方義：說明主要藥群或方義邏輯；不確定組成時請明說。",
+      "9. 關鍵字記憶點：一行考試記憶。",
+      "10. 可疑錯誤／需人工審閱處：列出題目、答案、註解或來源可能有問題的地方。",
+      "11. 參考來源：列出可點擊來源或清楚書名篇章。",
+      "",
+      "回答請使用繁體中文，務必以查證為主，不要空泛鼓勵。"
+    ].join("\n");
+  }
+
+  function aiVerificationUrl(target, promptText) {
+    const q = encodeURIComponent(promptText);
+    if (target === "chatgpt") return `https://chatgpt.com/?hints=search&temporary-chat=true&q=${q}`;
+    if (target === "perplexity") return `https://www.perplexity.ai/search/?q=${q}`;
+    if (target === "gemini") return `https://gemini.google.com/app?prompt=${q}`;
+    return `https://www.google.com/search?q=${q}`;
+  }
+
+  async function copyAiPromptToClipboard(promptText) {
+    try { if (navigator.clipboard?.writeText) { await navigator.clipboard.writeText(promptText); return true; } } catch {}
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = promptText;
+      textarea.setAttribute("readonly", "readonly");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      document.body.appendChild(textarea);
+      textarea.select();
+      const ok = document.execCommand("copy");
+      textarea.remove();
+      return !!ok;
+    } catch { return false; }
+  }
+
+  async function openAiVerification(question, target) {
+    const promptText = buildAiVerificationPrompt(question);
+    if (activeTimerState && !activeTimerState.paused) pauseActiveTimer();
+    const copied = await copyAiPromptToClipboard(promptText);
+    const url = aiVerificationUrl(target, promptText);
+    let opened = null;
+    try { opened = window.open(url, "_blank", "noopener,noreferrer"); } catch { opened = null; }
+    if (opened) {
+      if (target === "gemini" || !copied) {
+        window.setTimeout(() => {
+          const label = target === "gemini" ? "Gemini" : target;
+          window.alert(copied ? `${label} 已開啟；若輸入框未自動帶入，查證 prompt 已複製，可直接貼上。計時已暫停。` : `${label} 已開啟；若輸入框未自動帶入，請回本頁手動複製題目。計時已暫停。`);
+        }, 350);
+      }
+      return;
+    }
+    window.alert(copied ? "瀏覽器阻擋了外部 AI 分頁；查證 prompt 已複製到剪貼簿，可自行開啟 AI 後貼上。計時已暫停。" : `瀏覽器阻擋了外部 AI 分頁，且無法自動複製。\n\n${promptText}`);
+  }
+
+  function bindAiVerifyButtons() {
+    const buttons = Array.from(document.querySelectorAll(".ai-verify-btn"));
+    buttons.forEach((button) => {
+      if (button.dataset.bound === "1") return;
+      button.dataset.bound = "1";
+      button.addEventListener("click", () => {
+        const qid = button.dataset.questionId;
+        const question = qid ? getQuestion(qid) : currentQuestion();
+        if (!question) return;
+        openAiVerification(question, button.dataset.aiTarget || "chatgpt");
+      });
+    });
+  }
+
   function bindQuestionSearchButton(question) {
     const buttons = Array.from(document.querySelectorAll("#searchQuestionQuickBtn"));
     buttons.forEach((button) => {
@@ -3536,7 +3656,8 @@ function buildAnswerExplanationHtml(question) {
       <div class="feedback-explanation-title">查證工具</div>
       <div class="search-tool-row">
         <button type="button" class="ghost-btn aux-btn verify-tool-btn" aria-expanded="false">搜尋此題</button>
-        <span class="secondary-meta">直接顯示本題的手冊對照、關鍵詞與查證重點，不再跳出外部搜尋頁。</span>
+        ${buildAiVerifyButtonsHtml(question)}
+        <span class="secondary-meta">可先看內建查證，也可外跳 AI 查證；外跳時會自動暫停計時。</span>
       </div>
       ${buildVerifyToolDetailHtml(question)}
     </div>
