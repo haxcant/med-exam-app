@@ -287,13 +287,12 @@ const HANDBOOK_RULES = [
     };
     window.addEventListener("pageshow", recover);
     window.addEventListener("focus", recover);
-    window.addEventListener("resize", recover);
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) recover();
     });
     try {
       const observer = new MutationObserver(() => recover());
-      observer.observe(document.body, { attributes: true, attributeFilter: ["class"], childList: true, subtree: true });
+      observer.observe(document.body, { childList: true });
     } catch {}
     setTimeout(recover, 0);
     setTimeout(recover, 250);
@@ -1570,10 +1569,10 @@ function renderWrongBook() {
     const correct = entries.reduce((sum, x) => sum + (x.totalCorrect || 0), 0);
     const wrongBookCount = entries.filter((x) => x.inWrongBook).length;
     const accuracy = answered ? Math.round((correct / answered) * 100) : 0;
-    const positiveCount = scopedQuestions.filter((q) => questionProgress(q.id).score >= 1).length;
+    const positiveCount = entries.filter((x) => x.score >= 1).length;
     let positivePct = scopedQuestions.length ? Math.round((positiveCount / scopedQuestions.length) * 1000) / 10 : 0;
     if (positiveCount > 0 && positivePct === 0) positivePct = 0.1;
-    const masteredCount = scopedQuestions.filter((q) => questionProgress(q.id).score > 1).length;
+    const masteredCount = entries.filter((x) => x.score > 1).length;
     const totalPoints = entries.reduce((sum, x) => sum + (x.score || 0), 0);
 
     if (els.bankCount) els.bankCount.textContent = String(scopedQuestions.length);
@@ -1588,9 +1587,10 @@ function renderWrongBook() {
   function refreshRewards() {
     const scope = getSelectedScope();
     const scopedQuestions = getScopedQuestions(scope);
-    const masteredCount = scopedQuestions.filter((q) => questionProgress(q.id).score >= 1).length;
+    const entries = scopedQuestions.map((q) => questionProgress(q.id));
+    const masteredCount = entries.filter((x) => x.score >= 1).length;
     const coveragePct = scopedQuestions.length ? (100 * masteredCount / scopedQuestions.length) : 0;
-    const answered = scopedQuestions.reduce((sum, q) => sum + questionProgress(q.id).totalSeen, 0);
+    const answered = entries.reduce((sum, x) => sum + x.totalSeen, 0);
     const bestStreak = progress.meta.bestStreak || 0;
     const level = getRewardLevel(coveragePct);
     const nextTargetPct = Math.min(level.nextPct, 100);
