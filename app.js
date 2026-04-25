@@ -24,6 +24,7 @@
     all: "全部分類",
     jingui_formula: "金匱方證填空",
     tcm_internal_formula: "中醫內科方劑題庫",
+    wenbing_formula: "溫病條文題庫",
     internal_medicine: "內科",
     surgery: "外科",
     obgyn: "婦產科",
@@ -69,13 +70,15 @@
   const EXAM_SCOPE_LABELS = {
     official_small_car: "金匱條文填空",
     tcm_internal_formula: "中醫內科方劑題庫",
+    wenbing_formula: "溫病條文題庫",
     official_plus_mechanical: "醫學題庫加強模式",
     full_extended: "全部題庫模式",
   };
   const EXAM_SCOPE_DESCRIPTIONS = {
     official_small_car: "目前主題庫為《金匱要略》條文填空：將方名作為答案選項，原條文挖空作為題幹。",
     tcm_internal_formula: "中醫內科方劑題庫：以對應內容作為題幹，從選項中選出正確方劑。",
-    official_plus_mechanical: "保留給後續醫學題庫擴充，目前與金匱條文填空相同。",
+    wenbing_formula: "溫病條文題庫：以標題＋條文證候作為題幹，從選項中選出正確方劑。",
+    official_plus_mechanical: "醫學題庫加強模式：包含目前三個主要題庫，可用分類再篩選。",
     full_extended: "顯示目前載入的全部題庫。"
   };
   const SCORE_FILTER_LABELS = {
@@ -674,15 +677,23 @@ const HANDBOOK_RULES = [
     );
   }
 
+  function isWenbingFormulaQuestion(question) {
+    return !!(
+      question?.id?.startsWith("WBTF-") ||
+      question?.category === "wenbing_formula"
+    );
+  }
+
   function isMechanicalQuestion(question) {
-    return !!(question?.category && !isOfficialSmallCarQuestion(question) && !isTcmInternalFormulaQuestion(question));
+    return !!(question?.category && !isOfficialSmallCarQuestion(question) && !isTcmInternalFormulaQuestion(question) && !isWenbingFormulaQuestion(question));
   }
 
   function isQuestionInScope(question, scope) {
     if (!question) return false;
     if (scope === "official_small_car") return isOfficialSmallCarQuestion(question);
     if (scope === "tcm_internal_formula") return isTcmInternalFormulaQuestion(question);
-    if (scope === "official_plus_mechanical") return isOfficialSmallCarQuestion(question) || isTcmInternalFormulaQuestion(question) || isMechanicalQuestion(question);
+    if (scope === "wenbing_formula") return isWenbingFormulaQuestion(question);
+    if (scope === "official_plus_mechanical") return isOfficialSmallCarQuestion(question) || isTcmInternalFormulaQuestion(question) || isWenbingFormulaQuestion(question) || isMechanicalQuestion(question);
     return true;
   }
 
@@ -706,7 +717,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.31｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.32｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -4155,6 +4166,10 @@ function buildAnswerExplanationHtml(question) {
 
   function buildQuestionOriginLabel(question) {
     if (isTcmInternalFormulaQuestion(question)) return "中醫內科方劑題庫";
+    if (isWenbingFormulaQuestion(question)) {
+      const source = question?.source || {};
+      return ["溫病條文題庫", source.page ? "PDF第 " + source.page + " 頁" : "", source.title || "", source.section ? "分層：" + source.section : "", source.syndrome ? "證型／條目：" + source.syndrome : ""].filter(Boolean).join(" ／ ");
+    }
     const source = question?.source || {};
     const sourceName = source.pdf ? String(source.pdf).replace(/\.pdf$/i, "") : "題庫來源未標示";
     const bits = [sourceName];

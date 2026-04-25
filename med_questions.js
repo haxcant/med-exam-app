@@ -11334,5 +11334,4245 @@ window.MED_QUESTION_BANK = [
       "理中湯",
       "二陳平胃湯"
     ]
-  }
+  },
+    {
+      "prompt" : "風溫-但咳，身不甚熱，口微渴等。",
+      "source" : {
+        "page" : 6,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "風邪襲肺",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在衛分",
+        "title" : "風溫"
+      },
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在衛分\n證型／條目：風邪襲肺",
+      "answer" : "桑菊飲",
+      "id" : "WBTF-0001",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在衛分",
+        "風邪襲肺",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "銀翹散＋生地、丹皮、赤芍、麥冬",
+        "調胃承氣湯＋鮮首烏、鮮生地、鮮石斛",
+        "清燥救肺湯",
+        "桑菊飲"
+      ]
+    },
+    {
+      "source" : {
+        "page" : 6,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "風溫客表",
+        "title" : "風溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在衛分"
+      },
+      "prompt" : "風溫-發熱，微惡風寒，無汗或少汗，頭痛，咳嗽，口微渴，苔薄白，舌邊尖紅，脈浮數。",
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "id" : "WBTF-0002",
+      "explanation" : "分層：邪在衛分\n證型／條目：風溫客表",
+      "answer" : "銀翹散",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在衛分",
+        "風溫客表",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "涼膈散",
+        "清絡飲＋杏仁、苡仁、滑石",
+        "犀地清絡飲",
+        "銀翹散"
+      ]
+    },
+    {
+      "difficulty" : 2,
+      "answer" : "梔子豉湯",
+      "explanation" : "分層：邪在氣分\n證型／條目：熱鬱胸膈",
+      "id" : "WBTF-0003",
+      "category" : "wenbing_formula",
+      "options" : [
+        "梔子豉湯",
+        "王氏清暑益氣湯",
+        "導赤承氣湯",
+        "達原飲＋大黃"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在氣分",
+        "熱鬱胸膈",
+        "方劑",
+        "條文題庫"
+      ],
+      "prompt" : "風溫-身熱，心煩懊憹，坐臥不安，舌苔微黃。",
+      "source" : {
+        "page" : 6,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱鬱胸膈",
+        "title" : "風溫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      }
+    },
+    {
+      "category" : "wenbing_formula",
+      "id" : "WBTF-0004",
+      "explanation" : "分層：邪在氣分\n證型／條目：邪熱壅肺",
+      "answer" : "麻杏石甘湯",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在氣分",
+        "邪熱壅肺",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "清咽養營湯",
+        "薏苡竹葉散；三仁湯",
+        "五加減正氣散",
+        "麻杏石甘湯"
+      ],
+      "source" : {
+        "page" : 6,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "邪熱壅肺",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "title" : "風溫"
+      },
+      "prompt" : "風溫-身熱、汗出，煩渴，咳喘，咯痰不爽，舌紅苔黃，脈滑數。"
+    },
+    {
+      "prompt" : "風溫-潮熱便祕，痰涎湧盛，喘促不寧，苔黃膩或黃滑，脈右寸實大。",
+      "source" : {
+        "title" : "風溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "痰熱阻肺，腑有熱結",
+        "page" : 6
+      },
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "宣白承氣湯",
+      "explanation" : "分層：邪在氣分\n證型／條目：痰熱阻肺，腑有熱結",
+      "id" : "WBTF-0005",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在氣分",
+        "痰熱阻肺，腑有熱結",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "小承氣湯等分方",
+        "救逆湯",
+        "薛氏救陰泄邪方",
+        "宣白承氣湯"
+      ]
+    },
+    {
+      "prompt" : "風溫-身熱面赤，渴欲涼飲，飲不解渴，得水則嘔，胸脘痞滿，按之疼痛。便秘，苔黃滑，脈洪滑。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "痰熱結胸",
+        "page" : 6,
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫"
+      },
+      "category" : "wenbing_formula",
+      "answer" : "小陷胸加枳實湯",
+      "explanation" : "分層：邪在氣分\n證型／條目：痰熱結胸",
+      "id" : "WBTF-0006",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在氣分",
+        "痰熱結胸",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "三仁湯",
+        "清咽養營湯",
+        "桑菊飲",
+        "小陷胸加枳實湯"
+      ]
+    },
+    {
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱阻胸膈，微兼腑實",
+        "page" : 6,
+        "title" : "風溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分"
+      },
+      "prompt" : "風溫-身熱不已，煩躁不安，胸膈灼熱如焚，唇焦咽燥，口渴，便秘，舌心乾四邊色紅，苔或黃或白，脈浮滑而數。",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在氣分",
+        "熱阻胸膈，微兼腑實",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "銀翹散＋杏仁、滑石、苡仁、通草",
+        "加減玉女煎",
+        "犀角地黃湯＋連翹、紫草、茜草根、銀花露、地榆炭、側柏炭",
+        "涼膈散"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在氣分\n證型／條目：熱阻胸膈，微兼腑實",
+      "id" : "WBTF-0007",
+      "answer" : "涼膈散"
+    },
+    {
+      "source" : {
+        "syndrome" : "無形熱盛（陽明經證）",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 6,
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪入陽明",
+        "title" : "風溫"
+      },
+      "prompt" : "風溫-壯熱面赤，惡熱、心煩、大汗出，苔黃而燥，渴喜涼飲，脈形洪大，按之愈盛。",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪入陽明",
+        "無形熱盛（陽明經證）",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "桃仁承氣湯",
+        "犀地清絡飲",
+        "白虎湯",
+        "桑杏湯"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪入陽明\n證型／條目：無形熱盛（陽明經證）",
+      "answer" : "白虎湯",
+      "id" : "WBTF-0008"
+    },
+    {
+      "options" : [
+        "丁氏涼營清氣湯",
+        "安宮牛黃丸、紫雪丹、至寶丹＋生脈散、參附湯",
+        "調胃承氣湯",
+        "三黃二香散"
+      ],
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪入陽明",
+        "有形熱結（陽明腑證）",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "difficulty" : 2,
+      "explanation" : "分層：邪入陽明\n證型／條目：有形熱結（陽明腑證）",
+      "answer" : "調胃承氣湯",
+      "id" : "WBTF-0009",
+      "category" : "wenbing_formula",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 7,
+        "syndrome" : "有形熱結（陽明腑證）",
+        "section" : "邪入陽明",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫"
+      },
+      "prompt" : "風溫-日晡潮熱，濈濈汗出，時有譫語，大便秘結，或純利惡臭稀水，肛門灼熱，腹部脹滿硬痛或拒按，苔老黃而燥，甚則灰黑而燥裂，脈沉有力。"
+    },
+    {
+      "prompt" : "風溫-身熱，咳嗽，口渴，下利色黃熱臭，肛門灼熱，腹不硬痛，苔黃，脈數。",
+      "source" : {
+        "section" : "邪入陽明",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫",
+        "page" : 7,
+        "syndrome" : "肺熱移腸",
+        "topicLabel" : "溫病條文題庫"
+      },
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪入陽明",
+        "肺熱移腸",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "三甲復脈湯",
+        "葛根黃芩黃連湯",
+        "安宮牛黃丸、紫雪丹、至寶丹＋生脈散、參附湯",
+        "桑菊飲"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪入陽明\n證型／條目：肺熱移腸",
+      "id" : "WBTF-0010",
+      "answer" : "葛根黃芩黃連湯"
+    },
+    {
+      "prompt" : "風溫-身熱自汗，面赤、神迷，身重難以轉側，多睡眠，鼻鼾，語言難出，苔黃而燥，脈數。",
+      "source" : {
+        "page" : 7,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "胃熱陰傷",
+        "title" : "風溫",
+        "section" : "邪入陽明",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "explanation" : "分層：邪入陽明\n證型／條目：胃熱陰傷",
+      "id" : "WBTF-0011",
+      "answer" : "竹葉石膏湯",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "竹葉石膏湯",
+        "茯苓皮湯",
+        "白虎湯",
+        "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參"
+      ],
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪入陽明",
+        "胃熱陰傷",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "source" : {
+        "title" : "風溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營分",
+        "syndrome" : "熱爍營陰",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 7
+      },
+      "prompt" : "風溫-身熱夜甚，心煩躁擾，甚或時有譫語，斑疹隱隱，口反不甚渴，舌質紅絳無苔，脈細數。",
+      "options" : [
+        "黃連香薷飲",
+        "五加減正氣散",
+        "清營湯",
+        "白虎加人參湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在營分",
+        "熱爍營陰",
+        "方劑",
+        "條文題庫"
+      ],
+      "difficulty" : 2,
+      "explanation" : "分層：邪在營分\n證型／條目：熱爍營陰",
+      "answer" : "清營湯",
+      "id" : "WBTF-0012",
+      "category" : "wenbing_formula"
+    },
+    {
+      "prompt" : "風溫-身熱，咳嗽，胸悶，外發紅疹。",
+      "source" : {
+        "syndrome" : "肺熱發疹",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 7,
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營分",
+        "title" : "風溫"
+      },
+      "options" : [
+        "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參",
+        "羚角鈎藤湯",
+        "生脈散",
+        "清咽梔子豉湯"
+      ],
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在營分",
+        "肺熱發疹",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在營分\n證型／條目：肺熱發疹",
+      "answer" : "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參",
+      "id" : "WBTF-0013",
+      "category" : "wenbing_formula"
+    },
+    {
+      "prompt" : "風溫-身灼熱，肢厥，神昏譫語，或昏憤不語，舌蹇，舌色鮮絳，脈細數。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 7,
+        "syndrome" : "熱陷心包",
+        "section" : "熱入心包",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫"
+      },
+      "options" : [
+        "增液承氣湯",
+        "二加減正氣散",
+        "加減清宮湯送服紫雪丹、至寶丹",
+        "清宮湯（送服）；安宮牛黃丸；紫雪丹；至寶丹"
+      ],
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱入心包",
+        "熱陷心包",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "difficulty" : 2,
+      "answer" : "清宮湯（送服）；安宮牛黃丸；紫雪丹；至寶丹",
+      "explanation" : "分層：熱入心包\n證型／條目：熱陷心包",
+      "id" : "WBTF-0014",
+      "category" : "wenbing_formula"
+    },
+    {
+      "options" : [
+        "牛黃承氣湯",
+        "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參",
+        "梔子豉湯",
+        "犀地清絡飲"
+      ],
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱入心包",
+        "熱入心包＋陽明腑實",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "difficulty" : 2,
+      "explanation" : "分層：熱入心包\n證型／條目：熱入心包＋陽明腑實",
+      "id" : "WBTF-0015",
+      "answer" : "牛黃承氣湯",
+      "category" : "wenbing_formula",
+      "source" : {
+        "title" : "風溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱入心包",
+        "syndrome" : "熱入心包＋陽明腑實",
+        "page" : 7,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "風溫-身熱，神昏，舌蹇，肢厥，便秘，腹部按之硬痛，舌絳，苔黃燥，脈數沉實。"
+    },
+    {
+      "explanation" : "分層：邪在血分，熱盛動風\n證型／條目：肝經熱盛動風",
+      "id" : "WBTF-0016",
+      "answer" : "羚角鈎藤湯",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "枳實導滯湯",
+        "涼膈散",
+        "新加香薷飲",
+        "羚角鈎藤湯"
+      ],
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在血分，熱盛動風",
+        "肝經熱盛動風",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "prompt" : "風溫-身熱壯盛，頭暈脹痛，手足躁擾，甚則瘈瘲，狂亂痙厥，舌紅苔燥無津，脈象弦數。",
+      "source" : {
+        "page" : 7,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "肝經熱盛動風",
+        "section" : "邪在血分，熱盛動風",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫"
+      }
+    },
+    {
+      "options" : [
+        "葛根黃芩黃連湯",
+        "普濟消毒飲",
+        "枳實導滯丸",
+        "白虎湯＋羚角、鈎藤；調胃承氣湯＋羚角、鈎藤"
+      ],
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在血分，熱盛動風",
+        "陽明熱盛引動肝風",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "answer" : "白虎湯＋羚角、鈎藤；調胃承氣湯＋羚角、鈎藤",
+      "explanation" : "分層：邪在血分，熱盛動風\n證型／條目：陽明熱盛引動肝風",
+      "id" : "WBTF-0017",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "source" : {
+        "title" : "風溫",
+        "section" : "邪在血分，熱盛動風",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 7,
+        "syndrome" : "陽明熱盛引動肝風"
+      },
+      "prompt" : "風溫-壯熱如焚，口渴欲引涼飲，手足瘈瘲，甚至角弓反張，苔黃而燥。"
+    },
+    {
+      "source" : {
+        "section" : "邪在血分，熱盛動風",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫",
+        "page" : 7,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "心營熱盛引動肝風"
+      },
+      "prompt" : "風溫-灼熱肢厥，神識昏迷，手足瘈瘲，舌質紅絳。",
+      "answer" : "清宮湯＋羚角、鈎藤、丹皮；紫雪丹",
+      "explanation" : "分層：邪在血分，熱盛動風\n證型／條目：心營熱盛引動肝風",
+      "id" : "WBTF-0018",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "白虎加人參湯",
+        "三黃二香散",
+        "黃連香薷飲",
+        "清宮湯＋羚角、鈎藤、丹皮；紫雪丹"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "邪在血分，熱盛動風",
+        "心營熱盛引動肝風",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱爍真陰",
+        "陽亢陰虛",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "四加減正氣散",
+        "宣白承氣湯",
+        "黃連阿膠湯",
+        "青蒿鱉甲湯"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：熱爍真陰\n證型／條目：陽亢陰虛",
+      "id" : "WBTF-0019",
+      "answer" : "黃連阿膠湯",
+      "prompt" : "風溫-心中煩不得臥，身熱，苔黃，舌紅，脈細數等。",
+      "source" : {
+        "page" : 8,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "陽亢陰虛",
+        "section" : "熱爍真陰",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫"
+      }
+    },
+    {
+      "prompt" : "風溫-身熱面赤，手足心熱大於手足背，口乾，舌燥，或神倦，耳聾，脈象虛大等。",
+      "source" : {
+        "section" : "熱爍真陰",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫",
+        "syndrome" : "肝腎陰傷（真陰欲竭）",
+        "page" : 8,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "category" : "wenbing_formula",
+      "answer" : "加減復脈湯",
+      "explanation" : "分層：熱爍真陰\n證型／條目：肝腎陰傷（真陰欲竭）",
+      "id" : "WBTF-0020",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱爍真陰",
+        "肝腎陰傷（真陰欲竭）",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "加減復脈湯",
+        "杏蘇散",
+        "獨參湯",
+        "蒿芩清膽湯"
+      ]
+    },
+    {
+      "source" : {
+        "title" : "風溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱爍真陰",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 8,
+        "syndrome" : "誤汗陰虧心氣損傷"
+      },
+      "prompt" : "風溫-誤汗後陰虧，心氣損傷。",
+      "category" : "wenbing_formula",
+      "explanation" : "分層：熱爍真陰\n證型／條目：誤汗陰虧心氣損傷",
+      "id" : "WBTF-0021",
+      "answer" : "救逆湯",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱爍真陰",
+        "誤汗陰虧心氣損傷",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "救逆湯",
+        "三加減正氣散",
+        "枳實導滯丸",
+        "薛氏扶陽逐濕湯；真武湯"
+      ]
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱爍真陰",
+        "誤下陰虧大便微溏",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "青蒿鱉甲湯",
+        "一甲復脈湯",
+        "白虎加蒼朮湯",
+        "雷氏芳香化濁法＋滑石、甘草"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "一甲復脈湯",
+      "explanation" : "分層：熱爍真陰\n證型／條目：誤下陰虧大便微溏",
+      "id" : "WBTF-0022",
+      "source" : {
+        "title" : "風溫",
+        "section" : "熱爍真陰",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "page" : 8,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "誤下陰虧大便微溏"
+      },
+      "prompt" : "風溫-誤下後陰虧，大便微溏。"
+    },
+    {
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱爍真陰",
+        "title" : "風溫",
+        "syndrome" : "虛風內動初起",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 8
+      },
+      "prompt" : "風溫-手足蠕動，尚未至痙厥。",
+      "category" : "wenbing_formula",
+      "answer" : "二甲復脈湯",
+      "explanation" : "分層：熱爍真陰\n證型／條目：虛風內動初起",
+      "id" : "WBTF-0023",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱爍真陰",
+        "虛風內動初起",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "通關散",
+        "新加香薷飲",
+        "二甲復脈湯",
+        "五汁飲"
+      ]
+    },
+    {
+      "category" : "wenbing_formula",
+      "explanation" : "分層：熱爍真陰\n證型／條目：虛風內動兼心中憺憺",
+      "answer" : "三甲復脈湯",
+      "id" : "WBTF-0024",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱爍真陰",
+        "虛風內動兼心中憺憺",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "三甲復脈湯",
+        "牛黃承氣湯",
+        "銀翹散",
+        "黃連阿膠湯"
+      ],
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱爍真陰",
+        "title" : "風溫",
+        "syndrome" : "虛風內動兼心中憺憺",
+        "page" : 8,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "風溫-兼心中憺憺而動，脈象細促。"
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱爍真陰",
+        "虛風內動欲脫",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "玉樞丹",
+        "清咽養營湯",
+        "一加減正氣散",
+        "大定風珠"
+      ],
+      "category" : "wenbing_formula",
+      "answer" : "大定風珠",
+      "explanation" : "分層：熱爍真陰\n證型／條目：虛風內動欲脫",
+      "id" : "WBTF-0025",
+      "difficulty" : 2,
+      "source" : {
+        "section" : "熱爍真陰",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫",
+        "page" : 8,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "虛風內動欲脫"
+      },
+      "prompt" : "風溫-已見瘈瘲、神倦、脈虛、舌絳少苔、時時欲脫。"
+    },
+    {
+      "source" : {
+        "title" : "風溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱爍真陰",
+        "page" : 8,
+        "syndrome" : "內閉外脫",
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "風溫-痰熱內閉心包，陽氣暴然外脫；身熱，神志昏憒不語，倦臥，或汗多氣短、脈細無力，或面色蒼白、汗出淋漓、四肢厥冷、脈微細欲絕。",
+      "answer" : "安宮牛黃丸、紫雪丹、至寶丹＋生脈散、參附湯",
+      "explanation" : "分層：熱爍真陰\n證型／條目：內閉外脫",
+      "id" : "WBTF-0026",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "安宮牛黃丸、紫雪丹、至寶丹＋生脈散、參附湯",
+        "黃芩湯",
+        "白虎加人參湯",
+        "涼膈散"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "熱爍真陰",
+        "內閉外脫",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "prompt" : "風溫-夜熱早涼，熱退無汗，能食形瘦等。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "邪留陰分",
+        "page" : 8,
+        "section" : "後期證治",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "風溫"
+      },
+      "difficulty" : 2,
+      "answer" : "青蒿鱉甲湯",
+      "explanation" : "分層：後期證治\n證型／條目：邪留陰分",
+      "id" : "WBTF-0027",
+      "category" : "wenbing_formula",
+      "options" : [
+        "連梅湯",
+        "雷氏清宣金臟法＋苦芩、黑梔",
+        "青蒿鱉甲湯",
+        "十全苦寒救補湯"
+      ],
+      "tags" : [
+        "溫病",
+        "風溫",
+        "後期證治",
+        "邪留陰分",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "風溫",
+        "後期證治",
+        "餘熱未淨肺胃陰傷",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "導赤清心湯",
+        "桑杏湯",
+        "沙參麥冬湯",
+        "藿朴夏苓湯"
+      ],
+      "category" : "wenbing_formula",
+      "answer" : "沙參麥冬湯",
+      "explanation" : "分層：後期證治\n證型／條目：餘熱未淨肺胃陰傷",
+      "id" : "WBTF-0028",
+      "difficulty" : 2,
+      "prompt" : "風溫-身熱不甚或不發熱，乾咳不已或痰少而黏，口舌乾燥而渴，舌紅少苔，脈細。",
+      "source" : {
+        "title" : "風溫",
+        "section" : "後期證治",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "page" : 8,
+        "syndrome" : "餘熱未淨肺胃陰傷",
+        "topicLabel" : "溫病條文題庫"
+      }
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "邪在氣分",
+        "熱在少陽膽經（裏熱偏重）",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "羚羊鈎藤湯",
+        "生脈散",
+        "枳實導滯丸",
+        "黃芩湯"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在氣分\n證型／條目：熱在少陽膽經（裏熱偏重）",
+      "answer" : "黃芩湯",
+      "id" : "WBTF-0029",
+      "prompt" : "春溫-發熱不惡寒，口苦而渴，心煩，小溲短赤，舌紅苔黃，脈弦數等。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱在少陽膽經（裏熱偏重）",
+        "page" : 9,
+        "title" : "春溫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      }
+    },
+    {
+      "prompt" : "春溫-發熱不惡寒，口苦而渴，心煩，小溲短赤，舌紅苔黃，脈弦數等，兼有惡寒、頭痛等表證。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "title" : "春溫",
+        "page" : 9,
+        "syndrome" : "熱在少陽膽經兼表證",
+        "topicLabel" : "溫病條文題庫"
+      },
+      "explanation" : "分層：邪在氣分\n證型／條目：熱在少陽膽經兼表證",
+      "id" : "WBTF-0030",
+      "answer" : "蔥豉桔梗湯＋黃芩",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "清營湯送服安宮牛黃丸",
+        "蔥豉桔梗湯＋黃芩",
+        "清燥救肺湯",
+        "清咽養營湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "邪在氣分",
+        "熱在少陽膽經兼表證",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "tags" : [
+        "溫病",
+        "春溫",
+        "熱熾陽明",
+        "熱熾津傷",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "清營湯送服安宮牛黃丸",
+        "雷氏卻暑調元法",
+        "白虎湯",
+        "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "白虎湯",
+      "explanation" : "分層：熱熾陽明\n證型／條目：熱熾津傷",
+      "id" : "WBTF-0031",
+      "source" : {
+        "title" : "春溫",
+        "section" : "熱熾陽明",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱熾津傷",
+        "page" : 9
+      },
+      "prompt" : "春溫-壯熱、面赤、汗多、心煩、渴喜涼飲，舌質紅苔黃而燥，脈洪大或滑數。"
+    },
+    {
+      "source" : {
+        "title" : "春溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱熾陽明",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱盛動風",
+        "page" : 9
+      },
+      "prompt" : "春溫-高熱、煩渴、手足躁擾，甚則狂亂、神昏痙厥，或見頸項強直、角弓反張，舌紅苔黃、脈象弦數，或者舌紅絳、脈細弦數。",
+      "difficulty" : 2,
+      "answer" : "羚羊鈎藤湯",
+      "explanation" : "分層：熱熾陽明\n證型／條目：熱盛動風",
+      "id" : "WBTF-0032",
+      "category" : "wenbing_formula",
+      "options" : [
+        "犀角地黃湯＋連翹、紫草、茜草根、銀花露、地榆炭、側柏炭",
+        "雷氏清宣金臟法＋苦芩、黑梔",
+        "羚羊鈎藤湯",
+        "小陷胸加枳實湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "熱熾陽明",
+        "熱盛動風",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "category" : "wenbing_formula",
+      "explanation" : "分層：熱熾陽明\n證型／條目：熱結腸腑（熱結液虧）",
+      "answer" : "增液承氣湯",
+      "id" : "WBTF-0033",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "春溫",
+        "熱熾陽明",
+        "熱結腸腑（熱結液虧）",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "增液承氣湯",
+        "宣清導濁湯",
+        "藿朴夏苓湯",
+        "小承氣湯等分方"
+      ],
+      "source" : {
+        "syndrome" : "熱結腸腑（熱結液虧）",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 9,
+        "section" : "熱熾陽明",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "春溫"
+      },
+      "prompt" : "春溫-身熱，腹滿便秘，口乾唇裂，舌苔焦燥，脈象沉細，或伴口乾咽燥、倦怠少氣、撮空摸床、肢體震顫、目不了了，苔乾黃或焦黑，脈沉弱或沉細等。"
+    },
+    {
+      "options" : [
+        "安宮牛黃丸、紫雪丹",
+        "新加黃龍湯",
+        "藿朴夏苓湯",
+        "十全苦寒救補湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "熱熾陽明",
+        "熱結腸腑（熱結氣液俱虧）",
+        "方劑",
+        "條文題庫"
+      ],
+      "difficulty" : 2,
+      "explanation" : "分層：熱熾陽明\n證型／條目：熱結腸腑（熱結氣液俱虧）",
+      "answer" : "新加黃龍湯",
+      "id" : "WBTF-0034",
+      "category" : "wenbing_formula",
+      "prompt" : "春溫-熱結腸腑兼氣液俱虧，身熱腹滿便秘，口乾唇裂，舌苔焦燥，倦怠少氣等。",
+      "source" : {
+        "page" : 9,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱結腸腑（熱結氣液俱虧）",
+        "title" : "春溫",
+        "section" : "熱熾陽明",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      }
+    },
+    {
+      "source" : {
+        "section" : "熱熾陽明",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "春溫",
+        "page" : 9,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱結腸腑（小腸熱盛）"
+      },
+      "prompt" : "春溫-熱結腸腑兼小便涓滴不暢，溺時疼痛，尿色紅赤，時煩渴，舌紅脈數。",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "熱熾陽明",
+        "熱結腸腑（小腸熱盛）",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "導赤承氣湯",
+        "神犀丹＋安宮牛黃丸",
+        "葛根黃芩黃連湯",
+        "五汁飲"
+      ],
+      "category" : "wenbing_formula",
+      "id" : "WBTF-0035",
+      "explanation" : "分層：熱熾陽明\n證型／條目：熱結腸腑（小腸熱盛）",
+      "answer" : "導赤承氣湯",
+      "difficulty" : 2
+    },
+    {
+      "difficulty" : 2,
+      "explanation" : "分層：邪在營血\n證型／條目：熱在營分",
+      "answer" : "清營湯",
+      "id" : "WBTF-0036",
+      "category" : "wenbing_formula",
+      "options" : [
+        "牛黃承氣湯",
+        "二甲復脈湯",
+        "桑杏湯",
+        "清營湯"
+      ],
+      "tags" : [
+        "溫病",
+        "春溫",
+        "邪在營血",
+        "熱在營分",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "prompt" : "春溫-證候、病機與風溫證熱入營分相同。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營血",
+        "title" : "春溫",
+        "page" : 9,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱在營分"
+      }
+    },
+    {
+      "tags" : [
+        "溫病",
+        "春溫",
+        "邪在營血",
+        "熱在營分兼表證",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "王氏連朴飲",
+        "銀翹散＋生地、玄參、丹皮",
+        "調胃承氣湯",
+        "葛根黃芩黃連湯"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在營血\n證型／條目：熱在營分兼表證",
+      "id" : "WBTF-0037",
+      "answer" : "銀翹散＋生地、玄參、丹皮",
+      "prompt" : "春溫-熱在營分兼發熱惡寒、頭痛、無汗或少汗、心煩、舌赤、咽喉乾燥等證。",
+      "source" : {
+        "syndrome" : "熱在營分兼表證",
+        "page" : 9,
+        "topicLabel" : "溫病條文題庫",
+        "title" : "春溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營血"
+      }
+    },
+    {
+      "source" : {
+        "title" : "春溫",
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "syndrome" : "熱入血分（熱盛動血）",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 9
+      },
+      "prompt" : "春溫-灼熱躁擾，甚或昏狂譫妄，斑疹紫黑或吐衄、便血，舌質深絳等。",
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "犀角地黃湯",
+      "explanation" : "分層：邪在營血\n證型／條目：熱入血分（熱盛動血）",
+      "id" : "WBTF-0038",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "邪在營血",
+        "熱入血分（熱盛動血）",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "犀角地黃湯",
+        "水仙膏",
+        "薛氏五葉蘆根湯",
+        "救逆湯"
+      ]
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "邪在營血",
+        "氣血（營）兩燔發斑",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "獨參湯",
+        "大承氣湯",
+        "加減玉女煎",
+        "化斑湯"
+      ],
+      "category" : "wenbing_formula",
+      "answer" : "化斑湯",
+      "explanation" : "分層：邪在營血\n證型／條目：氣血（營）兩燔發斑",
+      "id" : "WBTF-0039",
+      "difficulty" : 2,
+      "source" : {
+        "title" : "春溫",
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "syndrome" : "氣血（營）兩燔發斑",
+        "page" : 10,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "春溫-壯熱口渴、煩躁不寧、苔黃舌絳，或肌膚發斑。"
+    },
+    {
+      "options" : [
+        "余氏清瘟敗毒飲",
+        "黃連阿膠湯",
+        "白虎湯＋犀角地黃湯",
+        "王氏清暑益氣湯"
+      ],
+      "tags" : [
+        "溫病",
+        "春溫",
+        "邪在營血",
+        "氣血（營）兩燔吐衄",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "id" : "WBTF-0040",
+      "explanation" : "分層：邪在營血\n證型／條目：氣血（營）兩燔吐衄",
+      "answer" : "白虎湯＋犀角地黃湯",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "prompt" : "春溫-壯熱口渴、煩躁不寧、苔黃舌絳，甚或吐血、衄血等。",
+      "source" : {
+        "syndrome" : "氣血（營）兩燔吐衄",
+        "page" : 10,
+        "topicLabel" : "溫病條文題庫",
+        "title" : "春溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營血"
+      }
+    },
+    {
+      "options" : [
+        "黃芩湯",
+        "菖蒲鬱金湯",
+        "黃土湯",
+        "桃仁承氣湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "邪在營血",
+        "熱與血結",
+        "方劑",
+        "條文題庫"
+      ],
+      "difficulty" : 2,
+      "explanation" : "分層：邪在營血\n證型／條目：熱與血結",
+      "id" : "WBTF-0041",
+      "answer" : "桃仁承氣湯",
+      "category" : "wenbing_formula",
+      "prompt" : "春溫-少腹堅滿疼痛，小便自利，神志如狂或清或亂，脈沉實等。",
+      "source" : {
+        "page" : 10,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱與血結",
+        "title" : "春溫",
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      }
+    },
+    {
+      "id" : "WBTF-0042",
+      "explanation" : "分層：熱入心包\n證型／條目：伏熱內閉",
+      "answer" : "清宮湯送服安宮牛黃丸、紫雪丹、至寶丹",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "二加減正氣散",
+        "犀地清絡飲",
+        "清宮湯送服安宮牛黃丸、紫雪丹、至寶丹",
+        "五加減正氣散"
+      ],
+      "tags" : [
+        "溫病",
+        "春溫",
+        "熱入心包",
+        "伏熱內閉",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "source" : {
+        "page" : 10,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "伏熱內閉",
+        "title" : "春溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱入心包"
+      },
+      "prompt" : "春溫-身灼熱，神昏譫語，或昏憤不語，或痰壅氣粗，舌蹇肢厥，脈弦數或滑數。"
+    },
+    {
+      "prompt" : "春溫-身熱驟降，神昏譫語或不語如屍厥，躁擾不安，氣短息促，手足厥冷，冷汗自出，大便閉，舌絳色暗，欲伸無力，苔乾燥起刺，脈細疾或沉弱。",
+      "source" : {
+        "syndrome" : "內閉外脫",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 10,
+        "title" : "春溫",
+        "section" : "熱入心包",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "熱入心包",
+        "內閉外脫",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "丁氏涼營清氣湯",
+        "四加減正氣散",
+        "參附湯、生脈散送服安宮牛黃丸、至寶丹",
+        "涼膈散"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "id" : "WBTF-0043",
+      "explanation" : "分層：熱入心包\n證型／條目：內閉外脫",
+      "answer" : "參附湯、生脈散送服安宮牛黃丸、至寶丹"
+    },
+    {
+      "prompt" : "春溫-熱灼真陰，陽亢陰虛。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "肝腎陰傷",
+        "title" : "春溫",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "陽亢陰虛",
+        "page" : 10
+      },
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "id" : "WBTF-0044",
+      "explanation" : "分層：肝腎陰傷\n證型／條目：陽亢陰虛",
+      "answer" : "黃連阿膠湯",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "肝腎陰傷",
+        "陽亢陰虛",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "枳實導滯丸",
+        "犀角地黃湯＋連翹、紫草、茜草根、銀花露、地榆炭、側柏炭",
+        "白虎湯＋羚角、鈎藤；調胃承氣湯＋羚角、鈎藤",
+        "黃連阿膠湯"
+      ]
+    },
+    {
+      "source" : {
+        "title" : "春溫",
+        "section" : "肝腎陰傷",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 10,
+        "syndrome" : "真陰欲竭"
+      },
+      "prompt" : "春溫-春溫後期邪熱深入下焦，劫爍肝腎之陰，真陰欲竭。",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "肝腎陰傷",
+        "真陰欲竭",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "調胃承氣湯＋鮮首烏、鮮生地、鮮石斛",
+        "宣清導濁湯",
+        "桑菊飲",
+        "阿膠雞子黃湯"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：肝腎陰傷\n證型／條目：真陰欲竭",
+      "answer" : "阿膠雞子黃湯",
+      "id" : "WBTF-0045",
+      "difficulty" : 2
+    },
+    {
+      "difficulty" : 2,
+      "explanation" : "分層：肝腎陰傷\n證型／條目：陰虛動風",
+      "answer" : "大定風珠",
+      "id" : "WBTF-0046",
+      "category" : "wenbing_formula",
+      "options" : [
+        "大定風珠",
+        "連梅湯",
+        "黃連香薷飲",
+        "銀翹散＋生地、丹皮、赤芍、麥冬"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "春溫",
+        "肝腎陰傷",
+        "陰虛動風",
+        "方劑",
+        "條文題庫"
+      ],
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "肝腎陰傷",
+        "title" : "春溫",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "陰虛動風",
+        "page" : 10
+      },
+      "prompt" : "春溫-春溫後期肝腎陰傷，陰虛動風。"
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：暑入陽明胃\n證型／條目：暑熱盛而津氣未傷",
+      "id" : "WBTF-0047",
+      "answer" : "白虎湯",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑入陽明胃",
+        "暑熱盛而津氣未傷",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "三石湯",
+        "薛氏扶陽逐濕湯；真武湯",
+        "白虎湯",
+        "十全苦寒救補湯"
+      ],
+      "prompt" : "暑溫-身熱熾盛，惡熱心煩，頭痛且暈，面赤氣粗，口燥渴飲，汗多，背微惡寒，脈洪大而芤。",
+      "source" : {
+        "page" : 11,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "暑熱盛而津氣未傷",
+        "section" : "暑入陽明胃",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "暑溫"
+      }
+    },
+    {
+      "prompt" : "暑溫-身熱熾盛，惡熱心煩，頭痛且暈，面赤氣粗，口燥渴飲，汗多，背微惡寒，脈洪大而芤，兼元氣與津液耗傷。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "元氣與津液耗傷",
+        "page" : 11,
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑入陽明胃",
+        "title" : "暑溫"
+      },
+      "explanation" : "分層：暑入陽明胃\n證型／條目：元氣與津液耗傷",
+      "id" : "WBTF-0048",
+      "answer" : "白虎加人參湯",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "白虎加人參湯",
+        "普濟消毒飲",
+        "薏苡竹葉散；三仁湯",
+        "銀翹散＋杏仁、滑石、苡仁、通草"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑入陽明胃",
+        "元氣與津液耗傷",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 11,
+        "syndrome" : "暑傷津氣",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑傷津氣",
+        "title" : "暑溫"
+      },
+      "prompt" : "暑溫-身熱息高，心煩溺黃，口渴自汗，肢倦神疲，脈虛無力。",
+      "difficulty" : 2,
+      "answer" : "王氏清暑益氣湯",
+      "explanation" : "分層：暑傷津氣\n證型／條目：暑傷津氣",
+      "id" : "WBTF-0049",
+      "category" : "wenbing_formula",
+      "options" : [
+        "三仁湯",
+        "白虎加人參湯",
+        "王氏清暑益氣湯",
+        "玉樞丹"
+      ],
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑傷津氣",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "prompt" : "暑溫-身熱已退，汗出不止，喘渴欲脫，脈散大。",
+      "source" : {
+        "page" : 11,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "津氣欲脫",
+        "title" : "暑溫",
+        "section" : "暑傷津氣",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑傷津氣",
+        "津氣欲脫",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "犀角地黃湯",
+        "王氏清暑益氣湯",
+        "生脈散",
+        "牛黃承氣湯"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：暑傷津氣\n證型／條目：津氣欲脫",
+      "id" : "WBTF-0050",
+      "answer" : "生脈散"
+    },
+    {
+      "prompt" : "暑溫-心熱煩躁，消渴不已，舌絳，苔黃燥。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑傷心腎",
+        "title" : "暑溫",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 11,
+        "syndrome" : "暑傷心腎"
+      },
+      "options" : [
+        "連梅湯",
+        "錫類散",
+        "黃土湯",
+        "薛氏五葉蘆根湯"
+      ],
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑傷心腎",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "answer" : "連梅湯",
+      "explanation" : "分層：暑傷心腎\n證型／條目：暑傷心腎",
+      "id" : "WBTF-0051",
+      "difficulty" : 2,
+      "category" : "wenbing_formula"
+    },
+    {
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 11,
+        "syndrome" : "暑入心營",
+        "title" : "暑溫",
+        "section" : "暑入營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "prompt" : "暑溫-脈虛舌赤，心煩口乾，夜寐不安，時有譫語。",
+      "options" : [
+        "甘露消毒丹",
+        "增液承氣湯",
+        "清營湯",
+        "薏苡竹葉散；三仁湯"
+      ],
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑入營血",
+        "暑入心營",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "explanation" : "分層：暑入營血\n證型／條目：暑入心營",
+      "answer" : "清營湯",
+      "id" : "WBTF-0052",
+      "difficulty" : 2,
+      "category" : "wenbing_formula"
+    },
+    {
+      "source" : {
+        "title" : "暑溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑入營血",
+        "page" : 12,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "暑入心營內閉心包"
+      },
+      "prompt" : "暑溫-營分熱盛，內閉心包，神昏譫語。",
+      "category" : "wenbing_formula",
+      "explanation" : "分層：暑入營血\n證型／條目：暑入心營內閉心包",
+      "answer" : "清營湯送服安宮牛黃丸",
+      "id" : "WBTF-0053",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑入營血",
+        "暑入心營內閉心包",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "玉樞丹",
+        "清營湯送服安宮牛黃丸",
+        "銀翹散＋生地、玄參、丹皮",
+        "三加減正氣散"
+      ]
+    },
+    {
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑入營血",
+        "title" : "暑溫",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 12,
+        "syndrome" : "暑入血分"
+      },
+      "prompt" : "暑溫-灼熱煩躁，斑色紫黑，舌絳苔焦，甚則神昏妄笑。",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑入營血",
+        "暑入血分",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "安宮牛黃丸、紫雪丹、至寶丹＋生脈散、參附湯",
+        "清咽梔子豉湯",
+        "清絡飲＋杏仁、苡仁、滑石",
+        "神犀丹＋安宮牛黃丸"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "id" : "WBTF-0054",
+      "explanation" : "分層：暑入營血\n證型／條目：暑入血分",
+      "answer" : "神犀丹＋安宮牛黃丸"
+    },
+    {
+      "prompt" : "暑溫-壯熱煩渴，汗多溺短，脘痞身重，脈洪大。",
+      "source" : {
+        "syndrome" : "暑濕困阻中焦",
+        "page" : 12,
+        "topicLabel" : "溫病條文題庫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑溫兼證",
+        "title" : "暑溫"
+      },
+      "id" : "WBTF-0055",
+      "explanation" : "分層：暑溫兼證\n證型／條目：暑濕困阻中焦",
+      "answer" : "白虎加蒼朮湯",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "阿膠雞子黃湯",
+        "薛氏加減生脈散",
+        "白虎加蒼朮湯",
+        "三加減正氣散"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫兼證",
+        "暑濕困阻中焦",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "prompt" : "暑溫-身熱面赤耳聾，胸悶脘痞，下利稀水，小便短赤，咳痰帶血，不甚渴飲，舌紅赤，苔黃滑。",
+      "source" : {
+        "page" : 12,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "暑濕瀰漫三焦",
+        "section" : "暑溫兼證",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "暑溫"
+      },
+      "options" : [
+        "小陷胸加枳實湯",
+        "三石湯",
+        "加減復脈湯",
+        "雷氏清涼滌暑法"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫兼證",
+        "暑濕瀰漫三焦",
+        "方劑",
+        "條文題庫"
+      ],
+      "explanation" : "分層：暑溫兼證\n證型／條目：暑濕瀰漫三焦",
+      "id" : "WBTF-0056",
+      "answer" : "三石湯",
+      "difficulty" : 2,
+      "category" : "wenbing_formula"
+    },
+    {
+      "source" : {
+        "section" : "暑兼寒濕",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "暑溫",
+        "syndrome" : "外寒與暑邪均等",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 12
+      },
+      "prompt" : "暑溫-頭痛身熱，惡寒無汗，身形拘急，脘悶心煩，舌苔薄膩。",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑兼寒濕",
+        "外寒與暑邪均等",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "連梅湯",
+        "安宮牛黃丸、紫雪丹、至寶丹＋生脈散、參附湯",
+        "薛氏加減生脈散",
+        "新加香薷飲"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "新加香薷飲",
+      "explanation" : "分層：暑兼寒濕\n證型／條目：外寒與暑邪均等",
+      "id" : "WBTF-0057"
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "黃連香薷飲",
+      "explanation" : "分層：暑兼寒濕\n證型／條目：裏暑濕較甚",
+      "id" : "WBTF-0058",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑兼寒濕",
+        "裏暑濕較甚",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "黃連香薷飲",
+        "黃芩滑石湯",
+        "四加減正氣散",
+        "調胃承氣湯＋鮮首烏、鮮生地、鮮石斛"
+      ],
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 12,
+        "syndrome" : "裏暑濕較甚",
+        "section" : "暑兼寒濕",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "暑溫"
+      },
+      "prompt" : "暑溫-凜凜惡寒，身熱煩躁而口渴便溏。"
+    },
+    {
+      "options" : [
+        "清宮湯送服安宮牛黃丸、紫雪丹、至寶丹",
+        "清燥救肺湯",
+        "雷氏清宣金臟法",
+        "四加減正氣散"
+      ],
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "冒暑暑熱傷肺",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "answer" : "雷氏清宣金臟法",
+      "explanation" : "分層：暑溫類證\n證型／條目：冒暑暑熱傷肺",
+      "id" : "WBTF-0059",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "prompt" : "暑溫-暑熱傷肺：身熱口渴，咳嗽無痰，胸悶脅痛，脈濡滑而數，兩寸有力，或頭暈，寒熱汗出，咳嗽，苔薄白微膩。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "冒暑暑熱傷肺",
+        "page" : 12,
+        "title" : "暑溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑溫類證"
+      }
+    },
+    {
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 12,
+        "syndrome" : "冒暑暑濕遏於肺衛",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑溫類證",
+        "title" : "暑溫"
+      },
+      "prompt" : "暑溫-暑濕遏於肺衛，見暑瀉稠黏、小便赤、渴煩、面垢、高燒等。",
+      "category" : "wenbing_formula",
+      "explanation" : "分層：暑溫類證\n證型／條目：冒暑暑濕遏於肺衛",
+      "answer" : "雷氏清涼滌暑法",
+      "id" : "WBTF-0060",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "冒暑暑濕遏於肺衛",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "雷氏清涼滌暑法",
+        "枳實導滯湯",
+        "大承氣湯",
+        "白虎湯＋犀角地黃湯"
+      ]
+    },
+    {
+      "prompt" : "暑溫-暑熱閉塞清竅：猝然暈倒，昏不知人，身熱肢厥，氣粗如喘，不聲不語，牙關微緊或口開，脈洪大或滑數。",
+      "source" : {
+        "page" : 12,
+        "syndrome" : "暑厥",
+        "topicLabel" : "溫病條文題庫",
+        "section" : "暑溫類證",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "暑溫"
+      },
+      "options" : [
+        "安宮牛黃丸、紫雪丹",
+        "犀地清絡飲",
+        "黃連阿膠湯",
+        "雷氏芳香化濁法＋神麴、蒼朮"
+      ],
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "暑厥",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "explanation" : "分層：暑溫類證\n證型／條目：暑厥",
+      "id" : "WBTF-0061",
+      "answer" : "安宮牛黃丸、紫雪丹",
+      "difficulty" : 2,
+      "category" : "wenbing_formula"
+    },
+    {
+      "id" : "WBTF-0062",
+      "explanation" : "分層：暑溫類證\n證型／條目：暑風",
+      "answer" : "羚羊鈎藤湯；清營湯＋羚羊角、鈎藤",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "羚羊鈎藤湯；清營湯＋羚羊角、鈎藤",
+        "生脈散、參附湯配安宮牛黃丸",
+        "白虎加人參湯",
+        "三甲復脈湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "暑風",
+        "方劑",
+        "條文題庫"
+      ],
+      "prompt" : "暑溫-暑熱亢盛，引動肝風：身熱，四肢抽搐，甚或角弓反張，牙關緊閉，神迷不清，脈形弦數。",
+      "source" : {
+        "page" : 12,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "暑風",
+        "title" : "暑溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑溫類證"
+      }
+    },
+    {
+      "source" : {
+        "syndrome" : "暑瘵體實",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 12,
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑溫類證",
+        "title" : "暑溫"
+      },
+      "prompt" : "暑溫-暑熱傷肺，灼傷血絡：驟然吐血、衄血，頭目不清，煩熱口渴，咳嗽氣喘，脈象浮取則洪，中取則空，沈取復有。體實者。",
+      "difficulty" : 2,
+      "id" : "WBTF-0063",
+      "explanation" : "分層：暑溫類證\n證型／條目：暑瘵體實",
+      "answer" : "雷氏清宣金臟法＋苦芩、黑梔",
+      "category" : "wenbing_formula",
+      "options" : [
+        "桑菊飲",
+        "四加減正氣散；五加減正氣散",
+        "新加香薷飲",
+        "雷氏清宣金臟法＋苦芩、黑梔"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "暑瘵體實",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：暑溫類證\n證型／條目：暑瘵體虛",
+      "id" : "WBTF-0064",
+      "answer" : "雷氏卻暑調元法",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "暑瘵體虛",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "雷氏卻暑調元法",
+        "雷氏芳香化濁法",
+        "獨參湯",
+        "神犀丹＋安宮牛黃丸"
+      ],
+      "source" : {
+        "page" : 12,
+        "syndrome" : "暑瘵體虛",
+        "topicLabel" : "溫病條文題庫",
+        "section" : "暑溫類證",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "暑溫"
+      },
+      "prompt" : "暑溫-暑熱傷肺，灼傷血絡，體虛者。"
+    },
+    {
+      "prompt" : "暑溫-暑熱傷肺，灼傷血絡，兼暑濕傷肺者。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑溫類證",
+        "title" : "暑溫",
+        "syndrome" : "暑瘵暑濕傷肺",
+        "page" : 12,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "difficulty" : 2,
+      "explanation" : "分層：暑溫類證\n證型／條目：暑瘵暑濕傷肺",
+      "id" : "WBTF-0065",
+      "answer" : "清絡飲＋杏仁、苡仁、滑石",
+      "category" : "wenbing_formula",
+      "options" : [
+        "雷氏清宣金臟法",
+        "連梅湯",
+        "白虎湯",
+        "清絡飲＋杏仁、苡仁、滑石"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "暑瘵暑濕傷肺",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 12,
+        "syndrome" : "暑穢暑熱重",
+        "section" : "暑溫類證",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "暑溫"
+      },
+      "prompt" : "暑溫-頭痛而脹，胸脘痞悶，煩燥嘔惡，膚熱有汗，甚則神昏耳聾，暑熱重見苔色黃膩、心煩口渴。",
+      "difficulty" : 2,
+      "answer" : "雷氏芳香化濁法＋滑石、甘草",
+      "explanation" : "分層：暑溫類證\n證型／條目：暑穢暑熱重",
+      "id" : "WBTF-0066",
+      "category" : "wenbing_formula",
+      "options" : [
+        "雷氏芳香化濁法＋滑石、甘草",
+        "清宮湯送服安宮牛黃丸、紫雪丹、至寶丹",
+        "杏蘇散",
+        "犀角地黃湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "暑穢暑熱重",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "prompt" : "暑溫-頭痛而脹，胸脘痞悶，煩燥嘔惡，膚熱有汗，甚則神昏耳聾，暑濕重見舌苔白膩、口亦不渴。",
+      "source" : {
+        "page" : 12,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "暑穢暑濕重",
+        "title" : "暑溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑溫類證"
+      },
+      "answer" : "雷氏芳香化濁法＋神麴、蒼朮",
+      "explanation" : "分層：暑溫類證\n證型／條目：暑穢暑濕重",
+      "id" : "WBTF-0067",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "雷氏芳香化濁法＋神麴、蒼朮",
+        "羚羊鈎藤湯",
+        "犀角地黃湯",
+        "銀翹散＋生地、玄參、丹皮"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "暑穢暑濕重",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：暑溫類證\n證型／條目：暑穢穢濁蒙閉清竅",
+      "answer" : "通關散",
+      "id" : "WBTF-0068",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "暑溫類證",
+        "暑穢穢濁蒙閉清竅",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "通關散",
+        "銀翹散＋杏仁、滑石、苡仁、通草",
+        "杏仁滑石湯",
+        "清宮湯（送服）；安宮牛黃丸；紫雪丹；至寶丹"
+      ],
+      "source" : {
+        "syndrome" : "暑穢穢濁蒙閉清竅",
+        "page" : 12,
+        "topicLabel" : "溫病條文題庫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑溫類證",
+        "title" : "暑溫"
+      },
+      "prompt" : "暑溫-穢濁蒙閉清竅。"
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "id" : "WBTF-0069",
+      "explanation" : "分層：溫開之劑\n證型／條目：化痰開竅辟穢毒",
+      "answer" : "玉樞丹",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "暑溫",
+        "溫開之劑",
+        "化痰開竅辟穢毒",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "羚羊鈎藤湯；清營湯＋羚羊角、鈎藤",
+        "導赤承氣湯",
+        "玉樞丹",
+        "半夏瀉心湯－人參、乾薑、甘草、大棗＋枳實、生薑"
+      ],
+      "source" : {
+        "syndrome" : "化痰開竅辟穢毒",
+        "page" : 13,
+        "topicLabel" : "溫病條文題庫",
+        "section" : "溫開之劑",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "暑溫"
+      },
+      "prompt" : "暑溫-溫開之劑，化痰開竅辟穢毒。"
+    },
+    {
+      "source" : {
+        "title" : "濕溫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "syndrome" : "濕遏衛氣（表濕較甚）",
+        "page" : 14,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "濕溫-頭痛重脹，惡寒，身重疼痛，體倦無力，身熱不揚，午後熱象較顯，胸脘痞悶不饑，口不渴，面色淡黃，苔白膩，脈濡緩。",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕遏衛氣（表濕較甚）",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "藿朴夏苓湯",
+        "雷氏芳香化濁法＋神麴、蒼朮",
+        "導赤承氣湯",
+        "雷氏清宣金臟法＋苦芩、黑梔"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在氣分\n證型／條目：濕遏衛氣（表濕較甚）",
+      "answer" : "藿朴夏苓湯",
+      "id" : "WBTF-0070"
+    },
+    {
+      "prompt" : "濕溫-頭痛重脹，惡寒，身重疼痛，體倦無力，身熱不揚，胸脘痞悶不饑，口不渴，苔白膩，脈濡緩，兼裏濕蘊熱。",
+      "source" : {
+        "page" : 14,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "濕遏衛氣（裏濕蘊熱）",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫"
+      },
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕遏衛氣（裏濕蘊熱）",
+      "answer" : "三仁湯",
+      "id" : "WBTF-0071",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕遏衛氣（裏濕蘊熱）",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "三仁湯",
+        "神犀丹＋安宮牛黃丸",
+        "薏苡竹葉散；三仁湯",
+        "五汁飲"
+      ]
+    },
+    {
+      "prompt" : "濕溫-三焦濕鬱，升降失司：脘腹連脹，大便不爽。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "title" : "濕溫",
+        "syndrome" : "三焦濕鬱，升降失司",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 14
+      },
+      "difficulty" : 2,
+      "id" : "WBTF-0072",
+      "explanation" : "分層：邪在氣分\n證型／條目：三焦濕鬱，升降失司",
+      "answer" : "一加減正氣散",
+      "category" : "wenbing_formula",
+      "options" : [
+        "梔子豉湯",
+        "雷氏宣透膜原法",
+        "一加減正氣散",
+        "杏仁滑石湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "三焦濕鬱，升降失司",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "prompt" : "濕溫-濕鬱三焦：脘悶，便溏，身痛，舌白，脈象模糊。",
+      "source" : {
+        "syndrome" : "濕鬱三焦",
+        "page" : 14,
+        "topicLabel" : "溫病條文題庫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫"
+      },
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕鬱三焦",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "黃芩湯",
+        "二加減正氣散",
+        "連梅湯",
+        "雷氏清宣金臟法"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕鬱三焦",
+      "id" : "WBTF-0073",
+      "answer" : "二加減正氣散",
+      "difficulty" : 2
+    },
+    {
+      "source" : {
+        "title" : "濕溫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 14,
+        "syndrome" : "穢濕著裏，外則釀熱"
+      },
+      "prompt" : "濕溫-穢濕著裏：舌黃，脘悶，氣機不宣，外則釀熱。",
+      "explanation" : "分層：邪在氣分\n證型／條目：穢濕著裏，外則釀熱",
+      "id" : "WBTF-0074",
+      "answer" : "三加減正氣散",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "阿膠黃芩湯",
+        "三加減正氣散",
+        "菖蒲鬱金湯",
+        "二甲復脈湯"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "穢濕著裏，外則釀熱",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "explanation" : "分層：邪在氣分\n證型／條目：穢濕著裏，邪阻氣分",
+      "answer" : "四加減正氣散",
+      "id" : "WBTF-0075",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "四加減正氣散；五加減正氣散",
+        "薏苡竹葉散；三仁湯",
+        "四加減正氣散",
+        "王氏連朴飲"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "穢濕著裏，邪阻氣分",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "穢濕著裏，邪阻氣分",
+        "page" : 14,
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫"
+      },
+      "prompt" : "濕溫-穢濕著裏，邪阻氣分：舌白滑，脈右緩。"
+    },
+    {
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 14,
+        "syndrome" : "穢濕著裏，脘悶便瀉",
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分"
+      },
+      "prompt" : "濕溫-穢濕著裏：脘悶，便瀉。",
+      "explanation" : "分層：邪在氣分\n證型／條目：穢濕著裏，脘悶便瀉",
+      "id" : "WBTF-0076",
+      "answer" : "五加減正氣散",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "清營湯送服安宮牛黃丸",
+        "化斑湯",
+        "五加減正氣散",
+        "桑菊飲"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "穢濕著裏，脘悶便瀉",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "category" : "wenbing_formula",
+      "id" : "WBTF-0077",
+      "explanation" : "分層：邪在氣分\n證型／條目：穢濁阻於膜原",
+      "answer" : "雷氏宣透膜原法",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "穢濁阻於膜原",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "牛黃承氣湯",
+        "薛氏加減生脈散",
+        "清咽梔子豉湯",
+        "雷氏宣透膜原法"
+      ],
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "title" : "濕溫",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 14,
+        "syndrome" : "穢濁阻於膜原"
+      },
+      "prompt" : "濕溫-濕邪偏重加穢濁：寒熱往來如瘧狀，寒甚熱微，身痛有汗，手足沉重，嘔逆脹滿，舌苔白厚膩濁或如積粉，脈緩。"
+    },
+    {
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在氣分\n證型／條目：邪留少陽三焦",
+      "answer" : "黃連溫膽湯",
+      "id" : "WBTF-0078",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "邪留少陽三焦",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "王氏清暑益氣湯",
+        "黃連阿膠湯",
+        "白虎湯",
+        "黃連溫膽湯"
+      ],
+      "prompt" : "濕溫-寒熱起伏，胸悶，脘痞腹脹，溲短，苔膩等。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 14,
+        "syndrome" : "邪留少陽三焦",
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分"
+      }
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕困中焦",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "白虎湯＋犀角地黃湯",
+        "清燥救肺湯",
+        "小陷胸加枳實湯",
+        "雷氏芳香化濁法"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕困中焦",
+      "answer" : "雷氏芳香化濁法",
+      "id" : "WBTF-0079",
+      "difficulty" : 2,
+      "source" : {
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫",
+        "page" : 14,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "濕困中焦"
+      },
+      "prompt" : "濕溫-身熱不揚，脘痞腹脹，噁心欲吐，口不渴或渴而不欲飲或渴喜熱飲，大便溏泄，小便混濁，苔白膩，脈濡緩。"
+    },
+    {
+      "prompt" : "濕溫-發熱汗出不解，口渴不欲多飲，脘痞嘔噁，心中煩悶，便清色黃，溲短赤，苔黃膩，脈濡數。",
+      "source" : {
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "syndrome" : "濕熱中阻",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 15
+      },
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕熱中阻",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "王氏連朴飲",
+        "雷氏芳香化濁法＋神麴、蒼朮",
+        "薏苡竹葉散；三仁湯",
+        "羚角鈎藤湯"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕熱中阻",
+      "id" : "WBTF-0080",
+      "answer" : "王氏連朴飲",
+      "difficulty" : 2
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在氣分\n證型／條目：濕熱互結，中焦痞塞",
+      "answer" : "半夏瀉心湯－人參、乾薑、甘草、大棗＋枳實、生薑",
+      "id" : "WBTF-0081",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕熱互結，中焦痞塞",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "雷氏清涼滌暑法",
+        "達原飲＋大黃",
+        "半夏瀉心湯－人參、乾薑、甘草、大棗＋枳實、生薑",
+        "余氏清瘟敗毒飲"
+      ],
+      "source" : {
+        "page" : 15,
+        "syndrome" : "濕熱互結，中焦痞塞",
+        "topicLabel" : "溫病條文題庫",
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分"
+      },
+      "prompt" : "濕溫-嘔甚而痞，濕熱互結，中焦痞塞不通。"
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "杏仁滑石湯",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕熱瀰漫三焦",
+      "id" : "WBTF-0082",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕熱瀰漫三焦",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "三仁湯",
+        "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參",
+        "杏仁滑石湯",
+        "雷氏芳香化濁法＋滑石、甘草"
+      ],
+      "source" : {
+        "syndrome" : "濕熱瀰漫三焦",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 15,
+        "title" : "濕溫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "prompt" : "濕溫-苔灰白，胸痞悶，身熱嘔惡，煩渴自利，汗出溺短。"
+    },
+    {
+      "prompt" : "濕溫-脈緩，舌苔淡黃而滑，身痛，渴不多飲，或竟不渴，汗出熱解，繼而復熱。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "title" : "濕溫",
+        "page" : 15,
+        "syndrome" : "濕熱膠結難解",
+        "topicLabel" : "溫病條文題庫"
+      },
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕熱膠結難解",
+      "answer" : "黃芩滑石湯",
+      "id" : "WBTF-0083",
+      "difficulty" : 2,
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕熱膠結難解",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "參附湯、生脈散送服安宮牛黃丸、至寶丹",
+        "加減復脈湯",
+        "黃連香薷飲",
+        "黃芩滑石湯"
+      ]
+    },
+    {
+      "prompt" : "濕溫-發熱口渴，胸悶腹脹，肢酸倦怠，咽喉腫痛，小便黃赤，或身目發黃，苔黃而膩，脈滑數。",
+      "source" : {
+        "syndrome" : "濕熱蘊毒",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 15,
+        "title" : "濕溫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕熱蘊毒",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "小陷胸加枳實湯",
+        "調胃承氣湯＋鮮首烏、鮮生地、鮮石斛",
+        "甘露消毒丹",
+        "竹葉石膏湯"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕熱蘊毒",
+      "id" : "WBTF-0084",
+      "answer" : "甘露消毒丹",
+      "difficulty" : 2
+    },
+    {
+      "prompt" : "濕溫-發熱身痛，有汗不解，胸脘痞悶欲嘔。苔黃滑膩，胸腹等處發出白㾦。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "濕熱鬱發白㾦",
+        "page" : 15,
+        "title" : "濕溫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕熱鬱發白㾦",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "枳實導滯丸",
+        "王氏連朴飲",
+        "救逆湯",
+        "薏苡竹葉散；三仁湯"
+      ],
+      "category" : "wenbing_formula",
+      "answer" : "薏苡竹葉散；三仁湯",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕熱鬱發白㾦",
+      "id" : "WBTF-0085",
+      "difficulty" : 2
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "白㾦氣液枯竭",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "羚羊鈎藤湯；清營湯＋羚羊角、鈎藤",
+        "五仁橘皮湯",
+        "宣白承氣湯",
+        "生脈散"
+      ],
+      "category" : "wenbing_formula",
+      "answer" : "生脈散",
+      "explanation" : "分層：邪在氣分\n證型／條目：白㾦氣液枯竭",
+      "id" : "WBTF-0086",
+      "difficulty" : 2,
+      "source" : {
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫",
+        "page" : 15,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "白㾦氣液枯竭"
+      },
+      "prompt" : "濕溫-發出枯㾦，㾦色枯白而空殼無漿。"
+    },
+    {
+      "source" : {
+        "page" : 15,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "濕熱釀痰蒙蔽心竅",
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分"
+      },
+      "prompt" : "濕溫-身熱不退，朝輕暮重，神識昏蒙，似清似昧，或時清時昧，時或譫語，舌苔黃膩，脈濡滑而數。",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕熱釀痰蒙蔽心竅",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "宣白承氣湯",
+        "菖蒲鬱金湯",
+        "薛氏加減生脈散",
+        "通關散"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在氣分\n證型／條目：濕熱釀痰蒙蔽心竅",
+      "id" : "WBTF-0087",
+      "answer" : "菖蒲鬱金湯"
+    },
+    {
+      "prompt" : "濕溫-濕大於熱：熱蒸頭脹，小便不通，渴不多飲，苔白膩。",
+      "source" : {
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 15,
+        "syndrome" : "濕阻下焦泌別失職"
+      },
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕阻下焦泌別失職",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "茯苓皮湯",
+        "大定風珠",
+        "錫類散",
+        "翹荷湯"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕阻下焦泌別失職",
+      "answer" : "茯苓皮湯",
+      "id" : "WBTF-0088",
+      "difficulty" : 2
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕阻腸道傳導失司",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "宣清導濁湯",
+        "葛根黃芩黃連湯",
+        "薛氏救陰泄邪方",
+        "一加減正氣散"
+      ],
+      "category" : "wenbing_formula",
+      "answer" : "宣清導濁湯",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕阻腸道傳導失司",
+      "id" : "WBTF-0089",
+      "difficulty" : 2,
+      "prompt" : "濕溫-神識如蒙，少腹硬滿，大便不通，苔垢膩。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "title" : "濕溫",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "濕阻腸道傳導失司",
+        "page" : 15
+      }
+    },
+    {
+      "source" : {
+        "title" : "濕溫",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 15,
+        "syndrome" : "濕熱挾滯內阻胃腸"
+      },
+      "prompt" : "濕溫-身熱不退，胸脘痞悶，腹微痛，大便溏而不爽，舌苔黃濁。",
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "枳實導滯丸",
+      "explanation" : "分層：邪在氣分\n證型／條目：濕熱挾滯內阻胃腸",
+      "id" : "WBTF-0090",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "濕熱挾滯內阻胃腸",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "枳實導滯丸",
+        "茯苓皮湯",
+        "參附湯、生脈散送服安宮牛黃丸、至寶丹",
+        "阿膠黃芩湯"
+      ]
+    },
+    {
+      "explanation" : "分層：邪在氣分\n證型／條目：熱熾陽明，濕困太陰",
+      "answer" : "白虎加蒼朮湯",
+      "id" : "WBTF-0091",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "蒿芩清膽湯",
+        "白虎加蒼朮湯",
+        "四加減正氣散",
+        "加減復脈湯"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "熱熾陽明，濕困太陰",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "source" : {
+        "page" : 15,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱熾陽明，濕困太陰",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "title" : "濕溫"
+      },
+      "prompt" : "濕溫-熱大於濕：高熱汗出，面赤氣粗，口渴欲飲，身重脘痞，苔黃微膩，脈象滑數。"
+    },
+    {
+      "options" : [
+        "小承氣湯等分方",
+        "薛氏救陰泄邪方",
+        "阿膠黃芩湯",
+        "安宮牛黃丸、紫雪丹、至寶丹＋生脈散、參附湯"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在氣分",
+        "陽明熱結兼濕",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "answer" : "小承氣湯等分方",
+      "explanation" : "分層：邪在氣分\n證型／條目：陽明熱結兼濕",
+      "id" : "WBTF-0092",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "prompt" : "濕溫-身熱面赤，口燥咽乾，渴欲飲水，脘痞便秘，苔黃燥，脈沈實。",
+      "source" : {
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫",
+        "page" : 15,
+        "syndrome" : "陽明熱結兼濕",
+        "topicLabel" : "溫病條文題庫"
+      }
+    },
+    {
+      "source" : {
+        "page" : 15,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "濕熱化燥入於心包",
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營血"
+      },
+      "prompt" : "濕溫-痰濕化燥，內陷厥陰，閉阻心包：身熱不退，神昏少有清醒之時，譫語，甚則昏憤不語，舌蹇肢厥，舌質紅絳，苔薄黃少津。",
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在營血\n證型／條目：濕熱化燥入於心包",
+      "id" : "WBTF-0093",
+      "answer" : "加減清宮湯送服紫雪丹、至寶丹",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在營血",
+        "濕熱化燥入於心包",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "黃連阿膠湯",
+        "加減清宮湯送服紫雪丹、至寶丹",
+        "三石湯",
+        "神犀丹＋安宮牛黃丸"
+      ]
+    },
+    {
+      "prompt" : "濕溫-心竅閉阻不開，又突然陽氣外脫：身熱驟退、汗出不止、脈微細。",
+      "source" : {
+        "title" : "濕溫",
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "syndrome" : "濕熱化燥入於心包兼陽氣外脫",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 15
+      },
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在營血",
+        "濕熱化燥入於心包兼陽氣外脫",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "神犀丹＋安宮牛黃丸",
+        "生脈散、參附湯配安宮牛黃丸",
+        "清營湯送服安宮牛黃丸",
+        "四加減正氣散；五加減正氣散"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在營血\n證型／條目：濕熱化燥入於心包兼陽氣外脫",
+      "answer" : "生脈散、參附湯配安宮牛黃丸",
+      "id" : "WBTF-0094",
+      "difficulty" : 2
+    },
+    {
+      "difficulty" : 2,
+      "explanation" : "分層：邪在營血\n證型／條目：濕熱化燥痙厥",
+      "id" : "WBTF-0095",
+      "answer" : "薛氏救陰泄邪方",
+      "category" : "wenbing_formula",
+      "options" : [
+        "葛根黃芩黃連湯",
+        "甘露消毒丹",
+        "犀地清絡飲",
+        "薛氏救陰泄邪方"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在營血",
+        "濕熱化燥痙厥",
+        "方劑",
+        "條文題庫"
+      ],
+      "prompt" : "濕溫-壯熱，口渴，痙搐，昏譫或笑，苔黃，舌紅而燥。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營血",
+        "title" : "濕溫",
+        "syndrome" : "濕熱化燥痙厥",
+        "page" : 15,
+        "topicLabel" : "溫病條文題庫"
+      }
+    },
+    {
+      "source" : {
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 16,
+        "syndrome" : "濕熱化燥大便下血"
+      },
+      "prompt" : "濕溫-灼熱煩躁，便下鮮血，舌質紅絳，脈細數。",
+      "id" : "WBTF-0096",
+      "explanation" : "分層：邪在營血\n證型／條目：濕熱化燥大便下血",
+      "answer" : "犀角地黃湯＋連翹、紫草、茜草根、銀花露、地榆炭、側柏炭",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "犀角地黃湯＋連翹、紫草、茜草根、銀花露、地榆炭、側柏炭",
+        "黃連香薷飲",
+        "桃仁承氣湯",
+        "薛氏加減生脈散"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在營血",
+        "濕熱化燥大便下血",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "source" : {
+        "title" : "濕溫",
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "下血過多氣虛欲脫（益氣固脫）",
+        "page" : 16
+      },
+      "prompt" : "濕溫-大便血出不止，顏面蒼白，汗出肢冷，舌淡無華，脈象微細。",
+      "explanation" : "分層：邪在營血\n證型／條目：下血過多氣虛欲脫（益氣固脫）",
+      "answer" : "獨參湯",
+      "id" : "WBTF-0097",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "羚羊鈎藤湯；清營湯＋羚羊角、鈎藤",
+        "黃連溫膽湯",
+        "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參",
+        "獨參湯"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在營血",
+        "下血過多氣虛欲脫（益氣固脫）",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在營血\n證型／條目：下血過多氣虛欲脫（扶陽益陰養血止血）",
+      "answer" : "黃土湯",
+      "id" : "WBTF-0098",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "邪在營血",
+        "下血過多氣虛欲脫（扶陽益陰養血止血）",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "新加香薷飲",
+        "黃土湯",
+        "三加減正氣散",
+        "安宮牛黃丸、紫雪丹"
+      ],
+      "prompt" : "濕溫-大便血出不止，顏面蒼白，汗出肢冷，舌淡無華，脈象微細。",
+      "source" : {
+        "syndrome" : "下血過多氣虛欲脫（扶陽益陰養血止血）",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 16,
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "濕溫"
+      }
+    },
+    {
+      "explanation" : "分層：濕邪寒化\n證型／條目：濕困脾陽",
+      "answer" : "四加減正氣散；五加減正氣散",
+      "id" : "WBTF-0099",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "雷氏清涼滌暑法",
+        "枳實導滯湯",
+        "白虎加人參湯",
+        "四加減正氣散；五加減正氣散"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "濕邪寒化",
+        "濕困脾陽",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "prompt" : "濕溫-脘腹脹滿，大便不爽，或溏瀉，食少無味，舌苔白膩而滑，脈緩遲。",
+      "source" : {
+        "title" : "濕溫",
+        "section" : "濕邪寒化",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "page" : 16,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "濕困脾陽"
+      }
+    },
+    {
+      "source" : {
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "濕邪寒化",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "濕勝陽微",
+        "page" : 16
+      },
+      "prompt" : "濕溫-身冷，汗泄，胸痞，口渴，苔白膩，舌淡滑，脈沈細。",
+      "difficulty" : 2,
+      "answer" : "薛氏扶陽逐濕湯；真武湯",
+      "explanation" : "分層：濕邪寒化\n證型／條目：濕勝陽微",
+      "id" : "WBTF-0100",
+      "category" : "wenbing_formula",
+      "options" : [
+        "沙參麥冬湯",
+        "白虎湯＋羚角、鈎藤；調胃承氣湯＋羚角、鈎藤",
+        "薛氏扶陽逐濕湯；真武湯",
+        "調胃承氣湯＋鮮首烏、鮮生地、鮮石斛"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "濕邪寒化",
+        "濕勝陽微",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "difficulty" : 2,
+      "explanation" : "分層：後期調治\n證型／條目：餘邪未淨",
+      "answer" : "薛氏五葉蘆根湯",
+      "id" : "WBTF-0101",
+      "category" : "wenbing_formula",
+      "options" : [
+        "薛氏五葉蘆根湯",
+        "獨參湯",
+        "導赤承氣湯",
+        "青蒿鱉甲湯"
+      ],
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "後期調治",
+        "餘邪未淨",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "source" : {
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "後期調治",
+        "syndrome" : "餘邪未淨",
+        "page" : 16,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "濕溫-身熱已退，脘中微悶，知饑不食，苔薄膩。"
+    },
+    {
+      "explanation" : "分層：後期調治\n證型／條目：邪退正虛",
+      "id" : "WBTF-0102",
+      "answer" : "薛氏加減生脈散",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "黃連阿膠湯",
+        "宣白承氣湯",
+        "雷氏清涼滌暑法",
+        "薛氏加減生脈散"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "濕溫",
+        "後期調治",
+        "邪退正虛",
+        "方劑",
+        "條文題庫"
+      ],
+      "source" : {
+        "page" : 16,
+        "syndrome" : "邪退正虛",
+        "topicLabel" : "溫病條文題庫",
+        "title" : "濕溫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "後期調治"
+      },
+      "prompt" : "濕溫-身熱已退，神疲倦語，不思食，小便短少，唇齒乾，舌紅苔少，脈細弱。"
+    },
+    {
+      "prompt" : "伏暑-外有表邪，裡有暑濕：頭痛惡寒，發熱無汗，心煩口渴，小溲短赤，脘痞苔膩。",
+      "source" : {
+        "title" : "伏暑",
+        "section" : "裏熱兼表證",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "page" : 16,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "氣分兼表（裡有暑濕）"
+      },
+      "tags" : [
+        "溫病",
+        "伏暑",
+        "裏熱兼表證",
+        "氣分兼表（裡有暑濕）",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "犀角地黃湯",
+        "普濟消毒飲",
+        "新加香薷飲",
+        "黃連香薷飲"
+      ],
+      "category" : "wenbing_formula",
+      "id" : "WBTF-0103",
+      "explanation" : "分層：裏熱兼表證\n證型／條目：氣分兼表（裡有暑濕）",
+      "answer" : "黃連香薷飲",
+      "difficulty" : 2
+    },
+    {
+      "prompt" : "伏暑-衛分表熱較重，暑濕見證不甚：發熱重，微惡寒，舌白滑，口渴無汗。",
+      "source" : {
+        "title" : "伏暑",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "裏熱兼表證",
+        "page" : 16,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "氣分兼表（衛分表熱較重）"
+      },
+      "options" : [
+        "導赤清心湯",
+        "銀翹散＋杏仁、滑石、苡仁、通草",
+        "薛氏五葉蘆根湯",
+        "三仁湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "伏暑",
+        "裏熱兼表證",
+        "氣分兼表（衛分表熱較重）",
+        "方劑",
+        "條文題庫"
+      ],
+      "difficulty" : 2,
+      "answer" : "銀翹散＋杏仁、滑石、苡仁、通草",
+      "explanation" : "分層：裏熱兼表證\n證型／條目：氣分兼表（衛分表熱較重）",
+      "id" : "WBTF-0104",
+      "category" : "wenbing_formula"
+    },
+    {
+      "prompt" : "伏暑-發熱微惡寒，頭痛少汗，口乾不渴，心煩，舌赤無苔。",
+      "source" : {
+        "page" : 17,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "營分兼表",
+        "title" : "伏暑",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "裏熱兼表證"
+      },
+      "explanation" : "分層：裏熱兼表證\n證型／條目：營分兼表",
+      "id" : "WBTF-0105",
+      "answer" : "銀翹散＋生地、丹皮、赤芍、麥冬",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "半夏瀉心湯－人參、乾薑、甘草、大棗＋枳實、生薑",
+        "杏仁滑石湯",
+        "銀翹散＋生地、丹皮、赤芍、麥冬",
+        "玉鑰匙"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "伏暑",
+        "裏熱兼表證",
+        "營分兼表",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "source" : {
+        "page" : 17,
+        "syndrome" : "邪在少陽膽經",
+        "topicLabel" : "溫病條文題庫",
+        "title" : "伏暑",
+        "section" : "裏熱兼表證",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "prompt" : "伏暑-寒熱似瘧，口渴心煩，脘痞苔膩，身熱午後較重，入暮尤劇，天明得汗，諸候稍減，但胸腹灼熱，始終不除。",
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "蒿芩清膽湯",
+      "explanation" : "分層：裏熱兼表證\n證型／條目：邪在少陽膽經",
+      "id" : "WBTF-0106",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "伏暑",
+        "裏熱兼表證",
+        "邪在少陽膽經",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "菖蒲鬱金湯",
+        "蒿芩清膽湯",
+        "導赤清心湯",
+        "清咽梔子豉湯"
+      ]
+    },
+    {
+      "prompt" : "伏暑-胸腹灼熱，嘔噁，便溏不爽，色黃如醬，苔黃垢膩。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 17,
+        "syndrome" : "濕熱挾滯阻於胃腸",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱結胃腸",
+        "title" : "伏暑"
+      },
+      "difficulty" : 2,
+      "explanation" : "分層：熱結胃腸\n證型／條目：濕熱挾滯阻於胃腸",
+      "id" : "WBTF-0107",
+      "answer" : "枳實導滯湯",
+      "category" : "wenbing_formula",
+      "options" : [
+        "枳實導滯湯",
+        "三仁湯",
+        "參附湯、生脈散送服安宮牛黃丸、至寶丹",
+        "生脈散、參附湯配安宮牛黃丸"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "伏暑",
+        "熱結胃腸",
+        "濕熱挾滯阻於胃腸",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "options" : [
+        "清宮湯＋羚角、鈎藤、丹皮；紫雪丹",
+        "導赤承氣湯",
+        "三黃二香散",
+        "涼膈散"
+      ],
+      "tags" : [
+        "溫病",
+        "伏暑",
+        "熱結胃腸",
+        "陽明腑實，小腸熱結",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "difficulty" : 2,
+      "explanation" : "分層：熱結胃腸\n證型／條目：陽明腑實，小腸熱結",
+      "answer" : "導赤承氣湯",
+      "id" : "WBTF-0108",
+      "category" : "wenbing_formula",
+      "source" : {
+        "syndrome" : "陽明腑實，小腸熱結",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 17,
+        "title" : "伏暑",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "熱結胃腸"
+      },
+      "prompt" : "伏暑-陽明腑實：身熱，煩渴，腹滿痛拒按，苔黃燥。小腸熱結：小便短赤而痛。"
+    },
+    {
+      "id" : "WBTF-0109",
+      "explanation" : "分層：邪在營血\n證型／條目：熱在心營下移小腸",
+      "answer" : "導赤清心湯",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "導赤清心湯",
+        "枳實導滯丸",
+        "桃仁承氣湯",
+        "清宮湯送服安宮牛黃丸、紫雪丹、至寶丹"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "伏暑",
+        "邪在營血",
+        "熱在心營下移小腸",
+        "方劑",
+        "條文題庫"
+      ],
+      "prompt" : "伏暑-發熱日輕夜重，心煩不寐、口乾、渴不欲飲，小溲短赤熱痛，舌絳等。",
+      "source" : {
+        "page" : 17,
+        "syndrome" : "熱在心營下移小腸",
+        "topicLabel" : "溫病條文題庫",
+        "title" : "伏暑",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營血"
+      }
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "id" : "WBTF-0110",
+      "explanation" : "分層：邪在營血\n證型／條目：熱閉心包血絡瘀滯",
+      "answer" : "犀地清絡飲",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "伏暑",
+        "邪在營血",
+        "熱閉心包血絡瘀滯",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "神犀丹＋安宮牛黃丸",
+        "雷氏卻暑調元法",
+        "白虎湯＋羚角、鈎藤；調胃承氣湯＋羚角、鈎藤",
+        "犀地清絡飲"
+      ],
+      "prompt" : "伏暑-發熱夜甚，神昏譫語。漱水不欲嚥，舌絳無苔，望之若乾，捫之尚潤，或紫晦而潤等。",
+      "source" : {
+        "page" : 17,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱閉心包血絡瘀滯",
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "伏暑"
+      }
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在肺衛\n證型／條目：溫燥",
+      "answer" : "桑杏湯",
+      "id" : "WBTF-0111",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在肺衛",
+        "溫燥",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "白虎加人參湯",
+        "三甲復脈湯",
+        "翹荷湯",
+        "桑杏湯"
+      ],
+      "prompt" : "秋燥-發熱，微惡風寒，頭痛，少汗，咳嗽少痰，咽乾鼻燥，口渴，苔白舌紅，右脈數大。",
+      "source" : {
+        "syndrome" : "溫燥",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 18,
+        "title" : "秋燥",
+        "section" : "邪在肺衛",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      }
+    },
+    {
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪在肺衛\n證型／條目：溫燥輕淺",
+      "answer" : "桑菊飲",
+      "id" : "WBTF-0112",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在肺衛",
+        "溫燥輕淺",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "桑菊飲",
+        "三仁湯",
+        "蔥豉桔梗湯＋黃芩",
+        "清營湯送服安宮牛黃丸"
+      ],
+      "prompt" : "秋燥-感燥而咳嗽，其證情尚較輕淺。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "溫燥輕淺",
+        "page" : 18,
+        "section" : "邪在肺衛",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "秋燥"
+      }
+    },
+    {
+      "difficulty" : 2,
+      "id" : "WBTF-0113",
+      "explanation" : "分層：邪在肺衛\n證型／條目：涼燥",
+      "answer" : "杏蘇散",
+      "category" : "wenbing_formula",
+      "options" : [
+        "白虎湯＋犀角地黃湯",
+        "大承氣湯",
+        "清咽養營湯",
+        "杏蘇散"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在肺衛",
+        "涼燥",
+        "方劑",
+        "條文題庫"
+      ],
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 18,
+        "syndrome" : "涼燥",
+        "title" : "秋燥",
+        "section" : "邪在肺衛",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "prompt" : "秋燥-發熱，惡寒較重，頭痛，無汗，鼻塞，咽乾唇燥，口不作渴，咳嗽稀痰等。苔薄白而乾，舌質未有變化。"
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "id" : "WBTF-0114",
+      "explanation" : "分層：邪在氣分\n證型／條目：燥干清竅",
+      "answer" : "翹荷湯",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在氣分",
+        "燥干清竅",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "翹荷湯",
+        "羚羊鈎藤湯",
+        "清燥救肺湯",
+        "白虎加蒼朮湯"
+      ],
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 18,
+        "syndrome" : "燥干清竅",
+        "title" : "秋燥",
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "prompt" : "秋燥-耳鳴、目赤、齦腫、咽痛等。"
+    },
+    {
+      "category" : "wenbing_formula",
+      "id" : "WBTF-0115",
+      "explanation" : "分層：邪在氣分\n證型／條目：燥熱傷肺",
+      "answer" : "清燥救肺湯",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在氣分",
+        "燥熱傷肺",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "蒿芩清膽湯",
+        "茯苓皮湯",
+        "清燥救肺湯",
+        "雷氏芳香化濁法＋滑石、甘草"
+      ],
+      "prompt" : "秋燥-身熱，乾咳無痰，咳嗽而喘，咽喉乾燥，鼻燥，胸滿脅痛，心煩口渴，舌苔薄白而燥，舌質邊尖紅赤等。",
+      "source" : {
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "秋燥",
+        "page" : 18,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "燥熱傷肺"
+      }
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在氣分",
+        "肺胃陰傷",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "安宮牛黃丸、紫雪丹",
+        "錫類散",
+        "白虎湯",
+        "沙參麥冬湯"
+      ],
+      "category" : "wenbing_formula",
+      "id" : "WBTF-0116",
+      "explanation" : "分層：邪在氣分\n證型／條目：肺胃陰傷",
+      "answer" : "沙參麥冬湯",
+      "difficulty" : 2,
+      "prompt" : "秋燥-津傷為主，燥熱較輕：身熱不甚，乾咳不已，無痰，口舌乾燥而渴。",
+      "source" : {
+        "syndrome" : "肺胃陰傷",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 18,
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "title" : "秋燥"
+      }
+    },
+    {
+      "prompt" : "秋燥-肺胃陰傷，津傷而邪熱較輕，可滋養肺胃津液。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "page" : 18,
+        "syndrome" : "肺胃陰傷津傷",
+        "title" : "秋燥",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分"
+      },
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在氣分",
+        "肺胃陰傷津傷",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "一甲復脈湯",
+        "雷氏宣透膜原法",
+        "葛根黃芩黃連湯",
+        "五汁飲"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：邪在氣分\n證型／條目：肺胃陰傷津傷",
+      "id" : "WBTF-0117",
+      "answer" : "五汁飲"
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在氣分",
+        "肺燥腸閉",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參",
+        "五仁橘皮湯",
+        "阿膠雞子黃湯",
+        "水仙膏"
+      ],
+      "category" : "wenbing_formula",
+      "id" : "WBTF-0118",
+      "explanation" : "分層：邪在氣分\n證型／條目：肺燥腸閉",
+      "answer" : "五仁橘皮湯",
+      "difficulty" : 2,
+      "prompt" : "秋燥-咳嗽不爽而多痰，胸腹脹滿，便秘等。",
+      "source" : {
+        "title" : "秋燥",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在氣分",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "肺燥腸閉",
+        "page" : 19
+      }
+    },
+    {
+      "prompt" : "秋燥-便秘，腹脹，神昏譫語，苔黑乾燥。",
+      "source" : {
+        "section" : "邪在氣分",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "秋燥",
+        "syndrome" : "腑實津傷",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 19
+      },
+      "options" : [
+        "調胃承氣湯＋鮮首烏、鮮生地、鮮石斛",
+        "新加黃龍湯",
+        "清宮湯＋羚角、鈎藤、丹皮；紫雪丹",
+        "王氏連朴飲"
+      ],
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在氣分",
+        "腑實津傷",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "explanation" : "分層：邪在氣分\n證型／條目：腑實津傷",
+      "answer" : "調胃承氣湯＋鮮首烏、鮮生地、鮮石斛",
+      "id" : "WBTF-0119",
+      "difficulty" : 2,
+      "category" : "wenbing_formula"
+    },
+    {
+      "source" : {
+        "title" : "秋燥",
+        "section" : "邪在營血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 19,
+        "syndrome" : "肺燥腸熱絡傷咳血"
+      },
+      "prompt" : "秋燥-初起喉癢乾咳，繼則因咳甚而痰黏帶血，胸脅牽痛，腹部灼熱，大便泄瀉。",
+      "category" : "wenbing_formula",
+      "answer" : "阿膠黃芩湯",
+      "explanation" : "分層：邪在營血\n證型／條目：肺燥腸熱絡傷咳血",
+      "id" : "WBTF-0120",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在營血",
+        "肺燥腸熱絡傷咳血",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "五仁橘皮湯",
+        "茯苓皮湯",
+        "阿膠黃芩湯",
+        "神犀丹＋安宮牛黃丸"
+      ]
+    },
+    {
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪在營血",
+        "title" : "秋燥",
+        "syndrome" : "氣血兩燔",
+        "page" : 19,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "秋燥-身熱，口渴，煩燥不安，甚或吐血衄血，苔黃舌絳。",
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "加減玉女煎",
+      "explanation" : "分層：邪在營血\n證型／條目：氣血兩燔",
+      "id" : "WBTF-0121",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "秋燥",
+        "邪在營血",
+        "氣血兩燔",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "銀翹散",
+        "導赤承氣湯",
+        "加減玉女煎",
+        "銀翹散＋杏仁、滑石、苡仁、通草"
+      ]
+    },
+    {
+      "answer" : "普濟消毒飲",
+      "explanation" : "分層：衛氣同病\n證型／條目：衛氣同病",
+      "id" : "WBTF-0122",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "導赤清心湯",
+        "普濟消毒飲",
+        "王氏清暑益氣湯",
+        "白虎湯＋犀角地黃湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫毒－大頭瘟",
+        "衛氣同病",
+        "方劑",
+        "條文題庫"
+      ],
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "衛氣同病",
+        "page" : 20,
+        "title" : "溫毒－大頭瘟",
+        "section" : "衛氣同病",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "prompt" : "溫毒－大頭瘟-風熱時毒自口鼻而入，衛受邪鬱，氣分熱毒蒸迫，肺胃受病；頭面紅腫疼痛，甚則潰爛。"
+    },
+    {
+      "prompt" : "溫毒－大頭瘟-頭面紅腫疼痛，需拔毒外出。",
+      "source" : {
+        "page" : 20,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "拔毒外出外治",
+        "title" : "溫毒－大頭瘟",
+        "section" : "衛氣同病",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "difficulty" : 2,
+      "explanation" : "分層：衛氣同病\n證型／條目：拔毒外出外治",
+      "answer" : "水仙膏",
+      "id" : "WBTF-0123",
+      "category" : "wenbing_formula",
+      "options" : [
+        "犀地清絡飲",
+        "水仙膏",
+        "普濟消毒飲",
+        "黃土湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫毒－大頭瘟",
+        "衛氣同病",
+        "拔毒外出外治",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "options" : [
+        "三黃二香散",
+        "黃連香薷飲",
+        "王氏清暑益氣湯",
+        "一加減正氣散"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫毒－大頭瘟",
+        "衛氣同病",
+        "腫未盡清外治",
+        "方劑",
+        "條文題庫"
+      ],
+      "difficulty" : 2,
+      "explanation" : "分層：衛氣同病\n證型／條目：腫未盡清外治",
+      "answer" : "三黃二香散",
+      "id" : "WBTF-0124",
+      "category" : "wenbing_formula",
+      "source" : {
+        "page" : 20,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "腫未盡清外治",
+        "section" : "衛氣同病",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "溫毒－大頭瘟"
+      },
+      "prompt" : "溫毒－大頭瘟-塗水仙膏後，腫未盡清。"
+    },
+    {
+      "source" : {
+        "title" : "溫毒－爛喉痧",
+        "section" : "毒侵肺胃",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "syndrome" : "表邪重",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 20
+      },
+      "prompt" : "溫毒－爛喉痧-初起憎寒發熱，繼即壯熱煩渴，咽喉紅腫疼痛，甚或潰爛，肌膚疳痧隱約，苔白乾燥。舌紅如朱，脈弦數，或沉數，或沉弦不數；表邪重。",
+      "difficulty" : 2,
+      "explanation" : "分層：毒侵肺胃\n證型／條目：表邪重",
+      "answer" : "清咽湯",
+      "id" : "WBTF-0125",
+      "category" : "wenbing_formula",
+      "options" : [
+        "清燥救肺湯",
+        "蒿芩清膽湯",
+        "清咽湯",
+        "薏苡竹葉散；三仁湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫毒－爛喉痧",
+        "毒侵肺胃",
+        "表邪重",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "source" : {
+        "syndrome" : "裏熱重",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 20,
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "毒侵肺胃",
+        "title" : "溫毒－爛喉痧"
+      },
+      "prompt" : "溫毒－爛喉痧-初起憎寒發熱，繼即壯熱煩渴，咽喉紅腫疼痛，甚或潰爛，肌膚疳痧隱約，苔白乾燥。舌紅如朱，脈弦數，或沉數，或沉弦不數；裏熱重。",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫毒－爛喉痧",
+        "毒侵肺胃",
+        "裏熱重",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "加減清宮湯送服紫雪丹、至寶丹",
+        "宣白承氣湯",
+        "清咽梔子豉湯",
+        "翹荷湯"
+      ],
+      "category" : "wenbing_formula",
+      "answer" : "清咽梔子豉湯",
+      "explanation" : "分層：毒侵肺胃\n證型／條目：裏熱重",
+      "id" : "WBTF-0126",
+      "difficulty" : 2
+    },
+    {
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "毒侵肺胃",
+        "title" : "溫毒－爛喉痧",
+        "syndrome" : "吹喉解毒消腫",
+        "page" : 20,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "溫毒－爛喉痧-咽喉紅腫疼痛，甚或潰爛，需要吹喉解毒消腫。",
+      "id" : "WBTF-0127",
+      "explanation" : "分層：毒侵肺胃\n證型／條目：吹喉解毒消腫",
+      "answer" : "玉鑰匙",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "清咽養營湯",
+        "導赤清心湯",
+        "玉鑰匙",
+        "牛黃承氣湯"
+      ],
+      "tags" : [
+        "溫病",
+        "溫毒－爛喉痧",
+        "毒侵肺胃",
+        "吹喉解毒消腫",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice"
+    },
+    {
+      "id" : "WBTF-0128",
+      "explanation" : "分層：毒壅上焦\n證型／條目：毒壅上焦",
+      "answer" : "余氏清心涼膈散",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "銀翹散",
+        "一甲復脈湯",
+        "牛黃承氣湯",
+        "余氏清心涼膈散"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫毒－爛喉痧",
+        "毒壅上焦",
+        "方劑",
+        "條文題庫"
+      ],
+      "prompt" : "溫毒－爛喉痧-壯熱，口渴，煩躁，咽喉紅腫腐爛，舌紅苔黃。",
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "毒壅上焦",
+        "title" : "溫毒－爛喉痧",
+        "syndrome" : "毒壅上焦",
+        "page" : 20,
+        "topicLabel" : "溫病條文題庫"
+      }
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫毒－爛喉痧",
+        "毒壅上焦",
+        "祛腐生新",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "增液承氣湯",
+        "錫類散",
+        "桑菊飲",
+        "大定風珠"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：毒壅上焦\n證型／條目：祛腐生新",
+      "id" : "WBTF-0129",
+      "answer" : "錫類散",
+      "difficulty" : 2,
+      "prompt" : "溫毒－爛喉痧-咽喉紅腫腐爛，需要清熱解毒、祛腐生新。",
+      "source" : {
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "祛腐生新",
+        "page" : 20,
+        "section" : "毒壅上焦",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "溫毒－爛喉痧"
+      }
+    },
+    {
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：毒燔氣血\n證型／條目：毒燔氣血",
+      "answer" : "丁氏涼營清氣湯",
+      "id" : "WBTF-0130",
+      "tags" : [
+        "溫病",
+        "溫毒－爛喉痧",
+        "毒燔氣血",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "麻杏石甘湯",
+        "清絡飲＋杏仁、苡仁、滑石",
+        "犀角地黃湯＋連翹、紫草、茜草根、銀花露、地榆炭、側柏炭",
+        "丁氏涼營清氣湯"
+      ],
+      "prompt" : "溫毒－爛喉痧-咽喉紅腫腐爛，阻塞不通，疳痧密布，紅暈如斑，壯熱，汗多，口渴，煩燥，舌絳乾燥等。",
+      "source" : {
+        "title" : "溫毒－爛喉痧",
+        "section" : "毒燔氣血",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 21,
+        "syndrome" : "毒燔氣血"
+      }
+    },
+    {
+      "source" : {
+        "syndrome" : "餘毒傷陰",
+        "page" : 21,
+        "topicLabel" : "溫病條文題庫",
+        "section" : "餘毒傷陰",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "溫毒－爛喉痧"
+      },
+      "prompt" : "溫毒－爛喉痧-咽喉腐爛疼痛，壯熱已除，惟午後仍熱，脈象細數，舌紅而乾。",
+      "tags" : [
+        "溫病",
+        "溫毒－爛喉痧",
+        "餘毒傷陰",
+        "方劑",
+        "條文題庫"
+      ],
+      "kind" : "text_choice",
+      "options" : [
+        "清咽養營湯",
+        "雷氏清涼滌暑法",
+        "羚羊鈎藤湯；清營湯＋羚羊角、鈎藤",
+        "雷氏清宣金臟法＋苦芩、黑梔"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：餘毒傷陰\n證型／條目：餘毒傷陰",
+      "id" : "WBTF-0131",
+      "answer" : "清咽養營湯"
+    },
+    {
+      "source" : {
+        "title" : "溫疫－濕熱疫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪遏膜原",
+        "page" : 22,
+        "syndrome" : "邪遏膜原",
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "溫疫－濕熱疫-初起憎寒壯熱，嗣後但熱不寒，晝夜發熱，日晡益甚，頭痛身痛。其脈不浮不沈而數，苔白如積粉，舌質紅絳。",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫疫－濕熱疫",
+        "邪遏膜原",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "達原飲",
+        "清營湯",
+        "甘露消毒丹",
+        "生脈散、參附湯配安宮牛黃丸"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "answer" : "達原飲",
+      "explanation" : "分層：邪遏膜原\n證型／條目：邪遏膜原",
+      "id" : "WBTF-0132"
+    },
+    {
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫疫－濕熱疫",
+        "邪遏膜原",
+        "邪遏膜原內傳陽明化燥",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "達原飲＋大黃",
+        "三石湯",
+        "通關散",
+        "銀翹散"
+      ],
+      "category" : "wenbing_formula",
+      "explanation" : "分層：邪遏膜原\n證型／條目：邪遏膜原內傳陽明化燥",
+      "id" : "WBTF-0133",
+      "answer" : "達原飲＋大黃",
+      "difficulty" : 2,
+      "source" : {
+        "title" : "溫疫－濕熱疫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪遏膜原",
+        "topicLabel" : "溫病條文題庫",
+        "page" : 22,
+        "syndrome" : "邪遏膜原內傳陽明化燥"
+      },
+      "prompt" : "溫疫－濕熱疫-服達原飲後，舌變黃色，胸膈滿痛，人口渴煩躁；濕熱之邪內傳陽明，逐漸化燥阻塞胃腑，而膜原之邪仍錮結未解。"
+    },
+    {
+      "id" : "WBTF-0134",
+      "explanation" : "分層：邪傳陽明\n證型／條目：陽明氣熱",
+      "answer" : "白虎湯",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "二甲復脈湯",
+        "白虎湯",
+        "丁氏涼營清氣湯",
+        "銀翹散"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫疫－濕熱疫",
+        "邪傳陽明",
+        "陽明氣熱",
+        "方劑",
+        "條文題庫"
+      ],
+      "source" : {
+        "syndrome" : "陽明氣熱",
+        "page" : 22,
+        "topicLabel" : "溫病條文題庫",
+        "title" : "溫疫－濕熱疫",
+        "section" : "邪傳陽明",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf"
+      },
+      "prompt" : "溫疫－濕熱疫-壯熱口渴，大汗出，舌苔黃，脈洪數。"
+    },
+    {
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "邪傳陽明",
+        "title" : "溫疫－濕熱疫",
+        "syndrome" : "熱結胃腑",
+        "page" : 22,
+        "topicLabel" : "溫病條文題庫"
+      },
+      "prompt" : "溫疫－濕熱疫-煩渴身熱，午後復加，煩燥熱盛，鼻如煙煤，舌變黑生刺。",
+      "explanation" : "分層：邪傳陽明\n證型／條目：熱結胃腑",
+      "answer" : "大承氣湯",
+      "id" : "WBTF-0135",
+      "difficulty" : 2,
+      "category" : "wenbing_formula",
+      "options" : [
+        "銀翹散－荊芥、豆豉＋生地、丹皮、大青葉、玄參",
+        "銀翹散＋杏仁、滑石、苡仁、通草",
+        "大承氣湯",
+        "黃芩湯"
+      ],
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫疫－濕熱疫",
+        "邪傳陽明",
+        "熱結胃腑",
+        "方劑",
+        "條文題庫"
+      ]
+    },
+    {
+      "source" : {
+        "section" : "暑燥疫",
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "title" : "溫疫－暑燥疫",
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱毒充斥表裏",
+        "page" : 22
+      },
+      "prompt" : "溫疫－暑燥疫-身大熱，頭痛如劈，兩目昏瞀，或狂躁譫妄，口乾咽痛，骨節煩疼，腰如被杖，或吐衄發斑，舌絳苔焦，或生芒刺，脈浮大而數或沈數，或六脈沈細而數。",
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫疫－暑燥疫",
+        "暑燥疫",
+        "熱毒充斥表裏",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "救逆湯",
+        "清營湯",
+        "余氏清瘟敗毒飲",
+        "清絡飲＋杏仁、苡仁、滑石"
+      ],
+      "category" : "wenbing_formula",
+      "difficulty" : 2,
+      "explanation" : "分層：暑燥疫\n證型／條目：熱毒充斥表裏",
+      "answer" : "余氏清瘟敗毒飲",
+      "id" : "WBTF-0136"
+    },
+    {
+      "category" : "wenbing_formula",
+      "id" : "WBTF-0137",
+      "explanation" : "分層：暑燥疫\n證型／條目：熱毒漫延臟腑",
+      "answer" : "十全苦寒救補湯",
+      "difficulty" : 2,
+      "kind" : "text_choice",
+      "tags" : [
+        "溫病",
+        "溫疫－暑燥疫",
+        "暑燥疫",
+        "熱毒漫延臟腑",
+        "方劑",
+        "條文題庫"
+      ],
+      "options" : [
+        "大承氣湯",
+        "銀翹散＋生地、丹皮、赤芍、麥冬",
+        "清咽養營湯",
+        "十全苦寒救補湯"
+      ],
+      "source" : {
+        "pdf" : "★佑_溫病學整理+溫病的治法(jujubear)(補完 佑_溫病學整理).pdf",
+        "section" : "暑燥疫",
+        "title" : "溫疫－暑燥疫",
+        "page" : 22,
+        "topicLabel" : "溫病條文題庫",
+        "syndrome" : "熱毒漫延臟腑"
+      },
+      "prompt" : "溫疫－暑燥疫-大熱大渴，口開吹氣，或絞腸痛絕，或頭腦脹痛欲死，或口噤不言，或渾身發臭難聞。或猝然仆地不省人事，雙目直視，脈亂，舌乾黑無苔，或紅裂，或黑苔起瓣，或舌有灰暈。"
+    }
 ];
