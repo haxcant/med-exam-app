@@ -1,4 +1,4 @@
-const CACHE_NAME = 'med-exam-app-v0.1.22-ai-verify';
+const CACHE_NAME = 'med-exam-app-v0.1.23-ai-verify-prompt';
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -6,8 +6,8 @@ const CORE_ASSETS = [
   "./firebase-debug.html",
   "./styles.css",
   "./memory-bridge.js?v=20260425med020",
-  "./app.js?v=20260425aiverify22",
-  "./med_questions.js?v=20260425vernacular15",
+  "./app.js?v=20260425ai23",
+  "./med_questions.js?v=20260425yizong21",
   "./manifest.webmanifest",
   "./firebase-init.js",
   "./firebase-auth.js?v=20260425med020",
