@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260425fix34">
+  <link rel="stylesheet" href="styles.css?v=20260425fix35">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.34：修正淺色、木頭與復古遊戲主題的未套色框線，保留原版清爽主題，並維持三題庫與同步功能。</p>
+            <p id="versionSummary">v0.1.35：強化非原版主題答對／答錯辨識度，補齊考試面板淺色主題配色，並新增積分篩選說明。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -162,6 +162,10 @@
         <button id="quickFilterClearBtn" type="button" class="ghost-btn">清除快捷篩選</button>
       </div>
       <p class="scope-summary subtle" style="margin-top:8px;">快捷按鈕會直接套用進階設定中的積分篩選，不會與原本的進階功能衝突。</p>
+      <div class="score-guide-box">
+        <strong>積分篩選怎麼用</strong>
+        <p>每題答對會加分，答錯、逾時或選「不會」會扣分。你可以指定某個積分區間拿去考，常用流程是：先練「積分 = 0」把全部題目掃過一次，再練「積分 &lt; 0」直到低分題清空，之後依序練「積分 &lt; 1」、「積分 &lt; 2」，把還不穩的題目逐步補起來。</p>
+      </div>
       <p id="scopeSummary" class="scope-summary">正式筆試模式只出普通小型車官方筆試題庫。</p>
       <p id="filterSummary" class="scope-summary subtle">目前未啟用積分篩選。</p>
       <input type="checkbox" id="maskTextToggle" hidden>
@@ -431,10 +435,10 @@
       <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
     </section>
   </div>
-  <script src="med_questions.js?v=20260425fix34"></script>
-  <script src="memory-bridge.js?v=20260425fix34"></script>
-  <script src="app.js?v=20260425fix34"></script>
-  <script type="module" src="firebase-ui.js?v=20260425fix34"></script>
+  <script src="med_questions.js?v=20260425fix35"></script>
+  <script src="memory-bridge.js?v=20260425fix35"></script>
+  <script src="app.js?v=20260425fix35"></script>
+  <script type="module" src="firebase-ui.js?v=20260425fix35"></script>
   <script>
     // v0.1.29 emergency boot guard: if the main app failed to define its API,
     // show recovery controls instead of leaving users with a silent empty page.
@@ -460,7 +464,7 @@
             }));
           }
           Promise.allSettled(jobs).finally(function () {
-            location.replace(location.pathname + '?v=20260425fix34-reload-' + Date.now());
+            location.replace(location.pathname + '?v=20260425fix35-reload-' + Date.now());
           });
         };
         document.getElementById("bootGuardReloadBtn")?.addEventListener("click", clearAndReload);

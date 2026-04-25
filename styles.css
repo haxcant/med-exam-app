@@ -1473,7 +1473,7 @@ html[data-theme] .wrong-thumb{background:#fff;color:#1f2937;}
 :root[data-theme="pixel_game"] .primary-btn{box-shadow:0 4px 0 #8f1d1d;}
 :root[data-theme="tech_dark"] .primary-btn{box-shadow:0 0 18px rgba(34,211,238,.25);}
 
-/* v0.1.34 theme harmonization patch
+/* v0.1.35 theme harmonization patch
    目標：非原版主題不再殘留深色硬框；原版清爽維持既有暗色風格。 */
 :root{
   --header-bg:rgba(var(--panel-rgb),.94);
@@ -1822,3 +1822,196 @@ html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-op
 :root[data-theme="pixel_game"] .topbar h1{
   text-shadow:1px 1px 0 rgba(255,255,255,.65);
 }
+
+/* v0.1.35 answer-state contrast + score-guide + exam-drawer theme patch */
+:root{
+  --correct-strong-bg:#14532d;
+  --correct-strong-border:#22c55e;
+  --correct-strong-text:#dcfce7;
+  --wrong-strong-bg:#7f1d1d;
+  --wrong-strong-border:#ef4444;
+  --wrong-strong-text:#fee2e2;
+  --correct-mark-bg:#16a34a;
+  --wrong-mark-bg:#dc2626;
+}
+:root[data-theme="home_light"]{
+  --correct-strong-bg:#dcfce7;
+  --correct-strong-border:#15803d;
+  --correct-strong-text:#14532d;
+  --wrong-strong-bg:#fee2e2;
+  --wrong-strong-border:#b91c1c;
+  --wrong-strong-text:#7f1d1d;
+  --correct-mark-bg:#15803d;
+  --wrong-mark-bg:#b91c1c;
+}
+:root[data-theme="light_wood"]{
+  --correct-strong-bg:#e8f4d6;
+  --correct-strong-border:#4f772d;
+  --correct-strong-text:#243d17;
+  --wrong-strong-bg:#f8d8cf;
+  --wrong-strong-border:#9d2f23;
+  --wrong-strong-text:#6f1d14;
+  --correct-mark-bg:#4f772d;
+  --wrong-mark-bg:#9d2f23;
+}
+:root[data-theme="pixel_game"]{
+  --correct-strong-bg:#2a9d45;
+  --correct-strong-border:#0b3d1a;
+  --correct-strong-text:#ffffff;
+  --wrong-strong-bg:#e63946;
+  --wrong-strong-border:#7f1d1d;
+  --wrong-strong-text:#ffffff;
+  --correct-mark-bg:#0b7a2a;
+  --wrong-mark-bg:#c1121f;
+}
+:root[data-theme="tech_dark"]{
+  --correct-strong-bg:rgba(34,197,94,.24);
+  --correct-strong-border:#4ade80;
+  --correct-strong-text:#dcfce7;
+  --wrong-strong-bg:rgba(251,113,133,.22);
+  --wrong-strong-border:#fb7185;
+  --wrong-strong-text:#ffe4e6;
+  --correct-mark-bg:#22c55e;
+  --wrong-mark-bg:#fb7185;
+}
+
+html[data-theme]:not([data-theme="original"]) .score-guide-box{
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--inline-card-bg);
+  color:var(--text);
+  line-height:1.75;
+}
+html[data-theme]:not([data-theme="original"]) .score-guide-box strong{color:var(--link-text);}
+html[data-theme]:not([data-theme="original"]) .score-guide-box p{margin:6px 0 0;color:var(--meta-text);}
+.score-guide-box{
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(15,23,42,.72);
+  line-height:1.75;
+}
+.score-guide-box p{margin:6px 0 0;color:var(--muted);}
+
+/* 考試面板抽屜：避免淺色主題仍跳出深色卡片 */
+html[data-theme]:not([data-theme="original"]) .exam-drawer-card{
+  background:var(--session-bg) !important;
+  color:var(--text) !important;
+  border-color:var(--session-border) !important;
+  box-shadow:var(--shadow) !important;
+}
+html[data-theme]:not([data-theme="original"]) .exam-drawer-title{
+  color:var(--text) !important;
+}
+html[data-theme]:not([data-theme="original"]) .exam-drawer-grid > div{
+  background:var(--prompt-bg) !important;
+  border:1px solid var(--border) !important;
+  border-radius:12px;
+  padding:10px;
+  color:var(--text) !important;
+}
+html[data-theme]:not([data-theme="original"]) .exam-drawer-grid strong,
+html[data-theme]:not([data-theme="original"]) .exam-drawer-note{
+  color:var(--meta-text) !important;
+}
+
+/* 非原版主題：答對／答錯必須明顯，不只靠微弱底色 */
+html[data-theme]:not([data-theme="original"]) .option-btn.correct,
+html[data-theme]:not([data-theme="original"]) .image-option-btn.correct,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn.correct,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-btn.correct{
+  background:var(--correct-strong-bg) !important;
+  color:var(--correct-strong-text) !important;
+  border-color:var(--correct-strong-border) !important;
+  border-width:3px !important;
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--correct-strong-border) 22%, transparent), inset 0 0 0 1px color-mix(in srgb, #ffffff 30%, transparent) !important;
+}
+html[data-theme]:not([data-theme="original"]) .option-btn.wrong,
+html[data-theme]:not([data-theme="original"]) .image-option-btn.wrong,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn.incorrect,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-btn.incorrect{
+  background:var(--wrong-strong-bg) !important;
+  color:var(--wrong-strong-text) !important;
+  border-color:var(--wrong-strong-border) !important;
+  border-width:3px !important;
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--wrong-strong-border) 22%, transparent), inset 0 0 0 1px color-mix(in srgb, #ffffff 30%, transparent) !important;
+}
+html[data-theme]:not([data-theme="original"]) .option-btn.correct .option-kbd,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn.correct .roadtest-option-index,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-btn.correct .roadtest-option-index{
+  background:var(--correct-mark-bg) !important;
+  color:#fff !important;
+  border-color:var(--correct-strong-border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .option-btn.wrong .option-kbd,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn.incorrect .roadtest-option-index,
+html[data-theme]:not([data-theme="original"]) .roadtest-chain-panel .roadtest-option-btn.incorrect .roadtest-option-index{
+  background:var(--wrong-mark-bg) !important;
+  color:#fff !important;
+  border-color:var(--wrong-strong-border) !important;
+}
+html[data-theme]:not([data-theme="original"]) .option-btn.correct::after,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn.correct::after{
+  content:"✓ 正確";
+  margin-left:auto;
+  white-space:nowrap;
+  align-self:center;
+  font-weight:900;
+  font-size:.9rem;
+  color:var(--correct-strong-text);
+  background:var(--correct-mark-bg);
+  border:1px solid var(--correct-strong-border);
+  border-radius:999px;
+  padding:4px 8px;
+}
+html[data-theme]:not([data-theme="original"]) .option-btn.wrong::after,
+html[data-theme]:not([data-theme="original"]) .roadtest-option-btn.incorrect::after{
+  content:"✕ 錯誤";
+  margin-left:auto;
+  white-space:nowrap;
+  align-self:center;
+  font-weight:900;
+  font-size:.9rem;
+  color:var(--wrong-strong-text);
+  background:var(--wrong-mark-bg);
+  border:1px solid var(--wrong-strong-border);
+  border-radius:999px;
+  padding:4px 8px;
+}
+html[data-theme]:not([data-theme="original"]) .image-option-btn.correct::after{
+  content:"✓ 正確";
+  justify-self:start;
+  font-weight:900;
+  color:var(--correct-strong-text);
+  background:var(--correct-mark-bg);
+  border:1px solid var(--correct-strong-border);
+  border-radius:999px;
+  padding:4px 8px;
+}
+html[data-theme]:not([data-theme="original"]) .image-option-btn.wrong::after{
+  content:"✕ 錯誤";
+  justify-self:start;
+  font-weight:900;
+  color:var(--wrong-strong-text);
+  background:var(--wrong-mark-bg);
+  border:1px solid var(--wrong-strong-border);
+  border-radius:999px;
+  padding:4px 8px;
+}
+html[data-theme]:not([data-theme="original"]) .feedback.good{
+  background:var(--correct-strong-bg) !important;
+  color:var(--correct-strong-text) !important;
+  border-color:var(--correct-strong-border) !important;
+  border-width:3px !important;
+}
+html[data-theme]:not([data-theme="original"]) .feedback.bad{
+  background:var(--wrong-strong-bg) !important;
+  color:var(--wrong-strong-text) !important;
+  border-color:var(--wrong-strong-border) !important;
+  border-width:3px !important;
+}
+html[data-theme]:not([data-theme="original"]) .feedback-title.good{color:var(--correct-strong-text) !important;}
+html[data-theme]:not([data-theme="original"]) .feedback-title.bad{color:var(--wrong-strong-text) !important;}
