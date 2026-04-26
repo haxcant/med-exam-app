@@ -2016,7 +2016,7 @@ html[data-theme]:not([data-theme="original"]) .feedback.bad{
 html[data-theme]:not([data-theme="original"]) .feedback-title.good{color:var(--correct-strong-text) !important;}
 html[data-theme]:not([data-theme="original"]) .feedback-title.bad{color:var(--wrong-strong-text) !important;}
 
-/* v0.1.36 small polish: warmer walnut wood + more unified retro-game palette. */
+/* v0.1.37 small polish: warmer walnut wood + more unified retro-game palette. */
 :root[data-theme="light_wood"]{
   --bg:#ead8c2;
   --panel:#fff4e3;
@@ -2140,4 +2140,35 @@ html[data-theme]:not([data-theme="original"]) .feedback-title.bad{color:var(--wr
 }
 :root[data-theme="pixel_game"] .topbar h1{
   text-shadow:none;
+}
+
+
+/* v0.1.37 boot guard */
+.boot-status-card {
+  text-align: left;
+}
+.boot-spinner {
+  width: 32px;
+  height: 32px;
+  margin: 14px auto 4px;
+  border: 4px solid var(--border, #cbd5e1);
+  border-top-color: var(--primary, #2563eb);
+  border-radius: 999px;
+  animation: bootSpin 0.9s linear infinite;
+}
+.boot-actions {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.boot-error-text {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--danger, #dc2626);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--danger, #dc2626) 12%, var(--panel, #ffffff));
+  color: var(--text, #111827);
+  font-size: 0.92rem;
+}
+@keyframes bootSpin {
+  to { transform: rotate(360deg); }
 }

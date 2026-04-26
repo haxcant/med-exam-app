@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260425fix36">
+  <link rel="stylesheet" href="styles.css?v=20260425fix37">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.36：微調查證文案、列印錯題本前重新讀取資料，補上下方暫停按鈕，並調整淺木頭與復古遊戲色系。</p>
+            <p id="versionSummary">v0.1.37：延後主程式載入判定，新增診斷 log 下載與保留進度修復，降低手機／LINE 偶發誤判為載入失敗的情況。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -436,44 +436,213 @@
       <div id="wrongBookList" class="wrong-list empty-state">目前沒有錯題。</div>
     </section>
   </div>
-  <script src="med_questions.js?v=20260425fix36"></script>
-  <script src="memory-bridge.js?v=20260425fix36"></script>
-  <script src="app.js?v=20260425fix36"></script>
-  <script type="module" src="firebase-ui.js?v=20260425fix36"></script>
   <script>
-    // v0.1.29 emergency boot guard: if the main app failed to define its API,
-    // show recovery controls instead of leaving users with a silent empty page.
-    window.setTimeout(function () {
-      try {
-        if (window.DriverQuizApp && typeof window.DriverQuizApp.startSessionFromControls === "function") return;
-        var main = document.getElementById("mainContent");
-        if (!main) return;
+    // v0.1.37 boot diagnostics: collect enough information when the app fails to boot,
+    // without clearing user progress by default.
+    (function () {
+      var startedAt = Date.now();
+      var logs = [];
+      function compactError(err) {
+        if (!err) return null;
+        return {
+          name: err.name || "Error",
+          message: err.message || String(err),
+          stack: err.stack || ""
+        };
+      }
+      function record(type, message, extra) {
+        try {
+          logs.push({
+            t: Date.now() - startedAt,
+            type: String(type || "log"),
+            message: String(message || ""),
+            extra: extra || null
+          });
+          if (logs.length > 120) logs.shift();
+        } catch (_) {}
+      }
+      window.__MED_EXAM_BOOT_STARTED_AT = startedAt;
+      window.__MED_EXAM_BOOT_LOGS = logs;
+      window.__medExamBootLog = record;
+      record("boot-script", "boot diagnostics installed", { href: location.href });
+      window.addEventListener("error", function (event) {
+        record("window-error", event.message || "script error", {
+          filename: event.filename || "",
+          lineno: event.lineno || 0,
+          colno: event.colno || 0,
+          error: compactError(event.error)
+        });
+      }, true);
+      window.addEventListener("unhandledrejection", function (event) {
+        record("unhandledrejection", "unhandled promise rejection", {
+          reason: compactError(event.reason) || String(event.reason || "")
+        });
+      });
+    })();
+  </script>
+  <script src="med_questions.js?v=20260425fix37" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
+  <script src="memory-bridge.js?v=20260425fix37" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
+  <script src="app.js?v=20260425fix37" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
+  <script type="module" src="firebase-ui.js?v=20260425fix37" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
+  <script>
+    // v0.1.37 staged boot guard:
+    // Slow mobile browsers can exceed the old 1.8s guard, so this first shows
+    // a loading state and only later offers repair/log tools.
+    (function () {
+      var LOADING_NOTICE_MS = 3500;
+      var FAILURE_NOTICE_MS = 12000;
+      var VERSION_TAG = "20260425fix37";
+      var STORAGE_KEYS = {
+        progress: "med-exam-progress-v1",
+        session: "med-exam-session-v1",
+        settings: "med-exam-settings-v1"
+      };
+      function isReady() {
+        return !!(window.__MED_EXAM_APP_READY && window.DriverQuizApp && typeof window.DriverQuizApp.startSessionFromControls === "function");
+      }
+      function escapeHtml(value) {
+        return String(value || "").replace(/[&<>"]/g, function (c) {
+          return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] || c;
+        });
+      }
+      function mainPanel() {
+        return document.getElementById("mainContent");
+      }
+      function setEmptyMode() {
         document.body.classList.remove("quiz-mode-active", "image-review-mode", "summary-mode");
         document.body.classList.add("empty-mode");
-        main.className = "panel quiz-panel empty-state";
-        main.innerHTML = '<div class="empty-start-card"><h2>主程式尚未成功載入</h2><p>可能是舊版 Service Worker 快取、部署缺檔，或瀏覽器封鎖部分腳本。請先清除本站快取後重新載入。</p><div class="actions compact"><button id="bootGuardReloadBtn" type="button" class="primary-btn">清快取並重新載入</button><button id="bootGuardPlainReloadBtn" type="button" class="ghost-btn">直接重新整理</button></div></div>';
-        var clearAndReload = function () {
-          var jobs = [];
-          if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
-            jobs.push(navigator.serviceWorker.getRegistrations().then(function (regs) {
-              return Promise.all(regs.map(function (reg) { return reg.unregister(); }));
-            }));
-          }
-          if (window.caches && caches.keys) {
-            jobs.push(caches.keys().then(function (keys) {
-              return Promise.all(keys.map(function (key) { return caches.delete(key); }));
-            }));
-          }
-          Promise.allSettled(jobs).finally(function () {
-            location.replace(location.pathname + '?v=20260425fix36-reload-' + Date.now());
-          });
-        };
-        document.getElementById("bootGuardReloadBtn")?.addEventListener("click", clearAndReload);
-        document.getElementById("bootGuardPlainReloadBtn")?.addEventListener("click", function () { location.reload(); });
-      } catch (err) {
-        console.error("boot guard failed", err);
       }
-    }, 1800);
+      function storageSummary() {
+        var out = {};
+        try {
+          for (var i = 0; i < localStorage.length; i += 1) {
+            var key = localStorage.key(i);
+            if (!key) continue;
+            var value = localStorage.getItem(key) || "";
+            if (/med-exam|driver-quiz/i.test(key)) out[key] = { bytes: value.length, startsWith: value.slice(0, 80) };
+          }
+        } catch (err) {
+          out.error = String(err && err.message ? err.message : err);
+        }
+        return out;
+      }
+      function resourceSummary() {
+        try {
+          return performance.getEntriesByType("resource").filter(function (r) {
+            return /med_questions|memory-bridge|app\.js|firebase-ui|styles\.css|service-worker/i.test(r.name || "");
+          }).map(function (r) {
+            return {
+              name: r.name,
+              initiatorType: r.initiatorType,
+              duration: Math.round(r.duration || 0),
+              transferSize: r.transferSize || 0,
+              encodedBodySize: r.encodedBodySize || 0,
+              decodedBodySize: r.decodedBodySize || 0
+            };
+          });
+        } catch (_) {
+          return [];
+        }
+      }
+      function buildDiagnosticPayload() {
+        return {
+          app: "med-exam-app",
+          version: "v0.1.37",
+          generatedAt: new Date().toISOString(),
+          location: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
+          navigator: { userAgent: navigator.userAgent, language: navigator.language, onLine: navigator.onLine, cookieEnabled: navigator.cookieEnabled },
+          readiness: {
+            ready: !!window.__MED_EXAM_APP_READY,
+            hasDriverQuizApp: !!window.DriverQuizApp,
+            hasStartSession: !!(window.DriverQuizApp && typeof window.DriverQuizApp.startSessionFromControls === "function"),
+            appBootError: window.__MED_EXAM_APP_BOOT_ERROR || null,
+            medQuestionCount: Array.isArray(window.MED_QUESTION_BANK) ? window.MED_QUESTION_BANK.length : null
+          },
+          storage: storageSummary(),
+          resources: resourceSummary(),
+          bootLogs: window.__MED_EXAM_BOOT_LOGS || []
+        };
+      }
+      function downloadBootLog() {
+        try {
+          var payload = buildDiagnosticPayload();
+          var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+          var a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = "med-exam-boot-log-" + new Date().toISOString().replace(/[:.]/g, "-") + ".json";
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+        } catch (err) {
+          alert("診斷 log 下載失敗：" + (err && err.message ? err.message : err));
+        }
+      }
+      function clearCachesAndServiceWorker() {
+        var jobs = [];
+        if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+          jobs.push(navigator.serviceWorker.getRegistrations().then(function (regs) {
+            return Promise.all(regs.map(function (reg) { return reg.unregister(); }));
+          }));
+        }
+        if (window.caches && caches.keys) {
+          jobs.push(caches.keys().then(function (keys) {
+            return Promise.all(keys.map(function (key) { return caches.delete(key); }));
+          }));
+        }
+        return Promise.allSettled(jobs);
+      }
+      function reloadExplicitIndex(suffix) {
+        location.replace("./index.html?v=" + VERSION_TAG + "-" + suffix + "-" + Date.now());
+      }
+      function clearCacheAndReload() {
+        clearCachesAndServiceWorker().finally(function () { reloadExplicitIndex("cache-reset"); });
+      }
+      function preserveProgressRepair() {
+        var ok = confirm("這會保留作答進度，但清除目前作答場次、色系與設定暫存，並重建快取。若問題來自設定或舊場次資料，通常可修復。是否繼續？");
+        if (!ok) return;
+        try {
+          localStorage.removeItem(STORAGE_KEYS.session);
+          localStorage.removeItem(STORAGE_KEYS.settings);
+          sessionStorage.clear();
+        } catch (_) {}
+        clearCachesAndServiceWorker().finally(function () { reloadExplicitIndex("safe-repair"); });
+      }
+      function renderLoadingNotice() {
+        if (isReady() || window.__MED_EXAM_APP_BOOT_ERROR) return;
+        var main = mainPanel();
+        if (!main || document.body.classList.contains("quiz-mode-active")) return;
+        setEmptyMode();
+        main.className = "panel quiz-panel empty-state";
+        main.innerHTML = '<div class="empty-start-card boot-status-card"><h2>主程式仍在載入</h2><p>手機或 LINE 內建瀏覽器第一次開啟時，題庫與樣式可能需要幾秒鐘。若稍後沒有自動恢復，再使用修復工具。</p><div class="boot-spinner" aria-hidden="true"></div></div>';
+      }
+      function renderFailureNotice() {
+        if (isReady()) return;
+        var main = mainPanel();
+        if (!main) return;
+        setEmptyMode();
+        var errorText = "";
+        if (window.__MED_EXAM_APP_BOOT_ERROR && window.__MED_EXAM_APP_BOOT_ERROR.message) {
+          errorText = '<p class="boot-error-text">偵測到錯誤：' + escapeHtml(window.__MED_EXAM_APP_BOOT_ERROR.message) + '</p>';
+        }
+        main.className = "panel quiz-panel empty-state";
+        main.innerHTML = '<div class="empty-start-card boot-status-card"><h2>主程式尚未成功載入</h2><p>可能是舊版 Service Worker 快取、瀏覽器站台資料異常、部署缺檔，或某個腳本載入失敗。建議先下載診斷 log；若急著使用，先按「保留進度修復」。</p>' + errorText + '<div class="actions compact boot-actions"><button id="bootDownloadLogBtn" type="button" class="secondary-btn">下載診斷 log</button><button id="bootSafeRepairBtn" type="button" class="primary-btn">保留進度修復</button><button id="bootGuardReloadBtn" type="button" class="ghost-btn">清快取並重新載入</button><button id="bootGuardPlainReloadBtn" type="button" class="ghost-btn">直接重新整理</button></div><p class="theme-info-note">保留進度修復不會刪除作答進度；若仍失敗，再把診斷 log 傳給我檢查。</p></div>';
+        document.getElementById("bootDownloadLogBtn")?.addEventListener("click", downloadBootLog);
+        document.getElementById("bootSafeRepairBtn")?.addEventListener("click", preserveProgressRepair);
+        document.getElementById("bootGuardReloadBtn")?.addEventListener("click", clearCacheAndReload);
+        document.getElementById("bootGuardPlainReloadBtn")?.addEventListener("click", function () { reloadExplicitIndex("plain-reload"); });
+      }
+      window.MedExamBootTools = {
+        downloadBootLog: downloadBootLog,
+        clearCacheAndReload: clearCacheAndReload,
+        preserveProgressRepair: preserveProgressRepair,
+        buildDiagnosticPayload: buildDiagnosticPayload
+      };
+      window.setTimeout(renderLoadingNotice, LOADING_NOTICE_MS);
+      window.setTimeout(renderFailureNotice, FAILURE_NOTICE_MS);
+      window.setInterval(function () {
+        if (window.__MED_EXAM_APP_BOOT_ERROR && !isReady()) renderFailureNotice();
+      }, 2000);
+    })();
   </script>
 </body>
 </html>

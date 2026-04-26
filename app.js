@@ -283,7 +283,20 @@ const HANDBOOK_RULES = [
   let quizAudioContext = null;
   let audioUnlocked = false;
 
-  init();
+  try {
+    window.__medExamBootLog?.("app-init-start", "app init started");
+    init();
+    window.__MED_EXAM_APP_READY = true;
+    window.__medExamBootLog?.("app-ready", "app init completed");
+  } catch (err) {
+    window.__MED_EXAM_APP_BOOT_ERROR = {
+      name: err?.name || "Error",
+      message: err?.message || String(err),
+      stack: err?.stack || ""
+    };
+    window.__medExamBootLog?.("app-init-error", "app init failed", window.__MED_EXAM_APP_BOOT_ERROR);
+    console.error("app init failed", err);
+  }
 
 
   function setQuizChromeMode(mode) {
@@ -747,7 +760,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.36｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.37｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
