@@ -59,6 +59,8 @@
     wrongOnly: "只練錯題",
     exam: "模擬考",
     flashcard: "單字卡複習",
+    srsDue: "SRS 到期複習",
+    srsMixed: "SRS 到期＋新題混合",
   };
   const QUESTION_MODE_LABELS = {
     imageToText: "看圖選名稱（保留）",
@@ -219,6 +221,7 @@ const HANDBOOK_RULES = [
     masterySelect: document.getElementById("masterySelect"),
     scoreFilterOperatorSelect: document.getElementById("scoreFilterOperatorSelect"),
     scoreFilterValueInput: document.getElementById("scoreFilterValueInput"),
+    srsReviewBeforeDateInput: document.getElementById("srsReviewBeforeDateInput"),
     quickFilterUnseenBtn: document.getElementById("quickFilterUnseenBtn"),
     quickFilterWrongBtn: document.getElementById("quickFilterWrongBtn"),
     quickFilterClearBtn: document.getElementById("quickFilterClearBtn"),
@@ -529,6 +532,7 @@ const HANDBOOK_RULES = [
       els.masterySelect,
       els.scoreFilterOperatorSelect,
       els.scoreFilterValueInput,
+      els.srsReviewBeforeDateInput,
       els.answerTimeLimitInput,
       els.autoNextCorrectDelayInput,
       els.autoNextWrongDelayInput,
@@ -648,6 +652,7 @@ const HANDBOOK_RULES = [
     settings.masteryTarget = Number(els.masterySelect?.value || 2);
     settings.scoreFilterOperator = els.scoreFilterOperatorSelect?.value || "any";
     settings.scoreFilterValue = sanitizeInteger(els.scoreFilterValueInput?.value, 0);
+    settings.srsReviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || "");
     settings.answerTimeLimitSec = sanitizeNonNegativeNumber(els.answerTimeLimitInput?.value, 15);
     settings.autoNextCorrectDelaySec = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value, 1);
     settings.autoNextWrongDelaySec = sanitizeNonNegativeNumber(els.autoNextWrongDelayInput?.value, 4);
@@ -677,6 +682,7 @@ const HANDBOOK_RULES = [
     if (els.masterySelect) els.masterySelect.value = String(settings.masteryTarget || 2);
     if (els.scoreFilterOperatorSelect) els.scoreFilterOperatorSelect.value = settings.scoreFilterOperator || "any";
     if (els.scoreFilterValueInput) els.scoreFilterValueInput.value = String(settings.scoreFilterValue ?? 0);
+    if (els.srsReviewBeforeDateInput) els.srsReviewBeforeDateInput.value = normalizeDateInput(settings.srsReviewBeforeDate || "");
     if (els.answerTimeLimitInput) els.answerTimeLimitInput.value = String(settings.answerTimeLimitSec ?? 15);
     if (els.autoNextCorrectDelayInput) els.autoNextCorrectDelayInput.value = String(settings.autoNextCorrectDelaySec ?? 1);
     if (els.autoNextWrongDelayInput) els.autoNextWrongDelayInput.value = String(settings.autoNextWrongDelaySec ?? 4);
@@ -760,7 +766,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.37｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.38｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -770,15 +776,31 @@ const HANDBOOK_RULES = [
   function refreshFilterSummaryText() {
     const operator = els.scoreFilterOperatorSelect?.value || settings.scoreFilterOperator || "any";
     const value = sanitizeInteger(els.scoreFilterValueInput?.value ?? settings.scoreFilterValue, 0);
+    const practiceMode = els.practiceModeSelect?.value || settings.practiceMode || "practice";
+    const reviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
     const timeLimit = sanitizeNonNegativeNumber(els.answerTimeLimitInput?.value ?? settings.answerTimeLimitSec, 15);
     const autoNextCorrect = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value ?? settings.autoNextCorrectDelaySec, 1);
     const autoNextWrong = sanitizeNonNegativeNumber(els.autoNextWrongDelayInput?.value ?? settings.autoNextWrongDelaySec, 4);
+    const basePool = getFilteredBaseQuestionsForSummary();
+    const dueCount = applySrsDueFilter(basePool).length;
+    const unseenCount = basePool.filter(isUnseenQuestion).length;
     let scoreText = "目前未啟用積分篩選；可用上方快捷按鈕快速套用「=0」或「<0」。";
     if (operator !== "any") {
       scoreText = `目前只會抽出積分 ${SCORE_FILTER_LABELS[operator]} ${value} 的題目。`;
     }
+    let modeText = "";
+    if (practiceMode === "srsDue") {
+      modeText = `SRS 到期複習：依最後複習日與積分推算，目前此範圍到期 ${dueCount} 題。`;
+      scoreText = "SRS 模式會依到期規則出題，不另外套用積分門檻。";
+    } else if (practiceMode === "srsMixed") {
+      modeText = `SRS 到期＋新題混合：優先到期題，並補入低分題與新題；目前到期 ${dueCount} 題，新題 ${unseenCount} 題。`;
+      scoreText = "SRS 混合模式會自動混合到期、低分與新題，不另外套用積分門檻。";
+    }
+    const reviewText = reviewBeforeDate
+      ? `最後複習日篩選：只考 ${getReviewBeforeDateLabel(reviewBeforeDate)} 以前已複習過的題目。`
+      : "最後複習日篩選：未啟用。";
     const timeText = `每題限時 ${timeLimit > 0 ? `${timeLimit} 秒` : "不限時"}；答對後 ${autoNextCorrect > 0 ? `${autoNextCorrect} 秒` : "不自動"}，答錯後 ${autoNextWrong > 0 ? `${autoNextWrong} 秒` : "不自動"}。`;
-    return `${scoreText} ${timeText}`;
+    return [modeText, scoreText, reviewText, timeText].filter(Boolean).join(" ");
   }
 
   function refreshFilterSummary() {
@@ -798,26 +820,37 @@ const HANDBOOK_RULES = [
     const scope = getSelectedScope();
     const scoreFilterOperator = els.scoreFilterOperatorSelect?.value || "any";
     const scoreFilterValue = sanitizeInteger(els.scoreFilterValueInput?.value, 0);
+    const srsReviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
     const answerTimeLimitSec = sanitizeNonNegativeNumber(els.answerTimeLimitInput?.value, 15);
     const autoNextCorrectDelaySec = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value, 1);
     const autoNextWrongDelaySec = sanitizeNonNegativeNumber(els.autoNextWrongDelayInput?.value, 4);
 
     let pool = getScopedQuestions(scope).filter((q) => category === "all" ? true : q.category === category);
+    pool = applyReviewBeforeDateFilter(pool, srsReviewBeforeDate);
+
+    let queue = [];
     if (practiceMode === "wrongOnly") {
       pool = pool.filter((q) => questionProgress(q.id).inWrongBook);
+    } else if (practiceMode === "srsDue") {
+      pool = applySrsDueFilter(pool);
+    } else if (practiceMode === "srsMixed") {
+      queue = buildSrsMixedQueue(pool, requestedCount);
+      pool = queue;
     } else {
       pool = applyScoreFilter(pool, scoreFilterOperator, scoreFilterValue);
     }
 
     if (!pool.length) {
-      const msg = practiceMode === "wrongOnly"
-        ? "目前這個範圍／分類沒有錯題可練習。"
-        : "這個範圍／分類在目前積分篩選下沒有可用題目。";
+      let msg = "這個範圍／分類在目前篩選下沒有可用題目。";
+      if (practiceMode === "wrongOnly") msg = "目前這個範圍／分類沒有錯題可練習。";
+      else if (practiceMode === "srsDue") msg = "目前這個範圍／分類沒有 SRS 到期題。可切換到「SRS 到期＋新題混合」、清除最後複習日篩選，或改用一般練習。";
+      else if (practiceMode === "srsMixed") msg = "目前這個範圍／分類沒有可供 SRS 混合練習的題目。可清除最後複習日篩選或改用一般練習。";
+      else if (srsReviewBeforeDate) msg = "目前沒有符合最後複習日篩選的題目。請清除日期或選更晚日期。";
       alert(msg);
       return;
     }
 
-    const queue = shuffle(pool).slice(0, Math.min(requestedCount, pool.length));
+    if (!queue.length) queue = shuffle(pool).slice(0, Math.min(requestedCount, pool.length));
     const questionModeMap = {};
     queue.forEach((question) => {
       if (practiceMode === "flashcard") {
@@ -839,7 +872,7 @@ const HANDBOOK_RULES = [
       answeredMap: {},
       questionModeMap,
       createdAt: new Date().toISOString(),
-      filters: { scope, category, practiceMode, questionMode, requestedCount, scoreFilterOperator, scoreFilterValue, answerTimeLimitSec, autoNextCorrectDelaySec, autoNextWrongDelaySec },
+      filters: { scope, category, practiceMode, questionMode, requestedCount, scoreFilterOperator, scoreFilterValue, srsReviewBeforeDate, answerTimeLimitSec, autoNextCorrectDelaySec, autoNextWrongDelaySec },
       lastAnsweredQuestionId: "",
       currentStreak: 0,
       bestStreak: 0,
@@ -2534,6 +2567,7 @@ function renderWrongBook() {
       masteryTarget: Number(data.masteryTarget || base.masteryTarget || 2),
       scoreFilterOperator: data.scoreFilterOperator || base.scoreFilterOperator || "any",
       scoreFilterValue: sanitizeInteger(data.scoreFilterValue, base.scoreFilterValue ?? 0),
+      srsReviewBeforeDate: normalizeDateInput(data.srsReviewBeforeDate || base.srsReviewBeforeDate || ""),
       answerTimeLimitSec: sanitizeNonNegativeNumber(data.answerTimeLimitSec, base.answerTimeLimitSec ?? 15),
       autoNextCorrectDelaySec: resolveAutoNextDelayValue(data, "autoNextCorrectDelaySec", "autoNextDelaySec", base.autoNextCorrectDelaySec ?? 1),
       autoNextWrongDelaySec: resolveAutoNextDelayValue(data, "autoNextWrongDelaySec", "autoNextDelaySec", base.autoNextWrongDelaySec ?? 4),
@@ -2843,6 +2877,7 @@ function restoreRecommendedSettings() {
       masteryTarget: Number(data?.masteryTarget || 2),
       scoreFilterOperator: data?.scoreFilterOperator || "any",
       scoreFilterValue: sanitizeInteger(data?.scoreFilterValue, 0),
+      srsReviewBeforeDate: normalizeDateInput(data?.srsReviewBeforeDate || ""),
       answerTimeLimitSec: sanitizeNonNegativeNumber(data?.answerTimeLimitSec, 15),
       autoNextCorrectDelaySec: resolveAutoNextDelayValue(data, "autoNextCorrectDelaySec", "autoNextDelaySec", 1),
       autoNextWrongDelaySec: resolveAutoNextDelayValue(data, "autoNextWrongDelaySec", "autoNextDelaySec", 4),
@@ -4285,6 +4320,135 @@ function buildAnswerExplanationHtml(question) {
     const canonical = canonicalizeTrueFalseValue(value);
     if (canonical === "正確" || canonical === "錯誤") return canonical;
     return value;
+  }
+
+
+  function readQuestionProgress(id) {
+    const item = progress?.byQuestion && typeof progress.byQuestion === "object" ? progress.byQuestion[id] : null;
+    return item && typeof item === "object" ? item : null;
+  }
+
+  function parseIsoTimeMs(value) {
+    if (typeof value !== "string" || !value.trim()) return NaN;
+    const ms = Date.parse(value);
+    return Number.isFinite(ms) ? ms : NaN;
+  }
+
+  function normalizeDateInput(value) {
+    const raw = String(value || "").trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(raw) ? raw : "";
+  }
+
+  function dateInputToEndOfDayMs(value) {
+    const date = normalizeDateInput(value);
+    if (!date) return NaN;
+    const ms = new Date(`${date}T23:59:59.999`).getTime();
+    return Number.isFinite(ms) ? ms : NaN;
+  }
+
+  function getReviewBeforeDateLabel(dateValue) {
+    const normalized = normalizeDateInput(dateValue);
+    return normalized || "";
+  }
+
+  function getSrsIntervalDaysFromProgress(item) {
+    if (!item || !Number(item.totalSeen || 0) || !item.lastSeenAt) return null;
+    const score = Number(item.score || 0);
+    const streak = Number(item.masteryStreak || 0);
+    const wrong = Number(item.totalWrong || 0);
+    if (!!item.inWrongBook || score < 0) return 1;
+    if (score === 0) return 1;
+    if (score === 1) return 2;
+    if (score === 2) return 4;
+    if (score === 3) return 7;
+    if (score === 4) return 14;
+    if (streak >= 8 && wrong === 0) return 60;
+    if (streak >= 5) return 45;
+    return 30;
+  }
+
+  function getSrsDueInfo(question, nowMs = Date.now()) {
+    const item = readQuestionProgress(question?.id);
+    const intervalDays = getSrsIntervalDaysFromProgress(item);
+    const lastSeenMs = parseIsoTimeMs(item?.lastSeenAt);
+    if (!intervalDays || !Number.isFinite(lastSeenMs)) {
+      return { due: false, reviewed: false, dueAtMs: NaN, intervalDays: null, daysOverdue: null };
+    }
+    const dueAtMs = lastSeenMs + intervalDays * 24 * 60 * 60 * 1000;
+    const due = dueAtMs <= nowMs;
+    const daysOverdue = due ? Math.max(0, Math.floor((nowMs - dueAtMs) / (24 * 60 * 60 * 1000))) : 0;
+    return { due, reviewed: true, dueAtMs, intervalDays, daysOverdue };
+  }
+
+  function isSrsDueQuestion(question, nowMs = Date.now()) {
+    return !!getSrsDueInfo(question, nowMs).due;
+  }
+
+  function applySrsDueFilter(questions) {
+    if (!Array.isArray(questions)) return [];
+    const nowMs = Date.now();
+    return questions.filter((q) => isSrsDueQuestion(q, nowMs));
+  }
+
+  function applyReviewBeforeDateFilter(questions, dateValue) {
+    if (!Array.isArray(questions)) return [];
+    const cutoffMs = dateInputToEndOfDayMs(dateValue);
+    if (!Number.isFinite(cutoffMs)) return questions.slice();
+    return questions.filter((q) => {
+      const item = readQuestionProgress(q?.id);
+      const lastSeenMs = parseIsoTimeMs(item?.lastSeenAt);
+      return Number.isFinite(lastSeenMs) && lastSeenMs <= cutoffMs;
+    });
+  }
+
+  function isUnseenQuestion(question) {
+    const item = readQuestionProgress(question?.id);
+    return !item || Number(item.totalSeen || 0) <= 0;
+  }
+
+  function isLowScoreQuestion(question) {
+    const item = readQuestionProgress(question?.id);
+    if (!item || Number(item.totalSeen || 0) <= 0) return false;
+    return !!item.inWrongBook || Number(item.score || 0) < 1;
+  }
+
+  function buildSrsMixedQueue(questions, requestedCount) {
+    if (!Array.isArray(questions)) return [];
+    const target = Math.max(1, Number(requestedCount || 20));
+    const selected = [];
+    const used = new Set();
+    const takeFrom = (list, n) => {
+      for (const q of list) {
+        if (selected.length >= target || n <= 0) break;
+        if (!q?.id || used.has(q.id)) continue;
+        selected.push(q);
+        used.add(q.id);
+        n -= 1;
+      }
+    };
+    const nowMs = Date.now();
+    const due = shuffle(questions.filter((q) => isSrsDueQuestion(q, nowMs))).sort((a, b) => {
+      const ia = getSrsDueInfo(a, nowMs);
+      const ib = getSrsDueInfo(b, nowMs);
+      return Number(ib.daysOverdue || 0) - Number(ia.daysOverdue || 0);
+    });
+    const low = shuffle(questions.filter((q) => !isSrsDueQuestion(q, nowMs) && isLowScoreQuestion(q)));
+    const fresh = shuffle(questions.filter((q) => isUnseenQuestion(q)));
+    takeFrom(due, Math.ceil(target * 0.7));
+    takeFrom(low, Math.ceil(target * 0.2));
+    takeFrom(fresh, Math.ceil(target * 0.1));
+    if (selected.length < target) {
+      takeFrom(shuffle(questions), target - selected.length);
+    }
+    return selected.slice(0, target);
+  }
+
+  function getFilteredBaseQuestionsForSummary() {
+    const scope = getSelectedScope();
+    const category = els.categorySelect?.value || settings.category || "all";
+    const reviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
+    let pool = getScopedQuestions(scope).filter((q) => category === "all" ? true : q.category === category);
+    return applyReviewBeforeDateFilter(pool, reviewBeforeDate);
   }
 
   function applyScoreFilter(questions, operator, value) {
