@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260426fix39">
+  <link rel="stylesheet" href="styles.css?v=20260426fix40">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.39：新增 SRS 日期篩選啟用開關與「最近 N 天沒見」快捷欄；保留既有記憶格式。</p>
+            <p id="versionSummary">v0.1.40：整理進階篩選視覺、縮小畫面修復區塊，並在收起面板加入本題時間資訊。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -71,6 +71,7 @@
           </ul>
           <p><strong>簡單區分：</strong>「匯出／匯入」是本機檔案備份；「上傳／下載雲端」是 Google 登入後的雲端同步。</p>
           <p><strong>異常排除：</strong>如果按鈕無反應、資料顯示異常或同步卡住，請試著清除本網站 Cookie 資料或快取後重新開啟。</p>
+          <p><strong>畫面修復：</strong>若畫面短暫顯示載入失敗或卡住，可先重新整理；仍異常時再用「畫面異常重設」，此操作只清除目前題組狀態，不會刪除完整作答記憶。</p>
         </div>
       </details>
     </section>
@@ -136,21 +137,24 @@
 
       <details class="fold-panel advanced-fold"><summary>進階設定</summary>
       <div class="grid advanced-grid three-col-desktop">
-        <label><span>積分篩選</span><select id="scoreFilterOperatorSelect"><option value="any" selected>不限</option><option value="gt">大於</option><option value="lt">小於</option><option value="eq">等於</option></select></label>
-        <label><span>積分門檻（自填）</span><input id="scoreFilterValueInput" type="number" step="1" value="0" placeholder="例如 0、1、-2"></label>
-        <label class="srs-date-filter-control"><span>最後複習日篩選</span>
-          <span class="inline-check-row"><input id="srsReviewBeforeEnabledToggle" type="checkbox">啟用日期篩選</span>
-          <input id="srsReviewBeforeDateInput" type="date">
-          <small>啟用後只考最後複習日在該日以前的已複習題；從未作答的新題不納入。</small>
-          <div class="actions compact srs-quick-row" style="margin-top:6px; gap:6px;">
-            <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="1">1天沒見</button>
-            <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="3">3天沒見</button>
-            <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="7">7天沒見</button>
-            <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="14">14天沒見</button>
-            <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="30">一個月沒見</button>
-            <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="90">三個月沒見</button>
-          </div>
-        </label>
+        <div class="advanced-filter-cluster">
+          <div class="filter-cluster-title">積分與複習篩選</div>
+          <label class="score-filter-card"><span>積分篩選</span><select id="scoreFilterOperatorSelect"><option value="any" selected>不限</option><option value="gt">大於</option><option value="lt">小於</option><option value="eq">等於</option></select></label>
+          <label class="score-filter-card"><span>積分門檻（自填）</span><input id="scoreFilterValueInput" type="number" step="1" value="0" placeholder="例如 0、1、-2"></label>
+          <label class="srs-date-filter-control review-filter-card"><span>最後複習日篩選</span>
+            <span class="inline-check-row"><input id="srsReviewBeforeEnabledToggle" type="checkbox">啟用日期篩選</span>
+            <input id="srsReviewBeforeDateInput" type="date">
+            <small>啟用後只考最後複習日在該日以前的已複習題；從未作答的新題不納入。</small>
+            <div class="actions compact srs-quick-row" style="margin-top:6px; gap:6px;">
+              <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="1">1天沒見</button>
+              <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="3">3天沒見</button>
+              <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="7">7天沒見</button>
+              <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="14">14天沒見</button>
+              <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="30">一個月沒見</button>
+              <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="90">三個月沒見</button>
+            </div>
+          </label>
+        </div>
         <label><span>每題限時（秒，0=不限）</span><input id="answerTimeLimitInput" type="number" min="0" step="1" value="15"></label>
         <label><span>答對後自動跳題（秒，0=不自動）</span><input id="autoNextCorrectDelayInput" type="number" min="0" step="0.5" value="1"></label>
         <label><span>答錯後自動跳題（秒，0=不自動）</span><input id="autoNextWrongDelayInput" type="number" min="0" step="0.5" value="4"></label>
@@ -454,7 +458,7 @@
     </section>
   </div>
   <script>
-    // v0.1.39 boot diagnostics: collect enough information when the app fails to boot,
+    // v0.1.40 boot diagnostics: collect enough information when the app fails to boot,
     // without clearing user progress by default.
     (function () {
       var startedAt = Date.now();
@@ -497,18 +501,18 @@
       });
     })();
   </script>
-  <script src="med_questions.js?v=20260426fix39" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
-  <script src="memory-bridge.js?v=20260426fix39" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
-  <script src="app.js?v=20260426fix39" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
-  <script type="module" src="firebase-ui.js?v=20260426fix39" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
+  <script src="med_questions.js?v=20260426fix40" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
+  <script src="memory-bridge.js?v=20260426fix40" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
+  <script src="app.js?v=20260426fix40" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
+  <script type="module" src="firebase-ui.js?v=20260426fix40" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
   <script>
-    // v0.1.39 staged boot guard:
+    // v0.1.40 staged boot guard:
     // Slow mobile browsers can exceed the old 1.8s guard, so this first shows
     // a loading state and only later offers repair/log tools.
     (function () {
       var LOADING_NOTICE_MS = 3500;
       var FAILURE_NOTICE_MS = 12000;
-      var VERSION_TAG = "20260426fix39";
+      var VERSION_TAG = "20260426fix40";
       var STORAGE_KEYS = {
         progress: "med-exam-progress-v1",
         session: "med-exam-session-v1",
@@ -564,7 +568,7 @@
       function buildDiagnosticPayload() {
         return {
           app: "med-exam-app",
-          version: "v0.1.39",
+          version: "v0.1.40",
           generatedAt: new Date().toISOString(),
           location: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
           navigator: { userAgent: navigator.userAgent, language: navigator.language, onLine: navigator.onLine, cookieEnabled: navigator.cookieEnabled },

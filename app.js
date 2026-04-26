@@ -428,6 +428,7 @@ const HANDBOOK_RULES = [
     const accuracy = String(els.accuracyCount?.textContent || "-");
     const positive = String(els.masteredCoverageCount?.textContent || "-");
     const positiveDetail = String(els.masteredCoverageDetail?.textContent || "");
+    const questionTimeInfoHtml = question ? buildQuestionTimeInfoHtml(question) : "";
     return `
       <div class="exam-drawer hidden" id="examDrawer">
         <div class="exam-drawer-card">
@@ -445,6 +446,7 @@ const HANDBOOK_RULES = [
           </div>
           <div class="exam-drawer-note">${escapeHtml(positiveDetail || "")}</div>
           <div class="exam-drawer-note">${escapeHtml(refreshFilterSummaryText())}</div>
+          ${questionTimeInfoHtml}
           <div class="exam-drawer-actions">
             <button id="drawerContinueBtn" class="secondary-btn">繼續答題</button>
             <button id="drawerExitBtn" class="ghost-btn danger">退出本模式</button>
@@ -452,6 +454,33 @@ const HANDBOOK_RULES = [
         </div>
       </div>
     `;
+  }
+
+  function buildQuestionTimeInfoHtml(question) {
+    const item = readQuestionProgress(question?.id) || {};
+    const totalSeen = Number(item.totalSeen || 0);
+    const totalCorrect = Number(item.totalCorrect || 0);
+    const totalWrong = Number(item.totalWrong || 0);
+    const score = Number(item.score || 0);
+    const streak = Number(item.masteryStreak || 0);
+    const lastSeen = formatLocalDateTimeLabel(item.lastSeenAt, "尚未複習");
+    const lastWrong = formatLocalDateTimeLabel(item.lastWrongAt, "無答錯紀錄");
+    const srs = getSrsDueInfo(question);
+    const srsText = srs.reviewed
+      ? [formatLocalDateTimeFromMs(srs.dueAtMs, "未推算"), `間隔 ${srs.intervalDays} 天`, srs.due ? (srs.daysOverdue > 0 ? `已逾期 ${srs.daysOverdue} 天` : "今日到期") : "尚未到期"].join("｜")
+      : "尚未作答，無 SRS 到期日";
+    return [
+      "          <div class=\"exam-drawer-timeinfo\">",
+      "            <div class=\"exam-drawer-timeinfo-title\">本題時間資訊</div>",
+      "            <div class=\"exam-drawer-timeinfo-grid\">",
+      "              <div><strong>最後複習</strong><span>" + escapeHtml(lastSeen) + "</span></div>",
+      "              <div><strong>最後答錯</strong><span>" + escapeHtml(lastWrong) + "</span></div>",
+      "              <div><strong>作答統計</strong><span>" + escapeHtml(`${totalSeen} 次｜對 ${totalCorrect}｜錯 ${totalWrong}`) + "</span></div>",
+      "              <div><strong>積分／連勝</strong><span>" + escapeHtml(`${formatSignedNumber(score)}｜${streak} 連勝`) + "</span></div>",
+      "              <div class=\"wide\"><strong>SRS 推算</strong><span>" + escapeHtml(srsText) + "</span></div>",
+      "            </div>",
+      "          </div>"
+    ].join("");
   }
 
   function buildExitSessionSummary() {
@@ -773,7 +802,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.39｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.40｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -927,14 +956,14 @@ const HANDBOOK_RULES = [
       ? `<p class="secondary-meta">已自動解除舊題組或快取造成的卡住狀態（${escapeHtml(reason)}）。</p>`
       : "";
     els.mainContent.innerHTML = `
-      <div class="empty-start-card">
+      <div class="empty-start-card compact-empty-start">
         <p>第一次使用者只須點擊「開始練習」即可，題目會顯示在這裡。</p>
         ${reasonNote}
         <div class="actions compact empty-start-actions">
           <button id="emptyStartBtn" class="primary-btn" type="button">開始練習</button>
-          <button id="emptyResetUiBtn" class="ghost-btn" type="button">解除卡住狀態</button>
+          <button id="emptyResetUiBtn" class="ghost-btn subtle-reset-btn" type="button">畫面異常重設</button>
         </div>
-        <p class="secondary-meta">若手機刷新後只剩黑畫面，請按「解除卡住狀態」或重新整理；這不會清除錯題本與作答記憶。</p>
+        <p class="secondary-meta compact-reset-note">若畫面異常，優先重新整理；仍卡住時可重設目前題組狀態。完整作答記憶不會被刪除，詳細說明在上方「使用說明與版本資訊」。</p>
       </div>
     `;
     document.getElementById("emptyStartBtn")?.addEventListener("click", startSessionFromControls);
@@ -4772,6 +4801,23 @@ function truncateText(text, maxLen = 80) {
   function formatSignedNumber(value) {
     const num = Number(value || 0);
     return num > 0 ? `+${num}` : String(num);
+  }
+
+  function formatLocalDateTimeLabel(value, fallback = "-") {
+    const ms = parseIsoTimeMs(value);
+    return formatLocalDateTimeFromMs(ms, fallback);
+  }
+
+  function formatLocalDateTimeFromMs(ms, fallback = "-") {
+    if (!Number.isFinite(ms)) return fallback;
+    const d = new Date(ms);
+    if (Number.isNaN(d.getTime())) return fallback;
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mm = String(d.getMinutes()).padStart(2, "0");
+    return `${y}/${m}/${day} ${hh}:${mm}`;
   }
 
   function formatSeconds(value) {
