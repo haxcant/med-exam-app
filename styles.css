@@ -2198,7 +2198,7 @@ html[data-theme]:not([data-theme="original"]) .feedback-title.bad{color:var(--wr
   border-radius: 10px;
 }
 
-/* v0.1.41 advanced filter grouping + compact recovery + drawer time info */
+/* v0.1.42 advanced filter grouping + compact recovery + drawer time info */
 .advanced-filter-cluster{
   grid-column:1 / -1;
   display:grid;
@@ -2350,7 +2350,7 @@ body.mobile-recovery-visible{padding-bottom:46px;}
 }
 
 
-/* v0.1.41 bank learning dashboard */
+/* v0.1.42 bank learning dashboard */
 .dashboard-panel{padding:12px 14px;}
 .learning-dashboard-fold{background:linear-gradient(135deg, color-mix(in srgb, var(--panel-2, #182235) 88%, transparent), color-mix(in srgb, var(--panel, #111827) 94%, transparent));}
 .learning-dashboard-fold > summary{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
@@ -2384,3 +2384,99 @@ body.mobile-recovery-visible{padding-bottom:46px;}
 .bank-metric-subline{font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .quiz-mode-active .dashboard-panel{display:none;}
 @media (max-width:900px){.bank-dashboard-grid{grid-template-columns:1fr}.dashboard-headline{display:grid}.dashboard-updated{width:max-content}.learning-dashboard-fold > summary{align-items:flex-start}.dashboard-compact-summary{justify-content:flex-start}.bank-metric-body{grid-template-columns:78px minmax(0,1fr)}}
+
+/* v0.1.42 dashboard ring + theme polish
+   - Use a true donut ring instead of a filled pie.
+   - Strengthen dashboard chart colors for light-wood and retro game themes.
+   - Keep the original theme behavior mostly unchanged. */
+:root{
+  --dashboard-ring: var(--primary, #2563eb);
+  --dashboard-ring-track: color-mix(in srgb, var(--border, #cbd5e1) 62%, transparent);
+  --dashboard-ring-core: var(--panel, #ffffff);
+  --dashboard-bar-a: color-mix(in srgb, var(--success, #16a34a) 88%, #0f172a 12%);
+  --dashboard-bar-b: color-mix(in srgb, var(--primary, #2563eb) 72%, var(--success, #16a34a) 28%);
+  --dashboard-bar-track: color-mix(in srgb, var(--border, #cbd5e1) 58%, var(--panel, #ffffff) 42%);
+}
+.bank-ring{
+  position:relative;
+  isolation:isolate;
+  background:conic-gradient(var(--dashboard-ring) calc(var(--pct) * 1%), var(--dashboard-ring-track) 0);
+  box-shadow:none;
+  border:1px solid color-mix(in srgb, var(--dashboard-ring) 25%, var(--border, #cbd5e1));
+}
+.bank-ring::before{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border-radius:50%;
+  background:var(--dashboard-ring-core);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--border, #cbd5e1) 35%, transparent);
+  z-index:-1;
+}
+.bank-ring span,
+.bank-ring small{position:relative;z-index:1;}
+.bank-mini-bar{
+  background:var(--dashboard-bar-track);
+  border-color:color-mix(in srgb, var(--dashboard-bar-track) 68%, var(--border, #cbd5e1) 32%);
+}
+.bank-mini-bar i{background:linear-gradient(90deg,var(--dashboard-bar-a),var(--dashboard-bar-b));}
+
+:root[data-theme="light_wood"]{
+  --dashboard-ring:#6f4a28;
+  --dashboard-ring-track:#e8cfb4;
+  --dashboard-ring-core:#fff3df;
+  --dashboard-bar-a:#6f4a28;
+  --dashboard-bar-b:#a46b3a;
+  --dashboard-bar-track:#e7c9aa;
+}
+:root[data-theme="light_wood"] .bank-metric-card{
+  border-color:#8a5a35;
+  background:linear-gradient(145deg,#f4dfc4,#fff2dd 72%);
+}
+:root[data-theme="light_wood"] .bank-metric-card::before{
+  background:radial-gradient(circle,rgba(123,80,42,.18),transparent 64%);
+}
+:root[data-theme="light_wood"] .dashboard-chip{
+  border-color:#8a5a35;
+  background:#f2dcc1;
+}
+
+:root[data-theme="pixel_game"]{
+  --dashboard-ring:#2556a7;
+  --dashboard-ring-track:#f3d486;
+  --dashboard-ring-core:#fff1b8;
+  --dashboard-bar-a:#2556a7;
+  --dashboard-bar-b:#e45c3a;
+  --dashboard-bar-track:#f2d17a;
+}
+:root[data-theme="pixel_game"] .bank-metric-card{
+  border-color:#2556a7;
+  background:linear-gradient(145deg,#ffd88c,#fff0af 76%);
+}
+:root[data-theme="pixel_game"] .bank-metric-card::before{
+  background:radial-gradient(circle,rgba(37,86,167,.16),transparent 64%);
+}
+:root[data-theme="pixel_game"] .dashboard-chip{
+  border-color:#2556a7;
+  background:#ffe59a;
+}
+:root[data-theme="pixel_game"] .bank-mini-bar{
+  box-shadow:inset 0 0 0 1px rgba(37,86,167,.24);
+}
+
+:root[data-theme="home_light"]{
+  --dashboard-ring:#2563eb;
+  --dashboard-ring-track:#d7e2f2;
+  --dashboard-ring-core:#ffffff;
+  --dashboard-bar-a:#2563eb;
+  --dashboard-bar-b:#14b8a6;
+  --dashboard-bar-track:#dbe7f4;
+}
+:root[data-theme="tech_dark"]{
+  --dashboard-ring:#22d3ee;
+  --dashboard-ring-track:rgba(34,211,238,.14);
+  --dashboard-ring-core:#07111f;
+  --dashboard-bar-a:#22d3ee;
+  --dashboard-bar-b:#8b5cf6;
+  --dashboard-bar-track:rgba(148,163,184,.20);
+}
