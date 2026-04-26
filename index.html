@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260426fix40">
+  <link rel="stylesheet" href="styles.css?v=20260426fix41">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.40：整理進階篩選視覺、縮小畫面修復區塊，並在收起面板加入本題時間資訊。</p>
+            <p id="versionSummary">v0.1.41：新增題庫學習儀表板，顯示各題庫正分率、答對率與平均每題分數。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -73,6 +73,23 @@
           <p><strong>異常排除：</strong>如果按鈕無反應、資料顯示異常或同步卡住，請試著清除本網站 Cookie 資料或快取後重新開啟。</p>
           <p><strong>畫面修復：</strong>若畫面短暫顯示載入失敗或卡住，可先重新整理；仍異常時再用「畫面異常重設」，此操作只清除目前題組狀態，不會刪除完整作答記憶。</p>
         </div>
+      </details>
+    </section>
+
+    <section class="panel dashboard-panel" aria-label="題庫學習儀表板">
+      <details id="learningDashboardDetails" class="fold-panel learning-dashboard-fold" open>
+        <summary>
+          <span class="dashboard-summary-title">題庫學習儀表板</span>
+          <span id="bankDashboardCompact" class="dashboard-compact-summary">正在計算各題庫狀態…</span>
+        </summary>
+        <div class="dashboard-headline">
+          <div>
+            <strong>各題庫即時表現</strong>
+            <p>一格一題庫，快速看正分率、答對率與平均每題分數；開始練習時會自動收起，不擋作答。</p>
+          </div>
+          <span id="bankDashboardUpdated" class="dashboard-updated">-</span>
+        </div>
+        <div id="bankDashboardCards" class="bank-dashboard-grid" aria-live="polite"></div>
       </details>
     </section>
 
@@ -458,7 +475,7 @@
     </section>
   </div>
   <script>
-    // v0.1.40 boot diagnostics: collect enough information when the app fails to boot,
+    // v0.1.41 boot diagnostics: collect enough information when the app fails to boot,
     // without clearing user progress by default.
     (function () {
       var startedAt = Date.now();
@@ -501,18 +518,18 @@
       });
     })();
   </script>
-  <script src="med_questions.js?v=20260426fix40" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
-  <script src="memory-bridge.js?v=20260426fix40" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
-  <script src="app.js?v=20260426fix40" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
-  <script type="module" src="firebase-ui.js?v=20260426fix40" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
+  <script src="med_questions.js?v=20260426fix41" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
+  <script src="memory-bridge.js?v=20260426fix41" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
+  <script src="app.js?v=20260426fix41" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
+  <script type="module" src="firebase-ui.js?v=20260426fix41" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
   <script>
-    // v0.1.40 staged boot guard:
+    // v0.1.41 staged boot guard:
     // Slow mobile browsers can exceed the old 1.8s guard, so this first shows
     // a loading state and only later offers repair/log tools.
     (function () {
       var LOADING_NOTICE_MS = 3500;
       var FAILURE_NOTICE_MS = 12000;
-      var VERSION_TAG = "20260426fix40";
+      var VERSION_TAG = "20260426fix41";
       var STORAGE_KEYS = {
         progress: "med-exam-progress-v1",
         session: "med-exam-session-v1",
@@ -568,7 +585,7 @@
       function buildDiagnosticPayload() {
         return {
           app: "med-exam-app",
-          version: "v0.1.40",
+          version: "v0.1.41",
           generatedAt: new Date().toISOString(),
           location: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
           navigator: { userAgent: navigator.userAgent, language: navigator.language, onLine: navigator.onLine, cookieEnabled: navigator.cookieEnabled },

@@ -83,6 +83,7 @@
     official_plus_mechanical: "醫學題庫加強模式：包含目前三個主要題庫，可用分類再篩選。",
     full_extended: "顯示目前載入的全部題庫。"
   };
+  const CORE_EXAM_SCOPES = ["official_small_car", "tcm_internal_formula", "wenbing_formula"];
   const SCORE_FILTER_LABELS = {
     any: "不限",
     gt: ">",
@@ -270,6 +271,9 @@ const HANDBOOK_RULES = [
     rewardProgressBar: document.getElementById("rewardProgressBar"),
     rewardEncouragement: document.getElementById("rewardEncouragement"),
     badgeList: document.getElementById("badgeList"),
+    bankDashboardCards: document.getElementById("bankDashboardCards"),
+    bankDashboardCompact: document.getElementById("bankDashboardCompact"),
+    bankDashboardUpdated: document.getElementById("bankDashboardUpdated"),
   };
 
   let progress = loadProgress();
@@ -802,7 +806,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.40｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.41｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看三題庫表現。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -1718,6 +1722,80 @@ function renderWrongBook() {
     if (els.masteredCoverageCount) els.masteredCoverageCount.textContent = `${positivePct}%`;
     if (els.masteredCoverageDetail) els.masteredCoverageDetail.textContent = `正分 ${positiveCount} / ${scopedQuestions.length} 題；其中 >1 有 ${masteredCount} 題；本輪答對 ${session?.correct || 0} 題`;
     if (els.totalPointsCount) els.totalPointsCount.textContent = formatSignedNumber(totalPoints);
+    refreshBankDashboard();
+  }
+
+  function computeBankDashboardMetric(scope) {
+    const questions = getScopedQuestions(scope);
+    const entries = questions.map((q) => questionProgress(q.id));
+    const total = questions.length;
+    const seen = entries.reduce((sum, x) => sum + (Number(x.totalSeen) || 0), 0);
+    const correct = entries.reduce((sum, x) => sum + (Number(x.totalCorrect) || 0), 0);
+    const wrong = entries.reduce((sum, x) => sum + (Number(x.totalWrong) || 0), 0);
+    const positive = entries.filter((x) => (Number(x.score) || 0) >= 1).length;
+    const totalScore = entries.reduce((sum, x) => sum + (Number(x.score) || 0), 0);
+    const positiveRate = total ? (100 * positive / total) : 0;
+    const accuracy = seen ? (100 * correct / seen) : 0;
+    const avgScore = total ? (totalScore / total) : 0;
+    return { scope, total, seen, correct, wrong, positive, totalScore, positiveRate, accuracy, avgScore };
+  }
+
+  function formatPercent(value) {
+    if (!Number.isFinite(value)) return "-";
+    if (value >= 99.95) return "100%";
+    if (value <= 0) return "0%";
+    return `${Math.round(value * 10) / 10}%`;
+  }
+
+  function formatSignedDecimal(value) {
+    const n = Number(value) || 0;
+    const rounded = Math.round(n * 100) / 100;
+    if (Object.is(rounded, -0) || rounded === 0) return "0.00";
+    return `${rounded > 0 ? "+" : ""}${rounded.toFixed(2)}`;
+  }
+
+  function refreshBankDashboard() {
+    if (!els.bankDashboardCards && !els.bankDashboardCompact) return;
+    const metrics = CORE_EXAM_SCOPES.map(computeBankDashboardMetric);
+    if (els.bankDashboardCards) {
+      els.bankDashboardCards.innerHTML = metrics.map((m) => {
+        const label = EXAM_SCOPE_LABELS[m.scope] || m.scope;
+        const pct = Math.max(0, Math.min(100, m.positiveRate));
+        const accWidth = Math.max(0, Math.min(100, m.accuracy));
+        const avgClass = m.avgScore > 0 ? "positive" : m.avgScore < 0 ? "negative" : "neutral";
+        return `
+          <article class="bank-metric-card" data-scope="${escapeHtml(m.scope)}" style="--pct:${pct.toFixed(2)};">
+            <div class="bank-metric-head">
+              <span class="bank-metric-kicker">題庫</span>
+              <strong>${escapeHtml(label)}</strong>
+            </div>
+            <div class="bank-metric-body">
+              <div class="bank-ring" aria-label="${escapeHtml(label)} 正分率 ${formatPercent(m.positiveRate)}">
+                <span>${escapeHtml(formatPercent(m.positiveRate))}</span>
+                <small>正分率</small>
+              </div>
+              <div class="bank-metric-lines">
+                <div class="bank-metric-row"><span>答對率</span><strong>${m.seen ? escapeHtml(formatPercent(m.accuracy)) : "-"}</strong></div>
+                <div class="bank-mini-bar" aria-hidden="true"><i style="width:${accWidth.toFixed(2)}%"></i></div>
+                <div class="bank-metric-row"><span>平均每題分數</span><strong class="avg-score ${avgClass}">${escapeHtml(formatSignedDecimal(m.avgScore))}</strong></div>
+                <div class="bank-metric-subline">正分 ${m.positive} / ${m.total} 題｜已作答 ${m.seen} 次</div>
+              </div>
+            </div>
+          </article>`;
+      }).join("");
+    }
+    if (els.bankDashboardCompact) {
+      els.bankDashboardCompact.innerHTML = metrics.map((m) => {
+        const shortLabel = (EXAM_SCOPE_LABELS[m.scope] || m.scope)
+          .replace("條文填空", "")
+          .replace("中醫內科", "內科")
+          .replace("題庫", "");
+        return `<span class="dashboard-chip">${escapeHtml(shortLabel)} ${escapeHtml(formatPercent(m.positiveRate))}｜${escapeHtml(formatSignedDecimal(m.avgScore))}</span>`;
+      }).join("");
+    }
+    if (els.bankDashboardUpdated) {
+      els.bankDashboardUpdated.textContent = `即時統計｜${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+    }
   }
 
   function refreshRewards() {
