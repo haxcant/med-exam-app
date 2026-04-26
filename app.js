@@ -691,7 +691,8 @@ const HANDBOOK_RULES = [
     settings.scoreFilterOperator = els.scoreFilterOperatorSelect?.value || "any";
     settings.scoreFilterValue = sanitizeInteger(els.scoreFilterValueInput?.value, 0);
     settings.srsReviewBeforeEnabled = !!els.srsReviewBeforeEnabledToggle?.checked;
-    settings.srsReviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || "");
+    syncReviewBeforeDateInputLimit();
+    settings.srsReviewBeforeDate = clampReviewBeforeDateToToday(els.srsReviewBeforeDateInput?.value || "");
     settings.answerTimeLimitSec = sanitizeNonNegativeNumber(els.answerTimeLimitInput?.value, 15);
     settings.autoNextCorrectDelaySec = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value, 1);
     settings.autoNextWrongDelaySec = sanitizeNonNegativeNumber(els.autoNextWrongDelayInput?.value, 4);
@@ -722,7 +723,10 @@ const HANDBOOK_RULES = [
     if (els.scoreFilterOperatorSelect) els.scoreFilterOperatorSelect.value = settings.scoreFilterOperator || "any";
     if (els.scoreFilterValueInput) els.scoreFilterValueInput.value = String(settings.scoreFilterValue ?? 0);
     if (els.srsReviewBeforeEnabledToggle) els.srsReviewBeforeEnabledToggle.checked = !!settings.srsReviewBeforeEnabled;
-    if (els.srsReviewBeforeDateInput) els.srsReviewBeforeDateInput.value = normalizeDateInput(settings.srsReviewBeforeDate || "");
+    if (els.srsReviewBeforeDateInput) {
+      els.srsReviewBeforeDateInput.value = clampReviewBeforeDateToToday(settings.srsReviewBeforeDate || "");
+      syncReviewBeforeDateInputLimit();
+    }
     if (els.answerTimeLimitInput) els.answerTimeLimitInput.value = String(settings.answerTimeLimitSec ?? 15);
     if (els.autoNextCorrectDelayInput) els.autoNextCorrectDelayInput.value = String(settings.autoNextCorrectDelaySec ?? 1);
     if (els.autoNextWrongDelayInput) els.autoNextWrongDelayInput.value = String(settings.autoNextWrongDelaySec ?? 4);
@@ -806,7 +810,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.42｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看三題庫表現。`;
+      els.versionSummary.textContent = `v0.1.43｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看三題庫表現。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -4455,6 +4459,36 @@ function buildAnswerExplanationHtml(question) {
     return /^\d{4}-\d{2}-\d{2}$/.test(raw) ? raw : "";
   }
 
+  function todayDateInputValue() {
+    return formatLocalDateInput(new Date());
+  }
+
+  function isFutureDateInput(value) {
+    const normalized = normalizeDateInput(value);
+    const today = todayDateInputValue();
+    return !!normalized && !!today && normalized > today;
+  }
+
+  function clampReviewBeforeDateToToday(value) {
+    const normalized = normalizeDateInput(value);
+    if (!normalized) return "";
+    const today = todayDateInputValue();
+    return normalized > today ? today : normalized;
+  }
+
+  function syncReviewBeforeDateInputLimit() {
+    const input = els.srsReviewBeforeDateInput;
+    if (!input) return "";
+    const today = todayDateInputValue();
+    if (today) input.max = today;
+    const clamped = clampReviewBeforeDateToToday(input.value || settings.srsReviewBeforeDate || "");
+    if (clamped && input.value !== clamped) {
+      input.value = clamped;
+      input.title = "最後複習日篩選不可晚於今天，已自動調整。";
+    }
+    return clamped;
+  }
+
   function dateInputToEndOfDayMs(value) {
     const date = normalizeDateInput(value);
     if (!date) return NaN;
@@ -4477,7 +4511,8 @@ function buildAnswerExplanationHtml(question) {
 
   function getEffectiveReviewBeforeDate() {
     if (!els.srsReviewBeforeEnabledToggle?.checked) return "";
-    return normalizeDateInput(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
+    syncReviewBeforeDateInputLimit();
+    return clampReviewBeforeDateToToday(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
   }
 
   function setSrsReviewLookbackDays(days) {

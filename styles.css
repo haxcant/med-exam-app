@@ -2198,7 +2198,7 @@ html[data-theme]:not([data-theme="original"]) .feedback-title.bad{color:var(--wr
   border-radius: 10px;
 }
 
-/* v0.1.42 advanced filter grouping + compact recovery + drawer time info */
+/* v0.1.43 advanced filter grouping + compact recovery + drawer time info */
 .advanced-filter-cluster{
   grid-column:1 / -1;
   display:grid;
@@ -2350,7 +2350,7 @@ body.mobile-recovery-visible{padding-bottom:46px;}
 }
 
 
-/* v0.1.42 bank learning dashboard */
+/* v0.1.43 bank learning dashboard */
 .dashboard-panel{padding:12px 14px;}
 .learning-dashboard-fold{background:linear-gradient(135deg, color-mix(in srgb, var(--panel-2, #182235) 88%, transparent), color-mix(in srgb, var(--panel, #111827) 94%, transparent));}
 .learning-dashboard-fold > summary{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
@@ -2385,7 +2385,7 @@ body.mobile-recovery-visible{padding-bottom:46px;}
 .quiz-mode-active .dashboard-panel{display:none;}
 @media (max-width:900px){.bank-dashboard-grid{grid-template-columns:1fr}.dashboard-headline{display:grid}.dashboard-updated{width:max-content}.learning-dashboard-fold > summary{align-items:flex-start}.dashboard-compact-summary{justify-content:flex-start}.bank-metric-body{grid-template-columns:78px minmax(0,1fr)}}
 
-/* v0.1.42 dashboard ring + theme polish
+/* v0.1.43 dashboard ring + theme polish
    - Use a true donut ring instead of a filled pie.
    - Strengthen dashboard chart colors for light-wood and retro game themes.
    - Keep the original theme behavior mostly unchanged. */

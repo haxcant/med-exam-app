@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260426fix42">
+  <link rel="stylesheet" href="styles.css?v=20260426fix43">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.42：調整題庫學習儀表板圓環與主題配色，提升淺木頭與復古遊戲色系可讀性。</p>
+            <p id="versionSummary">v0.1.43：修正最後複習日篩選不可晚於今天，避免未來日期放寬篩選。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -160,8 +160,8 @@
           <label class="score-filter-card"><span>積分門檻（自填）</span><input id="scoreFilterValueInput" type="number" step="1" value="0" placeholder="例如 0、1、-2"></label>
           <label class="srs-date-filter-control review-filter-card"><span>最後複習日篩選</span>
             <span class="inline-check-row"><input id="srsReviewBeforeEnabledToggle" type="checkbox">啟用日期篩選</span>
-            <input id="srsReviewBeforeDateInput" type="date">
-            <small>啟用後只考最後複習日在該日以前的已複習題；從未作答的新題不納入。</small>
+            <input id="srsReviewBeforeDateInput" type="date" max="">
+            <small>啟用後只考最後複習日在該日以前的已複習題；日期不可晚於今天，從未作答的新題不納入。</small>
             <div class="actions compact srs-quick-row" style="margin-top:6px; gap:6px;">
               <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="1">1天沒見</button>
               <button type="button" class="ghost-btn mini-btn" data-srs-lookback-days="3">3天沒見</button>
@@ -475,7 +475,7 @@
     </section>
   </div>
   <script>
-    // v0.1.42 boot diagnostics: collect enough information when the app fails to boot,
+    // v0.1.43 boot diagnostics: collect enough information when the app fails to boot,
     // without clearing user progress by default.
     (function () {
       var startedAt = Date.now();
@@ -518,18 +518,18 @@
       });
     })();
   </script>
-  <script src="med_questions.js?v=20260426fix42" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
-  <script src="memory-bridge.js?v=20260426fix42" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
-  <script src="app.js?v=20260426fix42" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
-  <script type="module" src="firebase-ui.js?v=20260426fix42" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
+  <script src="med_questions.js?v=20260426fix43" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
+  <script src="memory-bridge.js?v=20260426fix43" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
+  <script src="app.js?v=20260426fix43" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
+  <script type="module" src="firebase-ui.js?v=20260426fix43" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
   <script>
-    // v0.1.42 staged boot guard:
+    // v0.1.43 staged boot guard:
     // Slow mobile browsers can exceed the old 1.8s guard, so this first shows
     // a loading state and only later offers repair/log tools.
     (function () {
       var LOADING_NOTICE_MS = 3500;
       var FAILURE_NOTICE_MS = 12000;
-      var VERSION_TAG = "20260426fix42";
+      var VERSION_TAG = "20260426fix43";
       var STORAGE_KEYS = {
         progress: "med-exam-progress-v1",
         session: "med-exam-session-v1",
@@ -585,7 +585,7 @@
       function buildDiagnosticPayload() {
         return {
           app: "med-exam-app",
-          version: "v0.1.42",
+          version: "v0.1.43",
           generatedAt: new Date().toISOString(),
           location: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
           navigator: { userAgent: navigator.userAgent, language: navigator.language, onLine: navigator.onLine, cookieEnabled: navigator.cookieEnabled },
