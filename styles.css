@@ -2172,3 +2172,28 @@ html[data-theme]:not([data-theme="original"]) .feedback-title.bad{color:var(--wr
 @keyframes bootSpin {
   to { transform: rotate(360deg); }
 }
+
+
+/* v0.1.39 SRS date-filter controls */
+.inline-check-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 6px;
+  font-size: 0.92rem;
+  color: var(--muted, #64748b);
+}
+.inline-check-row input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+.srs-date-filter-control .srs-quick-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.srs-date-filter-control .mini-btn {
+  padding: 5px 8px;
+  min-height: 30px;
+  font-size: 0.82rem;
+  border-radius: 10px;
+}

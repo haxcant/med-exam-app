@@ -221,6 +221,7 @@ const HANDBOOK_RULES = [
     masterySelect: document.getElementById("masterySelect"),
     scoreFilterOperatorSelect: document.getElementById("scoreFilterOperatorSelect"),
     scoreFilterValueInput: document.getElementById("scoreFilterValueInput"),
+    srsReviewBeforeEnabledToggle: document.getElementById("srsReviewBeforeEnabledToggle"),
     srsReviewBeforeDateInput: document.getElementById("srsReviewBeforeDateInput"),
     quickFilterUnseenBtn: document.getElementById("quickFilterUnseenBtn"),
     quickFilterWrongBtn: document.getElementById("quickFilterWrongBtn"),
@@ -532,6 +533,7 @@ const HANDBOOK_RULES = [
       els.masterySelect,
       els.scoreFilterOperatorSelect,
       els.scoreFilterValueInput,
+      els.srsReviewBeforeEnabledToggle,
       els.srsReviewBeforeDateInput,
       els.answerTimeLimitInput,
       els.autoNextCorrectDelayInput,
@@ -554,6 +556,9 @@ const HANDBOOK_RULES = [
     els.quickFilterUnseenBtn?.addEventListener("click", () => applyQuickScoreFilter("eq", 0));
     els.quickFilterWrongBtn?.addEventListener("click", () => applyQuickScoreFilter("lt", 0));
     els.quickFilterClearBtn?.addEventListener("click", () => applyQuickScoreFilter("any", 0));
+    document.querySelectorAll("[data-srs-lookback-days]").forEach((btn) => {
+      btn.addEventListener("click", () => setSrsReviewLookbackDays(btn.dataset.srsLookbackDays));
+    });
     els.soundTestBtn?.addEventListener("click", () => playCorrectChime());
     els.restoreRecommendedBtn?.addEventListener("click", restoreRecommendedSettings);
     els.imageReviewBtn?.addEventListener("click", renderImageReview);
@@ -652,6 +657,7 @@ const HANDBOOK_RULES = [
     settings.masteryTarget = Number(els.masterySelect?.value || 2);
     settings.scoreFilterOperator = els.scoreFilterOperatorSelect?.value || "any";
     settings.scoreFilterValue = sanitizeInteger(els.scoreFilterValueInput?.value, 0);
+    settings.srsReviewBeforeEnabled = !!els.srsReviewBeforeEnabledToggle?.checked;
     settings.srsReviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || "");
     settings.answerTimeLimitSec = sanitizeNonNegativeNumber(els.answerTimeLimitInput?.value, 15);
     settings.autoNextCorrectDelaySec = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value, 1);
@@ -682,6 +688,7 @@ const HANDBOOK_RULES = [
     if (els.masterySelect) els.masterySelect.value = String(settings.masteryTarget || 2);
     if (els.scoreFilterOperatorSelect) els.scoreFilterOperatorSelect.value = settings.scoreFilterOperator || "any";
     if (els.scoreFilterValueInput) els.scoreFilterValueInput.value = String(settings.scoreFilterValue ?? 0);
+    if (els.srsReviewBeforeEnabledToggle) els.srsReviewBeforeEnabledToggle.checked = !!settings.srsReviewBeforeEnabled;
     if (els.srsReviewBeforeDateInput) els.srsReviewBeforeDateInput.value = normalizeDateInput(settings.srsReviewBeforeDate || "");
     if (els.answerTimeLimitInput) els.answerTimeLimitInput.value = String(settings.answerTimeLimitSec ?? 15);
     if (els.autoNextCorrectDelayInput) els.autoNextCorrectDelayInput.value = String(settings.autoNextCorrectDelaySec ?? 1);
@@ -766,7 +773,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.38｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
+      els.versionSummary.textContent = `v0.1.39｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -777,7 +784,7 @@ const HANDBOOK_RULES = [
     const operator = els.scoreFilterOperatorSelect?.value || settings.scoreFilterOperator || "any";
     const value = sanitizeInteger(els.scoreFilterValueInput?.value ?? settings.scoreFilterValue, 0);
     const practiceMode = els.practiceModeSelect?.value || settings.practiceMode || "practice";
-    const reviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
+    const reviewBeforeDate = getEffectiveReviewBeforeDate();
     const timeLimit = sanitizeNonNegativeNumber(els.answerTimeLimitInput?.value ?? settings.answerTimeLimitSec, 15);
     const autoNextCorrect = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value ?? settings.autoNextCorrectDelaySec, 1);
     const autoNextWrong = sanitizeNonNegativeNumber(els.autoNextWrongDelayInput?.value ?? settings.autoNextWrongDelaySec, 4);
@@ -797,8 +804,8 @@ const HANDBOOK_RULES = [
       scoreText = "SRS 混合模式會自動混合到期、低分與新題，不另外套用積分門檻。";
     }
     const reviewText = reviewBeforeDate
-      ? `最後複習日篩選：只考 ${getReviewBeforeDateLabel(reviewBeforeDate)} 以前已複習過的題目。`
-      : "最後複習日篩選：未啟用。";
+      ? `最後複習日篩選：已啟用，只考 ${getReviewBeforeDateLabel(reviewBeforeDate)} 以前已複習過的題目。`
+      : "最後複習日篩選：未啟用。可勾選啟用，或用快捷欄選「最近 N 天沒見」的題目。";
     const timeText = `每題限時 ${timeLimit > 0 ? `${timeLimit} 秒` : "不限時"}；答對後 ${autoNextCorrect > 0 ? `${autoNextCorrect} 秒` : "不自動"}，答錯後 ${autoNextWrong > 0 ? `${autoNextWrong} 秒` : "不自動"}。`;
     return [modeText, scoreText, reviewText, timeText].filter(Boolean).join(" ");
   }
@@ -820,7 +827,7 @@ const HANDBOOK_RULES = [
     const scope = getSelectedScope();
     const scoreFilterOperator = els.scoreFilterOperatorSelect?.value || "any";
     const scoreFilterValue = sanitizeInteger(els.scoreFilterValueInput?.value, 0);
-    const srsReviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
+    const srsReviewBeforeDate = getEffectiveReviewBeforeDate();
     const answerTimeLimitSec = sanitizeNonNegativeNumber(els.answerTimeLimitInput?.value, 15);
     const autoNextCorrectDelaySec = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value, 1);
     const autoNextWrongDelaySec = sanitizeNonNegativeNumber(els.autoNextWrongDelayInput?.value, 4);
@@ -843,9 +850,9 @@ const HANDBOOK_RULES = [
     if (!pool.length) {
       let msg = "這個範圍／分類在目前篩選下沒有可用題目。";
       if (practiceMode === "wrongOnly") msg = "目前這個範圍／分類沒有錯題可練習。";
-      else if (practiceMode === "srsDue") msg = "目前這個範圍／分類沒有 SRS 到期題。可切換到「SRS 到期＋新題混合」、清除最後複習日篩選，或改用一般練習。";
-      else if (practiceMode === "srsMixed") msg = "目前這個範圍／分類沒有可供 SRS 混合練習的題目。可清除最後複習日篩選或改用一般練習。";
-      else if (srsReviewBeforeDate) msg = "目前沒有符合最後複習日篩選的題目。請清除日期或選更晚日期。";
+      else if (practiceMode === "srsDue") msg = "目前這個範圍／分類沒有 SRS 到期題。可切換到「SRS 到期＋新題混合」、取消日期篩選，或改用一般練習。";
+      else if (practiceMode === "srsMixed") msg = "目前這個範圍／分類沒有可供 SRS 混合練習的題目。可取消日期篩選或改用一般練習。";
+      else if (srsReviewBeforeDate) msg = "目前沒有符合最後複習日篩選的題目。請取消日期篩選，或選更早／更寬的快捷範圍。";
       alert(msg);
       return;
     }
@@ -872,7 +879,7 @@ const HANDBOOK_RULES = [
       answeredMap: {},
       questionModeMap,
       createdAt: new Date().toISOString(),
-      filters: { scope, category, practiceMode, questionMode, requestedCount, scoreFilterOperator, scoreFilterValue, srsReviewBeforeDate, answerTimeLimitSec, autoNextCorrectDelaySec, autoNextWrongDelaySec },
+      filters: { scope, category, practiceMode, questionMode, requestedCount, scoreFilterOperator, scoreFilterValue, srsReviewBeforeEnabled: !!els.srsReviewBeforeEnabledToggle?.checked, srsReviewBeforeDate, answerTimeLimitSec, autoNextCorrectDelaySec, autoNextWrongDelaySec },
       lastAnsweredQuestionId: "",
       currentStreak: 0,
       bestStreak: 0,
@@ -2567,6 +2574,7 @@ function renderWrongBook() {
       masteryTarget: Number(data.masteryTarget || base.masteryTarget || 2),
       scoreFilterOperator: data.scoreFilterOperator || base.scoreFilterOperator || "any",
       scoreFilterValue: sanitizeInteger(data.scoreFilterValue, base.scoreFilterValue ?? 0),
+      srsReviewBeforeEnabled: data.srsReviewBeforeEnabled === undefined ? !!base.srsReviewBeforeEnabled : !!data.srsReviewBeforeEnabled,
       srsReviewBeforeDate: normalizeDateInput(data.srsReviewBeforeDate || base.srsReviewBeforeDate || ""),
       answerTimeLimitSec: sanitizeNonNegativeNumber(data.answerTimeLimitSec, base.answerTimeLimitSec ?? 15),
       autoNextCorrectDelaySec: resolveAutoNextDelayValue(data, "autoNextCorrectDelaySec", "autoNextDelaySec", base.autoNextCorrectDelaySec ?? 1),
@@ -2877,6 +2885,7 @@ function restoreRecommendedSettings() {
       masteryTarget: Number(data?.masteryTarget || 2),
       scoreFilterOperator: data?.scoreFilterOperator || "any",
       scoreFilterValue: sanitizeInteger(data?.scoreFilterValue, 0),
+      srsReviewBeforeEnabled: !!data?.srsReviewBeforeEnabled,
       srsReviewBeforeDate: normalizeDateInput(data?.srsReviewBeforeDate || ""),
       answerTimeLimitSec: sanitizeNonNegativeNumber(data?.answerTimeLimitSec, 15),
       autoNextCorrectDelaySec: resolveAutoNextDelayValue(data, "autoNextCorrectDelaySec", "autoNextDelaySec", 1),
@@ -4351,6 +4360,30 @@ function buildAnswerExplanationHtml(question) {
     return normalized || "";
   }
 
+  function formatLocalDateInput(date) {
+    if (!(date instanceof Date) || Number.isNaN(date.getTime())) return "";
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  function getEffectiveReviewBeforeDate() {
+    if (!els.srsReviewBeforeEnabledToggle?.checked) return "";
+    return normalizeDateInput(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
+  }
+
+  function setSrsReviewLookbackDays(days) {
+    const n = Math.max(1, Math.round(Number(days || 0)));
+    if (!Number.isFinite(n)) return;
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - n);
+    if (els.srsReviewBeforeDateInput) els.srsReviewBeforeDateInput.value = formatLocalDateInput(d);
+    if (els.srsReviewBeforeEnabledToggle) els.srsReviewBeforeEnabledToggle.checked = true;
+    handleSettingChange();
+  }
+
   function getSrsIntervalDaysFromProgress(item) {
     if (!item || !Number(item.totalSeen || 0) || !item.lastSeenAt) return null;
     const score = Number(item.score || 0);
@@ -4446,7 +4479,7 @@ function buildAnswerExplanationHtml(question) {
   function getFilteredBaseQuestionsForSummary() {
     const scope = getSelectedScope();
     const category = els.categorySelect?.value || settings.category || "all";
-    const reviewBeforeDate = normalizeDateInput(els.srsReviewBeforeDateInput?.value || settings.srsReviewBeforeDate || "");
+    const reviewBeforeDate = getEffectiveReviewBeforeDate();
     let pool = getScopedQuestions(scope).filter((q) => category === "all" ? true : q.category === category);
     return applyReviewBeforeDateFilter(pool, reviewBeforeDate);
   }

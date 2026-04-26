@@ -101,7 +101,7 @@ function sanitizeSettingsForCloud(rawSettings) {
   const out = {};
   const allowedKeys = [
     "examScope", "practiceMode", "questionMode", "questionCount", "masteryTarget",
-    "scoreFilterOperator", "scoreFilterValue", "srsReviewBeforeDate", "answerTimeLimitSec",
+    "scoreFilterOperator", "scoreFilterValue", "srsReviewBeforeEnabled", "srsReviewBeforeDate", "answerTimeLimitSec",
     "autoNextCorrectDelaySec", "autoNextWrongDelaySec", "soundVolumePct", "uiTheme",
     "shortcutOption1", "shortcutOption2", "shortcutOption3", "shortcutOption4", "shortcutNext"
   ];
