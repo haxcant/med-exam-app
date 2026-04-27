@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const DATA_SRC = './formula_genie_data.js?v=20260427fgenie2';
+  const DATA_SRC = './formula_genie_data.js?v=20260427fgenie3';
   const DATA_GLOBAL = 'FORMULA_VECTOR_WEIGHTS_V015';
   const state = { loading: false, loaded: false, error: null, rows: [] };
 
@@ -169,16 +169,22 @@
     const rowScores = rows.map(row => {
       let score = 0;
       let exact = 0;
+      const matched = [];
       for (const [f, w] of qTop) {
+        const inputWeight = Number(w) || 0;
         const rw = rowStrength(row.features || {}, f, row.prompt || '');
         if (rw > 0) {
-          score += Math.sqrt(Number(w) * rw) * (f.length >= 6 ? 1.35 : f.length >= 4 ? 1.12 : 0.7);
+          const multiplier = f.length >= 6 ? 1.35 : f.length >= 4 ? 1.12 : 0.7;
+          const contribution = Math.sqrt(inputWeight * rw) * multiplier;
+          score += contribution;
           exact += 1;
+          matched.push({ feature: f, inputWeight, rowWeight: rw, contribution });
         } else if (featureFamily(f) && Object.keys(row.features || {}).some(rf => featureFamily(rf) === featureFamily(f))) {
-          score += 0.03 * Number(w);
+          score += 0.03 * inputWeight;
         }
       }
-      return { row, label: row.__label, score, exact };
+      matched.sort((a, b) => b.contribution - a.contribution || b.rowWeight - a.rowWeight || String(a.feature).localeCompare(String(b.feature)));
+      return { row, label: row.__label, score, exact, matched };
     }).sort((a, b) => b.score - a.score || String(a.label).localeCompare(String(b.label)));
 
     const formulaBest = new Map();
@@ -216,7 +222,7 @@
       : '';
     const featureHtml = `<div class="formula-genie-feature-box">
       <div class="formula-genie-feature-head">
-        <strong>抽取特徵</strong>
+        <strong>輸入線索</strong>
         <span class="formula-genie-feature-count">先顯示前 5 個</span>
       </div>
       <div>${mainFeatures}</div>
@@ -224,6 +230,29 @@
     </div>`;
 
     const topScore = formulas[0]?.score || 0;
+    const renderEvidence = (x) => {
+      const matched = Array.isArray(x.matched) ? x.matched : [];
+      if (!matched.length) {
+        return `<details class="formula-genie-evidence"><summary>命中特徵與權重</summary><div class="formula-genie-evidence-empty">此候選主要來自同類線索弱匹配，沒有明確逐項命中特徵。</div></details>`;
+      }
+      const rows = matched.slice(0, 16).map(m => `<tr>
+        <td>${escapeHtml(m.feature)}</td>
+        <td>${Number(m.inputWeight).toFixed(2)}</td>
+        <td>${Number(m.rowWeight).toFixed(2)}</td>
+        <td>${Number(m.contribution).toFixed(3)}</td>
+      </tr>`).join('');
+      const more = matched.length > 16 ? `<div class="formula-genie-evidence-note">尚有 ${matched.length - 16} 個低權重命中特徵未列出。</div>` : '';
+      return `<details class="formula-genie-evidence">
+        <summary>命中特徵與權重（${matched.length}）</summary>
+        <div class="formula-genie-evidence-table-wrap">
+          <table class="formula-genie-evidence-table">
+            <thead><tr><th>特徵</th><th>輸入權重</th><th>題庫權重</th><th>貢獻</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+          ${more}
+        </div>
+      </details>`;
+    };
     const renderCard = (x, i) => {
       const rel = topScore ? Math.max(0, Math.min(100, (x.score / topScore) * 100)) : 0;
       const cls = confidenceLabel(x.score, topScore);
@@ -234,6 +263,7 @@
           <div class="formula-genie-result-title">${escapeHtml(x.label)}</div>
           <div class="formula-genie-result-meta">接近度：${x.score.toFixed(3)}｜相對最高分 ${rel.toFixed(0)}%｜信心：${cls}｜命中特徵 ${x.exact}</div>
           <div class="formula-genie-source">來源題：${escapeHtml(x.row?.id || '')}${prompt ? '｜' + escapeHtml(prompt) : ''}</div>
+          ${renderEvidence(x)}
         </div>
       </article>`;
     };

@@ -2481,7 +2481,7 @@ body.mobile-recovery-visible{padding-bottom:46px;}
   --dashboard-bar-track:rgba(148,163,184,.20);
 }
 
-/* v0.1.45 Formula Genie panel */
+/* v0.1.46 Formula Genie panel */
 .formula-genie-panel { overflow: hidden; }
 .formula-genie-fold > summary { align-items: center; gap: 10px; }
 .formula-genie-summary-title { color: var(--text); font-weight: 850; letter-spacing: .03em; }
@@ -2500,10 +2500,13 @@ body.mobile-recovery-visible{padding-bottom:46px;}
 .formula-genie-status strong { color: var(--text); }
 .formula-genie-status-bad { color: var(--danger); font-weight: 760; }
 .formula-genie-visual { display: flex; justify-content: center; align-items: center; min-height: 150px; }
-.formula-genie-svg {
+.formula-genie-svg,
+.formula-genie-img {
   width: min(168px, 100%); height: auto; display: block;
+  border-radius: 26px;
   filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .22));
 }
+.formula-genie-img { box-shadow: 0 0 0 1px var(--border), 0 12px 30px rgba(0,0,0,.12); }
 .formula-genie-tool { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 14px; }
 .formula-genie-input-label { display: block; color: var(--text); font-weight: 760; margin-bottom: 6px; }
 #formulaGenieInput {
@@ -2573,10 +2576,53 @@ body.mobile-recovery-visible{padding-bottom:46px;}
 .formula-genie-result-title { color: var(--text); font-weight: 850; font-size: 1.04rem; margin-bottom: 3px; }
 .formula-genie-result-meta { color: var(--primary); font-size: .88rem; margin-bottom: 5px; }
 .formula-genie-source { color: var(--muted); font-size: .88rem; line-height: 1.55; word-break: break-word; }
+.formula-genie-evidence {
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card-bg, var(--panel-2));
+  overflow: hidden;
+}
+.formula-genie-evidence > summary {
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  padding: 8px 10px;
+  color: var(--text);
+  font-size: .9rem;
+  font-weight: 760;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.formula-genie-evidence > summary::after {
+  content: "展開";
+  color: var(--muted);
+  font-size: .82rem;
+  font-weight: 600;
+}
+.formula-genie-evidence[open] > summary::after { content: "收起"; }
+.formula-genie-evidence > summary::-webkit-details-marker { display: none; }
+.formula-genie-evidence-table-wrap { padding: 0 10px 10px; overflow-x: auto; }
+.formula-genie-evidence-table { width: 100%; border-collapse: collapse; min-width: 420px; font-size: .86rem; }
+.formula-genie-evidence-table th,
+.formula-genie-evidence-table td {
+  border-top: 1px solid var(--border);
+  padding: 7px 8px;
+  text-align: left;
+  color: var(--text);
+  white-space: nowrap;
+}
+.formula-genie-evidence-table th { color: var(--muted); font-weight: 760; }
+.formula-genie-evidence-table td:nth-child(n+2),
+.formula-genie-evidence-table th:nth-child(n+2) { text-align: right; }
+.formula-genie-evidence-empty,
+.formula-genie-evidence-note { color: var(--muted); font-size: .86rem; line-height: 1.55; padding: 0 10px 10px; }
+.formula-genie-evidence-note { padding-top: 7px; }
 @media (max-width: 720px) {
   .formula-genie-wrap { grid-template-columns: 1fr; }
   .formula-genie-visual { order: -1; min-height: 128px; }
-  .formula-genie-svg { width: 136px; }
+  .formula-genie-svg, .formula-genie-img { width: 136px; }
   .formula-genie-result-card { grid-template-columns: 36px minmax(0, 1fr); }
   .formula-genie-summary-subtitle { display: block; width: 100%; }
 }
