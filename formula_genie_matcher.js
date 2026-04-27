@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const DATA_SRC = './formula_genie_data.js?v=20260427fgenie1';
+  const DATA_SRC = './formula_genie_data.js?v=20260427fgenie2';
   const DATA_GLOBAL = 'FORMULA_VECTOR_WEIGHTS_V015';
   const state = { loading: false, loaded: false, error: null, rows: [] };
 
@@ -204,9 +204,27 @@
       resultEl.innerHTML = '<div class="formula-genie-empty">沒有抽到明確特徵。請輸入較具體的症狀、病機或方證線索，例如「風寒襲肺 咳嗽 痰白 惡寒」。</div>';
       return;
     }
+
+    const renderFeaturePill = ([f, w]) => `<span class="formula-genie-pill">${escapeHtml(f)} <b>${Number(w).toFixed(2)}</b></span>`;
+    const mainFeatures = features.slice(0, 5).map(renderFeaturePill).join('');
+    const extraFeatures = features.slice(5).map(renderFeaturePill).join('');
+    const featureMoreHtml = features.length > 5
+      ? `<details class="formula-genie-more">
+          <summary>顯示其餘 ${features.length - 5} 個特徵</summary>
+          <div class="formula-genie-more-body">${extraFeatures}</div>
+        </details>`
+      : '';
+    const featureHtml = `<div class="formula-genie-feature-box">
+      <div class="formula-genie-feature-head">
+        <strong>抽取特徵</strong>
+        <span class="formula-genie-feature-count">先顯示前 5 個</span>
+      </div>
+      <div>${mainFeatures}</div>
+      ${featureMoreHtml}
+    </div>`;
+
     const topScore = formulas[0]?.score || 0;
-    const featureHtml = features.slice(0, 18).map(([f, w]) => `<span class="formula-genie-pill">${escapeHtml(f)} <b>${Number(w).toFixed(2)}</b></span>`).join('');
-    const itemHtml = formulas.length ? formulas.map((x, i) => {
+    const renderCard = (x, i) => {
       const rel = topScore ? Math.max(0, Math.min(100, (x.score / topScore) * 100)) : 0;
       const cls = confidenceLabel(x.score, topScore);
       const prompt = x.row?.prompt || '';
@@ -218,9 +236,21 @@
           <div class="formula-genie-source">來源題：${escapeHtml(x.row?.id || '')}${prompt ? '｜' + escapeHtml(prompt) : ''}</div>
         </div>
       </article>`;
-    }).join('') : '<div class="formula-genie-empty">未找到可排序候選。</div>';
+    };
 
-    resultEl.innerHTML = `<div class="formula-genie-feature-box"><strong>抽取特徵</strong><div>${featureHtml}</div></div><div class="formula-genie-result-list">${itemHtml}</div>`;
+    let itemHtml = '<div class="formula-genie-empty">未找到可排序候選。</div>';
+    if (formulas.length) {
+      const firstFive = formulas.slice(0, 5).map(renderCard).join('');
+      const rest = formulas.slice(5).map((x, idx) => renderCard(x, idx + 5)).join('');
+      itemHtml = firstFive + (formulas.length > 5
+        ? `<details class="formula-genie-more">
+            <summary>顯示第 6 名以後的 ${formulas.length - 5} 個候選</summary>
+            <div class="formula-genie-more-body formula-genie-result-list">${rest}</div>
+          </details>`
+        : '');
+    }
+
+    resultEl.innerHTML = `${featureHtml}<div class="formula-genie-result-list">${itemHtml}</div>`;
   }
   async function runMatch() {
     const input = $('formulaGenieInput');

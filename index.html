@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260427fgenie1">
+  <link rel="stylesheet" href="styles.css?v=20260427fgenie2">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.44：新增可收納「方劑精靈」區塊，支援症狀敘述 → 方劑候選資料庫匹配。</p>
+            <p id="versionSummary">v0.1.45：優化「方劑精靈」配色、圖示與結果收納顯示。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -105,11 +105,41 @@
           <div class="formula-genie-copy">
             <div class="formula-genie-kicker">普通權重題幹資料庫匹配</div>
             <h2>方劑精靈</h2>
-            <p>輸入類似中醫內科症狀、方證或題幹敘述，系統會抽取線索並比對內建方劑題庫，列出最接近的方劑候選。這裡只搬入 v5_8 的直接匹配區塊，不包含 Akinator 選擇題互動與批跑功能。</p>
+            <p>輸入症狀或方證，快速比對相近方劑。</p>
             <p id="formulaGenieStats" class="formula-genie-status">尚未載入方劑資料，展開或按「揣測方劑」後會自動載入。</p>
           </div>
           <div class="formula-genie-visual" aria-hidden="true">
-            <img src="assets/formula-genie.svg" alt="" loading="lazy">
+            <svg class="formula-genie-svg" viewBox="0 0 220 220" role="img" focusable="false">
+              <defs>
+                <radialGradient id="fgOrbGlow" cx="50%" cy="45%" r="60%">
+                  <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.95"/>
+                  <stop offset="58%" stop-color="var(--primary)" stop-opacity="0.32"/>
+                  <stop offset="100%" stop-color="var(--primary)" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="fgCloak" x1="44" y1="44" x2="176" y2="190" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.92"/>
+                  <stop offset="100%" stop-color="var(--primary-2, var(--primary))" stop-opacity="0.76"/>
+                </linearGradient>
+                <linearGradient id="fgCrystal" x1="76" y1="71" x2="148" y2="151" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="var(--feedback-bg, #fff)" stop-opacity="0.98"/>
+                  <stop offset="100%" stop-color="var(--primary)" stop-opacity="0.55"/>
+                </linearGradient>
+              </defs>
+              <circle cx="110" cy="116" r="88" fill="url(#fgOrbGlow)"/>
+              <path d="M62 173c18-16 25-35 26-60 2-32 16-58 31-69 18 12 31 40 33 73 1 23 10 43 27 58-35 20-82 20-117-2z" fill="url(#fgCloak)" stroke="var(--border)" stroke-width="3"/>
+              <path d="M78 86c10-34 26-52 42-58 14 7 28 26 36 58-26-14-53-14-78 0z" fill="var(--card-bg, #0f172a)" stroke="var(--border)" stroke-width="3"/>
+              <path d="M89 92c10-16 23-24 35-24 12 0 24 8 33 24-23-8-46-8-68 0z" fill="var(--feedback-bg, #fff)" opacity="0.86"/>
+              <path d="M83 132c8-31 19-48 37-48s31 18 38 48c-14 17-58 18-75 0z" fill="var(--feedback-bg, #fff)" stroke="var(--border)" stroke-width="3"/>
+              <path d="M99 119c10-8 31-8 42 0-7 17-35 17-42 0z" fill="var(--text)" opacity="0.92"/>
+              <circle cx="103" cy="110" r="4" fill="var(--primary)"/>
+              <circle cx="137" cy="110" r="4" fill="var(--primary)"/>
+              <path d="M111 132c5 3 13 3 18 0" fill="none" stroke="var(--muted)" stroke-width="3" stroke-linecap="round"/>
+              <path d="M110 78l11 23 25 3-18 17 4 25-22-12-22 12 4-25-18-17 25-3 11-23z" fill="url(#fgCrystal)" stroke="var(--primary)" stroke-width="3"/>
+              <path d="M44 139c-13 3-24 12-30 25 18-7 35-7 49 0" fill="none" stroke="var(--primary)" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
+              <path d="M176 139c13 3 24 12 30 25-18-7-35-7-49 0" fill="none" stroke="var(--primary)" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
+              <path d="M50 55l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2 5-11zM178 43l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1 4-9zM45 107l3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1 3-7z" fill="var(--warning)" opacity="0.92"/>
+              <ellipse cx="110" cy="184" rx="57" ry="11" fill="var(--text)" opacity="0.14"/>
+            </svg>
           </div>
         </div>
         <div class="formula-genie-tool">
@@ -558,11 +588,11 @@
       });
     })();
   </script>
-  <script src="med_questions.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
-  <script src="memory-bridge.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
-  <script src="app.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
-  <script src="formula_genie_matcher.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','formula_genie_matcher.js loaded')" onerror="window.__medExamBootLog?.('asset-error','formula_genie_matcher.js failed',{src:this.src})"></script>
-  <script type="module" src="firebase-ui.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
+  <script src="med_questions.js?v=20260427fgenie2" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
+  <script src="memory-bridge.js?v=20260427fgenie2" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
+  <script src="app.js?v=20260427fgenie2" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
+  <script src="formula_genie_matcher.js?v=20260427fgenie2" onload="window.__medExamBootLog?.('asset-load','formula_genie_matcher.js loaded')" onerror="window.__medExamBootLog?.('asset-error','formula_genie_matcher.js failed',{src:this.src})"></script>
+  <script type="module" src="firebase-ui.js?v=20260427fgenie2" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
   <script>
     // v0.1.43 staged boot guard:
     // Slow mobile browsers can exceed the old 1.8s guard, so this first shows
@@ -570,7 +600,7 @@
     (function () {
       var LOADING_NOTICE_MS = 3500;
       var FAILURE_NOTICE_MS = 12000;
-      var VERSION_TAG = "20260427fgenie1";
+      var VERSION_TAG = "20260427fgenie2";
       var STORAGE_KEYS = {
         progress: "med-exam-progress-v1",
         session: "med-exam-session-v1",
@@ -626,7 +656,7 @@
       function buildDiagnosticPayload() {
         return {
           app: "med-exam-app",
-          version: "v0.1.44-formula-genie",
+          version: "v0.1.45-formula-genie",
           generatedAt: new Date().toISOString(),
           location: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
           navigator: { userAgent: navigator.userAgent, language: navigator.language, onLine: navigator.onLine, cookieEnabled: navigator.cookieEnabled },
