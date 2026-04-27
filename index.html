@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260426fix43">
+  <link rel="stylesheet" href="styles.css?v=20260427fgenie1">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.43：修正最後複習日篩選不可晚於今天，避免未來日期放寬篩選。</p>
+            <p id="versionSummary">v0.1.44：新增可收納「方劑精靈」區塊，支援症狀敘述 → 方劑候選資料庫匹配。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -90,6 +90,46 @@
           <span id="bankDashboardUpdated" class="dashboard-updated">-</span>
         </div>
         <div id="bankDashboardCards" class="bank-dashboard-grid" aria-live="polite"></div>
+      </details>
+    </section>
+
+
+
+    <section class="panel formula-genie-panel collapsed-panel" aria-label="方劑精靈">
+      <details id="formulaGenieDetails" class="fold-panel formula-genie-fold">
+        <summary>
+          <span class="formula-genie-summary-title">方劑精靈</span>
+          <span class="formula-genie-summary-subtitle">輸入類似中醫內科症狀敘述，揣測出題庫中接近方劑</span>
+        </summary>
+        <div class="formula-genie-wrap">
+          <div class="formula-genie-copy">
+            <div class="formula-genie-kicker">普通權重題幹資料庫匹配</div>
+            <h2>方劑精靈</h2>
+            <p>輸入類似中醫內科症狀、方證或題幹敘述，系統會抽取線索並比對內建方劑題庫，列出最接近的方劑候選。這裡只搬入 v5_8 的直接匹配區塊，不包含 Akinator 選擇題互動與批跑功能。</p>
+            <p id="formulaGenieStats" class="formula-genie-status">尚未載入方劑資料，展開或按「揣測方劑」後會自動載入。</p>
+          </div>
+          <div class="formula-genie-visual" aria-hidden="true">
+            <img src="assets/formula-genie.svg" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="formula-genie-tool">
+          <label class="formula-genie-input-label" for="formulaGenieInput">症狀／方證敘述</label>
+          <textarea id="formulaGenieInput" rows="4" placeholder="例：外感風寒，惡寒發熱，咳嗽痰白，鼻塞流清涕，舌苔薄白，脈浮緊"></textarea>
+          <div class="formula-genie-actions">
+            <button id="formulaGenieRunBtn" type="button" class="primary-btn">揣測方劑</button>
+            <button id="formulaGenieSampleBtn" type="button" class="ghost-btn">放入範例</button>
+            <button id="formulaGenieClearBtn" type="button" class="ghost-btn">清空</button>
+            <label class="formula-genie-limit-label">顯示候選
+              <select id="formulaGenieLimit">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+              </select>
+            </label>
+          </div>
+          <p class="formula-genie-note">此功能是題庫相似度檢索，不是臨床診斷或處方建議；分數只代表與目前題庫特徵的文字／方證接近度。</p>
+          <div id="formulaGenieResult" class="formula-genie-result"><div class="formula-genie-empty">輸入敘述後按「揣測方劑」，結果會顯示在這裡。</div></div>
+        </div>
       </details>
     </section>
 
@@ -518,10 +558,11 @@
       });
     })();
   </script>
-  <script src="med_questions.js?v=20260426fix43" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
-  <script src="memory-bridge.js?v=20260426fix43" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
-  <script src="app.js?v=20260426fix43" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
-  <script type="module" src="firebase-ui.js?v=20260426fix43" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
+  <script src="med_questions.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
+  <script src="memory-bridge.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
+  <script src="app.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
+  <script src="formula_genie_matcher.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','formula_genie_matcher.js loaded')" onerror="window.__medExamBootLog?.('asset-error','formula_genie_matcher.js failed',{src:this.src})"></script>
+  <script type="module" src="firebase-ui.js?v=20260427fgenie1" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
   <script>
     // v0.1.43 staged boot guard:
     // Slow mobile browsers can exceed the old 1.8s guard, so this first shows
@@ -529,7 +570,7 @@
     (function () {
       var LOADING_NOTICE_MS = 3500;
       var FAILURE_NOTICE_MS = 12000;
-      var VERSION_TAG = "20260426fix43";
+      var VERSION_TAG = "20260427fgenie1";
       var STORAGE_KEYS = {
         progress: "med-exam-progress-v1",
         session: "med-exam-session-v1",
@@ -585,7 +626,7 @@
       function buildDiagnosticPayload() {
         return {
           app: "med-exam-app",
-          version: "v0.1.43",
+          version: "v0.1.44-formula-genie",
           generatedAt: new Date().toISOString(),
           location: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
           navigator: { userAgent: navigator.userAgent, language: navigator.language, onLine: navigator.onLine, cookieEnabled: navigator.cookieEnabled },
