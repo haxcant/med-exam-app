@@ -9419,7 +9419,7 @@ window.MED_QUESTION_BANK = [
     "id": "TCMF-0182",
     "category": "tcm_internal_formula",
     "kind": "text_choice",
-    "prompt": "下列對應內容應選何方？\n腫脹 消渴兼證",
+    "prompt": "下列對應內容應選何方？\n聾、盲 消渴兼證",
     "answer": "杞菊地黃丸",
     "explanation": "",
     "tags": [
