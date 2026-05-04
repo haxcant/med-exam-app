@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const DATA_SRC = './formula_genie_data.js?v=20260427fgenie3';
+  const DATA_SRC = './formula_genie_data.js?v=20260504mohw200';
   const DATA_GLOBAL = 'FORMULA_VECTOR_WEIGHTS_V015';
   const state = { loading: false, loaded: false, error: null, rows: [] };
 
@@ -10,6 +10,7 @@
 
   function $(id) { return document.getElementById(id); }
   function escapeHtml(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function escapeAttr(s) { return escapeHtml(s).replace(/`/g, '&#96;'); }
   function normText(s) {
     let x = String(s || '');
     const map = {'裏':'裡','溼':'濕','凉':'涼','不':'不','冷':'冷','參':'參','龍':'龍','連':'連','行':'行','降':'降'};
@@ -202,6 +203,19 @@
     if (r >= 0.70) return '中';
     return '低';
   }
+
+  function renderMohwMeta(row) {
+    const m = row?.mohw;
+    if (!m) return '';
+    const chips = [];
+    if (m.itemNo) chips.push(`項次 ${escapeHtml(m.itemNo)}`);
+    if (m.origin) chips.push(`出典：${escapeHtml(m.origin)}`);
+    if (m.effect) chips.push(`效能：${escapeHtml(m.effect)}`);
+    if (m.indications) chips.push(`適應症：${escapeHtml(m.indications)}`);
+    const url = m.sourceUrl ? `<a href="${escapeAttr(m.sourceUrl)}" target="_blank" rel="noopener noreferrer">官方頁</a>` : '';
+    return `<div class="formula-genie-source formula-genie-official-source">衛福部基準方劑${chips.length ? '｜' + chips.join('｜') : ''}${url ? '｜' + url : ''}</div>`;
+  }
+
   function renderResult(payload) {
     const resultEl = $('formulaGenieResult');
     if (!resultEl) return;
@@ -263,6 +277,7 @@
           <div class="formula-genie-result-title">${escapeHtml(x.label)}</div>
           <div class="formula-genie-result-meta">接近度：${x.score.toFixed(3)}｜相對最高分 ${rel.toFixed(0)}%｜信心：${cls}｜命中特徵 ${x.exact}</div>
           <div class="formula-genie-source">來源題：${escapeHtml(x.row?.id || '')}${prompt ? '｜' + escapeHtml(prompt) : ''}</div>
+          ${renderMohwMeta(x.row)}
           ${renderEvidence(x)}
         </div>
       </article>`;

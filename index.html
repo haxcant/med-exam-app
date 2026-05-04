@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.45：優化「方劑精靈」配色、圖示與結果收納顯示。</p>
+            <p id="versionSummary">v0.1.47：匯入衛福部200基準方，新增官方方劑題庫範圍，並重建方劑精靈特徵資料。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -141,6 +141,7 @@
             <option value="official_small_car" selected>金匱條文填空</option>
             <option value="tcm_internal_formula">中醫內科方劑題庫</option>
             <option value="wenbing_formula">溫病條文題庫</option>
+            <option value="mohw_200_formula_authority">衛福部200基準方</option>
             <option value="official_plus_mechanical">醫學題庫加強模式</option>
             <option value="full_extended">全部題庫模式</option>
           </select>
@@ -558,10 +559,10 @@
       });
     })();
   </script>
-  <script src="med_questions.js?v=20260427fgenie2" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
+  <script src="med_questions.js?v=20260504mohw200" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
   <script src="memory-bridge.js?v=20260427fgenie3" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
-  <script src="app.js?v=20260427fgenie3" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
-  <script src="formula_genie_matcher.js?v=20260427fgenie3" onload="window.__medExamBootLog?.('asset-load','formula_genie_matcher.js loaded')" onerror="window.__medExamBootLog?.('asset-error','formula_genie_matcher.js failed',{src:this.src})"></script>
+  <script src="app.js?v=20260504mohw200" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
+  <script src="formula_genie_matcher.js?v=20260504mohw200" onload="window.__medExamBootLog?.('asset-load','formula_genie_matcher.js loaded')" onerror="window.__medExamBootLog?.('asset-error','formula_genie_matcher.js failed',{src:this.src})"></script>
   <script type="module" src="firebase-ui.js?v=20260427fgenie3" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
   <script>
     // v0.1.43 staged boot guard:

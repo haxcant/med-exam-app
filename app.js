@@ -25,6 +25,7 @@
     jingui_formula: "金匱方證填空",
     tcm_internal_formula: "中醫內科方劑題庫",
     wenbing_formula: "溫病條文題庫",
+    mohw_200_formula_authority: "衛福部200基準方",
     internal_medicine: "內科",
     surgery: "外科",
     obgyn: "婦產科",
@@ -73,6 +74,7 @@
     official_small_car: "金匱條文填空",
     tcm_internal_formula: "中醫內科方劑題庫",
     wenbing_formula: "溫病條文題庫",
+    mohw_200_formula_authority: "衛福部200基準方",
     official_plus_mechanical: "醫學題庫加強模式",
     full_extended: "全部題庫模式",
   };
@@ -80,10 +82,11 @@
     official_small_car: "目前主題庫為《金匱要略》條文填空：將方名作為答案選項，原條文挖空作為題幹。",
     tcm_internal_formula: "中醫內科方劑題庫：以對應內容作為題幹，從選項中選出正確方劑。",
     wenbing_formula: "溫病條文題庫：以標題＋條文證候作為題幹，從選項中選出正確方劑。",
+    mohw_200_formula_authority: "衛福部中醫藥司基準方劑：依官方項次、方名、出典、效能、適應症、處方與注意事項整理成可維護題庫。",
     official_plus_mechanical: "醫學題庫加強模式：包含目前三個主要題庫，可用分類再篩選。",
     full_extended: "顯示目前載入的全部題庫。"
   };
-  const CORE_EXAM_SCOPES = ["official_small_car", "tcm_internal_formula", "wenbing_formula"];
+  const CORE_EXAM_SCOPES = ["official_small_car", "tcm_internal_formula", "wenbing_formula", "mohw_200_formula_authority"];
   const SCORE_FILTER_LABELS = {
     any: "不限",
     gt: ">",
@@ -777,8 +780,15 @@ const HANDBOOK_RULES = [
     );
   }
 
+  function isMohwFormulaQuestion(question) {
+    return !!(
+      question?.id?.startsWith("MOHW-") ||
+      question?.category === "mohw_200_formula_authority"
+    );
+  }
+
   function isMechanicalQuestion(question) {
-    return !!(question?.category && !isOfficialSmallCarQuestion(question) && !isTcmInternalFormulaQuestion(question) && !isWenbingFormulaQuestion(question));
+    return !!(question?.category && !isOfficialSmallCarQuestion(question) && !isTcmInternalFormulaQuestion(question) && !isWenbingFormulaQuestion(question) && !isMohwFormulaQuestion(question));
   }
 
   function isQuestionInScope(question, scope) {
@@ -786,7 +796,8 @@ const HANDBOOK_RULES = [
     if (scope === "official_small_car") return isOfficialSmallCarQuestion(question);
     if (scope === "tcm_internal_formula") return isTcmInternalFormulaQuestion(question);
     if (scope === "wenbing_formula") return isWenbingFormulaQuestion(question);
-    if (scope === "official_plus_mechanical") return isOfficialSmallCarQuestion(question) || isTcmInternalFormulaQuestion(question) || isWenbingFormulaQuestion(question) || isMechanicalQuestion(question);
+    if (scope === "mohw_200_formula_authority") return isMohwFormulaQuestion(question);
+    if (scope === "official_plus_mechanical") return isOfficialSmallCarQuestion(question) || isTcmInternalFormulaQuestion(question) || isWenbingFormulaQuestion(question) || isMohwFormulaQuestion(question) || isMechanicalQuestion(question);
     return true;
   }
 
@@ -810,7 +821,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.46 方劑精靈｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看三題庫表現。`;
+      els.versionSummary.textContent = `v0.1.47 衛福部200方＋方劑精靈｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看主要題庫表現。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
