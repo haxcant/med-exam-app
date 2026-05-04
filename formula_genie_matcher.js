@@ -610,7 +610,7 @@
       : `來源題摘要：${escapeHtml(String(top.row?.prompt || '').slice(0, 120))}`;
     const followUps = buildFollowUpQuestions(payload).map(q => `<li>${escapeHtml(q)}</li>`).join('');
     const gap = second ? Math.max(0, top.score - second.score) : top.score;
-    const gapText = second ? `第一名與第二名差距 ${gap.toFixed(2)}；若差距小，展示時可強調系統會提出補問而非硬猜。` : '目前只有單一主要候選。';
+    const gapText = second ? `第一名與第二名差距 ${gap.toFixed(2)}；若差距小，展示時系統可能會提出補問而非硬猜。` : '目前只有單一主要候選。';
     const modeBits = [];
     if (intent.selfStemExact) modeBits.push('自身題幹 exact 命中');
     if (intent.selfStemAmbiguous) modeBits.push('自身題幹多答案歧義');
@@ -629,7 +629,7 @@
         <div><b>病機摘要</b><p>${escapeHtml(mechanism)}</p></div>
         <div><b>方義／來源摘要</b><p>${sourceHint}</p></div>
       </div>
-      <div class="formula-genie-demo-box"><b>展示算法優勢</b><p>此結果同時使用 exact/self-stem、同義辨證特徵、來源分層、弱命中降噪與候選重排；不是只用題幹字串相似度。${escapeHtml(gapText)}</p></div>
+      <div class="formula-genie-demo-box"><b>判斷依據摘要</b><p>此結果同時使用題幹命中、同義辨證特徵、來源分層、弱命中降噪與候選重排；不是只用題幹字串相似度。${escapeHtml(gapText)}</p></div>
       <div class="formula-genie-support"><b>主要命中特徵</b><p>${support}</p></div>
       ${followUps ? `<details class="formula-genie-follow"><summary>建議補問／鑑別線索</summary><ol>${followUps}</ol></details>` : ''}
       <p class="formula-genie-safety-note">學習展示用模擬辨證，不作臨床診療或實際處方建議。</p>

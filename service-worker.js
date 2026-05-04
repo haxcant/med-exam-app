@@ -1,4 +1,4 @@
-const CACHE_NAME = 'med-exam-app-v0.1.51-no-question-lock-guard';
+const CACHE_NAME = 'med-exam-app-v0.1.52-text-polish';
 const CORE_ASSETS = [
   "./",
   "./index.html",
