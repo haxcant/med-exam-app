@@ -2672,3 +2672,27 @@ body.mobile-recovery-visible{padding-bottom:46px;}
   .formula-genie-diagnostic-head { display: block; }
   .formula-genie-diagnostic-head span { display: block; margin-top: 4px; }
 }
+
+/* v0.1.51: visible notice when stale score/date filters are auto-cleared to prevent no-question lock. */
+.session-fallback-notice{
+  margin:8px 0 10px;
+  padding:10px 12px;
+  border:1px solid rgba(250,204,21,.45);
+  border-radius:14px;
+  background:rgba(250,204,21,.10);
+  color:#fde68a;
+  font-size:.9rem;
+  line-height:1.45;
+}
+
+/* v0.1.51: visible notice when stale score/date filters are auto-cleared to prevent no-question lock. */
+.session-fallback-notice{
+  margin:8px 0 10px;
+  padding:10px 12px;
+  border:1px solid rgba(250,204,21,.45);
+  border-radius:14px;
+  background:rgba(250,204,21,.10);
+  color:#fde68a;
+  font-size:.9rem;
+  line-height:1.45;
+}

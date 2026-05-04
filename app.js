@@ -745,13 +745,22 @@ const HANDBOOK_RULES = [
   }
 
   function registerPWA() {
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      els.installBtn?.classList.remove("hidden");
-    });
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+    try {
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        els.installBtn?.classList.remove("hidden");
+      });
+    } catch (error) {
+      console.warn("beforeinstallprompt binding skipped", error);
+    }
+    try {
+      const sw = navigator && navigator.serviceWorker;
+      if (sw && typeof sw.register === "function") {
+        sw.register("./service-worker.js").catch((error) => console.warn("service worker register failed", error));
+      }
+    } catch (error) {
+      console.warn("service worker unavailable; continue without offline cache", error);
     }
   }
 
@@ -821,7 +830,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.48 方劑精靈分層排序｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看主要題庫表現。`;
+      els.versionSummary.textContent = `v0.1.51 啟動防卡＋題池防呆｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看主要題庫表現。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -865,6 +874,19 @@ const HANDBOOK_RULES = [
     }
   }
 
+  function resetTransientPracticeFiltersForFallback() {
+    if (els.scoreFilterOperatorSelect) els.scoreFilterOperatorSelect.value = "any";
+    if (els.scoreFilterValueInput) els.scoreFilterValueInput.value = "0";
+    if (els.srsReviewBeforeEnabledToggle) els.srsReviewBeforeEnabledToggle.checked = false;
+    if (els.srsReviewBeforeDateInput) els.srsReviewBeforeDateInput.value = "";
+    settings.scoreFilterOperator = "any";
+    settings.scoreFilterValue = 0;
+    settings.srsReviewBeforeEnabled = false;
+    settings.srsReviewBeforeDate = "";
+    try { saveSettings(); } catch (error) { console.warn("fallback filter save failed", error); }
+    try { refreshFilterSummary(); } catch {}
+  }
+
   function startSessionFromControls() {
     clearAllTimers();
     const masteryTarget = Number(els.masterySelect?.value || "2");
@@ -880,10 +902,11 @@ const HANDBOOK_RULES = [
     const autoNextCorrectDelaySec = sanitizeNonNegativeNumber(els.autoNextCorrectDelayInput?.value, 1);
     const autoNextWrongDelaySec = sanitizeNonNegativeNumber(els.autoNextWrongDelayInput?.value, 4);
 
-    let pool = getScopedQuestions(scope).filter((q) => category === "all" ? true : q.category === category);
-    pool = applyReviewBeforeDateFilter(pool, srsReviewBeforeDate);
+    const categoryPool = getScopedQuestions(scope).filter((q) => category === "all" ? true : q.category === category);
+    let pool = applyReviewBeforeDateFilter(categoryPool, srsReviewBeforeDate);
 
     let queue = [];
+    let fallbackNotice = "";
     if (practiceMode === "wrongOnly") {
       pool = pool.filter((q) => questionProgress(q.id).inWrongBook);
     } else if (practiceMode === "srsDue") {
@@ -900,9 +923,16 @@ const HANDBOOK_RULES = [
       if (practiceMode === "wrongOnly") msg = "目前這個範圍／分類沒有錯題可練習。";
       else if (practiceMode === "srsDue") msg = "目前這個範圍／分類沒有 SRS 到期題。可切換到「SRS 到期＋新題混合」、取消日期篩選，或改用一般練習。";
       else if (practiceMode === "srsMixed") msg = "目前這個範圍／分類沒有可供 SRS 混合練習的題目。可取消日期篩選或改用一般練習。";
-      else if (srsReviewBeforeDate) msg = "目前沒有符合最後複習日篩選的題目。請取消日期篩選，或選更早／更寬的快捷範圍。";
-      alert(msg);
-      return;
+      else if (categoryPool.length && (srsReviewBeforeDate || scoreFilterOperator !== "any")) {
+        pool = categoryPool.slice();
+        queue = [];
+        fallbackNotice = "原本的積分／日期篩選沒有可用題目，已自動取消暫時篩選並開始一般練習。";
+        resetTransientPracticeFiltersForFallback();
+      } else if (srsReviewBeforeDate) msg = "目前沒有符合最後複習日篩選的題目。請取消日期篩選，或選更早／更寬的快捷範圍。";
+      if (!pool.length) {
+        alert(msg);
+        return;
+      }
     }
 
     if (!queue.length) queue = shuffle(pool).slice(0, Math.min(requestedCount, pool.length));
@@ -933,6 +963,7 @@ const HANDBOOK_RULES = [
       bestStreak: 0,
       flashRevealed: false,
       pointsDelta: 0,
+      fallbackNotice,
     };
     saveSession();
     renderSessionOrEmpty();
@@ -1034,6 +1065,9 @@ function renderQuestion() {
   const questionMode = currentQuestionMode(question.id);
   const optionPayload = questionMode === "textToImage" ? buildImageOptions(question) : buildTextOptions(question);
   const questionScore = questionProgress(question.id).score;
+  const fallbackNoticeHtml = session.fallbackNotice
+    ? `<div class="session-fallback-notice">${escapeHtml(session.fallbackNotice)}</div>`
+    : "";
 
   const optionHtml = questionMode === "textToImage"
     ? optionPayload.options.map((opt, idx) => `
@@ -1086,6 +1120,7 @@ function renderQuestion() {
     <div class="timer-bar-wrap"><div id="timerBar" class="timer-bar"></div></div>
     <div class="progress-wrap compact"><div class="progress-bar" style="width:${progressPct}%"></div></div>
     ${buildExamDrawerHtml(question)}
+    ${fallbackNoticeHtml}
     <div class="quiz-card question-session-card bright compact-question-card">
       <div class="question-topline">
         <p class="prompt">${escapeHtml(promptText)}</p>
