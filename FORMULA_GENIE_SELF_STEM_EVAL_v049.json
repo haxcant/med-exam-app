@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-05-04T01:36:25.723Z",
+  "results": [
+    {
+      "mode": "prompt_only",
+      "n": 813,
+      "top1": 792,
+      "top1Accuracy": 0.974169741697417,
+      "contains": 813,
+      "containsAccuracy": 1,
+      "selfExact": 773,
+      "ambiguous": 40,
+      "byCategory": {
+        "jingui_formula": {
+          "n": 199,
+          "top1": 199,
+          "contains": 199
+        },
+        "tcm_internal_formula": {
+          "n": 277,
+          "top1": 257,
+          "contains": 277
+        },
+        "wenbing_formula": {
+          "n": 137,
+          "top1": 136,
+          "contains": 137
+        },
+        "mohw_200_formula_authority": {
+          "n": 200,
+          "top1": 200,
+          "contains": 200
+        }
+      },
+      "bad": []
+    },
+    {
+      "mode": "prompt_with_options",
+      "n": 813,
+      "top1": 813,
+      "top1Accuracy": 1,
+      "contains": 813,
+      "containsAccuracy": 1,
+      "selfExact": 813,
+      "ambiguous": 0,
+      "byCategory": {
+        "jingui_formula": {
+          "n": 199,
+          "top1": 199,
+          "contains": 199
+        },
+        "tcm_internal_formula": {
+          "n": 277,
+          "top1": 277,
+          "contains": 277
+        },
+        "wenbing_formula": {
+          "n": 137,
+          "top1": 137,
+          "contains": 137
+        },
+        "mohw_200_formula_authority": {
+          "n": 200,
+          "top1": 200,
+          "contains": 200
+        }
+      },
+      "bad": []
+    }
+  ]
+}

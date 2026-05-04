@@ -1,9 +1,9 @@
 (() => {
   'use strict';
 
-  const DATA_SRC = './formula_genie_data.js?v=20260504fgv2';
+  const DATA_SRC = './formula_genie_data.js?v=20260504fgv3';
   const DATA_GLOBAL = 'FORMULA_VECTOR_WEIGHTS_V015';
-  const state = { loading: false, loaded: false, error: null, rows: [] };
+  const state = { loading: false, loaded: false, error: null, rows: [], selfStemIndex: null };
 
   const BROAD_STOP = new Set('氣血陰陽寒熱虛實痰濕水火風毒瘀痛口肺脾胃腎肝心膽腸尿'.split('').concat(['小便','大便','裡','表','上','中','下','脈','身','口','氣','血','熱','寒','虛','實']));
   const COARSE_AXIS_FEATURES = new Set(['寒','熱','虛','實','表','裡','濕','痰','瘀','水','火','燥','風','毒','肺','脾','胃','腎','肝','心','膽','腸','膀胱','上焦','中焦','下焦','咳','喘','痛','口','小便','大便','黃疸','消渴','癃閉','不寐','痿證','厥證']);
@@ -27,6 +27,128 @@
     const D = data() || {};
     const x = normText(s);
     return (D.formulaAliasFixV015 && D.formulaAliasFixV015[x]) || x;
+  }
+
+  function selfStemKey(s) {
+    return normText(s)
+      .replace(/\s+/g, '')
+      .replace(/[第題號]/g, '')
+      .replace(/[0-9０-９]+/g, '')
+      .trim();
+  }
+  function addSelfStemVariant(map, text, item) {
+    const key = selfStemKey(text);
+    if (!key || key.length < 3) return;
+    if (!map.has(key)) map.set(key, []);
+    const arr = map.get(key);
+    const existing = arr.find(x => x.id === item.id && x.answer === item.answer);
+    if (existing) {
+      if (item.displayAnswer) existing.displayAnswer = item.displayAnswer;
+      if (item.question) existing.question = item.question;
+      if (item.variantType && !String(existing.variantType || '').startsWith('question')) existing.variantType = item.variantType;
+      return;
+    }
+    arr.push(item);
+  }
+  function extractOriginalLine(explanation) {
+    const m = String(explanation || '').match(/原文[:：]\s*([^\n]+)/);
+    return m ? m[1].trim() : '';
+  }
+  function questionOptionText(q) {
+    const opts = Array.isArray(q?.options) ? q.options : [];
+    if (!opts.length) return '';
+    return opts.map((o, i) => `${i + 1}. ${typeof o === 'string' ? o : (o?.text || o?.label || '')}`).join(' ');
+  }
+  function buildSelfStemIndex() {
+    if (state.selfStemIndex) return state.selfStemIndex;
+    const index = new Map();
+    const rows = prepareRows();
+    for (const row of rows) {
+      const label = normFormula(row.answer || '');
+      if (!label) continue;
+      addSelfStemVariant(index, row.prompt || '', {
+        id: row.id || '',
+        answer: label,
+        displayAnswer: row.answer || label,
+        prompt: row.prompt || '',
+        source: row,
+        variantType: 'training-row-prompt'
+      });
+    }
+    const bank = Array.isArray(window.MED_QUESTION_BANK) ? window.MED_QUESTION_BANK : [];
+    for (const q of bank) {
+      const label = normFormula(q.answer || '');
+      if (!label) continue;
+      const base = { id: q.id || '', answer: label, displayAnswer: q.answer || label, prompt: q.prompt || '', question: q, variantType: 'question-prompt' };
+      addSelfStemVariant(index, q.prompt || '', base);
+      const optText = questionOptionText(q);
+      if (optText) {
+        addSelfStemVariant(index, `${q.prompt || ''} ${optText}`, { ...base, variantType: 'question-prompt-with-options' });
+        addSelfStemVariant(index, `${q.prompt || ''} 選項 ${optText}`, { ...base, variantType: 'question-prompt-with-options' });
+      }
+      // A blank-stripped prompt remains question-specific in most cloze questions and helps when the user pastes the old text without underline marks.
+      const noBlank = String(q.prompt || '').replace(/[＿_]+/g, '');
+      if (noBlank !== q.prompt) addSelfStemVariant(index, noBlank, { ...base, variantType: 'question-prompt-no-blank' });
+      if (noBlank !== q.prompt && optText) addSelfStemVariant(index, `${noBlank} ${optText}`, { ...base, variantType: 'question-no-blank-with-options' });
+      // Full original lines can be ambiguous when one classical sentence contains more than one formula.
+      // They are indexed, but exact certainty is enabled only if all hits share the same answer.
+      const original = extractOriginalLine(q.explanation);
+      if (original) addSelfStemVariant(index, original, { ...base, prompt: original, variantType: 'explanation-original-line' });
+    }
+    state.selfStemIndex = index;
+    return index;
+  }
+  function findSelfStemHits(prompt) {
+    const index = buildSelfStemIndex();
+    const key = selfStemKey(prompt);
+    if (!key) return [];
+    return index.get(key) || [];
+  }
+  function makeSelfStemResult(hit, prompt, features) {
+    const row = hit.source || {
+      id: hit.id,
+      answer: hit.answer,
+      prompt: hit.prompt || prompt,
+      features: {}
+    };
+    const matched = [];
+    matched.push({
+      feature: '題庫自身題幹完全命中',
+      inputWeight: 10.0,
+      rowWeight: 10.0,
+      contribution: 120.0,
+      matchType: hit.variantType || 'self-stem-exact',
+      matchedFeature: hit.id || hit.answer,
+      className: 'self'
+    });
+    const rowFeatures = row.features || {};
+    for (const [f, w] of Object.entries(features || {}).sort((a, b) => Number(b[1]) - Number(a[1])).slice(0, 18)) {
+      const rw = Number(rowFeatures[f] || 0);
+      if (rw > 0) {
+        matched.push({
+          feature: f,
+          inputWeight: Number(w) || 0,
+          rowWeight: rw,
+          contribution: Math.min(8.0, Math.sqrt(Math.max(0, Number(w) || 0) * Math.max(0, rw))),
+          matchType: 'exact-feature-under-self-match',
+          matchedFeature: f,
+          className: featureClass(f)
+        });
+      }
+    }
+    matched.sort((a, b) => b.contribution - a.contribution || String(a.feature).localeCompare(String(b.feature)));
+    return {
+      row,
+      label: hit.displayAnswer || hit.answer,
+      score: 120.0 + matched.slice(1).reduce((acc, x) => acc + Number(x.contribution || 0) * 0.15, 0),
+      exact: matched.length,
+      strongExact: matched.length,
+      nonBroadExact: matched.length,
+      matched,
+      sourceIsMohw: isMohwRow(row),
+      selfStemExact: true,
+      selfStemVariantType: hit.variantType || 'self-stem-exact'
+    };
   }
   function topFeatures(features, limit = 12) {
     return Object.entries(features || {})
@@ -255,6 +377,50 @@
   }
   function directMatch(prompt, limit) {
     const rows = prepareRows();
+    const earlySelfHits = findSelfStemHits(prompt);
+    const earlySelfAnswers = Array.from(new Set(earlySelfHits.map(x => x.answer).filter(Boolean)));
+    if (earlySelfAnswers.length === 1) {
+      const hit = earlySelfHits.find(x => x.question) || earlySelfHits[0];
+      const seedFeatures = { ...(hit.source?.features || {}) };
+      if (!Object.keys(seedFeatures).length && hit.question) {
+        addFeature(seedFeatures, hit.answer, 9.0);
+      }
+      const qTopSelf = topFeatures(seedFeatures, 45);
+      const selfBase = makeSelfStemResult(hit, prompt, seedFeatures);
+      return {
+        features: qTopSelf,
+        formulas: [selfBase],
+        intent: { text: normText(prompt), selfStemExact: true, selfStemHitCount: earlySelfHits.length, selfStemVariantType: selfBase.selfStemVariantType }
+      };
+    }
+    if (earlySelfAnswers.length > 1) {
+      const mergedFeatures = {};
+      const formulas = [];
+      for (const ans of earlySelfAnswers) {
+        const hit = earlySelfHits.find(x => x.answer === ans && x.question) || earlySelfHits.find(x => x.answer === ans);
+        if (!hit) continue;
+        const localFeatures = { ...(hit.source?.features || {}) };
+        for (const [f, w] of Object.entries(localFeatures)) mergedFeatures[f] = Math.max(Number(mergedFeatures[f] || 0), Number(w || 0));
+        const item = makeSelfStemResult(hit, prompt, localFeatures);
+        item.score = 118.0 + formulas.length * -0.001;
+        item.selfStemAmbiguous = true;
+        item.matched.unshift({
+          feature: '完全題幹命中，但此題幹在題庫中對應多個答案；請加入選項或題號以精準鎖定',
+          inputWeight: 9.5,
+          rowWeight: 9.5,
+          contribution: 118.0,
+          matchType: 'ambiguous-self-stem',
+          matchedFeature: hit.id || ans,
+          className: 'self'
+        });
+        formulas.push(item);
+      }
+      return {
+        features: topFeatures(mergedFeatures, 45),
+        formulas: formulas.slice(0, Math.max(3, Math.min(20, limit || 10))),
+        intent: { text: normText(prompt), selfStemAmbiguous: true, selfStemHitCount: earlySelfHits.length, selfStemAnswerCount: earlySelfAnswers.length }
+      };
+    }
     const intent = detectIntent(prompt);
     const feats = extractFeatures(prompt);
     const qTop = topFeatures(feats, 45);
