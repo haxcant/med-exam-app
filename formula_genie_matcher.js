@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const DATA_SRC = './formula_genie_data.js?v=20260504mohw200';
+  const DATA_SRC = './formula_genie_data.js?v=20260504fgv2';
   const DATA_GLOBAL = 'FORMULA_VECTOR_WEIGHTS_V015';
   const state = { loading: false, loaded: false, error: null, rows: [] };
 
@@ -64,11 +64,50 @@
     }
     return feats;
   }
+  const HIGH_FREQ_HERBS = new Set(['甘草','炙甘草','茯苓','白朮','人參','生薑','大棗','半夏','陳皮','當歸','白芍','川芎','黃芩','黃連','大黃','桂枝','麻黃','杏仁','地黃','熟地黃','山藥']);
+  const HERB_HINTS = new Set([
+    '熟地黃','生地黃','地黃','山茱萸','山藥','澤瀉','牡丹皮','茯苓','知母','黃柏','枸杞子','菊花','人參','黨參','黃耆','白朮','蒼朮','甘草','炙甘草','半夏','陳皮','青皮','柴胡','黃芩','黃連','大黃','芒硝','桂枝','肉桂','附子','炮附子','乾薑','生薑','當歸','川芎','白芍','赤芍','桃仁','紅花','丹參','麥門冬','麥冬','天門冬','天冬','石膏','粳米','麻黃','杏仁','桔梗','貝母','瓜蔞','栝蔞','厚朴','枳實','枳殼','香附','砂仁','木香','藿香','薄荷','連翹','金銀花','銀花','防風','羌活','獨活','牛膝','杜仲','續斷','葛根','升麻','細辛','五味子','酸棗仁','遠志','龍骨','牡蠣','竹茹','鉤藤','鈎藤','大棗','蓮子','薏苡仁','白扁豆','滑石','木通','車前子'
+  ]);
+  const CLASS_MULTIPLIER = { name: 2.2, signature: 1.35, support: 1.0, herb: 0.62, broad: 0.20 };
+
+  function isMohwRow(row) {
+    return !!(row?.mohw || row?.sourceLayer === 'mohw_official_formula_v076' || String(row?.id || '').startsWith('MOHW-'));
+  }
+  function isHerbFeature(feature) {
+    const x = String(feature || '');
+    return HERB_HINTS.has(x) || /[參苓朮草黃芩連柏桂附薑芍芎歸膝藤花仁皮母冬夏棗瀉蠣茹香砂蔞杏麻荷翹銀]/.test(x) && x.length >= 2 && x.length <= 5;
+  }
+  function herbMentionCount(t) {
+    let c = 0;
+    for (const h of HERB_HINTS) if (t.includes(h)) c += 1;
+    return c;
+  }
+  function formulaMentionCount(t) {
+    const rows = prepareRows();
+    const names = new Set(rows.map(r => r.__label).filter(Boolean));
+    let c = 0;
+    for (const name of names) if (name.length >= 2 && t.includes(name)) c += 1;
+    return c;
+  }
+  function detectIntent(prompt) {
+    const t = normText(prompt);
+    const herbs = herbMentionCount(t);
+    const formulaMentions = formulaMentionCount(t);
+    const mohw = /衛福部|中醫藥司|基準方|官方|項次|飲片量|公克/.test(t);
+    const composition = /組成|成分|配方|處方|藥味|藥材|含有|包含|加減|去加/.test(t) || herbs >= 3;
+    const examStem = /條文|下列|何方|何者|可與|主之|金匱|傷寒|溫病|醫宗|辨證|證型|病機|治法|治則|兼證|方證|考題|國考/.test(t);
+    const formulaLookup = formulaMentions > 0;
+    return { text: t, herbs, formulaMentions, mohw, composition, examStem, formulaLookup };
+  }
   function featureClass(feature, cls) {
     if (cls) return cls;
     const x = String(feature || '');
-    if (COARSE_AXIS_FEATURES.has(x) || x.length <= 2) return 'broad';
+    if (!x) return 'support';
+    if (COARSE_AXIS_FEATURES.has(x) || x.length <= 1) return 'broad';
+    if (isHerbFeature(x)) return 'herb';
+    if (x.endsWith('湯') || x.endsWith('丸') || x.endsWith('散') || x.endsWith('丹') || x.endsWith('飲') || x.endsWith('方')) return 'name';
     if (x.length >= 5) return 'signature';
+    if (x.length === 2 && /[寒熱虛實濕痰瘀水火燥風毒氣血陰陽]/.test(x)) return 'broad';
     return 'support';
   }
   function featureFamily(f) {
@@ -86,14 +125,65 @@
     if (x.includes('痛') || x.includes('疼')) return '痛';
     return x.slice(0, 2);
   }
-  function rowStrength(rowFeatures, feature, prompt) {
-    let best = Number((rowFeatures || {})[feature] || 0);
+  function rowStrengthInfo(rowFeatures, feature, prompt) {
+    const feats = rowFeatures || {};
+    const f = String(feature || '');
+    const cls = featureClass(f);
+    if (!f) return { weight: 0, type: 'none', matchedFeature: '', cls };
+    if (Object.prototype.hasOwnProperty.call(feats, f)) {
+      return { weight: Number(feats[f] || 0), type: 'exact', matchedFeature: f, cls };
+    }
     const t = normText(prompt);
-    if (feature.length >= 2 && t.includes(feature)) best = Math.max(best, feature.length >= 4 ? 2.8 : 0.8);
-    for (const [f, w] of Object.entries(rowFeatures || {})) {
-      if (feature !== f && (String(f).includes(feature) || String(feature).includes(f))) best = Math.max(best, Number(w) * 0.55);
+    if (f.length >= 4 && cls !== 'broad' && t.includes(f)) {
+      return { weight: f.length >= 6 ? 2.0 : 1.2, type: 'prompt', matchedFeature: f, cls };
+    }
+    let best = { weight: 0, type: 'none', matchedFeature: '', cls };
+    // Conservative fuzzy match. This replaces the old substring/family fallback that let MOHW rows accumulate many weak matches.
+    if (f.length >= 4 && cls !== 'broad') {
+      for (const [rf, rw0] of Object.entries(feats)) {
+        const rfs = String(rf || '');
+        const rcls = featureClass(rfs);
+        if (rcls === 'broad' || rfs.length < 3) continue;
+        const rw = Number(rw0 || 0);
+        if (rfs === f) continue;
+        const contains = rfs.includes(f) || f.includes(rfs);
+        if (!contains) continue;
+        const ratio = Math.min(rfs.length, f.length) / Math.max(rfs.length, f.length);
+        if (ratio < 0.45) continue;
+        const w = rw * (ratio >= 0.75 ? 0.48 : 0.30);
+        if (w > best.weight) best = { weight: w, type: 'substring', matchedFeature: rfs, cls };
+      }
     }
     return best;
+  }
+  function inputFeatureMultiplier(feature, intent) {
+    const cls = featureClass(feature);
+    let mult = CLASS_MULTIPLIER[cls] || 1.0;
+    if (cls === 'herb') {
+      mult = intent.composition ? 1.15 : 0.42;
+      if (HIGH_FREQ_HERBS.has(feature)) mult *= 0.62;
+    }
+    if (cls === 'broad') mult = 0.16;
+    if (cls === 'name' && intent.formulaLookup) mult = 2.5;
+    return mult;
+  }
+  function rowSourceFactor(row, intent, strongExact, nonBroadExact) {
+    if (!isMohwRow(row)) {
+      return intent.examStem ? 1.10 : 1.0;
+    }
+    let factor = 0.76;
+    if (intent.mohw) factor = 1.15;
+    else if (intent.composition) factor = 1.02;
+    else if (intent.formulaLookup) factor = 1.0;
+    else if (intent.examStem) factor = 0.62;
+    if (!intent.mohw && !intent.composition && nonBroadExact < 2) factor *= 0.70;
+    if (!intent.mohw && strongExact <= 0) factor *= 0.72;
+    return factor;
+  }
+  function shouldUseFamilyFallback(intent, feature) {
+    if (intent.mohw || intent.composition) return false;
+    const cls = featureClass(feature);
+    return cls === 'signature' && String(feature).length >= 5;
   }
   function prepareRows() {
     if (state.rows.length) return state.rows;
@@ -165,36 +255,110 @@
   }
   function directMatch(prompt, limit) {
     const rows = prepareRows();
+    const intent = detectIntent(prompt);
     const feats = extractFeatures(prompt);
-    const qTop = topFeatures(feats, 30);
+    const qTop = topFeatures(feats, 45);
     const rowScores = rows.map(row => {
       let score = 0;
       let exact = 0;
+      let strongExact = 0;
+      let nonBroadExact = 0;
+      let broadOnlyScore = 0;
+      let herbScore = 0;
       const matched = [];
+      const rowFeatureKeys = Object.keys(row.features || {});
       for (const [f, w] of qTop) {
         const inputWeight = Number(w) || 0;
-        const rw = rowStrength(row.features || {}, f, row.prompt || '');
+        const info = rowStrengthInfo(row.features || {}, f, row.prompt || '');
+        let rw = info.weight;
         if (rw > 0) {
-          const multiplier = f.length >= 6 ? 1.35 : f.length >= 4 ? 1.12 : 0.7;
-          const contribution = Math.sqrt(inputWeight * rw) * multiplier;
+          const cls = featureClass(f);
+          const lengthMult = f.length >= 7 ? 1.28 : f.length >= 4 ? 1.06 : 0.68;
+          const sourceMult = inputFeatureMultiplier(f, intent);
+          let contribution = Math.sqrt(Math.max(0, inputWeight) * Math.max(0, rw)) * lengthMult * sourceMult;
+          if (info.type !== 'exact') contribution *= 0.62;
+          if (cls === 'broad') broadOnlyScore += contribution;
+          if (cls === 'herb') herbScore += contribution;
+          contribution = Math.min(contribution, cls === 'name' ? 8.0 : 4.5);
           score += contribution;
-          exact += 1;
-          matched.push({ feature: f, inputWeight, rowWeight: rw, contribution });
-        } else if (featureFamily(f) && Object.keys(row.features || {}).some(rf => featureFamily(rf) === featureFamily(f))) {
-          score += 0.03 * inputWeight;
+          if (info.type === 'exact') exact += 1;
+          if (info.type === 'exact' && cls !== 'broad' && cls !== 'herb') strongExact += 1;
+          if (info.type === 'exact' && cls !== 'broad') nonBroadExact += 1;
+          matched.push({ feature: f, inputWeight, rowWeight: rw, contribution, matchType: info.type, matchedFeature: info.matchedFeature, className: cls });
+        } else if (shouldUseFamilyFallback(intent, f) && rowFeatureKeys.some(rf => featureFamily(rf) === featureFamily(f) && featureClass(rf) !== 'broad')) {
+          // Family fallback is now tiny and cannot by itself push official rows to the top.
+          const contribution = 0.006 * inputWeight;
+          score += contribution;
         }
       }
+      if (intent.formulaLookup && row.__label && intent.text.includes(row.__label)) {
+        score += 12.0;
+        strongExact += 1;
+        nonBroadExact += 1;
+        matched.unshift({ feature: row.__label, inputWeight: 6.0, rowWeight: 6.0, contribution: 12.0, matchType: 'formula-name', matchedFeature: row.__label, className: 'name' });
+      }
+      // If the row is supported almost entirely by broad terms or high-frequency herbs, reduce its rank sharply.
+      if (!intent.composition && !intent.mohw) {
+        if (nonBroadExact === 0) score *= 0.34;
+        else if (strongExact === 0 && herbScore > score * 0.45) score *= 0.56;
+        if (broadOnlyScore > 0 && broadOnlyScore >= score * 0.55) score *= 0.45;
+      }
+      score *= rowSourceFactor(row, intent, strongExact, nonBroadExact);
       matched.sort((a, b) => b.contribution - a.contribution || b.rowWeight - a.rowWeight || String(a.feature).localeCompare(String(b.feature)));
-      return { row, label: row.__label, score, exact, matched };
+      return { row, label: row.__label, score, exact, strongExact, nonBroadExact, matched, sourceIsMohw: isMohwRow(row) };
     }).sort((a, b) => b.score - a.score || String(a.label).localeCompare(String(b.label)));
 
-    const formulaBest = new Map();
+    // Aggregate by formula. If a formula appears in both classic/exam rows and MOHW rows,
+    // keep the strongest evidence but add a small cross-source support bonus instead of duplicating cards.
+    const formulaBuckets = new Map();
     for (const x of rowScores) {
-      if (!x.label) continue;
-      if (!formulaBest.has(x.label) || x.score > formulaBest.get(x.label).score) formulaBest.set(x.label, x);
+      if (!x.label || x.score <= 0) continue;
+      if (!formulaBuckets.has(x.label)) formulaBuckets.set(x.label, []);
+      formulaBuckets.get(x.label).push(x);
     }
-    const formulas = Array.from(formulaBest.values()).sort((a, b) => b.score - a.score).slice(0, limit);
-    return { features: qTop, formulas };
+    let formulas = Array.from(formulaBuckets.entries()).map(([label, bucket]) => {
+      bucket.sort((a, b) => b.score - a.score);
+      const crossSource = new Set(bucket.map(x => x.sourceIsMohw ? 'mohw' : 'legacy')).size > 1;
+      const rawBest = bucket[0];
+      // When the same formula has both exam/classic and MOHW evidence, ordinary input should display
+      // the exam/classic row when it is reasonably close, so the UI does not look like MOHW has taken over.
+      const bestLegacy = bucket.find(x => !x.sourceIsMohw);
+      const displayBase = (!intent.mohw && !intent.composition && rawBest.sourceIsMohw && bestLegacy && bestLegacy.score >= rawBest.score * 0.50)
+        ? bestLegacy
+        : rawBest;
+      const best = { ...displayBase };
+      const support = bucket.filter(x => x !== displayBase).slice(0, 3).reduce((acc, x) => acc + Math.max(0, x.score) * 0.08, 0);
+      best.score = Math.max(best.score, rawBest.score) + support;
+      best.crossSource = crossSource;
+      best.sourceAlternates = bucket.filter(x => x !== displayBase).slice(0, 4);
+      return best;
+    }).sort((a, b) => b.score - a.score || String(a.label).localeCompare(String(b.label)));
+
+    // In ordinary辨證／題幹 mode, prevent weak MOHW-only hits from occupying almost all visible slots.
+    if (!intent.mohw && !intent.composition) {
+      const topScore = formulas[0]?.score || 0;
+      const legacy = formulas.filter(x => !x.sourceIsMohw || x.crossSource);
+      const official = formulas.filter(x => x.sourceIsMohw && !x.crossSource);
+      const balanced = [];
+      let officialInFirstFive = 0;
+      for (const x of formulas) {
+        if (balanced.includes(x)) continue;
+        if (x.sourceIsMohw && !x.crossSource && balanced.length < 5) {
+          if (officialInFirstFive >= 2) continue;
+          officialInFirstFive += 1;
+        }
+        balanced.push(x);
+        if (balanced.length >= limit) break;
+      }
+      for (const x of [...legacy, ...official]) {
+        if (balanced.length >= limit) break;
+        if (!balanced.includes(x)) balanced.push(x);
+      }
+      formulas = balanced;
+    } else {
+      formulas = formulas.slice(0, limit);
+    }
+    return { features: qTop, formulas, intent };
   }
   function confidenceLabel(score, topScore) {
     if (!topScore || score <= 0) return '低';
