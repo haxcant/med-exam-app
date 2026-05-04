@@ -1,0 +1,641 @@
+{
+  "generatedAt": "2026-05-04T02:10:41.721Z",
+  "version": "v050-generalized-diagnostic-demo",
+  "n": 8,
+  "top1": 7,
+  "top1Accuracy": 0.875,
+  "top5": 8,
+  "top5Accuracy": 1,
+  "notes": [
+    "G07 is intentionally ambiguous; success means the matcher returns diverse candidates and the UI diagnostic panel should ask follow-up questions.",
+    "naiveBaselineTop5 is a simple token-overlap baseline for demo comparison only, not a research-grade baseline."
+  ],
+  "details": [
+    {
+      "id": "G01",
+      "type": "paraphrase",
+      "input": "熱病後口渴明顯，胃裡像有熱，乾嘔，氣短乏力，想找接近的方證",
+      "expectedTop": "竹葉石膏湯",
+      "okTop1": true,
+      "okTop5": true,
+      "top5": [
+        "竹葉石膏湯",
+        "黃連香薷飲",
+        "白虎湯",
+        "白虎加蒼朮湯",
+        "涼膈散"
+      ],
+      "topScores": [
+        2.318,
+        1.628,
+        1.548,
+        1.543,
+        1.542
+      ],
+      "features": [
+        [
+          "口渴",
+          4
+        ],
+        [
+          "嘔逆",
+          3.55
+        ],
+        [
+          "氣津兩傷",
+          3.55
+        ],
+        [
+          "胃熱陰傷",
+          3.55
+        ],
+        [
+          "乾嘔氣短乏力",
+          2.8
+        ],
+        [
+          "氣短乏力想找接近的方證",
+          2.8
+        ],
+        [
+          "熱病後口渴明顯胃裡像有熱",
+          2.8
+        ],
+        [
+          "胃裡像有熱乾嘔",
+          2.8
+        ],
+        [
+          "胃氣上逆",
+          2.75
+        ],
+        [
+          "想找接近的方證",
+          2.4
+        ]
+      ],
+      "intent": {
+        "text": "熱病後口渴明顯 胃裡像有熱 乾嘔 氣短乏力 想找接近的方證",
+        "herbs": 0,
+        "formulaMentions": 0,
+        "mohw": false,
+        "composition": false,
+        "examStem": true,
+        "formulaLookup": false
+      },
+      "naiveBaselineTop5": [
+        "半夏乾薑散",
+        "吳茱萸湯",
+        "桂枝湯",
+        "橘皮湯",
+        "竹葉石膏湯"
+      ]
+    },
+    {
+      "id": "G02",
+      "type": "mohw-paraphrase",
+      "input": "頭暈耳鳴，舌燥咽痛，腰脊痠痛，陰虛火旺",
+      "expectedTop": "知柏地黃丸",
+      "okTop1": true,
+      "okTop5": true,
+      "top5": [
+        "知柏地黃丸",
+        "百合固金湯",
+        "六味地黃丸",
+        "黃連阿膠湯",
+        "滋水清肝飲"
+      ],
+      "topScores": [
+        17.106,
+        6.181,
+        5.317,
+        5.285,
+        5.283
+      ],
+      "features": [
+        [
+          "陰虛火旺",
+          4.65
+        ],
+        [
+          "肝腎陰虛",
+          4.1
+        ],
+        [
+          "耳鳴",
+          4
+        ],
+        [
+          "腰脊痠痛",
+          4
+        ],
+        [
+          "舌燥咽痛",
+          4
+        ],
+        [
+          "頭暈",
+          4
+        ],
+        [
+          "頭暈耳鳴",
+          4
+        ],
+        [
+          "腰脊痠痛陰虛火旺",
+          2.8
+        ],
+        [
+          "舌燥咽痛腰脊痠痛",
+          2.8
+        ],
+        [
+          "頭暈耳鳴舌燥咽痛",
+          2.8
+        ]
+      ],
+      "intent": {
+        "text": "頭暈耳鳴 舌燥咽痛 腰脊痠痛 陰虛火旺",
+        "herbs": 0,
+        "formulaMentions": 0,
+        "mohw": false,
+        "composition": false,
+        "examStem": false,
+        "formulaLookup": false
+      },
+      "naiveBaselineTop5": [
+        "知柏地黃丸",
+        "六味地黃丸",
+        "十全大補湯（丸）",
+        "滋水清肝飲",
+        "當歸六黃湯"
+      ]
+    },
+    {
+      "id": "G03",
+      "type": "mohw-paraphrase",
+      "input": "夜尿，自汗，耳鳴，命門火衰，畏寒，腎陽虛",
+      "expectedTop": "八味地黃丸",
+      "okTop1": true,
+      "okTop5": true,
+      "top5": [
+        "八味地黃丸",
+        "五子衍宗丸",
+        "贊育丹",
+        "右歸丸",
+        "右歸飲"
+      ],
+      "topScores": [
+        13.561,
+        5.804,
+        5.804,
+        3.657,
+        3.657
+      ],
+      "features": [
+        [
+          "腎陽虛",
+          4.65
+        ],
+        [
+          "命門火衰",
+          4
+        ],
+        [
+          "夜尿",
+          4
+        ],
+        [
+          "耳鳴",
+          4
+        ],
+        [
+          "自汗",
+          4
+        ],
+        [
+          "肝腎陰虛",
+          3.55
+        ],
+        [
+          "命門火衰畏寒",
+          2.8
+        ],
+        [
+          "夜尿自汗",
+          2.8
+        ],
+        [
+          "畏寒腎陽虛",
+          2.8
+        ],
+        [
+          "耳鳴命門火衰",
+          2.8
+        ]
+      ],
+      "intent": {
+        "text": "夜尿 自汗 耳鳴 命門火衰 畏寒 腎陽虛",
+        "herbs": 0,
+        "formulaMentions": 0,
+        "mohw": false,
+        "composition": false,
+        "examStem": false,
+        "formulaLookup": false
+      },
+      "naiveBaselineTop5": [
+        "八味地黃丸",
+        "五子衍宗丸",
+        "贊育丹",
+        "右歸丸",
+        "右歸飲"
+      ]
+    },
+    {
+      "id": "G04",
+      "type": "mohw-paraphrase",
+      "input": "食少便溏，胃口差，脾胃虛弱，倦怠",
+      "expectedTop": "參苓白朮散",
+      "okTop1": true,
+      "okTop5": true,
+      "top5": [
+        "參苓白朮散",
+        "六君子湯",
+        "理中湯",
+        "補中益氣湯",
+        "補中益氣湯 丸"
+      ],
+      "topScores": [
+        10.156,
+        6.201,
+        6.201,
+        6.201,
+        3.987
+      ],
+      "features": [
+        [
+          "脾胃虛弱",
+          4.1
+        ],
+        [
+          "食少便溏",
+          4
+        ],
+        [
+          "胃口差脾胃虛弱",
+          2.8
+        ],
+        [
+          "脾胃虛弱倦怠",
+          2.8
+        ],
+        [
+          "食少便溏胃口差",
+          2.8
+        ],
+        [
+          "胃口差",
+          2.4
+        ],
+        [
+          "便溏",
+          0.8
+        ],
+        [
+          "胃虛",
+          0.8
+        ]
+      ],
+      "intent": {
+        "text": "食少便溏 胃口差 脾胃虛弱 倦怠",
+        "herbs": 0,
+        "formulaMentions": 0,
+        "mohw": false,
+        "composition": false,
+        "examStem": false,
+        "formulaLookup": false
+      },
+      "naiveBaselineTop5": [
+        "參苓白朮散",
+        "健脾丸",
+        "六君子湯",
+        "六君子湯（丸）",
+        "四君子湯"
+      ]
+    },
+    {
+      "id": "G05",
+      "type": "classic-syndrome",
+      "input": "往來寒熱，胸脅苦滿，口苦咽乾，目眩，少陽不和",
+      "expectedTop": "小柴胡湯",
+      "okTop1": true,
+      "okTop5": true,
+      "top5": [
+        "小柴胡湯",
+        "奔豚湯",
+        "清心蓮子飲",
+        "知柏地黃湯",
+        "黃連阿膠湯"
+      ],
+      "topScores": [
+        13.06,
+        4.805,
+        3.961,
+        3.111,
+        3.095
+      ],
+      "features": [
+        [
+          "少陽不和",
+          5.2
+        ],
+        [
+          "口苦",
+          4
+        ],
+        [
+          "口苦咽乾",
+          4
+        ],
+        [
+          "咽乾",
+          4
+        ],
+        [
+          "往來寒熱",
+          4
+        ],
+        [
+          "目眩",
+          4
+        ],
+        [
+          "陰虛火旺",
+          3.55
+        ],
+        [
+          "口苦咽乾目眩",
+          2.8
+        ],
+        [
+          "往來寒熱胸脅苦滿",
+          2.8
+        ],
+        [
+          "目眩少陽不和",
+          2.8
+        ]
+      ],
+      "intent": {
+        "text": "往來寒熱 胸脅苦滿 口苦咽乾 目眩 少陽不和",
+        "herbs": 0,
+        "formulaMentions": 0,
+        "mohw": false,
+        "composition": false,
+        "examStem": false,
+        "formulaLookup": false
+      },
+      "naiveBaselineTop5": [
+        "小柴胡湯",
+        "奔豚湯",
+        "清心蓮子飲",
+        "六味地黃丸",
+        "杞菊地黃丸"
+      ]
+    },
+    {
+      "id": "G06",
+      "type": "composition",
+      "input": "熟地黃 山茱萸 山藥 澤瀉 牡丹皮 茯苓",
+      "expectedAnyTop5": [
+        "六味地黃丸",
+        "八味地黃丸",
+        "知柏地黃丸",
+        "杞菊地黃丸"
+      ],
+      "okTop1": true,
+      "okTop5": true,
+      "top5": [
+        "八味地黃丸",
+        "六味地黃丸",
+        "杞菊地黃丸",
+        "濟生腎氣丸",
+        "知柏地黃丸"
+      ],
+      "topScores": [
+        6.721,
+        6.721,
+        6.721,
+        6.721,
+        6.721
+      ],
+      "features": [
+        [
+          "山茱萸山藥",
+          2.8
+        ],
+        [
+          "山藥澤瀉",
+          2.8
+        ],
+        [
+          "澤瀉牡丹皮",
+          2.8
+        ],
+        [
+          "熟地黃山茱萸",
+          2.8
+        ],
+        [
+          "牡丹皮茯苓",
+          2.8
+        ],
+        [
+          "山茱萸",
+          2.4
+        ],
+        [
+          "熟地黃",
+          2.4
+        ],
+        [
+          "牡丹皮",
+          2.4
+        ],
+        [
+          "地黃",
+          0.8
+        ],
+        [
+          "山藥",
+          0.8
+        ]
+      ],
+      "intent": {
+        "text": "熟地黃 山茱萸 山藥 澤瀉 牡丹皮 茯苓",
+        "herbs": 7,
+        "formulaMentions": 0,
+        "mohw": false,
+        "composition": true,
+        "examStem": false,
+        "formulaLookup": false
+      },
+      "naiveBaselineTop5": [
+        "八味地黃丸",
+        "六味地黃丸",
+        "杞菊地黃丸",
+        "濟生腎氣丸",
+        "知柏地黃丸"
+      ]
+    },
+    {
+      "id": "G07",
+      "type": "ambiguous",
+      "input": "咳嗽、胸悶、痰多，但沒有說寒熱和痰色",
+      "expectedBehavior": "should_suggest_followup",
+      "okTop1": false,
+      "okTop5": true,
+      "top5": [
+        "銀翹散－荊芥 豆豉＋生地 丹皮 大青葉 玄參",
+        "雷氏清宣金臟法",
+        "桑菊飲",
+        "杏蘇散",
+        "桑杏湯"
+      ],
+      "topScores": [
+        4.918,
+        1.918,
+        1.511,
+        1.463,
+        1.463
+      ],
+      "features": [
+        [
+          "咳嗽",
+          4
+        ],
+        [
+          "咳嗽胸悶",
+          2.8
+        ],
+        [
+          "痰多但沒有說寒熱和痰色",
+          2.8
+        ],
+        [
+          "胸悶痰多",
+          2.8
+        ],
+        [
+          "但沒有說寒熱和痰色",
+          2.4
+        ],
+        [
+          "胸悶",
+          0.8
+        ]
+      ],
+      "intent": {
+        "text": "咳嗽 胸悶 痰多 但沒有說寒熱和痰色",
+        "herbs": 0,
+        "formulaMentions": 0,
+        "mohw": false,
+        "composition": false,
+        "examStem": false,
+        "formulaLookup": false
+      },
+      "naiveBaselineTop5": [
+        "二陳湯（丸）",
+        "參蘇飲",
+        "寧嗽丸",
+        "栝蔞薤白白酒湯",
+        "銀翹散－荊芥 豆豉＋生地 丹皮 大青葉 玄參"
+      ]
+    },
+    {
+      "id": "G08",
+      "type": "paraphrase",
+      "input": "外感受寒後咳嗽，痰白清稀，鼻塞流清涕，惡寒發熱，脈浮緊",
+      "expectedAnyTop5": [
+        "三拗湯",
+        "止咳散",
+        "小青龍湯",
+        "麻黃湯"
+      ],
+      "okTop1": true,
+      "okTop5": true,
+      "top5": [
+        "小青龍湯",
+        "三拗湯",
+        "止咳散",
+        "麻黃湯",
+        "華蓋散"
+      ],
+      "topScores": [
+        7.689,
+        5.694,
+        5.694,
+        3.777,
+        3.776
+      ],
+      "features": [
+        [
+          "風寒襲肺",
+          5.2
+        ],
+        [
+          "咳嗽",
+          4
+        ],
+        [
+          "惡寒發熱",
+          4
+        ],
+        [
+          "痰白清稀",
+          4
+        ],
+        [
+          "發熱",
+          4
+        ],
+        [
+          "鼻塞",
+          4
+        ],
+        [
+          "外感受寒後咳嗽痰白清稀",
+          2.8
+        ],
+        [
+          "惡寒發熱脈浮緊",
+          2.8
+        ],
+        [
+          "痰白清稀鼻塞流清涕",
+          2.8
+        ],
+        [
+          "鼻塞流清涕惡寒發熱",
+          2.8
+        ]
+      ],
+      "intent": {
+        "text": "外感受寒後咳嗽 痰白清稀 鼻塞流清涕 惡寒發熱 脈浮緊",
+        "herbs": 0,
+        "formulaMentions": 0,
+        "mohw": false,
+        "composition": false,
+        "examStem": false,
+        "formulaLookup": false
+      },
+      "naiveBaselineTop5": [
+        "小青龍湯",
+        "人參敗毒散",
+        "參蘇飲",
+        "柴胡桂枝湯",
+        "桂枝湯"
+      ]
+    }
+  ]
+}
