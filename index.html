@@ -99,13 +99,13 @@
       <details id="formulaGenieDetails" class="fold-panel formula-genie-fold">
         <summary>
           <span class="formula-genie-summary-title">方劑精靈</span>
-          <span class="formula-genie-summary-subtitle">症狀敘述 → 方劑候選</span>
+          <span class="formula-genie-summary-subtitle">症狀敘述 → 模擬辨證＋方劑候選</span>
         </summary>
         <div class="formula-genie-wrap">
           <div class="formula-genie-copy">
             <div class="formula-genie-kicker">方證線索智能檢索</div>
-            <h2>輸入症狀，推測相近方劑</h2>
-            <p>依題庫方證特徵排序，列出候選與命中依據。</p>
+            <h2>輸入症狀，模擬辨證並推測方劑</h2>
+            <p>依題庫方證、同義辨證特徵與來源分層排序，列出候選、模擬證型、病機摘要與命中依據。</p>
             <p id="formulaGenieStats" class="formula-genie-status">尚未載入方劑資料，展開或按「揣測方劑」後會自動載入。</p>
           </div>
           <div class="formula-genie-visual" aria-hidden="true">
@@ -118,6 +118,7 @@
           <div class="formula-genie-actions">
             <button id="formulaGenieRunBtn" type="button" class="primary-btn">揣測方劑</button>
             <button id="formulaGenieSampleBtn" type="button" class="ghost-btn">放入範例</button>
+            <button id="formulaGenieDemoBtn" type="button" class="ghost-btn">展示案例</button>
             <button id="formulaGenieClearBtn" type="button" class="ghost-btn">清空</button>
             <label class="formula-genie-limit-label">顯示候選
               <select id="formulaGenieLimit">
@@ -127,7 +128,7 @@
               </select>
             </label>
           </div>
-          <p class="formula-genie-note">此功能是題庫相似度檢索，不是臨床診斷或處方建議；分數只代表與目前題庫特徵的文字／方證接近度。</p>
+          <p class="formula-genie-note">此功能定位為考試與展示用模擬辨證，不是臨床診斷或處方建議；分數代表與目前題庫、方證特徵、同義辨證特徵與來源分層模型的接近度。</p>
           <div id="formulaGenieResult" class="formula-genie-result"><div class="formula-genie-empty">輸入敘述後按「揣測方劑」，結果會顯示在這裡。</div></div>
         </div>
       </details>

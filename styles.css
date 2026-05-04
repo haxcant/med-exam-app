@@ -2626,3 +2626,49 @@ body.mobile-recovery-visible{padding-bottom:46px;}
   .formula-genie-result-card { grid-template-columns: 36px minmax(0, 1fr); }
   .formula-genie-summary-subtitle { display: block; width: 100%; }
 }
+
+/* v050 Formula Genie generalized diagnostic / demo mode */
+.formula-genie-diagnostic {
+  margin: 12px 0;
+  border: 1px solid color-mix(in srgb, var(--primary) 38%, var(--border));
+  background: color-mix(in srgb, var(--surface) 86%, var(--primary) 14%);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+}
+.formula-genie-diagnostic-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.formula-genie-diagnostic-head strong { color: var(--text); font-size: 1rem; }
+.formula-genie-diagnostic-head span { color: var(--muted); font-size: .84rem; }
+.formula-genie-diagnostic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.formula-genie-diagnostic-grid > div,
+.formula-genie-demo-box,
+.formula-genie-support,
+.formula-genie-follow {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 92%, white 8%);
+  border-radius: 12px;
+  padding: 10px;
+}
+.formula-genie-diagnostic b { color: var(--text); }
+.formula-genie-diagnostic p { margin: 5px 0 0; color: var(--muted); line-height: 1.6; }
+.formula-genie-demo-box,
+.formula-genie-support,
+.formula-genie-follow { margin-top: 10px; }
+.formula-genie-follow > summary { cursor: pointer; color: var(--primary); font-weight: 800; }
+.formula-genie-follow ol { margin: 8px 0 0 1.2rem; color: var(--muted); line-height: 1.65; }
+.formula-genie-safety-note { font-size: .86rem; color: var(--muted); border-top: 1px dashed var(--border); padding-top: 8px; }
+@media (max-width: 720px) {
+  .formula-genie-diagnostic-grid { grid-template-columns: 1fr; }
+  .formula-genie-diagnostic-head { display: block; }
+  .formula-genie-diagnostic-head span { display: block; margin-top: 4px; }
+}

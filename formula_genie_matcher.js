@@ -1,12 +1,38 @@
 (() => {
   'use strict';
 
-  const DATA_SRC = './formula_genie_data.js?v=20260504fgv3';
+  const DATA_SRC = './formula_genie_data.js?v=20260504fgv5';
   const DATA_GLOBAL = 'FORMULA_VECTOR_WEIGHTS_V015';
   const state = { loading: false, loaded: false, error: null, rows: [], selfStemIndex: null };
 
   const BROAD_STOP = new Set('氣血陰陽寒熱虛實痰濕水火風毒瘀痛口肺脾胃腎肝心膽腸尿'.split('').concat(['小便','大便','裡','表','上','中','下','脈','身','口','氣','血','熱','寒','虛','實']));
   const COARSE_AXIS_FEATURES = new Set(['寒','熱','虛','實','表','裡','濕','痰','瘀','水','火','燥','風','毒','肺','脾','胃','腎','肝','心','膽','腸','膀胱','上焦','中焦','下焦','咳','喘','痛','口','小便','大便','黃疸','消渴','癃閉','不寐','痿證','厥證']);
+
+
+  const DIAGNOSTIC_ALIAS_GROUPS = [
+    { canonical: '胃熱陰傷', aliases: ['胃中有熱','胃火','胃熱','熱病後口渴','熱退後口渴','口渴喜冷飲','煩渴','津傷胃熱'], syndrome: '胃熱陰傷', mechanism: '熱病後期或餘熱未清，胃陰受傷，津液不足，胃氣失和。' },
+    { canonical: '氣津兩傷', aliases: ['氣短乏力','少氣','疲倦口乾','熱後氣虛','氣陰兩傷','氣津不足'], syndrome: '氣津兩傷', mechanism: '熱邪耗氣傷津，故見少氣、口乾、乏力等線索。' },
+    { canonical: '嘔逆', aliases: ['乾嘔','噁心','想吐','胃氣上逆','嘔吐','反胃'], syndrome: '胃氣上逆', mechanism: '胃失和降，氣機上逆，常與熱、寒、痰飲或食滯互參。' },
+    { canonical: '風寒襲肺', aliases: ['外感風寒','風寒犯肺','受寒咳嗽','鼻塞流清涕','清鼻涕','惡寒發熱','痰白清稀','脈浮緊'], syndrome: '風寒襲肺', mechanism: '風寒束表，肺氣失宣，故咳嗽、鼻塞、惡寒、痰白。' },
+    { canonical: '風熱犯肺', aliases: ['外感風熱','風熱咳嗽','咽痛咳嗽','痰黃','黃痰','口渴咽痛','發熱微惡風'], syndrome: '風熱犯肺', mechanism: '風熱犯肺，肺失清肅，熱灼津液則痰黃、咽痛、口渴。' },
+    { canonical: '痰熱壅肺', aliases: ['痰黃稠','黃稠痰','痰熱','胸悶痰多','咳嗽痰黃','喘咳痰黃','痰黏難咯'], syndrome: '痰熱壅肺', mechanism: '痰與熱互結，壅阻肺氣，肺失宣降，故咳喘、痰黃稠、胸悶。' },
+    { canonical: '寒飲伏肺', aliases: ['清稀白痰','痰多清稀','遇寒加重','喘咳清稀','水飲','寒痰','背寒'], syndrome: '寒飲伏肺', mechanism: '寒飲內停，上犯於肺，肺氣不利，故喘咳、痰清稀。' },
+    { canonical: '脾胃虛弱', aliases: ['食少便溏','胃口差','納差','容易腹瀉','大便稀','脾虛','倦怠食少'], syndrome: '脾胃虛弱', mechanism: '脾胃氣虛，運化失健，故食少、便溏、倦怠。' },
+    { canonical: '肝腎陰虛', aliases: ['腰膝痠軟','腰痠','頭暈目眩','眼睛乾澀','視物不清','耳鳴','陰虛','五心煩熱'], syndrome: '肝腎陰虛', mechanism: '肝腎陰精不足，不能濡養腰膝、耳目，虛熱可內擾。' },
+    { canonical: '腎陽虛', aliases: ['畏寒肢冷','夜尿多','腰膝冷痛','命門火衰','陽虛','自汗','小便清長'], syndrome: '腎陽虛', mechanism: '腎陽不足，溫煦與氣化失職，故畏寒、夜尿、自汗、腰膝冷。' },
+    { canonical: '陰虛火旺', aliases: ['舌燥咽痛','潮熱盜汗','骨蒸','咽乾','虛火','口乾咽痛','腰脊痠痛'], syndrome: '陰虛火旺', mechanism: '陰液不足，虛火內擾，上炎則咽痛、舌燥，下虛則腰痠。' },
+    { canonical: '血虛血瘀', aliases: ['瘀血','刺痛','固定痛','經痛有血塊','血瘀','面色萎黃','月經不調'], syndrome: '血虛血瘀', mechanism: '血虛不能濡養，或瘀血阻絡，不通則痛。' },
+    { canonical: '少陽不和', aliases: ['往來寒熱','胸脅苦滿','口苦咽乾','目眩','半表半裡','少陽證'], syndrome: '少陽不和', mechanism: '邪在少陽，樞機不利，故寒熱往來、胸脅苦滿、口苦。' },
+    { canonical: '陽明腑實', aliases: ['大便不通','便秘腹滿','潮熱譫語','腹痛拒按','燥屎','腑實'], syndrome: '陽明腑實', mechanism: '熱結陽明，燥屎內停，腑氣不通，故腹滿便秘。' }
+  ];
+
+  const DEMO_CASES_V050 = [
+    { title: '泛化改寫：胃熱陰傷', input: '熱病後口渴明顯，胃裡像有熱，乾嘔，氣短乏力，想找接近的方證', expected: '竹葉石膏湯' },
+    { title: '症狀敘述：風寒咳嗽', input: '外感受寒後咳嗽，痰白清稀，鼻塞流清涕，惡寒發熱，脈浮緊', expected: '三拗湯／止嗽散類' },
+    { title: '鑑別展示：地黃丸家族', input: '腰痠，頭暈目眩，眼睛乾澀，視物不清，肝腎陰虛', expected: '杞菊地黃丸' },
+    { title: '成分查方：六味地黃丸家族', input: '熟地黃 山茱萸 山藥 澤瀉 牡丹皮 茯苓', expected: '六味地黃丸家族' },
+    { title: '不確定案例：要求補問', input: '咳嗽、胸悶、痰多，但沒有說寒熱和痰色', expected: '應提出補問，不宜硬判單方' }
+  ];
 
   function $(id) { return document.getElementById(id); }
   function escapeHtml(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
@@ -175,6 +201,19 @@
     }
     for (const phrase of Object.keys(D.directPhrasesV015 || {})) {
       if (t.includes(phrase)) addFeature(feats, phrase, 4.0);
+    }
+    for (const group of DIAGNOSTIC_ALIAS_GROUPS) {
+      let hitCount = 0;
+      for (const alias of group.aliases || []) {
+        if (alias && t.includes(alias)) {
+          hitCount += 1;
+          addFeature(feats, alias, alias.length >= 4 ? 2.2 : 1.4);
+        }
+      }
+      if (hitCount > 0) {
+        addFeature(feats, group.canonical, Math.min(5.2, 3.0 + hitCount * 0.55));
+        if (group.syndrome && group.syndrome !== group.canonical) addFeature(feats, group.syndrome, Math.min(4.2, 2.4 + hitCount * 0.35));
+      }
     }
     const toks = splitStemTokens(t);
     for (const tok of toks) {
@@ -526,6 +565,98 @@
     }
     return { features: qTop, formulas, intent };
   }
+
+  function inferDiagnosticGroups(featureEntries, formulas) {
+    const text = (featureEntries || []).map(x => x[0]).join(' ');
+    const matched = [];
+    for (const group of DIAGNOSTIC_ALIAS_GROUPS) {
+      const keys = [group.canonical, group.syndrome, ...(group.aliases || [])].filter(Boolean);
+      let count = 0;
+      for (const k of keys) if (text.includes(k)) count += 1;
+      if (count > 0) matched.push({ ...group, count });
+    }
+    matched.sort((a, b) => b.count - a.count || String(a.canonical).localeCompare(String(b.canonical)));
+    if (!matched.length && formulas?.[0]?.row?.mohw) {
+      const m = formulas[0].row.mohw;
+      const fx = normText(`${m.effect || ''} ${m.indications || ''}`);
+      for (const group of DIAGNOSTIC_ALIAS_GROUPS) {
+        const keys = [group.canonical, group.syndrome, ...(group.aliases || [])].filter(Boolean);
+        let count = 0;
+        for (const k of keys) if (fx.includes(k)) count += 1;
+        if (count > 0) matched.push({ ...group, count: count * 0.75 });
+      }
+      matched.sort((a, b) => b.count - a.count);
+    }
+    return matched.slice(0, 3);
+  }
+  function renderDiagnosticAdvice(payload) {
+    const { features = [], formulas = [], intent = {} } = payload || {};
+    if (!formulas.length) return '';
+    const top = formulas[0];
+    const second = formulas[1];
+    const groups = inferDiagnosticGroups(features, formulas);
+    const topMatched = Array.isArray(top.matched) ? top.matched : [];
+    const support = topMatched
+      .filter(m => m.className !== 'broad')
+      .slice(0, 6)
+      .map(m => `${escapeHtml(m.feature)} <b>+${Number(m.contribution || 0).toFixed(2)}</b>`)
+      .join('、') || '目前主要依整體文字相似度排序，明確辨證特徵不足。';
+    const syndrome = groups.length ? groups.map(g => g.syndrome || g.canonical).join('、') : '證型未能唯一判定，需看候選方與補問';
+    const mechanism = groups.length ? groups.map(g => g.mechanism).filter(Boolean).join('；') : '輸入線索不足，建議補足寒熱、虛實、痰色、汗出、二便、舌脈等資訊。';
+    const effect = top.row?.mohw?.effect || '';
+    const indications = top.row?.mohw?.indications || '';
+    const sourceHint = effect || indications
+      ? `官方／題庫摘要：${escapeHtml([effect, indications].filter(Boolean).join('；'))}`
+      : `來源題摘要：${escapeHtml(String(top.row?.prompt || '').slice(0, 120))}`;
+    const followUps = buildFollowUpQuestions(payload).map(q => `<li>${escapeHtml(q)}</li>`).join('');
+    const gap = second ? Math.max(0, top.score - second.score) : top.score;
+    const gapText = second ? `第一名與第二名差距 ${gap.toFixed(2)}；若差距小，展示時可強調系統會提出補問而非硬猜。` : '目前只有單一主要候選。';
+    const modeBits = [];
+    if (intent.selfStemExact) modeBits.push('自身題幹 exact 命中');
+    if (intent.selfStemAmbiguous) modeBits.push('自身題幹多答案歧義');
+    if (intent.composition) modeBits.push('組成／藥材查方');
+    if (intent.examStem) modeBits.push('考題／古文辨證');
+    if (intent.mohw) modeBits.push('衛福部官方查詢');
+    if (!modeBits.length) modeBits.push('泛化症狀辨證');
+    return `<section class="formula-genie-diagnostic">
+      <div class="formula-genie-diagnostic-head">
+        <strong>模擬辨證建議</strong>
+        <span>${escapeHtml(modeBits.join('＋'))}</span>
+      </div>
+      <div class="formula-genie-diagnostic-grid">
+        <div><b>最可能候選</b><p>${escapeHtml(top.label)}${second ? `；次候選：${escapeHtml(second.label)}` : ''}</p></div>
+        <div><b>可能證型</b><p>${escapeHtml(syndrome)}</p></div>
+        <div><b>病機摘要</b><p>${escapeHtml(mechanism)}</p></div>
+        <div><b>方義／來源摘要</b><p>${sourceHint}</p></div>
+      </div>
+      <div class="formula-genie-demo-box"><b>展示算法優勢</b><p>此結果同時使用 exact/self-stem、同義辨證特徵、來源分層、弱命中降噪與候選重排；不是只用題幹字串相似度。${escapeHtml(gapText)}</p></div>
+      <div class="formula-genie-support"><b>主要命中特徵</b><p>${support}</p></div>
+      ${followUps ? `<details class="formula-genie-follow"><summary>建議補問／鑑別線索</summary><ol>${followUps}</ol></details>` : ''}
+      <p class="formula-genie-safety-note">學習展示用模擬辨證，不作臨床診療或實際處方建議。</p>
+    </section>`;
+  }
+  function buildFollowUpQuestions(payload) {
+    const formulas = payload?.formulas || [];
+    const features = new Set((payload?.features || []).map(x => x[0]));
+    const qs = [];
+    const labels = formulas.slice(0, 4).map(x => x.label);
+    const topFeatureSets = formulas.slice(0, 4).map(x => Object.keys(x.row?.features || {}).filter(f => featureClass(f) !== 'broad' && !features.has(f)));
+    const counts = new Map();
+    for (const arr of topFeatureSets) for (const f of arr.slice(0, 40)) counts.set(f, (counts.get(f) || 0) + 1);
+    const discriminators = Array.from(counts.entries())
+      .filter(([f, c]) => c > 0 && c < Math.max(2, topFeatureSets.length) && f.length >= 2 && f.length <= 10 && !isHerbFeature(f))
+      .sort((a, b) => a[1] - b[1] || b[0].length - a[0].length)
+      .slice(0, 4)
+      .map(x => x[0]);
+    if (labels.length >= 2) qs.push(`目前前列候選包含 ${labels.slice(0, 3).join('、')}，需確認哪些線索最符合原題或症狀。`);
+    for (const f of discriminators) qs.push(`是否存在「${f}」這個鑑別線索？`);
+    const joined = (payload?.features || []).map(x => x[0]).join(' ');
+    if (/咳|喘|肺|痰/.test(joined)) qs.push('痰色偏白清稀還是黃稠？是否惡寒、發熱、口渴或喘？');
+    if (/渴|胃|嘔|熱/.test(joined)) qs.push('口渴是否喜冷飲？是否乾嘔、少氣、熱退後仍煩渴？');
+    if (/陰虛|肝腎|腰|目|耳/.test(joined)) qs.push('主要偏目澀視物不清、咽痛虛火，還是夜尿畏寒？這會影響地黃丸家族鑑別。');
+    return Array.from(new Set(qs)).slice(0, 6);
+  }
+
   function confidenceLabel(score, topScore) {
     if (!topScore || score <= 0) return '低';
     const r = score / topScore;
@@ -625,7 +756,8 @@
         : '');
     }
 
-    resultEl.innerHTML = `${featureHtml}<div class="formula-genie-result-list">${itemHtml}</div>`;
+    const diagnosticHtml = renderDiagnosticAdvice(payload);
+    resultEl.innerHTML = `${featureHtml}${diagnosticHtml}<div class="formula-genie-result-list">${itemHtml}</div>`;
   }
   async function runMatch() {
     const input = $('formulaGenieInput');
@@ -664,10 +796,20 @@
       if (input) input.value = '外感風寒，惡寒發熱，咳嗽痰白，鼻塞流清涕，舌苔薄白，脈浮緊';
       runMatch();
     });
+    $('formulaGenieDemoBtn')?.addEventListener('click', () => {
+      const input = $('formulaGenieInput');
+      const idx = Number(input?.dataset?.demoIndex || 0) % DEMO_CASES_V050.length;
+      const tc = DEMO_CASES_V050[idx];
+      if (input) {
+        input.value = tc.input;
+        input.dataset.demoIndex = String(idx + 1);
+      }
+      runMatch();
+    });
     renderStatus();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
   else bind();
 
-  window.FormulaGenieMatcher = { loadData, runMatch, directMatch: (prompt, limit = 10) => directMatch(prompt, limit) };
+  window.FormulaGenieMatcher = { loadData, runMatch, directMatch: (prompt, limit = 10) => directMatch(prompt, limit), demoCases: DEMO_CASES_V050, extractFeatures };
 })();

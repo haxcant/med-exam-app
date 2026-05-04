@@ -1,4 +1,4 @@
-const CACHE_NAME = 'med-exam-app-v0.1.49-formula-genie-selfstem-calibrated';
+const CACHE_NAME = 'med-exam-app-v0.1.50-formula-genie-generalized-diagnostic';
 const CORE_ASSETS = [
   "./",
   "./index.html",
