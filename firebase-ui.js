@@ -26,6 +26,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const AUTO_UPLOAD_THRESHOLD = 150;
   const AUTO_UPLOAD_COOLDOWN_MS = 10 * 60 * 1000;
   const AUTO_UPLOAD_MIN_STABLE_MS = 4000;
+  const SYNC_PANEL_AUTO_OPEN_KEY = "med_exam_sync_panel_auto_opened_v055";
 
   let modules = null;
   let currentUser = null;
@@ -90,18 +91,48 @@ window.addEventListener("DOMContentLoaded", async () => {
       localStorage.setItem(AUTO_UPLOAD_PREF_KEY, enabled ? "1" : "0");
     } catch {}
   };
+  const localTouchedQuestionCount = () => {
+    try {
+      const payload = getMemoryApi()?.buildPayload?.();
+      const byQuestion = payload?.progress?.byQuestion || {};
+      return Object.values(byQuestion).reduce((sum, item) => {
+        const seen = Number(item?.totalSeen || 0);
+        const correct = Number(item?.totalCorrect || 0);
+        const wrong = Number(item?.totalWrong || 0);
+        const score = Number(item?.score || 0);
+        return sum + ((seen > 0 || correct > 0 || wrong > 0 || score !== 0 || item?.inWrongBook) ? 1 : 0);
+      }, 0);
+    } catch {
+      return 0;
+    }
+  };
+  const localMergedCloudChecksums = () => {
+    try {
+      const arr = getMemoryApi()?.buildPayload?.()?.progress?.meta?.mergedCloudChecksums;
+      return Array.isArray(arr) ? arr.map((x) => String(x || "").trim()).filter(Boolean) : [];
+    } catch {
+      return [];
+    }
+  };
   const cloudAnsweredCount = () => Math.max(0, Number(cloudMeta?.answeredCount || 0));
+  const cloudTouchedQuestionCount = () => Math.max(0, Number(cloudMeta?.touchedQuestionCount || 0));
+  const localHasMergedCurrentCloud = () => {
+    const checksum = String(cloudMeta?.checksum || "").trim();
+    return !!(checksum && localMergedCloudChecksums().includes(checksum));
+  };
   const unansweredDeltaFromCloud = () => Math.max(0, localAnsweredCount() - cloudAnsweredCount());
-  const localDataIsSmallerThanCloud = () => !!(cloudMeta?.exists && cloudAnsweredCount() > localAnsweredCount());
+  const localDataIsSmallerThanCloud = () => !!(cloudMeta?.exists && !localHasMergedCurrentCloud() && cloudAnsweredCount() > localAnsweredCount());
   const buildCloudOverwriteWarning = () => {
     const cloudCount = cloudAnsweredCount();
     const localCount = localAnsweredCount();
+    const cloudTouched = cloudTouchedQuestionCount();
+    const localTouched = localTouchedQuestionCount();
     const diff = Math.max(0, cloudCount - localCount);
     return [
       "偵測到本機資料量少於雲端備份。",
-      `雲端累計作答：約 ${cloudCount} 題`,
-      `本機累計作答：約 ${localCount} 題`,
-      diff ? `差異：約 ${diff} 題` : "",
+      `雲端累計作答：約 ${cloudCount} 次` + (cloudTouched ? `（已記錄 ${cloudTouched} 題）` : ""),
+      `本機累計作答：約 ${localCount} 次` + (localTouched ? `（已記錄 ${localTouched} 題）` : ""),
+      diff ? `作答次數差異：約 ${diff} 次` : "",
       "",
       "若現在上傳，可能會用較少的本機資料覆蓋雲端，造成部分雲端記憶被刪除。",
       "建議先按『下載雲端記憶到本機』並選擇合併；確認本機資料完整後再上傳。",
@@ -223,8 +254,9 @@ if (btnLogin) {
       return;
     }
     const answered = Number(cloudMeta.answeredCount || 0);
+    const touched = Number(cloudMeta.touchedQuestionCount || 0);
     const when = cloudMeta.updatedAt ? `，更新：${cloudMeta.updatedAt}` : "";
-    cloudMetaEl.textContent = `雲端備份：約 ${answered} 題${when}`;
+    cloudMetaEl.textContent = `雲端備份：約 ${answered} 次作答${touched ? `，已記錄 ${touched} 題` : ""}${when}`;
   }
 
   function updateReminder() {
@@ -312,6 +344,30 @@ if (btnLogin) {
     }, AUTO_UPLOAD_MIN_STABLE_MS);
   }
 
+  function autoOpenSyncPanelAfterLoginOnce() {
+    if (!details || !currentUser || !hasCloudAccess()) return;
+    const key = `${currentUser.uid || currentUser.email || "user"}:${cloudMeta?.checksum || "no-cloud"}`;
+    try {
+      if (sessionStorage.getItem(SYNC_PANEL_AUTO_OPEN_KEY) === key) return;
+      sessionStorage.setItem(SYNC_PANEL_AUTO_OPEN_KEY, key);
+    } catch {}
+    details.open = true;
+    const cloudCount = cloudAnsweredCount();
+    const localCount = localAnsweredCount();
+    const cloudTouched = cloudTouchedQuestionCount();
+    const localTouched = localTouchedQuestionCount();
+    const lines = [
+      "已登入且同步權限已核准。",
+      cloudMeta?.exists
+        ? `雲端目前約 ${cloudCount} 次作答${cloudTouched ? `／${cloudTouched} 題` : ""}；本機約 ${localCount} 次作答${localTouched ? `／${localTouched} 題` : ""}。`
+        : "雲端目前沒有備份，可視需要上傳本機記憶。",
+      localDataIsSmallerThanCloud()
+        ? "偵測到雲端資料較多，建議先按『下載雲端記憶到本機』並選擇合併。"
+        : "需要時可手動上傳或下載雲端記憶；系統不會自動覆蓋本機。"
+    ];
+    setOutput(lines.join("\n"));
+  }
+
   function renderUser() {
     if (details) details.open = false;
 
@@ -383,10 +439,10 @@ if (btnLogin) {
   if (btnLogin) btnLogin.textContent = "載入登入模組...";
   try {
     modules = {
-      auth: await import("./firebase-auth.js?v=20260425med020"),
-      smoke: await import("./firebase-sync-smoke.js?v=20260425med020"),
-      backup: await import("./firebase-backup.js?v=20260425med020"),
-      access: await import("./firebase-access.js?v=20260425med020"),
+      auth: await import("./firebase-auth.js?v=20260505med055"),
+      smoke: await import("./firebase-sync-smoke.js?v=20260505med055"),
+      backup: await import("./firebase-backup.js?v=20260505med055"),
+      access: await import("./firebase-access.js?v=20260505med055"),
     };
   } catch (err) {
     console.error("firebase modules import failed", err);
@@ -561,8 +617,8 @@ ${err?.message || String(err)}`);
         const msg = [
           "是否現在載入雲端備份？",
           cloudMeta.updatedAt ? `雲端更新時間：${cloudMeta.updatedAt}` : "",
-          `雲端累計作答：約 ${Number(cloudMeta.answeredCount || 0)} 題`,
-          `本機累計作答：約 ${localAnsweredCount()} 題`,
+          `雲端累計作答：約 ${Number(cloudMeta.answeredCount || 0)} 次` + (Number(cloudMeta.touchedQuestionCount || 0) ? `（已記錄 ${Number(cloudMeta.touchedQuestionCount || 0)} 題）` : ""),
+          `本機累計作答：約 ${localAnsweredCount()} 次` + (localTouchedQuestionCount() ? `（已記錄 ${localTouchedQuestionCount()} 題）` : ""),
           "",
           "按『確定』後，下一步可選擇覆蓋或合併；按『取消』則不載入。"
         ].filter(Boolean).join("\n");
@@ -574,9 +630,14 @@ ${err?.message || String(err)}`);
         setRestoreEnabled();
         const result = await downloadFullMemoryBackup();
         const replaceAll = window.confirm(`第二步：按『確定』= 覆蓋本機；按『取消』= 與本機合併。
+合併會保留本機與雲端的題目聯集；同一題保留較大的累計作答／對錯次數，並保留較需要複習的錯題狀態。
 覆蓋前已自動保存同步前本機備份。
 `);
-        const applyResult = getMemoryApi().applyPayload(result.payload, replaceAll);
+        const applyResult = getMemoryApi().applyPayload(result.payload, {
+          mode: replaceAll ? "replace" : "conservative",
+          source: "cloud",
+          sourceChecksum: result.checksum || result?.meta?.checksum || cloudMeta?.checksum || "",
+        });
         setOutput(`${result.message || "下載完成"}
 
 ${applyResult?.message || "已套用到本機。"}
@@ -647,6 +708,7 @@ ${err?.message || String(err)}`);
     renderUser();
     setRestoreEnabled();
     updateReminder();
+    if (currentUser && hasCloudAccess()) autoOpenSyncPanelAfterLoginOnce();
     if (currentUser) scheduleAutoUploadCheck("登入後檢查");
   });
 

@@ -2221,11 +2221,15 @@ function renderWrongBook() {
   }
 
   function computeProgressMetaFromByQuestion(byQuestion, fallbackMeta = {}) {
+    const mergedCloudChecksums = Array.isArray(fallbackMeta?.mergedCloudChecksums)
+      ? Array.from(new Set(fallbackMeta.mergedCloudChecksums.map((x) => String(x || "").trim()).filter(Boolean))).slice(-20)
+      : [];
     const meta = {
       totalAnswered: 0,
       totalCorrect: 0,
       bestStreak: Number(fallbackMeta?.bestStreak || 0),
       totalCompletedSessions: Number(fallbackMeta?.totalCompletedSessions || 0),
+      mergedCloudChecksums,
     };
     for (const item of Object.values(byQuestion || {})) {
       meta.totalAnswered += Number(item?.totalSeen || 0);
@@ -2332,10 +2336,38 @@ function renderWrongBook() {
     const local = repairQuestionProgressRecord(localRecord);
     const incoming = repairQuestionProgressRecord(incomingRecord);
     if (JSON.stringify(local) === JSON.stringify(incoming)) return local;
-    if (mode === "coverage") {
-      return compareCoveragePriority(local, incoming) >= 0 ? local : incoming;
-    }
-    return compareConservativePriority(local, incoming) <= 0 ? local : incoming;
+
+    const preferred = mode === "coverage"
+      ? (compareCoveragePriority(local, incoming) >= 0 ? local : incoming)
+      : (compareConservativePriority(local, incoming) <= 0 ? local : incoming);
+
+    const latestSeenFromIncoming = maxIsoString(local.lastSeenAt, incoming.lastSeenAt) === incoming.lastSeenAt;
+    const latestWrongFromIncoming = maxIsoString(local.lastWrongAt, incoming.lastWrongAt) === incoming.lastWrongAt;
+    const totalSeen = Math.max(Number(local.totalSeen || 0), Number(incoming.totalSeen || 0), Number(preferred.totalSeen || 0));
+    const totalCorrect = Math.max(Number(local.totalCorrect || 0), Number(incoming.totalCorrect || 0), Number(preferred.totalCorrect || 0));
+    const totalWrong = Math.max(Number(local.totalWrong || 0), Number(incoming.totalWrong || 0), Number(preferred.totalWrong || 0));
+    const conservativeScore = Math.min(Number(local.score || 0), Number(incoming.score || 0), Number(preferred.score || 0));
+    const coverageScore = Math.max(Number(local.score || 0), Number(incoming.score || 0), Number(preferred.score || 0));
+    const score = mode === "coverage" ? coverageScore : conservativeScore;
+
+    return repairQuestionProgressRecord({
+      ...preferred,
+      totalSeen,
+      totalCorrect,
+      totalWrong,
+      score,
+      inWrongBook: !!local.inWrongBook || !!incoming.inWrongBook || score < 0 || totalWrong > totalCorrect,
+      masteryStreak: mode === "coverage"
+        ? Math.max(Number(local.masteryStreak || 0), Number(incoming.masteryStreak || 0), Number(preferred.masteryStreak || 0))
+        : Math.min(Number(local.masteryStreak || 0), Number(incoming.masteryStreak || 0), Number(preferred.masteryStreak || 0)),
+      lastSeenAt: maxIsoString(local.lastSeenAt, incoming.lastSeenAt),
+      lastWrongAt: maxIsoString(local.lastWrongAt, incoming.lastWrongAt),
+      lastResult: latestSeenFromIncoming ? incoming.lastResult : local.lastResult,
+      lastSelectedValue: latestSeenFromIncoming ? incoming.lastSelectedValue : local.lastSelectedValue,
+      lastSelectedLabel: latestSeenFromIncoming ? incoming.lastSelectedLabel : local.lastSelectedLabel,
+      lastWrongSelectedValue: latestWrongFromIncoming ? incoming.lastWrongSelectedValue : local.lastWrongSelectedValue,
+      lastWrongSelectedLabel: latestWrongFromIncoming ? incoming.lastWrongSelectedLabel : local.lastWrongSelectedLabel,
+    });
   }
 
   function flattenScoreDistribution() {
@@ -2409,6 +2441,11 @@ function renderWrongBook() {
     const importedImageIssues = sanitizeImportedImageIssues(envelope.imageIssues || {});
 
     let importMode = importModeOrReplaceAll;
+    let sourceChecksum = "";
+    if (importModeOrReplaceAll && typeof importModeOrReplaceAll === "object") {
+      importMode = importModeOrReplaceAll.mode || (importModeOrReplaceAll.replaceAll ? "replace" : "conservative");
+      sourceChecksum = String(importModeOrReplaceAll.sourceChecksum || importModeOrReplaceAll.checksum || "").trim();
+    }
     if (typeof importModeOrReplaceAll === "boolean") importMode = importModeOrReplaceAll ? "replace" : "conservative";
     if (!["replace", "coverage", "conservative"].includes(String(importMode || ""))) importMode = "replace";
 
@@ -2423,6 +2460,10 @@ function renderWrongBook() {
     }
 
     progress = repairProgressSnapshot(progress);
+    if (sourceChecksum) {
+      const prev = Array.isArray(progress.meta?.mergedCloudChecksums) ? progress.meta.mergedCloudChecksums : [];
+      progress.meta.mergedCloudChecksums = Array.from(new Set([...prev, sourceChecksum].map((x) => String(x || "").trim()).filter(Boolean))).slice(-20);
+    }
     session = null;
     importedWrongs = [];
     applyUiTheme(settings.uiTheme);
@@ -2454,7 +2495,7 @@ function renderWrongBook() {
       warning: renderWarning,
       message: `${modeLabel} 已完成。
 
-說明：本次匯入不再直接相加統計，已改用較安全的整筆挑選方式，避免同源資料互相合併後數值異常膨脹。若是舊 JSON 檔，系統也已自動重算總統計。` + renderWarning,
+說明：合併時同一題會保留較大的累計作答／對錯次數，並保留較需要複習的一側狀態，避免雲端與本機合併後題目統計倒退。若是舊 JSON 檔，系統也已自動重算總統計。` + renderWarning,
     };
   }
 

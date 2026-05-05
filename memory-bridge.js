@@ -121,11 +121,15 @@
   }
 
   function computeProgressMeta(byQuestion, fallbackMeta) {
+    const mergedCloudChecksums = Array.isArray(fallbackMeta?.mergedCloudChecksums)
+      ? Array.from(new Set(fallbackMeta.mergedCloudChecksums.map((x) => String(x || "").trim()).filter(Boolean))).slice(-20)
+      : [];
     const meta = {
       totalAnswered: 0,
       totalCorrect: 0,
       bestStreak: Math.max(0, Math.round(Number(fallbackMeta?.bestStreak || 0))),
       totalCompletedSessions: Math.max(0, Math.round(Number(fallbackMeta?.totalCompletedSessions || 0))),
+      mergedCloudChecksums,
     };
     for (const item of Object.values(byQuestion || {})) {
       meta.totalAnswered += Math.max(0, Number(item?.totalSeen || 0));
@@ -162,17 +166,42 @@
     };
   }
 
+  function maxIsoString(a, b) {
+    const aa = typeof a === "string" ? a : "";
+    const bb = typeof b === "string" ? b : "";
+    if (!aa) return bb;
+    if (!bb) return aa;
+    return aa >= bb ? aa : bb;
+  }
+
   function chooseConservativeRecord(localRecord, incomingRecord) {
     const a = repairQuestionProgressRecord(localRecord);
     const b = repairQuestionProgressRecord(incomingRecord);
-    if (b.inWrongBook && !a.inWrongBook) return b;
-    if (a.inWrongBook && !b.inWrongBook) return a;
-    if (Number(b.score || 0) < Number(a.score || 0)) return b;
-    if (Number(a.score || 0) < Number(b.score || 0)) return a;
-    if (Number(b.totalWrong || 0) > Number(a.totalWrong || 0)) return b;
-    if (Number(a.totalWrong || 0) > Number(b.totalWrong || 0)) return a;
-    if (Number(b.totalSeen || 0) > Number(a.totalSeen || 0)) return b;
-    return a;
+    const preferred = (() => {
+      if (b.inWrongBook && !a.inWrongBook) return b;
+      if (a.inWrongBook && !b.inWrongBook) return a;
+      if (Number(b.score || 0) < Number(a.score || 0)) return b;
+      if (Number(a.score || 0) < Number(b.score || 0)) return a;
+      if (Number(b.totalWrong || 0) > Number(a.totalWrong || 0)) return b;
+      if (Number(a.totalWrong || 0) > Number(b.totalWrong || 0)) return a;
+      if (Number(b.totalSeen || 0) > Number(a.totalSeen || 0)) return b;
+      return a;
+    })();
+    const totalSeen = Math.max(Number(a.totalSeen || 0), Number(b.totalSeen || 0), Number(preferred.totalSeen || 0));
+    const totalCorrect = Math.max(Number(a.totalCorrect || 0), Number(b.totalCorrect || 0), Number(preferred.totalCorrect || 0));
+    const totalWrong = Math.max(Number(a.totalWrong || 0), Number(b.totalWrong || 0), Number(preferred.totalWrong || 0));
+    const score = Math.min(Number(a.score || 0), Number(b.score || 0), Number(preferred.score || 0));
+    return repairQuestionProgressRecord({
+      ...preferred,
+      totalSeen,
+      totalCorrect,
+      totalWrong,
+      score,
+      inWrongBook: !!a.inWrongBook || !!b.inWrongBook || score < 0 || totalWrong > totalCorrect,
+      masteryStreak: Math.min(Number(a.masteryStreak || 0), Number(b.masteryStreak || 0), Number(preferred.masteryStreak || 0)),
+      lastSeenAt: maxIsoString(a.lastSeenAt, b.lastSeenAt),
+      lastWrongAt: maxIsoString(a.lastWrongAt, b.lastWrongAt),
+    });
   }
 
   function mergeProgressConservative(localProgress, incomingProgress) {
@@ -186,6 +215,10 @@
     merged.meta = computeProgressMeta(merged.byQuestion, {
       bestStreak: Math.max(Number(localNorm.meta?.bestStreak || 0), Number(incomingNorm.meta?.bestStreak || 0)),
       totalCompletedSessions: Math.max(Number(localNorm.meta?.totalCompletedSessions || 0), Number(incomingNorm.meta?.totalCompletedSessions || 0)),
+      mergedCloudChecksums: [
+        ...(Array.isArray(localNorm.meta?.mergedCloudChecksums) ? localNorm.meta.mergedCloudChecksums : []),
+        ...(Array.isArray(incomingNorm.meta?.mergedCloudChecksums) ? incomingNorm.meta.mergedCloudChecksums : []),
+      ],
     });
     return merged;
   }
@@ -208,6 +241,11 @@
   function applyPayload(rawPayload, importModeOrReplaceAll = true) {
     const envelope = extractEnvelope(rawPayload || {});
     let mode = importModeOrReplaceAll;
+    let sourceChecksum = "";
+    if (importModeOrReplaceAll && typeof importModeOrReplaceAll === "object") {
+      mode = importModeOrReplaceAll.mode || (importModeOrReplaceAll.replaceAll ? "replace" : "conservative");
+      sourceChecksum = String(importModeOrReplaceAll.sourceChecksum || importModeOrReplaceAll.checksum || "").trim();
+    }
     if (typeof mode === "boolean") mode = mode ? "replace" : "conservative";
     if (!["replace", "coverage", "conservative"].includes(String(mode || ""))) mode = "replace";
 
@@ -218,6 +256,10 @@
     const finalProgress = String(mode) === "replace"
       ? envelope.progress
       : mergeProgressConservative(localProgress, envelope.progress);
+    if (sourceChecksum) {
+      const prev = Array.isArray(finalProgress.meta?.mergedCloudChecksums) ? finalProgress.meta.mergedCloudChecksums : [];
+      finalProgress.meta.mergedCloudChecksums = Array.from(new Set([...prev, sourceChecksum].map((x) => String(x || "").trim()).filter(Boolean))).slice(-20);
+    }
     const finalSettings = String(mode) === "replace"
       ? envelope.settings
       : { ...envelope.settings, ...localSettings };

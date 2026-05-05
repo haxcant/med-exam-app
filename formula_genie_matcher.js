@@ -610,7 +610,7 @@
       : `來源題摘要：${escapeHtml(String(top.row?.prompt || '').slice(0, 120))}`;
     const followUps = buildFollowUpQuestions(payload).map(q => `<li>${escapeHtml(q)}</li>`).join('');
     const gap = second ? Math.max(0, top.score - second.score) : top.score;
-    const gapText = second ? `第一名與第二名差距 ${gap.toFixed(2)}；若差距小，展示時系統可能會提出補問而非硬猜。` : '目前只有單一主要候選。';
+    const gapText = second ? `第一名與第二名差距 ${gap.toFixed(2)}；若差距小，展示時系統會提出補問資訊而非建議硬猜。` : '目前只有單一主要候選。';
     const modeBits = [];
     if (intent.selfStemExact) modeBits.push('自身題幹 exact 命中');
     if (intent.selfStemAmbiguous) modeBits.push('自身題幹多答案歧義');

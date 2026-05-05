@@ -139,6 +139,9 @@ function optimizePayloadForCloud(payload) {
       meta: {
         bestStreak: Math.max(0, Number(progressMeta.bestStreak || 0)),
         totalCompletedSessions: Math.max(0, Number(progressMeta.totalCompletedSessions || 0)),
+        mergedCloudChecksums: Array.isArray(progressMeta.mergedCloudChecksums)
+          ? Array.from(new Set(progressMeta.mergedCloudChecksums.map((x) => String(x || "").trim()).filter(Boolean))).slice(-20)
+          : [],
       },
     },
     settings: sanitizeSettingsForCloud(src.settings),
@@ -160,6 +163,20 @@ export function getAnsweredCountFromPayload(payload) {
   return 0;
 }
 
+export function getTouchedQuestionCountFromPayload(payload) {
+  const byQuestion = payload?.progress?.byQuestion;
+  if (!byQuestion || typeof byQuestion !== "object") return 0;
+  let total = 0;
+  for (const item of Object.values(byQuestion)) {
+    const totalSeen = Number(item?.totalSeen || 0);
+    const totalCorrect = Number(item?.totalCorrect || 0);
+    const totalWrong = Number(item?.totalWrong || 0);
+    const score = Number(item?.score || 0);
+    if (totalSeen > 0 || totalCorrect > 0 || totalWrong > 0 || score !== 0 || item?.inWrongBook) total += 1;
+  }
+  return total;
+}
+
 export function readLocalUploadMeta() {
   try {
     return JSON.parse(localStorage.getItem(UPLOAD_META_KEY) || "{}");
@@ -173,6 +190,7 @@ export function writeLocalUploadMeta(meta) {
     localStorage.setItem(UPLOAD_META_KEY, JSON.stringify({
       checksum: String(meta?.checksum || ""),
       answeredCount: Number(meta?.answeredCount || 0),
+      touchedQuestionCount: Number(meta?.touchedQuestionCount || 0),
       uploadedAt: String(meta?.uploadedAt || nowIso()),
     }));
   } catch {}
@@ -196,6 +214,7 @@ export function getPreSyncSnapshotInfo() {
     return {
       savedAt: String(parsed.savedAt || ""),
       answeredCount: getAnsweredCountFromPayload(parsed.payload),
+      touchedQuestionCount: getTouchedQuestionCountFromPayload(parsed.payload),
     };
   } catch {
     return null;
@@ -228,6 +247,7 @@ export async function getCloudBackupMetaSummary() {
       updatedAt: meta.updatedAt?.toDate ? meta.updatedAt.toDate().toISOString() : String(meta.updatedAt || ""),
       version: Number(meta.version || 1),
       answeredCount: Number(meta.answeredCount || 0),
+      touchedQuestionCount: Number(meta.touchedQuestionCount || 0),
     };
   } catch (error) {
     throw new Error(explainError(error));
@@ -255,12 +275,13 @@ export async function uploadFullMemoryBackup(buildPayloadFn) {
       throw new Error(`完整資料備份偏大，為保守控制雲端用量，目前限制最多 ${MAX_CHUNKS} 塊、總量約 ${(MAX_TOTAL_BYTES / (1024 * 1024)).toFixed(2)} MiB。系統已先自動移除未作答題與可重算總表；若仍超限，請改用本機 JSON 匯出。`);
     }
     const answeredCount = getAnsweredCountFromPayload(payload);
+    const touchedQuestionCount = getTouchedQuestionCountFromPayload(payload);
     const metaRef = syncMetaRef(user);
 
     const metaSnap = await getDoc(metaRef);
     const previousMeta = metaSnap.exists() ? (metaSnap.data() || {}) : {};
     if (previousMeta.checksum === checksum) {
-      writeLocalUploadMeta({ checksum, answeredCount, uploadedAt: nowIso() });
+      writeLocalUploadMeta({ checksum, answeredCount, touchedQuestionCount, uploadedAt: nowIso() });
       return {
         ok: true,
         skipped: true,
@@ -293,9 +314,10 @@ export async function uploadFullMemoryBackup(buildPayloadFn) {
       updatedBy: user.email || "",
       updatedUid: user.uid,
       answeredCount,
+      touchedQuestionCount,
     }, { merge: false });
 
-    writeLocalUploadMeta({ checksum, answeredCount, uploadedAt: nowIso() });
+    writeLocalUploadMeta({ checksum, answeredCount, touchedQuestionCount, uploadedAt: nowIso() });
 
     return {
       ok: true,
@@ -351,6 +373,7 @@ export async function downloadFullMemoryBackup() {
         updatedUid: String(meta.updatedUid || ""),
         updatedAt: meta.updatedAt?.toDate ? meta.updatedAt.toDate().toISOString() : String(meta.updatedAt || ""),
         answeredCount: Number(meta.answeredCount || 0),
+        touchedQuestionCount: Number(meta.touchedQuestionCount || 0),
       },
       message: `雲端備份已下載。\nchunks=${chunkCount} | checksum=${String(meta.checksum || checksum).slice(0, 12)}…`,
     };
