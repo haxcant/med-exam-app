@@ -23,7 +23,7 @@
     <header class="admin-title">
       <div>
         <h1>醫學題庫同步權限審核</h1>
-        <p class="scope-summary subtle">用途：查看使用者送出的同步申請，核准後自動建立 allowlist 文件。此頁面權限由 Firestore Rules 控制。請在 Firestore 建立 admins/你的UID 文件並設 enabled=true。</p>
+        <p class="scope-summary subtle">用途：查看使用者送出的同步申請，核准後自動建立 allowlist 文件。此頁面只提供介面；真正權限由 Firestore Rules 控制。管理者身分請從 Firebase Console 或可信任後端建立 admins/你的UID，前端不能自行建立。</p>
       </div>
       <div class="actions compact">
         <a class="ghost-btn" href="./index.html">回主程式</a>
@@ -54,6 +54,6 @@
       <pre id="adminOutput" class="admin-output">請使用管理者 Google 帳號登入。</pre>
     </section>
   </div>
-  <script type="module" src="admin.js?v=20260425med020"></script>
+  <script type="module" src="admin.js?v=20260504med052"></script>
 </body>
 </html>

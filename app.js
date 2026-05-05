@@ -830,7 +830,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.51 啟動防卡＋題池防呆｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看主要題庫表現。`;
+      els.versionSummary.textContent = `v0.1.53 中斷續答防卡修復｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看主要題庫表現。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -969,6 +969,44 @@ const HANDBOOK_RULES = [
     renderSessionOrEmpty();
   }
 
+  function isQuestionAlreadyAnsweredInSession(questionId) {
+    return !!(session && questionId && session.answeredMap && Object.prototype.hasOwnProperty.call(session.answeredMap, questionId));
+  }
+
+  function repairAnsweredCursorIfNeeded(reason = "") {
+    if (!session || !Array.isArray(session.queue)) return false;
+    if (!session.answeredMap || typeof session.answeredMap !== "object") session.answeredMap = {};
+
+    let moved = 0;
+    while (session.index < session.queue.length && isQuestionAlreadyAnsweredInSession(session.queue[session.index])) {
+      session.index += 1;
+      moved += 1;
+    }
+
+    if (!moved) return false;
+    session.flashRevealed = false;
+    session.resumeRepairNotice = moved === 1
+      ? "偵測到上次已作答但尚未切到下一題，已自動接續到下一題。"
+      : `偵測到上次已有 ${moved} 題完成但尚未切題，已自動接續。`;
+    console.warn("[session-repair] advanced answered cursor", { moved, reason, index: session.index, queueLength: session.queue.length });
+    try { saveSession(); } catch (error) { console.warn("[session-repair] save failed after answered cursor repair", error); }
+    return true;
+  }
+
+  function buildAndConsumeSessionNoticeHtml() {
+    if (!session) return "";
+    const notices = [];
+    if (session.fallbackNotice) notices.push(session.fallbackNotice);
+    if (session.resumeRepairNotice) notices.push(session.resumeRepairNotice);
+    if (session.resumeRepairNotice) {
+      session.resumeRepairNotice = "";
+      try { saveSession(); } catch (error) { console.warn("clear resume notice failed", error); }
+    }
+    return notices.length
+      ? `<div class="session-fallback-notice">${notices.map((text) => escapeHtml(text)).join("<br>")}</div>`
+      : "";
+  }
+
   function validateAndNormalizeSession() {
     if (!session || !Array.isArray(session.queue)) return { ok: false, reason: "no-session" };
 
@@ -990,7 +1028,9 @@ const HANDBOOK_RULES = [
     session.index = Math.floor(idx);
     if (session.index > session.queue.length) session.index = session.queue.length;
 
-    if (normalizedQueue.length !== originalLen) {
+    const advancedAnsweredCursor = repairAnsweredCursorIfNeeded("validate");
+
+    if (normalizedQueue.length !== originalLen || advancedAnsweredCursor) {
       try { saveSession(); } catch (error) { console.warn("[session-repair] save failed", error); }
     }
 
@@ -1065,9 +1105,7 @@ function renderQuestion() {
   const questionMode = currentQuestionMode(question.id);
   const optionPayload = questionMode === "textToImage" ? buildImageOptions(question) : buildTextOptions(question);
   const questionScore = questionProgress(question.id).score;
-  const fallbackNoticeHtml = session.fallbackNotice
-    ? `<div class="session-fallback-notice">${escapeHtml(session.fallbackNotice)}</div>`
-    : "";
+  const fallbackNoticeHtml = buildAndConsumeSessionNoticeHtml();
 
   const optionHtml = questionMode === "textToImage"
     ? optionPayload.options.map((opt, idx) => `
@@ -1184,6 +1222,7 @@ function renderFlashcard() {
   const qp = questionProgress(question.id);
   const revealed = !!session.flashRevealed;
   const promptText = question.prompt || question.answer;
+  const sessionNoticeHtml = buildAndConsumeSessionNoticeHtml();
 
   const frontContent = question.image
     ? `
@@ -1221,6 +1260,7 @@ function renderFlashcard() {
     </div>
     <div class="progress-wrap"><div class="progress-bar" style="width:${progressPct}%"></div></div>
     ${buildExamDrawerHtml(question)}
+    ${sessionNoticeHtml}
     <div class="flashcard-wrap">
       <div class="flashcard ${revealed ? "back" : "front"}">
         <div class="question-source">出處：${escapeHtml(buildQuestionOriginLabel(question))}</div>
@@ -1552,8 +1592,12 @@ function goToNextFlashcardWithoutGrading() {
       .map((id) => ({ question: getQuestion(id), record: session.answeredMap[id] }))
       .filter((x) => x.question && x.record);
     const wrongRecords = answeredRecords.filter((x) => !x.record.isCorrect);
-    progress.meta.totalCompletedSessions += 1;
-    saveProgress();
+    if (!session.summaryRecorded) {
+      progress.meta.totalCompletedSessions += 1;
+      session.summaryRecorded = true;
+      try { saveSession(); } catch (error) { console.warn("save summary marker failed", error); }
+      saveProgress();
+    }
     refreshRewards();
 
     els.mainContent.className = "panel quiz-panel";
@@ -2758,6 +2802,11 @@ function renderWrongBook() {
       bestStreak: Number(data.bestStreak || 0),
       flashRevealed: !!data.flashRevealed,
       pointsDelta: Number(data.pointsDelta || 0),
+      answered: Number(data.answered || 0),
+      correct: Number(data.correct || 0),
+      index: Number(data.index || 0),
+      summaryRecorded: !!data.summaryRecorded,
+      resumeRepairNotice: typeof data.resumeRepairNotice === "string" ? data.resumeRepairNotice : "",
     };
   }
 
@@ -2995,6 +3044,11 @@ function renderWrongBook() {
       bestStreak: Number(data.bestStreak || 0),
       flashRevealed: !!data.flashRevealed,
       pointsDelta: Number(data.pointsDelta || 0),
+      answered: Number(data.answered || 0),
+      correct: Number(data.correct || 0),
+      index: Number(data.index || 0),
+      summaryRecorded: !!data.summaryRecorded,
+      resumeRepairNotice: typeof data.resumeRepairNotice === "string" ? data.resumeRepairNotice : "",
     };
   }
 

@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260504fgv4">
+  <link rel="stylesheet" href="styles.css?v=20260505v053">
 
   <style>
     .fold-panel [style*="background:#1e293b"] strong { color:#ffffff; }
@@ -47,7 +47,7 @@
         <div class="info-grid">
           <div>
             <strong>目前版本</strong>
-            <p id="versionSummary">v0.1.51：修復內建瀏覽器／舊設定造成的啟動與出題卡住；保留方劑精靈泛化辨證與特徵權重顯示。</p>
+            <p id="versionSummary">v0.1.53：修復中斷作答後重開卡住；保留方劑精靈泛化辨證與特徵權重顯示。</p>
           </div>
           <div>
             <strong>建議使用方式</strong>
@@ -560,11 +560,11 @@
       });
     })();
   </script>
-  <script src="med_questions.js?v=20260504fgv4" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
-  <script src="memory-bridge.js?v=20260504fgv4" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
-  <script src="app.js?v=20260504fgv4" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
-  <script src="formula_genie_matcher.js?v=20260504fgv4" onload="window.__medExamBootLog?.('asset-load','formula_genie_matcher.js loaded')" onerror="window.__medExamBootLog?.('asset-error','formula_genie_matcher.js failed',{src:this.src})"></script>
-  <script type="module" src="firebase-ui.js?v=20260504fgv4" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
+  <script src="med_questions.js?v=20260505v053" onload="window.__medExamBootLog?.('asset-load','med_questions.js loaded')" onerror="window.__medExamBootLog?.('asset-error','med_questions.js failed',{src:this.src})"></script>
+  <script src="memory-bridge.js?v=20260505v053" onload="window.__medExamBootLog?.('asset-load','memory-bridge.js loaded')" onerror="window.__medExamBootLog?.('asset-error','memory-bridge.js failed',{src:this.src})"></script>
+  <script src="app.js?v=20260505v053" onload="window.__medExamBootLog?.('asset-load','app.js loaded')" onerror="window.__medExamBootLog?.('asset-error','app.js failed',{src:this.src})"></script>
+  <script src="formula_genie_matcher.js?v=20260505v053" onload="window.__medExamBootLog?.('asset-load','formula_genie_matcher.js loaded')" onerror="window.__medExamBootLog?.('asset-error','formula_genie_matcher.js failed',{src:this.src})"></script>
+  <script type="module" src="firebase-ui.js?v=20260505v053" onload="window.__medExamBootLog?.('asset-load','firebase-ui.js loaded')" onerror="window.__medExamBootLog?.('asset-error','firebase-ui.js failed',{src:this.src})"></script>
   <script>
     // v0.1.43 staged boot guard:
     // Slow mobile browsers can exceed the old 1.8s guard, so this first shows
@@ -572,7 +572,7 @@
     (function () {
       var LOADING_NOTICE_MS = 3500;
       var FAILURE_NOTICE_MS = 12000;
-      var VERSION_TAG = "20260504fgv4";
+      var VERSION_TAG = "20260505v053";
       var STORAGE_KEYS = {
         progress: "med-exam-progress-v1",
         session: "med-exam-session-v1",
@@ -628,7 +628,7 @@
       function buildDiagnosticPayload() {
         return {
           app: "med-exam-app",
-          version: "v0.1.51-no-question-lock-guard",
+          version: "v0.1.53-resume-lock-guard",
           generatedAt: new Date().toISOString(),
           location: { href: location.href, pathname: location.pathname, search: location.search, hash: location.hash },
           navigator: { userAgent: navigator.userAgent, language: navigator.language, onLine: navigator.onLine, cookieEnabled: navigator.cookieEnabled },

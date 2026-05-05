@@ -3,6 +3,7 @@ import { loginWithGoogle, logoutFirebase, watchAuthState, finishRedirectLogin } 
 import {
   collection,
   doc,
+  getDoc,
   getDocs,
   writeBatch,
   serverTimestamp,
@@ -18,6 +19,24 @@ const btnLogout = $("btnAdminLogout");
 const btnRefresh = $("btnRefreshRequests");
 
 let currentUser = null;
+let currentAdmin = null;
+
+function hasAdminAccess() {
+  return !!(currentUser && currentAdmin && currentAdmin.enabled === true);
+}
+
+async function readCurrentAdmin(user) {
+  if (!user?.uid) return null;
+  try {
+    const snap = await getDoc(doc(db, "admins", user.uid));
+    if (!snap.exists()) return null;
+    const data = snap.data() || {};
+    return data.enabled === true ? data : null;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
 
 function setOutput(message) {
   if (adminOutput) adminOutput.textContent = message || "";
@@ -85,6 +104,12 @@ function renderAllowCard(item) {
 async function loadRequests() {
   if (!currentUser) {
     setOutput("請先登入管理者帳號。");
+    return;
+  }
+  if (!hasAdminAccess()) {
+    pendingList.innerHTML = `<div class="empty">此帳號不是管理者，無法讀取審核列表。</div>`;
+    approvedList.innerHTML = `<div class="empty">請改用已建立 admins/{UID}.enabled=true 的管理者帳號。</div>`;
+    setOutput("沒有管理者權限。前端顯示不能授權；實際寫入權限仍由 Firestore Rules 強制檢查。");
     return;
   }
   setOutput("讀取申請列表中...");
@@ -164,6 +189,10 @@ document.addEventListener("click", async (event) => {
   const email = card.getAttribute("data-email") || "";
   if (!uid) return;
   try {
+    if (!hasAdminAccess()) {
+      setOutput("沒有管理者權限，不能執行審核操作。");
+      return;
+    }
     target.setAttribute("disabled", "disabled");
     if (target.classList.contains("approve-btn")) {
       await approveUser(uid, email);
@@ -213,16 +242,28 @@ try {
 
 watchAuthState(async (user) => {
   currentUser = user || null;
+  currentAdmin = null;
   if (currentUser) {
-    adminUser.textContent = `已登入：${currentUser.email || currentUser.uid}\nUID：${currentUser.uid}`;
+    adminUser.textContent = `已登入：${currentUser.email || currentUser.uid}\nUID：${currentUser.uid}\n管理者狀態：檢查中...`;
     btnLogin.style.display = "none";
     btnLogout.style.display = "";
-    btnRefresh.disabled = false;
-    await loadRequests();
+    btnRefresh.disabled = true;
+    currentAdmin = await readCurrentAdmin(currentUser);
+    if (hasAdminAccess()) {
+      adminUser.textContent = `已登入：${currentUser.email || currentUser.uid}\nUID：${currentUser.uid}\n管理者狀態：已授權`;
+      btnRefresh.disabled = false;
+      await loadRequests();
+    } else {
+      adminUser.textContent = `已登入：${currentUser.email || currentUser.uid}\nUID：${currentUser.uid}\n管理者狀態：未授權`;
+      pendingList.innerHTML = `<div class="empty">此帳號不是管理者。</div>`;
+      approvedList.innerHTML = `<div class="empty">一般使用者即使打開 admin.html，也不能核准白名單。</div>`;
+      setOutput("沒有管理者權限。請確認 Firestore 是否存在 admins/你的UID，且 enabled 為 Boolean true。若尚未發布新版 firestore.rules，請先部署規則。");
+    }
   } else {
     adminUser.textContent = "尚未登入。";
     btnLogin.style.display = "";
     btnLogout.style.display = "none";
+    currentAdmin = null;
     btnRefresh.disabled = true;
     pendingList.innerHTML = `<div class="empty">登入管理者帳號後顯示。</div>`;
     approvedList.innerHTML = `<div class="empty">登入管理者帳號後顯示。</div>`;

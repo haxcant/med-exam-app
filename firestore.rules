@@ -174,10 +174,12 @@ service cloud.firestore {
 
     // Private admin collection. Create admins/{yourUid} from Firebase Console once:
     // { enabled: true, email: "...", role: "owner" }
+    // Intentionally no client-side writes: admin membership must be changed from Firebase Console
+    // or a trusted server/Admin SDK, not from admin.html.
     match /admins/{userId} {
       allow get: if isOwner(userId) || isAdmin();
       allow list: if isAdmin();
-      allow create, update, delete: if isAdmin() && validAdminDoc(userId);
+      allow create, update, delete: if false;
     }
 
     // Users can create/read their own access request. Admin can list/update/delete all requests.
