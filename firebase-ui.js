@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const AUTO_UPLOAD_THRESHOLD = 150;
   const AUTO_UPLOAD_COOLDOWN_MS = 10 * 60 * 1000;
   const AUTO_UPLOAD_MIN_STABLE_MS = 4000;
-  const SYNC_PANEL_AUTO_OPEN_KEY = "med_exam_sync_panel_auto_opened_v055";
+  const SYNC_PANEL_AUTO_OPEN_KEY = "med_exam_sync_panel_auto_opened_v056";
 
   let modules = null;
   let currentUser = null;
@@ -439,10 +439,10 @@ if (btnLogin) {
   if (btnLogin) btnLogin.textContent = "載入登入模組...";
   try {
     modules = {
-      auth: await import("./firebase-auth.js?v=20260505med055"),
-      smoke: await import("./firebase-sync-smoke.js?v=20260505med055"),
-      backup: await import("./firebase-backup.js?v=20260505med055"),
-      access: await import("./firebase-access.js?v=20260505med055"),
+      auth: await import("./firebase-auth.js?v=20260505med056"),
+      smoke: await import("./firebase-sync-smoke.js?v=20260505med056"),
+      backup: await import("./firebase-backup.js?v=20260505med056"),
+      access: await import("./firebase-access.js?v=20260505med056"),
     };
   } catch (err) {
     console.error("firebase modules import failed", err);

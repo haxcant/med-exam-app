@@ -314,7 +314,6 @@ export async function uploadFullMemoryBackup(buildPayloadFn) {
       updatedBy: user.email || "",
       updatedUid: user.uid,
       answeredCount,
-      touchedQuestionCount,
     }, { merge: false });
 
     writeLocalUploadMeta({ checksum, answeredCount, touchedQuestionCount, uploadedAt: nowIso() });
