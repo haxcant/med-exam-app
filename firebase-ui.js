@@ -92,6 +92,23 @@ window.addEventListener("DOMContentLoaded", async () => {
   };
   const cloudAnsweredCount = () => Math.max(0, Number(cloudMeta?.answeredCount || 0));
   const unansweredDeltaFromCloud = () => Math.max(0, localAnsweredCount() - cloudAnsweredCount());
+  const localDataIsSmallerThanCloud = () => !!(cloudMeta?.exists && cloudAnsweredCount() > localAnsweredCount());
+  const buildCloudOverwriteWarning = () => {
+    const cloudCount = cloudAnsweredCount();
+    const localCount = localAnsweredCount();
+    const diff = Math.max(0, cloudCount - localCount);
+    return [
+      "偵測到本機資料量少於雲端備份。",
+      `雲端累計作答：約 ${cloudCount} 題`,
+      `本機累計作答：約 ${localCount} 題`,
+      diff ? `差異：約 ${diff} 題` : "",
+      "",
+      "若現在上傳，可能會用較少的本機資料覆蓋雲端，造成部分雲端記憶被刪除。",
+      "建議先按『下載雲端記憶到本機』並選擇合併；確認本機資料完整後再上傳。",
+      "",
+      "確定仍要上傳並覆蓋雲端嗎？"
+    ].filter(Boolean).join("\n");
+  };
   const updateAutoUploadStatus = (extraText = "") => {
     if (!autoCloudUploadStatus) return;
     if (!currentUser) {
@@ -255,6 +272,10 @@ if (btnLogin) {
     if (now - lastAutoUploadAttemptAt < AUTO_UPLOAD_COOLDOWN_MS) return;
 
     const delta = unansweredDeltaFromCloud();
+    if (localDataIsSmallerThanCloud()) {
+      updateAutoUploadStatus(" 偵測到本機資料少於雲端，已暫停自動上傳，避免覆蓋雲端記憶。請先手動下載合併或確認後再手動上傳。");
+      return;
+    }
     if (delta < AUTO_UPLOAD_THRESHOLD) {
       updateAutoUploadStatus();
       return;
@@ -503,6 +524,15 @@ ${err?.message || String(err)}`);
         if (!hasCloudAccess()) throw new Error("雲端同步權限尚未核准，請先送出申請並等待管理者核准。");
         const memoryApi = getMemoryApi();
         if (!memoryApi?.buildPayload) throw new Error("找不到完整資料匯出函式（DriverQuizMemory.buildPayload）。");
+        setButtonBusy(btnCloudUpload, "上傳中...", true);
+        setOutput("正在檢查雲端與本機資料量...");
+        await refreshCloudMeta();
+        if (localDataIsSmallerThanCloud()) {
+          if (!window.confirm(buildCloudOverwriteWarning())) {
+            setOutput("已取消上傳。偵測到本機資料少於雲端，為避免誤刪雲端記憶，建議先下載雲端並選擇合併。");
+            return;
+          }
+        }
         setOutput("上傳完整資料中...");
         const result = await uploadFullMemoryBackup(() => getMemoryApi().buildPayload());
         await refreshCloudMeta();

@@ -2,6 +2,7 @@
   const APP_ID = "med-exam-pwa";
   const STORAGE_KEY = "med-exam-progress-v1";
   const SESSION_KEY = "med-exam-session-v1";
+  const SESSION_DISCARD_NOTICE_KEY = "med-exam-session-discard-notice-v1";
   const SETTINGS_KEY = "med-exam-settings-v1";
   const IMAGE_ISSUES_KEY = "med-exam-image-issues-v1";
   const IMPORTED_WRONGS_KEY = "med-exam-imported-wrongs-v1";
@@ -830,7 +831,7 @@ const HANDBOOK_RULES = [
     const scopedCount = getScopedQuestions(scope).length;
     const totalCount = ALL_QUESTIONS.length;
     if (els.versionSummary) {
-      els.versionSummary.textContent = `v0.1.53 中斷續答防卡修復｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看主要題庫表現。`;
+      els.versionSummary.textContent = `v0.1.54 未完成題組自動退出＋雲端覆蓋確認｜${EXAM_SCOPE_LABELS[scope] || scope}：目前可用 ${scopedCount} 題；全部題庫共 ${totalCount} 題。上方儀表板可即時查看主要題庫表現。`;
     }
     if (els.scopeSummary) {
       els.scopeSummary.textContent = EXAM_SCOPE_DESCRIPTIONS[scope] || "";
@@ -1045,10 +1046,15 @@ const HANDBOOK_RULES = [
     const reasonNote = reason && reason !== "no-session"
       ? `<p class="secondary-meta">已自動解除舊題組或快取造成的卡住狀態（${escapeHtml(reason)}）。</p>`
       : "";
+    const discardedSessionNotice = takeStoredSessionDiscardNotice();
+    const discardedSessionNoticeHtml = discardedSessionNotice
+      ? `<div class="session-fallback-notice">${escapeHtml(discardedSessionNotice)}</div>`
+      : "";
     els.mainContent.innerHTML = `
       <div class="empty-start-card compact-empty-start">
         <p>第一次使用者只須點擊「開始練習」即可，題目會顯示在這裡。</p>
         ${reasonNote}
+        ${discardedSessionNoticeHtml}
         <div class="actions compact empty-start-actions">
           <button id="emptyStartBtn" class="primary-btn" type="button">開始練習</button>
           <button id="emptyResetUiBtn" class="ghost-btn subtle-reset-btn" type="button">畫面異常重設</button>
@@ -3031,9 +3037,50 @@ function renderWrongBook() {
     };
   }
 
+  function discardStoredSessionNotice(message) {
+    try {
+      localStorage.setItem(SESSION_DISCARD_NOTICE_KEY, message);
+    } catch {}
+  }
+
+  function takeStoredSessionDiscardNotice() {
+    try {
+      const message = localStorage.getItem(SESSION_DISCARD_NOTICE_KEY) || "";
+      if (message) localStorage.removeItem(SESSION_DISCARD_NOTICE_KEY);
+      return message;
+    } catch {
+      return "";
+    }
+  }
+
+  function removeStoredSession() {
+    try { localStorage.removeItem(SESSION_KEY); } catch {}
+    LEGACY_SESSION_KEYS.forEach((key) => {
+      try { localStorage.removeItem(key); } catch {}
+    });
+  }
+
+  function isStoredSessionIncomplete(data) {
+    if (!data || !Array.isArray(data.queue) || !data.queue.length) return false;
+    const queueLen = data.queue.length;
+    const index = Number(data.index || 0);
+    if (!Number.isFinite(index)) return true;
+    return index < queueLen;
+  }
+
   function loadSession() {
     const data = readStorageObject(SESSION_KEY, LEGACY_SESSION_KEYS);
     if (!data || !Array.isArray(data.queue)) return null;
+
+    // v0.1.54: Do not resume an unfinished practice session after browser/tab close.
+    // This avoids Safari/WebView timer and answeredMap desynchronization. Formal per-question
+    // progress is already persisted separately in progress; only the transient session is discarded.
+    if (isStoredSessionIncomplete(data)) {
+      removeStoredSession();
+      discardStoredSessionNotice("已自動退出上次未完成的題組；完整作答記錄與錯題本已保留。請重新按「開始練習」。");
+      return null;
+    }
+
     return {
       ...data,
       answeredMap: data.answeredMap && typeof data.answeredMap === "object" ? data.answeredMap : {},
@@ -3053,7 +3100,22 @@ function renderWrongBook() {
   }
 
   function saveSession() {
+    if (!session) {
+      removeStoredSession();
+      return;
+    }
     localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+  }
+
+  function discardCurrentIncompleteSession(reason = "") {
+    if (!session || !Array.isArray(session.queue) || !session.queue.length) return false;
+    if (!isStoredSessionIncomplete(session)) return false;
+    clearAllTimers();
+    session = null;
+    removeStoredSession();
+    discardStoredSessionNotice("已自動退出上次未完成的題組；完整作答記錄與錯題本已保留。請重新按「開始練習」。");
+    console.warn("[session-discard] incomplete transient session discarded", { reason });
+    return true;
   }
 
 
@@ -5065,9 +5127,29 @@ function truncateText(text, maxLen = 80) {
     return !!(session && Array.isArray(session.queue) && session.queue.length && Number(session.index || 0) < session.queue.length && document.body.classList.contains("quiz-mode-active") && hasVisibleQuestionUi());
   }
 
-  window.addEventListener("pageshow", () => {
+  window.addEventListener("pagehide", () => {
+    try {
+      discardCurrentIncompleteSession("pagehide");
+    } catch (err) {
+      console.error("pagehide session discard failed", err);
+    }
+  });
+
+  window.addEventListener("beforeunload", () => {
+    try {
+      discardCurrentIncompleteSession("beforeunload");
+    } catch (err) {
+      console.error("beforeunload session discard failed", err);
+    }
+  });
+
+  window.addEventListener("pageshow", (event) => {
     try {
       ensureCriticalBindings();
+      if (event?.persisted && discardCurrentIncompleteSession("pageshow-bfcache")) {
+        renderEmptyStartState("discarded-incomplete-session");
+        return;
+      }
       renderSessionOrEmpty();
     } catch (err) {
       console.error("pageshow rebind failed", err);
